@@ -41,7 +41,7 @@ public class BancoDados extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    //CRUD A BAIXO
+    //CRUD  BDA BAIXO
 
     public void addPessoa(Pessoa pessoa){
         SQLiteDatabase db = this.getWritableDatabase();
