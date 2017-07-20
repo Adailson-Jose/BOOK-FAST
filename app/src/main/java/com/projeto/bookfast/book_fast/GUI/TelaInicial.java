@@ -24,8 +24,10 @@ public class TelaInicial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tala_inicial);
+
     }
 
+    /*Cria uma lista de pessos e mostra na tela principal
     public  void listarPessoas(){
         List<Pessoa> pessoas = db.getListaPessoas();
 
@@ -44,5 +46,6 @@ public class TelaInicial extends AppCompatActivity {
         }
         cont=0;
 
-    }
+    }*/
+
 }

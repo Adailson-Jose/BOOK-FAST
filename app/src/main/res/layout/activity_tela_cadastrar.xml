@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,16 +11,33 @@
         android:layout_height="495dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="0dp"
+        android:weightSum="1">
 
+
+        <EditText
+            android:id="@+id/editNovoNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTNovoEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/editNovoUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cpf"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="Cpf"
+            android:inputType="text|number" />
 
 
         <EditText
@@ -45,4 +63,5 @@
             android:text="CANCELAR" />
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

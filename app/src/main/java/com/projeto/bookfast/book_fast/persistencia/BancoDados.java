@@ -19,7 +19,7 @@ public class BancoDados extends SQLiteOpenHelper{
     private static final int VERSAO_BANCO = 1;
     private static final String NOME_BANCO = "bd_biblioteca";
 
-    private static final String TABELA_PESSOA = "bd_biblioteca";
+    private static final String TABELA_PESSOA = "pessoa";
     private static final String COLUNA_CPF = "cpf";
     private static final String COLUNA_NOME = "nome";
     private static final String COLUNA_EMAIL = "email";
@@ -44,7 +44,7 @@ public class BancoDados extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    //CRUD  BDA BAIXO
+    //CRUD  BAIXO
 
     public void addPessoa(Pessoa pessoa){
         SQLiteDatabase db = this.getWritableDatabase();
