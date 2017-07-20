@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.projeto.bookfast.book_fast.GUI.TelaLogin;
 import com.projeto.bookfast.book_fast.dominio.Pessoa;
 
 import java.util.ArrayList;
@@ -111,4 +112,6 @@ public class BancoDados extends SQLiteOpenHelper{
         return listaPessoa;
 
     }
+
+
 }

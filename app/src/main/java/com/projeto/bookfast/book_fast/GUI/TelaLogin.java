@@ -15,7 +15,8 @@ import com.projeto.bookfast.book_fast.persistencia.BancoDados;
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;
     Button btLogar, btRecuperarSenha, btCadastrarUsuario;
-    BancoDados bd = new BancoDados(this);
+    BancoDados bancoDados = new BancoDados(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class TelaLogin extends AppCompatActivity {
         btLogar = (Button) findViewById(R.id.btLogar);
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
+        // Cria o banco
 
         btLogar.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -41,6 +43,7 @@ public class TelaLogin extends AppCompatActivity {
 
                 }else{
                     alert("Login ou senha incorretos.");
+
                 }
             }
         });
