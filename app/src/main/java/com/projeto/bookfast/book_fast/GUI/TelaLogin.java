@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast;
+package com.projeto.bookfast.book_fast.GUI;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.projeto.bookfast.book_fast.R;
+import com.projeto.bookfast.book_fast.persistencia.BancoDados;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;

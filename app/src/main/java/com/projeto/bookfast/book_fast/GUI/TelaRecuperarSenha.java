@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast;
+package com.projeto.bookfast.book_fast.GUI;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.projeto.bookfast.book_fast.R;
 
 public class TelaRecuperarSenha extends Activity {
     EditText editCPF, editNovaSenha;

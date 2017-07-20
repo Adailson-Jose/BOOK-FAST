@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast;
+package com.projeto.bookfast.book_fast.negocio;
 
 /**
  * Created by oi on 19/07/2017.
