@@ -42,7 +42,7 @@ public class TelaLogin extends AppCompatActivity {
                 String senha = editSenha.getText().toString();
 
                if (login.equals("admin") && senha.equals("admin")){
-                    alert("Login do ADMINISTRADOR realizado com sucesso.");
+                   Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
                     Pessoa administrador = new Pessoa("0123456789","admin","admin@hotmail.com","admin");
                     bd.addPessoa(administrador);
 
