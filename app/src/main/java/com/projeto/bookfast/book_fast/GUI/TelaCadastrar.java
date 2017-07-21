@@ -43,7 +43,7 @@ public class TelaCadastrar extends AppCompatActivity {
                 String email = editNovoEmail.getText().toString();
                 String senha = editNovaSenha.getText().toString();
 
-                Pessoa pessoa = new Pessoa(nome,email,senha);
+                Pessoa pessoa = new Pessoa(cpf,nome,email,senha);
 
                 bd.addPessoa(pessoa);
 

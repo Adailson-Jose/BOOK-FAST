@@ -24,10 +24,12 @@ public class TelaRecuperarSenha extends Activity {
         btAlterarSenha.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ///Falta decidir
+
+
             }
 
         });
+
         btCancelarAlteracao.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 finish();

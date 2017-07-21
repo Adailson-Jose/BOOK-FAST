@@ -16,12 +16,11 @@
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="16dp" />
 
-    <ListView
-        android:layout_width="358dp"
-        android:layout_height="438dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteY="44dp"
-        android:layout_marginStart="16dp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="362dp"
+        android:layout_height="322dp"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="62dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,8 +1,10 @@
 package com.projeto.bookfast.book_fast.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,12 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.book_fast.R;
+import com.projeto.bookfast.book_fast.dominio.Pessoa;
 import com.projeto.bookfast.book_fast.persistencia.BancoDados;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;
     Button btLogar, btRecuperarSenha, btCadastrarUsuario;
-    BancoDados bancoDados = new BancoDados(this);
+    BancoDados bd = new BancoDados(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class TelaLogin extends AppCompatActivity {
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
         // Cria o banco
+        final BancoDados bd = new BancoDados(this);
+
 
         btLogar.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -35,16 +40,34 @@ public class TelaLogin extends AppCompatActivity {
                 TextView editSenha = (TextView) findViewById(R.id.editSenha);
                 String login = editUsuario.getText().toString();
                 String senha = editSenha.getText().toString();
-                if (login.equals("admin")&&senha.equals("admin")){
-                    alert("Login realizado com sucesso.");
-                            Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
-                            startActivity(abreTelaInicail);
+
+               if (login.equals("admin") && senha.equals("admin")){
+                    alert("Login do ADMINISTRADOR realizado com sucesso.");
+                    Pessoa administrador = new Pessoa("0123456789","admin","admin@hotmail.com","admin");
+                    bd.addPessoa(administrador);
+
+                    //Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
+                    //abreTelaInicail.putExtra("0123456789", true);
+                   // startActivity(abreTelaInicail);
 
 
-                }else{
-                    alert("Login ou senha incorretos.");
+                }/*else {
+                    if(senha!=null && bd.selecioanarPessoa(login).getCpf() !=""){
+                        // se entrou aqui é porque existe um usuário baseado na busca
+                        Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
+                        startActivity(abreTelaInicail);
 
-                }
+                    } else {
+                        // se entrou aqui é porque NÃO existe um usuário baseado na busca
+                        Context contexto = getApplicationContext();
+                        String texto = "Senha ou login incorretos.";
+                        int duracao = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(contexto, texto,duracao);
+                        toast.show();
+                    }*/
+
+
+
             }
         });
         btCadastrarUsuario.setOnClickListener(new View.OnClickListener(){

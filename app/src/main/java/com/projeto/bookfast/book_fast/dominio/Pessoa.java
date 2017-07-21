@@ -5,34 +5,47 @@ package com.projeto.bookfast.book_fast.dominio;
  */
 
 public class Pessoa {
-    private int cpf;
+    private int id;
+    private String cpf;
     private String nome;
     private String email;
     private String senha;
+
 
     //Construtor para instanciar
     public Pessoa(){
 
     }
     //Construtor para atualizar
-    public Pessoa(int _cpf, String _nome,String _email, String _senha){
+    public Pessoa(int _id, String _cpf, String _nome,String _email, String _senha){
+        this.id = _id;
         this.cpf = _cpf;
         this.nome = _nome;
         this.email = _email;
         this.senha = _senha;
     }
     //Construtor para inserir
-    public Pessoa(String _nome,String _email, String _senha){
+    public Pessoa(String _cpf,String _nome,String _email, String _senha){
+        this.cpf = _cpf;
         this.nome = _nome;
         this.email = _email;
         this.senha = _senha;
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    public int getCpf() {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

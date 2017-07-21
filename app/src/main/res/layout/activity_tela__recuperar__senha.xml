@@ -10,9 +10,9 @@
         android:layout_width="368dp"
         android:layout_height="495dp"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/editCPF"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textPersonName" />
+            android:inputType="textWebEmailAddress" />
 
         <EditText
             android:id="@+id/editNovaSenha"
