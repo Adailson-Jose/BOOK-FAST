@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast.dominio;
+package com.projeto.bookfast.bookfast.dominio;
 
 
 public class UsuarioComum {

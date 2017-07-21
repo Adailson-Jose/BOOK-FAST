@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast;
+package com.projeto.bookfast.bookfast;
 
 import org.junit.Test;
 

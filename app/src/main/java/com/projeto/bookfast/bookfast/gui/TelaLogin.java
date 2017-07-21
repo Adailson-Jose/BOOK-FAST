@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast.gui;
+package com.projeto.bookfast.bookfast.gui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.projeto.bookfast.book_fast.R;
-import com.projeto.bookfast.book_fast.dominio.Pessoa;
-import com.projeto.bookfast.book_fast.persistencia.BancoDados;
+import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.persistencia.BancoDados;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;

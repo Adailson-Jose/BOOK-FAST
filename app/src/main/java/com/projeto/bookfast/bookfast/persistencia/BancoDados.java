@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast.persistencia;
+package com.projeto.bookfast.bookfast.persistencia;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.projeto.bookfast.book_fast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.Pessoa;
 
 import java.util.ArrayList;
 import java.util.List;

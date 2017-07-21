@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast.gui;
+package com.projeto.bookfast.bookfast.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.projeto.bookfast.book_fast.R;
-import com.projeto.bookfast.book_fast.dominio.Pessoa;
-import com.projeto.bookfast.book_fast.persistencia.BancoDados;
+import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.persistencia.BancoDados;
 
 import java.util.ArrayList;
 

@@ -1,14 +1,14 @@
 
-package com.projeto.bookfast.book_fast.negocio;
+package com.projeto.bookfast.bookfast.negocio;
 
 import android.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.EditText;
 
-import com.projeto.bookfast.book_fast.gui.*;
+import com.projeto.bookfast.bookfast.gui.*;
 //import com.projeto.bookfast.book_fast.persistencia.UsuarioDAO.UsuarioDAO;
-
+// ajustar o dominio e a classe?
 
 public class ValidarLogin {
     private final EditText editNovoUsuario;

@@ -1,8 +1,6 @@
-package com.projeto.bookfast.book_fast.negocio;
+package com.projeto.bookfast.bookfast.negocio;
 
-import com.projeto.bookfast.book_fast.dominio.*;
-
-import com.projeto.bookfast.book_fast.persistencia.BancoDados;
+import com.projeto.bookfast.bookfast.dominio.*;
 
 public class GerenciarPessoa {
     public boolean validarPessoa(Pessoa pessoa){

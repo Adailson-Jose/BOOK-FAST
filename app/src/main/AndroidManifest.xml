@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.projeto.bookfast.book_fast">
+    package="com.projeto.bookfast.bookfast">
 
     <application
         android:allowBackup="true"
@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".gui.TelaLogin">
+        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.TelaInicial" />
-        <activity android:name=".gui.TelaRecuperarSenha" />
-        <activity android:name=".gui.TelaCadastrar"></activity>
+        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaInicial" />
+        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaRecuperarSenha" />
+        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaCadastrar"></activity>
     </application>
 
 </manifest>

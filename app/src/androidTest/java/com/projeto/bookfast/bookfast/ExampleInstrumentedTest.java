@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast;
+package com.projeto.bookfast.bookfast;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
