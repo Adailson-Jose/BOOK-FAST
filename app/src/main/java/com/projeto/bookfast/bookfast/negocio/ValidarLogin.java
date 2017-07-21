@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.projeto.bookfast.bookfast.gui.*;
 //import com.projeto.bookfast.book_fast.persistencia.UsuarioDAO.UsuarioDAO;
-// ajustar o dominio e a classe?
+// ajustar o dominio e a classe ok
 
 public class ValidarLogin {
     private final EditText editNovoUsuario;
