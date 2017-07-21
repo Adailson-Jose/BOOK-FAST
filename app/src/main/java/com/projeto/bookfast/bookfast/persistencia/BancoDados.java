@@ -1,15 +1,8 @@
 package com.projeto.bookfast.bookfast.persistencia;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -43,81 +36,37 @@ public class BancoDados extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
-    //CRUD  ABAIXO
-
-    public void addPessoa(Pessoa pessoa){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues valores = new ContentValues();
-
-        valores.put(COLUNA_CPF, pessoa.getCpf());
-        valores.put(COLUNA_NOME, pessoa.getNome());
-        valores.put(COLUNA_EMAIL, pessoa.getEmail());
-        valores.put(COLUNA_SENHA, pessoa.getSenha());
-
-        db.insert(TABELA_PESSOA, null, valores);
-        db.close();
+        String query = "DROP TABLE IF EXISTS " + TABELA_PESSOA;
+        db.execSQL(query);
+        this.onCreate(db);
     }
 
-    public void deletarPessoa(Pessoa pessoa){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        db.delete(TABELA_PESSOA, COLUNA_ID + " = ?", new String[]{String.valueOf(pessoa.getId())});
-        db.close();
-
-    }
-    public Pessoa selecioanarPessoa(String id){
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABELA_PESSOA, new String[]{COLUNA_ID, COLUNA_CPF, COLUNA_NOME, COLUNA_EMAIL, COLUNA_SENHA}, COLUNA_CPF + " = ?",
-                new String[]{String.valueOf(id)},null, null, null, null);
-
-        if (cursor != null){
-            cursor.moveToFirst();
-
-        }
-
-        Pessoa pessoa = new Pessoa(Integer.parseInt(cursor.getString(0)),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-        return pessoa;
-
-        }
-    public void atualizarPessoa(Pessoa pessoa){
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues valores = new ContentValues();
-        valores.put(COLUNA_ID, pessoa.getId());
-        valores.put(COLUNA_CPF, pessoa.getCpf());
-        valores.put(COLUNA_NOME, pessoa.getNome());
-        valores.put(COLUNA_EMAIL, pessoa.getEmail());
-        valores.put(COLUNA_SENHA, pessoa.getSenha());
-        db.update(TABELA_PESSOA, valores, COLUNA_ID + " = ?",
-                new String[]{String.valueOf(pessoa.getCpf())});
-        db.close();
+    public static String getColunaId() {
+        return COLUNA_ID;
     }
 
-    public List<Pessoa> getListaPessoas(){
-        List<Pessoa> listaPessoa = new ArrayList<Pessoa>();
+    public static String getColunaCpf() {
+        return COLUNA_CPF;
+    }
 
-        String quary = "SELECT * FROM " + TABELA_PESSOA;
+    public static String getColunaNome() {
+        return COLUNA_NOME;
+    }
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(quary,null);
-        if (cursor.moveToFirst()){
-            do {
-                Pessoa pessoa = new Pessoa();
-                pessoa.setId(Integer.parseInt(cursor.getString(0)));
-                pessoa.setCpf(cursor.getString(1));
-                pessoa.setNome(cursor.getString(2));
-                pessoa.setEmail(cursor.getString(3));
-                pessoa.setSenha(cursor.getString(4));
+    public static String getColunaEmail() {
+        return COLUNA_EMAIL;
+    }
 
-                listaPessoa.add(pessoa);
-            }while (cursor.moveToNext());
-        }
-        return listaPessoa;
+    public static String getColunaSenha() {
+        return COLUNA_SENHA;
+    }
 
+    public static String getNomeBanco() {
+        return NOME_BANCO;
+    }
+
+    public static String getNomeTabelaPessoa() {
+        return TABELA_PESSOA;
     }
 
 

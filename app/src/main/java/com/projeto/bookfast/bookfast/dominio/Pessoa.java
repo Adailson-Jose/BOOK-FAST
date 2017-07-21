@@ -2,8 +2,8 @@ package com.projeto.bookfast.bookfast.dominio;
 
 
 public class Pessoa {
-    private int id;
-    private String cpf;
+    private long id;
+    private long cpf;
     private String nome;
     private String email;
     private String senha;
@@ -14,7 +14,7 @@ public class Pessoa {
 
     }
     //Construtor para atualizar
-    public Pessoa(int _id, String _cpf, String _nome,String _email, String _senha){
+    public Pessoa(long _id, long _cpf, String _nome, String _email, String _senha) {
         this.id = _id;
         this.cpf = _cpf;
         this.nome = _nome;
@@ -22,7 +22,7 @@ public class Pessoa {
         this.senha = _senha;
     }
     //Construtor para inserir
-    public Pessoa(String _cpf,String _nome,String _email, String _senha){
+    public Pessoa(long _cpf, String _nome, String _email, String _senha) {
         this.cpf = _cpf;
         this.nome = _nome;
         this.email = _email;
@@ -30,19 +30,19 @@ public class Pessoa {
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
