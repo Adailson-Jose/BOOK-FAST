@@ -45,7 +45,6 @@ public class TelaLogin extends AppCompatActivity {
                    Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
                     Pessoa administrador = new Pessoa("0123456789","admin","admin@hotmail.com","admin");
                     bd.addPessoa(administrador);
-
                     //Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
                     //abreTelaInicail.putExtra("0123456789", true);
                    // startActivity(abreTelaInicail);
