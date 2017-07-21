@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.book_fast.GUI.TelaInicial"
+    tools:context="com.projeto.bookfast.book_fast.gui.TelaInicial"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
@@ -12,7 +12,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bem-Vendo!"
+        android:text="Bem-Vindo!"
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="16dp" />
 

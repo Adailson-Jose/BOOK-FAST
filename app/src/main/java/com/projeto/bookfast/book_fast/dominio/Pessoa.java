@@ -1,8 +1,5 @@
 package com.projeto.bookfast.book_fast.dominio;
 
-/**
- * Created by oi on 19/07/2017.
- */
 
 public class Pessoa {
     private int id;

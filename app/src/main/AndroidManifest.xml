@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".GUI.TelaLogin">
+        <activity android:name=".gui.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GUI.TelaInicial" />
-        <activity android:name=".GUI.TelaRecuperarSenha" />
-        <activity android:name=".GUI.TelaCadastrar"></activity>
+        <activity android:name=".gui.TelaInicial" />
+        <activity android:name=".gui.TelaRecuperarSenha" />
+        <activity android:name=".gui.TelaCadastrar"></activity>
     </application>
 
 </manifest>

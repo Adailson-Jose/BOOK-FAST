@@ -1,10 +1,9 @@
-package com.projeto.bookfast.book_fast.GUI;
+package com.projeto.bookfast.book_fast.gui;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,29 +40,29 @@ public class TelaLogin extends AppCompatActivity {
                 String login = editUsuario.getText().toString();
                 String senha = editSenha.getText().toString();
 
-               if (login.equals("admin") && senha.equals("admin")){
+                if (login.equals("admin") && senha.equals("admin")) {
                    Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
-                    Pessoa administrador = new Pessoa("0123456789","admin","admin@hotmail.com","admin");
+                    Pessoa administrador = new Pessoa("0123456789", "admin", "admin@hotmail.com", "admin");
                     bd.addPessoa(administrador);
-                    //Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
-                    //abreTelaInicail.putExtra("0123456789", true);
-                   // startActivity(abreTelaInicail);
+                    Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
+                    abreTelaInicail.putExtra("0123456789", true);
+                    startActivity(abreTelaInicail);
 
 
-                }/*else {
-                    if(senha!=null && bd.selecioanarPessoa(login).getCpf() !=""){
+                } else {
+                    /*if(senha!=null && bd.selecioanarPessoa(login).getCpf() !=""){
                         // se entrou aqui é porque existe um usuário baseado na busca
                         Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
                         startActivity(abreTelaInicail);
 
-                    } else {
+                    } else {*/
                         // se entrou aqui é porque NÃO existe um usuário baseado na busca
-                        Context contexto = getApplicationContext();
-                        String texto = "Senha ou login incorretos.";
-                        int duracao = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(contexto, texto,duracao);
-                        toast.show();
-                    }*/
+                    Context contexto = getApplicationContext();
+                    String texto = "Senha ou login incorretos.";
+                    int duracao = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(contexto, texto, duracao);
+                    toast.show();
+                }
 
 
 

@@ -1,4 +1,4 @@
-package com.projeto.bookfast.book_fast.GUI;
+package com.projeto.bookfast.book_fast.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import com.projeto.bookfast.book_fast.dominio.Pessoa;
 import com.projeto.bookfast.book_fast.persistencia.BancoDados;
 
 public class TelaCadastrar extends AppCompatActivity {
-    EditText editNovoUsuario, editNovaSenha,editNovoEmail,editNovoNome;
+    EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome, editNovoNasc, editNovoId;
     Button btRegistrar, btCancelarRegistro;
     BancoDados bd= new BancoDados(this);
     @Override
@@ -22,6 +22,8 @@ public class TelaCadastrar extends AppCompatActivity {
         editNovoEmail=(EditText) findViewById(R.id.editNovoEmail);
         editNovoUsuario = (EditText) findViewById(R.id.editNovoUsuario);
         editNovaSenha = (EditText) findViewById(R.id.editNovaSenha);
+        editNovoNasc = (EditText) findViewById(R.id.editNovoNasc);
+        editNovoId = (EditText) findViewById(R.id.editNovoId);
 
         btRegistrar = (Button) findViewById(R.id.btRegistrar);
         btCancelarRegistro = (Button) findViewById(R.id.btCancelarRegistro);
@@ -42,6 +44,9 @@ public class TelaCadastrar extends AppCompatActivity {
                 String nome = editNovoNome.getText().toString();
                 String email = editNovoEmail.getText().toString();
                 String senha = editNovaSenha.getText().toString();
+                String nasc = editNovoNasc.getText().toString();
+                String id = editNovoId.getText().toString();
+
 
                 Pessoa pessoa = new Pessoa(cpf,nome,email,senha);
 
