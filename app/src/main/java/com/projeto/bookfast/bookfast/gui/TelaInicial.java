@@ -7,35 +7,33 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.persistencia.BancoDados;
+
 
 import java.util.ArrayList;
 
 
 public class TelaInicial extends AppCompatActivity {
     ListView listViewPessoa;
-    BancoDados db = new BancoDados(this);
     ArrayAdapter<String> adapter;
     ArrayList<String> arrayList;
-    BancoDados bd= new BancoDados(this);
-    String cpf;
-    Pessoa pessoa = new Pessoa();
-    TextView textView;
+    TextView mensagem;
+
+    // Pessoa pessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tala_inicial);
+        this.mensagem = (TextView) this.findViewById(R.id.mensagem);
+        //final PessoaDao pessoaDao= new PessoaDao(this);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             String mensagemRecebida = bundle.get("KEY").toString();
-            //pessoa = bd.selecioanarPessoa(mensagemRecebida);
-            this.textView.setText(mensagemRecebida);
-            ///String dadosPessoa= pessoa.getId()+" - "+ pessoa.getNome()+" - "+ pessoa.getCpf()+" - "+pessoa.getEmail()+" - " +pessoa.getSenha();
-            ///this.textView.setText(dadosPessoa);
+            //pessoa = pessoaDao.getPessoa(Long.parseLong(mensagemRecebida));
+            //String dadosPessoa= pessoa.getId()+" - "+ pessoa.getNome()+" - "+ pessoa.getCpf()+" - "+pessoa.getEmail()+" - " +pessoa.getSenha();
+            this.mensagem.setText(mensagemRecebida);
         }else {
-            this.textView.setText("deu errado");
+            this.mensagem.setText("deu errado");
 
         }
 

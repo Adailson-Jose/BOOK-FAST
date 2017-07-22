@@ -1,6 +1,5 @@
 package com.projeto.bookfast.bookfast.gui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,24 +10,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
+
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.persistencia.BancoDados;
-import com.projeto.bookfast.bookfast.persistencia.PessoaDao;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;
     Button btLogar, btRecuperarSenha, btCadastrarUsuario;
+    Pessoa pessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        editSenha= (EditText) findViewById(R.id.editSenha);
-        editUsuario= (EditText) findViewById(R.id.editUsuario);
+        editSenha = (EditText) findViewById(R.id.editSenha);
+        editUsuario = (EditText) findViewById(R.id.editUsuario);
         btLogar = (Button) findViewById(R.id.btLogar);
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
-        // Cria o banco
-        final BancoDados bd = new BancoDados(this);
+
         //final PessoaDao pessoaDao = new PessoaDao(this);
 
         btLogar.setOnClickListener(new View.OnClickListener(){
@@ -40,11 +38,11 @@ public class TelaLogin extends AppCompatActivity {
                 String senha = editSenha.getText().toString();
 
                 if (login.equals("admin") && senha.equals("admin")) {
-                    Pessoa administrador = new Pessoa(1234567890, "admin", "admin@hotmail.com", "admin");
-                   /* pessoaDao.addPessoa(administrador);
+                    Pessoa administrador = new Pessoa(1, "admin", "admin@hotmail.com", "admin");
+                    /*
                     Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
-                    abreTelaInicail.putExtra("KEY",1234567890);
-                    startActivity(abreTelaInicail);*/
+                    abreTelaInicail.putExtra("KEY", administrador.getCpf());
+                    startActivity(abreTelaInicail); */
                     Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
@@ -70,7 +68,7 @@ public class TelaLogin extends AppCompatActivity {
         btCadastrarUsuario.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent abreCadastro= new Intent(TelaLogin.this, TelaCadastrar.class);
+                Intent abreCadastro = new Intent(TelaLogin.this, Teste.class);
                 startActivity(abreCadastro);
             }
 

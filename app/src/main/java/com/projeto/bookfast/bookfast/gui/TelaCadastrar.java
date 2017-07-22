@@ -9,19 +9,14 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.persistencia.BancoDados;
-import com.projeto.bookfast.bookfast.persistencia.PessoaDao;
 
 public class TelaCadastrar extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome, editNovoNasc, editNovoId;
     Button btRegistrar, btCancelarRegistro;
-    PessoaDao pessoaDao;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar);
-        final PessoaDao pessoaDao = new PessoaDao(this);
         editNovoNome=(EditText) findViewById(R.id.editNovoNome);
         editNovoEmail=(EditText) findViewById(R.id.editNovoEmail);
         editNovoUsuario = (EditText) findViewById(R.id.editNovoUsuario);
@@ -50,8 +45,9 @@ public class TelaCadastrar extends AppCompatActivity {
                 //String nasc = editNovoNasc.getText().toString();
 
                 //Falta Validar os campos antes de adcionar
-                Pessoa pessoa = new Pessoa(Long.parseLong(cpf),nome,email,senha);
-                pessoaDao.addPessoa(pessoa);
+                Pessoa pessoa = new Pessoa(Integer.parseInt(cpf), nome, email, senha);
+
+                Toast.makeText(TelaCadastrar.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
 
 
             }

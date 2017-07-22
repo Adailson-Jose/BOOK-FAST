@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaLogin">
+        <activity android:name=".gui.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaInicial" />
-        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaRecuperarSenha" />
-        <activity android:name="com.projeto.bookfast.bookfast.gui.TelaCadastrar"></activity>
+        <activity android:name=".gui.TelaInicial" />
+        <activity android:name=".gui.TelaRecuperarSenha" />
+        <activity android:name=".gui.TelaCadastrar" />
+        <activity android:name=".gui.Teste"></activity>
     </application>
 
 </manifest>

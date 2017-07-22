@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.projeto.bookfast.bookfast.gui.Teste">
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_margin="5dp"
+        android:hint="Nome" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editCpf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Cpf"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnadd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="adicionar pessoa"
+        android:layout_margin="5dp" />
+
+    <Button
+        android:id="@+id/btnEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="editar  pessoa"
+        android:layout_margin="5dp" />
+
+    <Button
+        android:id="@+id/btnRemove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="remover pessoa"
+        android:layout_margin="5dp" />
+
+    <Button
+        android:id="@+id/btnVerReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ver registros"
+        android:layout_margin="5dp" />
+
+    <Button
+        android:id="@+id/btnRemoveTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="remover tabela"
+        android:layout_margin="5dp" />
+</LinearLayout>

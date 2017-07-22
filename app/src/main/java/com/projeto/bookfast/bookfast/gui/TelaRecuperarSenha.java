@@ -15,6 +15,7 @@ public class TelaRecuperarSenha extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela__recuperar__senha);
+
         editCPF = (EditText) findViewById(R.id.editCPF);
         editNovaSenha = (EditText) findViewById(R.id.editNovaSenha);
         btAlterarSenha = (Button) findViewById(R.id.btAlterarSenha);
@@ -23,7 +24,6 @@ public class TelaRecuperarSenha extends Activity {
         btAlterarSenha.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
 
             }
 

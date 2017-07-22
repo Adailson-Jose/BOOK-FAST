@@ -17,10 +17,15 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="362dp"
-        android:layout_height="322dp"
-        tools:layout_editor_absoluteX="11dp"
+        android:id="@+id/mensagem"
+        android:layout_width="355dp"
+        android:layout_height="326dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold|italic"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="15dp"
         tools:layout_editor_absoluteY="62dp" />
 
 </android.support.constraint.ConstraintLayout>
