@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
 
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 
@@ -15,17 +16,15 @@ import java.util.List;
  */
 
 public class PessoaDao {
-    private BancoDados bancoDados;
-    private PessoaDao pessoa;
     private SQLiteDatabase db;
 
     public PessoaDao(Context context) {
-        bancoDados = new BancoDados(context);
-        pessoa = new PessoaDao(context);
+        BancoDados bancoDados = new BancoDados(context);
+        db = bancoDados.getWritableDatabase();
     }
 
     public void addPessoa(Pessoa pessoa) {
-        db = bancoDados.getReadableDatabase();
+
         ContentValues valores = new ContentValues();
 
         String colunaCpf = BancoDados.getColunaCpf();
@@ -48,36 +47,33 @@ public class PessoaDao {
     }
 
     public void deletarPessoa(Pessoa pessoa) {
-        db = bancoDados.getWritableDatabase();
-
-        db.delete(bancoDados.getNomeTabelaPessoa(), bancoDados.getColunaId() + " = ?", new String[]{String.valueOf(pessoa.getId())});
+        db.delete(BancoDados.getNomeTabelaPessoa(), BancoDados.getColunaId() + " = ?", new String[]{String.valueOf(pessoa.getId())});
         db.close();
     }
 
     //Obter pessoa pelo ID
     public Pessoa getPessoa(long id) {
-        db = bancoDados.getReadableDatabase();
-        Cursor cursor = db.query(bancoDados.getNomeTabelaPessoa(), new String[]{bancoDados.getColunaId(), bancoDados.getColunaCpf(),
-                        bancoDados.getColunaNome(), bancoDados.getColunaEmail(), bancoDados.getColunaSenha()}, bancoDados.getColunaCpf() + " = ?",
+        Cursor cursor = db.query(BancoDados.getNomeTabelaPessoa(), new String[]{BancoDados.getColunaId(), BancoDados.getColunaCpf(),
+                        BancoDados.getColunaNome(), BancoDados.getColunaEmail(), BancoDados.getColunaSenha()}, BancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
         }
-        Pessoa pessoa = new Pessoa(Long.parseLong(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+        Pessoa pessoa = new Pessoa(Long.parseLong(cursor.getString(0)), Long.parseLong(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
         return pessoa;
     }
 
     public void atualizarPessoa(Pessoa pessoa) {
-        db = bancoDados.getReadableDatabase();
+        //db = bancodados.getReadableDatabase();
 
         ContentValues valores = new ContentValues();
-        valores.put(bancoDados.getColunaId(), pessoa.getId());
-        valores.put(bancoDados.getColunaCpf(), pessoa.getCpf());
-        valores.put(bancoDados.getColunaNome(), pessoa.getNome());
-        valores.put(bancoDados.getColunaEmail(), pessoa.getEmail());
-        valores.put(bancoDados.getColunaSenha(), pessoa.getSenha());
-        db.update(bancoDados.getNomeTabelaPessoa(), valores, bancoDados.getColunaId() + " = ?",
+        //valores.put(BancoDados.getColunaId(), pessoa.getId());
+        valores.put(BancoDados.getColunaCpf(), pessoa.getCpf());
+        valores.put(BancoDados.getColunaNome(), pessoa.getNome());
+        valores.put(BancoDados.getColunaEmail(), pessoa.getEmail());
+        valores.put(BancoDados.getColunaSenha(), pessoa.getSenha());
+        db.update(BancoDados.getNomeTabelaPessoa(), valores, BancoDados.getColunaId() + " = ?",
                 new String[]{String.valueOf(pessoa.getId())});
         db.close();
     }
@@ -85,13 +81,13 @@ public class PessoaDao {
     public List<Pessoa> getListaPessoas() {
         List<Pessoa> listaPessoa = new ArrayList<Pessoa>();
 
-        String quary = "SELECT * FROM " + bancoDados.getNomeTabelaPessoa();
+        String quary = "SELECT * FROM " + BancoDados.getNomeTabelaPessoa();
 
-        db = bancoDados.getWritableDatabase();
+        //db = bancoDados.getWritableDatabase();
         Cursor cursor = db.rawQuery(quary, null);
 
         if (cursor.moveToFirst()) do {
-            Pessoa pessoa = new Pessoa(Long.parseLong(cursor.getString(0), cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            Pessoa pessoa = new Pessoa(Long.parseLong(cursor.getString(0)), Long.parseLong(cursor.getString(0)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
             pessoa.setId(Long.parseLong(cursor.getString(0)));
             pessoa.setCpf(Long.parseLong(cursor.getString(1)));
             pessoa.setNome(cursor.getString(2));

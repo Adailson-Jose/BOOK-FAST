@@ -27,15 +27,15 @@ public class TelaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tala_inicial);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String mensagemRecebida = extras.get("KEY").toString();
-            pessoa = bd.selecioanarPessoa(mensagemRecebida);
-            this.textView.setText(pessoa.getCpf());
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String mensagemRecebida = bundle.get("KEY").toString();
+            //pessoa = bd.selecioanarPessoa(mensagemRecebida);
+            this.textView.setText(mensagemRecebida);
             ///String dadosPessoa= pessoa.getId()+" - "+ pessoa.getNome()+" - "+ pessoa.getCpf()+" - "+pessoa.getEmail()+" - " +pessoa.getSenha();
             ///this.textView.setText(dadosPessoa);
         }else {
-            this.textView.setText("deu certo");
+            this.textView.setText("deu errado");
 
         }
 

@@ -1,4 +1,4 @@
-
+/*
 package com.projeto.bookfast.bookfast.negocio;
 
 import android.app.AlertDialog;
@@ -110,3 +110,4 @@ public class ValidarLogin {
 
     }
 }
+*/

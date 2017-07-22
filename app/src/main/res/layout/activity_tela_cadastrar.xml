@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Digite seu CPF"
+            android:hint="Cpf"
             android:inputType="text|number" />
 
 
@@ -45,22 +45,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <EditText
-            android:id="@+id/editNovoId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nick de Usuario"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <EditText
-            android:id="@+id/editNovoNasc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nascimento Example: 1900/12/31"
             android:ems="10"
             android:inputType="textPassword" />
 
