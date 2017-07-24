@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class ReadBancoDados extends SQLiteOpenHelper {
     private static final int VERSAO_BANCO = 1;
-    private static final String NOME_BANCO = "bd_biblioteca";
-    private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/bd_biblioteca";
+    private static final String NOME_BANCO = CreatBancoDados.getNomeBanco();
+    private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/" + CreatBancoDados.getNomeBanco();
     private Context meuContext;
     private SQLiteDatabase db;
 
@@ -70,7 +70,7 @@ public class ReadBancoDados extends SQLiteOpenHelper {
     }
     //Obter pessoa pelo cpf
 
-    public Pessoa getPessoa(long cpf) {
+    public Pessoa getPessoa(Integer cpf) {
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaPessoa(), new String[]{CreatBancoDados.getColunaId(), CreatBancoDados.getColunaCpf(),
                         CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha()}, CreatBancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(cpf)}, null, null, null, null);

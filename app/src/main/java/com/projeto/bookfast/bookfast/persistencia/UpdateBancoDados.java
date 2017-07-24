@@ -12,8 +12,8 @@ import com.projeto.bookfast.bookfast.dominio.Pessoa;
  */
 public class UpdateBancoDados extends SQLiteOpenHelper {
     private static final int VERSAO_BANCO = 1;
-    private static final String NOME_BANCO = "bd_biblioteca";
-    private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/bd_biblioteca";
+    private static final String NOME_BANCO = CreatBancoDados.getNomeBanco();
+    private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/" + CreatBancoDados.getNomeBanco();
     private Context meuContext;
     private SQLiteDatabase db;
 

@@ -11,17 +11,17 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final int VERSAO_BANCO = 1;
     private static final String NOME_BANCO = "db_biblioteca";
 
-    private static final String TABELA_PESSOA = "tb_pessoa";
-    private static final String COLUNA_ID = "id";
-    private static final String COLUNA_CPF = "cpf";
-    private static final String COLUNA_NOME = "nome";
-    private static final String COLUNA_EMAIL = "email";
-    private static final String COLUNA_SENHA = "senha";
+    private static final String TABELA_PESSOA = "TB_PESSOA";
+    private static final String COLUNA_ID = "ID";
+    private static final String COLUNA_CPF = "CPF";
+    private static final String COLUNA_NOME = "NOME";
+    private static final String COLUNA_EMAIL = "EMAIL";
+    private static final String COLUNA_SENHA = "SENHA";
 
     private static final String TABELA_LIVRO = "tb_livro";
     //Falta criar
 
-    private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/bd_biblioteca";
+    private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/" + NOME_BANCO;
     private Context meuContext;
     private SQLiteDatabase db;
 
@@ -44,12 +44,13 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
     public boolean createTablePessoa() {
         openDB();
-        String createTablePessoa = "CREATE TABLE IF NOT EXITS " + TABELA_PESSOA + " ( "
-                + COLUNA_ID + " INTEGER PRIMARY KEY, " + COLUNA_CPF + " INTEGER, "
-                + COLUNA_NOME + " TEXT NOT NULL, " + COLUNA_EMAIL + " TEXT NOT NULL, "
-                + COLUNA_SENHA + " TEXT NOT NULL)";
+
         try {
-            db.execSQL(createTablePessoa);
+            db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, " + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, " + COLUNA_SENHA + " text not null)");
+
+            //user admin
+            db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
+                    + COLUNA_EMAIL + "," + COLUNA_SENHA + ") VALUES('1234567890', 'admin', 'admin@email.com', 'admin')");
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,7 +62,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     }
 
     public void createTableLivro() {
-        //Fala criar a lógica
+        //Falta criar a lógica
     }
 
     private void openDB() {

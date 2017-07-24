@@ -38,8 +38,8 @@ public class Teste extends Activity {
         editCpf = (EditText) findViewById(R.id.editCpf);
         editSenha = (EditText) findViewById(R.id.editSenha);
 
-        CreatBancoDados bd = new CreatBancoDados(getApplicationContext());
-        bd.createTablePessoa();
+        CreatBancoDados db = new CreatBancoDados(getApplicationContext());
+        db.createTablePessoa();
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,16 +95,26 @@ public class Teste extends Activity {
         btnRemoveTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Pessoa p = new Pessoa();
-                p.setNome(edtNome.getText().toString());
-                p.setEmail(editEmail.getText().toString());
-                p.setCpf(Integer.parseInt(editCpf.getText().toString()));
-                p.setSenha(editSenha.getText().toString());
+
                 DeletBancoDados d = new DeletBancoDados(getApplicationContext());
                 if (d.deleteTablePessoa()) {
                     Toast.makeText(Teste.this, "Tabela foi removida com sucesso!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(Teste.this, "Erro ao remover tabela", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        btnVerReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReadBancoDados r = new ReadBancoDados(getApplicationContext());
+
+                ArrayList<Pessoa> pArray = r.getListaPessoas();
+
+                for (int i = 0; i < pArray.size(); i++) {
+                    Pessoa p = pArray.get(i);
+                    System.out.println("NOME: " + p.getNome() + "    CPF: " + p.getCpf() + "  SENHA: " + p.getSenha() + " EMAIL: " + p.getEmail() + " ID: " + p.getId());
                 }
 
             }
