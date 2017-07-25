@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.projeto.bookfast.bookfast.R;
 
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
+import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;
@@ -27,48 +29,44 @@ public class TelaLogin extends AppCompatActivity {
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
 
-        //final PessoaDao pessoaDao = new PessoaDao(this);
+        CreatBancoDados bancoCriado = new CreatBancoDados(getApplicationContext());
 
         btLogar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
+
                 TextView editUsuario = (TextView) findViewById(R.id.editUsuario);
                 TextView editSenha = (TextView) findViewById(R.id.editSenha);
-                String login = editUsuario.getText().toString();
-                String senha = editSenha.getText().toString();
+                String loginCpf = editUsuario.getText().toString();
+                pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
 
-                if (login.equals("admin") && senha.equals("admin")) {
-                    Pessoa administrador = new Pessoa(1, "admin", "admin@hotmail.com", "admin");
-                    /*
+                if (String.valueOf(pessoa.getCpf()).equals(loginCpf)) {
                     Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
-                    abreTelaInicail.putExtra("KEY", administrador.getCpf());
-                    startActivity(abreTelaInicail); */
+                    abreTelaInicail.putExtra("KEY", String.valueOf( pessoa.getCpf()));
+                    startActivity(abreTelaInicail);
                     Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
+
                 } else {
                     Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
 
-                    /*if(senha!=null && bd.selecioanarPessoa(login).getCpf() !=""){
+                    if (true) {
                         // se entrou aqui é porque existe um usuário baseado na busca
-                        Intent abreTelaInicail= new Intent(TelaLogin.this, TelaInicial.class);
-                        startActivity(abreTelaInicail);
 
                     } else {
                         // se entrou aqui é porque NÃO existe um usuário baseado na busca
-                    Context contexto = getApplicationContext();
-                    String texto = "Senha ou login incorretos.";
-                    int duracao = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(contexto, texto, duracao);
-                    toast.show(); */
+
+                    }
+
+
                 }
-
-
-
             }
         });
+
         btCadastrarUsuario.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent abreCadastro = new Intent(TelaLogin.this, Teste.class);
+                Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastrar.class);
                 startActivity(abreCadastro);
             }
 
@@ -82,8 +80,5 @@ public class TelaLogin extends AppCompatActivity {
 
         });
 
-    }
-    private void alert (String s){
-        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 }

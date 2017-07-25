@@ -1,7 +1,7 @@
 package com.projeto.bookfast.bookfast.gui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrar extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome, editNovoNasc, editNovoId;
@@ -21,7 +22,6 @@ public class TelaCadastrar extends AppCompatActivity {
         editNovoEmail=(EditText) findViewById(R.id.editNovoEmail);
         editNovoUsuario = (EditText) findViewById(R.id.editNovoUsuario);
         editNovaSenha = (EditText) findViewById(R.id.editNovaSenha);
-        //editNovoNasc = (EditText) findViewById(R.id.editNovoNasc);
 
         btRegistrar = (Button) findViewById(R.id.btRegistrar);
         btCancelarRegistro = (Button) findViewById(R.id.btCancelarRegistro);
@@ -42,10 +42,20 @@ public class TelaCadastrar extends AppCompatActivity {
                 String nome = editNovoNome.getText().toString();
                 String email = editNovoEmail.getText().toString();
                 String senha = editNovaSenha.getText().toString();
-                //String nasc = editNovoNasc.getText().toString();
+                //Falta validar os campos!
 
-                //Falta Validar os campos antes de adcionar
-                Pessoa pessoa = new Pessoa(Integer.parseInt(cpf), nome, email, senha);
+                Pessoa pessoa = new Pessoa();
+                pessoa.setNome(nome);
+                pessoa.setEmail(email);
+                pessoa.setCpf(Integer.parseInt(cpf));
+                pessoa.setSenha(senha);
+                UpdateBancoDados inserir = new UpdateBancoDados(getApplicationContext());
+                if (inserir.insertPessoa(pessoa)) {
+                    Toast.makeText(TelaCadastrar.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(TelaCadastrar.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
+                }
+
 
                 Toast.makeText(TelaCadastrar.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
 
@@ -53,6 +63,9 @@ public class TelaCadastrar extends AppCompatActivity {
             }
 
         });
+
+
+
 
 
     }

@@ -1,19 +1,18 @@
 package com.projeto.bookfast.bookfast.gui;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-
-import com.projeto.bookfast.bookfast.persistencia.*;
-
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
+import com.projeto.bookfast.bookfast.persistencia.DeletBancoDados;
+import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
+import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 import java.util.ArrayList;
 
@@ -44,6 +43,7 @@ public class Teste extends Activity {
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Pessoa p = new Pessoa();
                 p.setNome(edtNome.getText().toString());
                 p.setEmail(editEmail.getText().toString());
