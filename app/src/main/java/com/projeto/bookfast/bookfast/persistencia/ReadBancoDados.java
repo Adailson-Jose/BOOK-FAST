@@ -79,8 +79,10 @@ public class ReadBancoDados extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             Pessoa pessoa = new Pessoa(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
             cursor.close();
+            db.close();
             return pessoa;
         } else {
+            db.close();
             return null;
         }
 

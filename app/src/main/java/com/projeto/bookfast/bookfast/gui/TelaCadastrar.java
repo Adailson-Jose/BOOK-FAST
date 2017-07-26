@@ -64,9 +64,5 @@ public class TelaCadastrar extends AppCompatActivity {
 
         });
 
-
-
-
-
     }
 }
