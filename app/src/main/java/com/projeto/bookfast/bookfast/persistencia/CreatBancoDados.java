@@ -62,28 +62,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
     }
 
-    public boolean createTablePessoa() {
-        openDB();
-
-        try {
-            db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, " + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, " + COLUNA_SENHA + " text not null)");
-
-            //user admin
-            db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                    + COLUNA_EMAIL + "," + COLUNA_SENHA + ") VALUES('1234567890', 'admin', 'admin@email.com', 'admin')");
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            db.close();
-        }
-
-    }
-
-    public void createTableLivro() {
-        //Falta criar a lógica
-    }
 
     private void openDB() {
         if (!db.isOpen()) {
