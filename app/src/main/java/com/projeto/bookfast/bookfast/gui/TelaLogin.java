@@ -50,9 +50,9 @@ public class TelaLogin extends AppCompatActivity {
                         Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
 
                     } else {
-                        // se entrou aqui é porque existe um usuário baseado na busca
+                        //  se entrou aqui é porque existe um usuário baseado na busca
                         Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
-                        //abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                        // abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                         startActivity(abreTelaInicail);
                         Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
 
