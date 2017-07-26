@@ -19,7 +19,8 @@
         <activity android:name=".gui.TelaInicial" />
         <activity android:name=".gui.TelaRecuperarSenha" />
         <activity android:name=".gui.TelaCadastrar" />
-        <activity android:name=".gui.Teste"></activity>
+        <activity android:name=".gui.Teste" />
+        <activity android:name=".gui.TelaUsuarioComum"></activity>
     </application>
 
 </manifest>

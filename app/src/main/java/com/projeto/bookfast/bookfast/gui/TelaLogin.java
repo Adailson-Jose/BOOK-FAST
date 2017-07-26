@@ -40,26 +40,28 @@ public class TelaLogin extends AppCompatActivity {
                 TextView editSenha = (TextView) findViewById(R.id.editSenha);
                 String loginCpf = editUsuario.getText().toString();
                 pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
+                // Teste de busca
+                if (pessoa != null) {
 
-                if (String.valueOf(pessoa.getCpf()).equals(loginCpf)) {
-                    Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
-                    abreTelaInicail.putExtra("KEY", String.valueOf( pessoa.getCpf()));
-                    startActivity(abreTelaInicail);
-                    Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
-
-                } else {
-                    Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
-
-                    if (true) {
-                        // se entrou aqui é porque existe um usuário baseado na busca
+                    if (String.valueOf(pessoa.getCpf()).equals(1234567890)) {
+                        Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
+                        abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                        startActivity(abreTelaInicail);
+                        Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
 
                     } else {
-                        // se entrou aqui é porque NÃO existe um usuário baseado na busca
+                        // se entrou aqui é porque existe um usuário baseado na busca
+                        Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
+                        abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                        startActivity(abreTelaInicail);
+                        Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
 
                     }
-
+                } else {
+                    Toast.makeText(TelaLogin.this, "CAMPO LOGIN INVÁLDO.", Toast.LENGTH_LONG).show();
 
                 }
+
             }
         });
 

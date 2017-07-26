@@ -71,15 +71,19 @@ public class ReadBancoDados extends SQLiteOpenHelper {
     //Obter pessoa pelo cpf
 
     public Pessoa getPessoa(Integer cpf) {
+        openDB();
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaPessoa(), new String[]{CreatBancoDados.getColunaId(), CreatBancoDados.getColunaCpf(),
                         CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha()}, CreatBancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(cpf)}, null, null, null, null);
 
-        if (cursor != null) {
-            cursor.moveToFirst();
+        if (cursor != null && cursor.moveToFirst()) {
+            Pessoa pessoa = new Pessoa(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            cursor.close();
+            return pessoa;
+        } else {
+            return null;
         }
-        Pessoa pessoa = new Pessoa(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-        return pessoa;
+
     }
 
     private void openDB() {
