@@ -11,7 +11,8 @@
         android:layout_height="495dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:background="@drawable/fundo"
         android:weightSum="1">
 
 
@@ -21,6 +22,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nome"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
             android:inputType="text" />
 
         <EditText
@@ -29,6 +32,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Email"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -37,6 +42,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Cpf"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
             android:inputType="text|number" />
 
 
@@ -46,12 +53,15 @@
             android:layout_height="wrap_content"
             android:hint="Senha"
             android:ems="10"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/btRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/darkGreen"
             android:layout_marginTop="1dp"
             android:text="REGISTRAR" />
 
@@ -59,7 +69,8 @@
             android:id="@+id/btCancelarRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
+            android:background="@color/colorBlue"
+            android:layout_marginTop="4dp"
             android:text="CANCELAR" />
 
     </LinearLayout>

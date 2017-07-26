@@ -12,7 +12,6 @@ import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class TelaInicial extends AppCompatActivity {
@@ -25,10 +24,10 @@ public class TelaInicial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         ReadBancoDados busca = new  ReadBancoDados(getApplicationContext());
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tala_inicial);
-        this.mensagem = (TextView) this.findViewById(R.id.mensagem);
+        setContentView(R.layout.activity_tela_inicial);
+        //this.mensagem = (TextView) this.findViewById(R.id.);
 
-        Bundle bundle = getIntent().getExtras();
+       /*Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             pessoa = busca.getPessoa(Integer.parseInt(String.valueOf(bundle.get("KEY"))));
             String dadosPessoa="Nome: "+pessoa.getNome()+", Cpf: "+pessoa.getCpf()+", Senha: "+pessoa.getSenha()+" Id: "+pessoa.getId()+", Email: "+pessoa.getEmail()+".";
@@ -37,7 +36,7 @@ public class TelaInicial extends AppCompatActivity {
         }else {
             this.mensagem.setText("deu errado");
 
-        }
+        }*/
 
     }
 }
