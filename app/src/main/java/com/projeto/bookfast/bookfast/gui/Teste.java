@@ -38,8 +38,6 @@ public class Teste extends Activity {
         editSenha = (EditText) findViewById(R.id.editSenha);
 
         CreatBancoDados db = new CreatBancoDados(getApplicationContext());
-        db.createTablePessoa();
-
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
