@@ -43,7 +43,7 @@ public class TelaLogin extends AppCompatActivity {
                 // Teste de busca
                 if (pessoa != null) {
 
-                    if (String.valueOf(pessoa.getCpf()).equals(1234567890)) {
+                    if (pessoa.getCpf()==(1234567890)) {
                         Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
                         abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                         startActivity(abreTelaInicail);
@@ -52,8 +52,7 @@ public class TelaLogin extends AppCompatActivity {
                     } else {
                         // se entrou aqui é porque existe um usuário baseado na busca
                         Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
-                        abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
-                        startActivity(abreTelaInicail);
+                        abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));startActivity(abreTelaInicail);
                         Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
 
                     }
