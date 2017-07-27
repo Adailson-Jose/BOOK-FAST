@@ -88,17 +88,17 @@
             android:selectAllOnFocus="false" />
 
         <EditText
-            android:id="@+id/editQuantdadeTotal"
+            android:id="@+id/editQuantidadeTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Quantidade Total"
+            android:inputType="number"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:inputType="number" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
-            android:id="@+id/editQuantdadeAugada"
+            android:id="@+id/editQuantidadeAlugada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

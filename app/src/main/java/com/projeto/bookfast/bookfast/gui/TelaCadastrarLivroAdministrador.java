@@ -1,7 +1,6 @@
 package com.projeto.bookfast.bookfast.gui;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,8 @@ import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
     Button btCadastrarLivro, btCancelar;
-    EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantdadeTotal, editQuantdadeAugada;
+    EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada;
+    Livro livro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,11 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         editAutor = (EditText) findViewById(R.id.editAutor);
         editEdicao = (EditText) findViewById(R.id.editEdicao);
         editAno = (EditText) findViewById(R.id.editAno);
-        editQuantdadeTotal = (EditText) findViewById(R.id.editQuantdadeTotal);
-        editQuantdadeAugada = (EditText) findViewById(R.id.editQuantdadeAugada);
+        editQuantidadeTotal = (EditText) findViewById(R.id.editQuantidadeTotal);
+        editQuantidadeAlugada = (EditText) findViewById(R.id.editQuantidadeAlugada);
+
+        btCadastrarLivro = (Button) findViewById(R.id.btCadastrarLivro);
+        btCancelar = (Button) findViewById(R.id.btCancelar);
 
         btCadastrarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,16 +40,23 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 Integer isbn = Integer.parseInt(editIsbn.getText().toString());
                 int edicao = Integer.parseInt(editEdicao.getText().toString());
                 int ano = Integer.parseInt(editAno.getText().toString());
-                int quantdadeTotal = Integer.parseInt(editQuantdadeTotal.getText().toString());
-                int quantdadeAugada = Integer.parseInt(editQuantdadeAugada.getText().toString());
+                int quantidadeTotal = Integer.parseInt(editQuantidadeTotal.getText().toString());
+                int quanitdadeAlugada = Integer.parseInt(editQuantidadeAlugada.getText().toString());
                 String nome = editNome.getText().toString();
                 String genero = editGenero.getText().toString();
                 String autor = editAutor.getText().toString();
                 //Falta validar os campos!
-                Livro livro = new Livro(isbn, nome, quantdadeAugada, autor, genero, quantdadeTotal, ano, edicao);
-                inserirLivro.insertLivro(livro);
-                Toast.makeText(TelaCadastrarLivroAdministrador.this, "LVRO INSERIDO COM SUCESSO", Toast.LENGTH_LONG).show();
+                ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
+                livro = buscarLivro.getLivro(isbn);
+                if (livro != null) {
+                    Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();
 
+                } else {
+                    livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao);
+
+                    inserirLivro.insertLivro(livro);
+                    Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO CADASTRADO COM SUCESSO", Toast.LENGTH_LONG).show();
+                }
 
             }
         });
