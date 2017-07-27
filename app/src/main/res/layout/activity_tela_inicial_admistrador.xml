@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.gui.TelaInicial"
+    tools:context="com.projeto.bookfast.bookfast.gui.TelaInicialAdministrador"
     tools:layout_editor_absoluteY="81dp"
     android:scaleType="centerCrop">
 
@@ -21,7 +21,8 @@
             android:id="@+id/btUsuario"
             android:layout_width="368dp"
             android:layout_height="wrap_content"
-            android:text="USUARIO"
+            android:text="USUÁRIO"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="180dp" />
 
@@ -30,6 +31,7 @@
             android:layout_width="368dp"
             android:layout_height="wrap_content"
             android:text="LIVRO"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="77dp" />
     </LinearLayout>

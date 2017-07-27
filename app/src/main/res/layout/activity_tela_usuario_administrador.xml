@@ -4,12 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.gui.TelaUsuarioComum">
+    tools:context="com.projeto.bookfast.bookfast.gui.TelaUsuarioAdministrador">
 
-    <ListView
-        android:id="@+id/listaUsuarios"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_height="wrap_content"
+        android:text="BEM_VINDO-->ADMINSTRADOR"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        tools:layout_editor_absoluteY="170dp" />
 </android.support.constraint.ConstraintLayout>

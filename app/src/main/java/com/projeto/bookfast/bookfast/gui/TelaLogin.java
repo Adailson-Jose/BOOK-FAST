@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
@@ -42,16 +41,16 @@ public class TelaLogin extends AppCompatActivity {
                 if (pessoa != null) {
 
                     if (pessoa.getCpf() == (1234567890)) {
-                        Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicial.class);
+                        Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
                         abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                         startActivity(abreTelaInicial);
                         Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
 
                     } else {
                         //  se entrou aqui é porque existe um usuário baseado na busca
-                        Intent abreTelaInicail = new Intent(TelaLogin.this, TelaInicial.class);
-                        // abreTelaInicail.putExtra("KEY", String.valueOf(pessoa.getCpf()));
-                        startActivity(abreTelaInicail);
+                        Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);
+                        abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                        startActivity(abreTelaInicialUsuarioComum);
                         Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
 
                     }
@@ -66,7 +65,7 @@ public class TelaLogin extends AppCompatActivity {
         btCadastrarUsuario.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastrar.class);
+                Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastrarUsuario.class);
                 startActivity(abreCadastro);
             }
 

@@ -3,10 +3,10 @@
     package="com.projeto.bookfast.bookfast">
 
     <application
+        android:layout_gravity="center"
         android:allowBackup="true"
         android:icon="@drawable/bookfast"
         android:label="Book Fast"
-        android:layout_gravity="center"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -17,11 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.TelaInicial" />
+        <activity android:name=".gui.TelaInicialAdministrador" />
         <activity android:name=".gui.TelaRecuperarSenha" />
-        <activity android:name=".gui.TelaCadastrar" />
-        <activity android:name=".gui.Teste" />
-        <activity android:name=".gui.TelaUsuarioComum"></activity>
+        <activity android:name=".gui.TelaCadastrarUsuario" />
+        <activity android:name=".gui.TelaInicialUsuarioComum" />
+        <activity android:name=".gui.TelaLivroAdministrador" />
+        <activity android:name=".gui.TelaUsuarioAdministrador" />
+        <activity android:name=".gui.TelaCadastrarLivroAdministrador"></activity>
     </application>
 
 </manifest>

@@ -3,4 +3,5 @@
     <string name="usuario">Usuario</string>
     <string name="senha">Senha</string>
     <string name="logar">Login</string>
+    <string name="title_activity_tela_livro">TelaLivro</string>
 </resources>

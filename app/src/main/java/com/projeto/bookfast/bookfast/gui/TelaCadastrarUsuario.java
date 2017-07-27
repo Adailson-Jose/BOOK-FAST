@@ -11,13 +11,13 @@ import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
-public class TelaCadastrar extends AppCompatActivity {
+public class TelaCadastrarUsuario extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome, editNovoNasc, editNovoId;
     Button btRegistrar, btCancelarRegistro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_cadastrar);
+        setContentView(R.layout.activity_tela_cadastrar_usuario);
         editNovoNome=(EditText) findViewById(R.id.editNovoNome);
         editNovoEmail=(EditText) findViewById(R.id.editNovoEmail);
         editNovoUsuario = (EditText) findViewById(R.id.editNovoUsuario);
@@ -51,13 +51,13 @@ public class TelaCadastrar extends AppCompatActivity {
                 pessoa.setSenha(senha);
                 UpdateBancoDados inserir = new UpdateBancoDados(getApplicationContext());
                 if (inserir.insertPessoa(pessoa)) {
-                    Toast.makeText(TelaCadastrar.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(TelaCadastrar.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaCadastrarUsuario.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
                 }
 
 
-                Toast.makeText(TelaCadastrar.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
+                Toast.makeText(TelaCadastrarUsuario.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
 
 
             }
