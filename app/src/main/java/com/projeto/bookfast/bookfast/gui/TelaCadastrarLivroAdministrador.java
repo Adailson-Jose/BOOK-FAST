@@ -23,8 +23,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar_livro_administrador);
-        ViewGroup group = (ViewGroup) findViewById(R.id.btCadastrarLivro);
-        new LimparTelas(group);
         editIsbn = (EditText) findViewById(R.id.editIsbn);
         editNome = (EditText) findViewById(R.id.editNome);
         editGenero = (EditText) findViewById(R.id.editGenero);
