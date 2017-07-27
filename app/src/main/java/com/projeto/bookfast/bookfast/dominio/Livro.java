@@ -1,24 +1,52 @@
 package com.projeto.bookfast.bookfast.dominio;
 
 public class Livro {
+    private int id;
     private String nome;
     private String autor;
-    private String isbn;
+    private Integer isbn;
     private int ano;
     private int numEdicao;
     private String genero;
     private int qtdTotal;
-    private int qtdDisponivel;
+    private int qtdAlugado;
 
-    public Livro(String nome, String autor, String isbn, int ano, int numEdicao, String genero, int qtdTotal, int qtdDisponivel) {
-        this.nome = nome;
-        this.autor = autor;
+    //Construtor para instanciar
+    public Livro() {
+
+    }
+
+    //Construtor para buscar no banco
+    public Livro(int id, Integer isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
+        this.id = id;
         this.isbn = isbn;
-        this.ano = ano;
-        this.numEdicao = numEdicao;
+        this.nome = nome;
+        this.qtdAlugado = qtdAlugado;
+        this.autor = autor;
         this.genero = genero;
         this.qtdTotal = qtdTotal;
-        this.qtdDisponivel = qtdDisponivel;
+        this.ano = ano;
+        this.numEdicao = numEdicao;
+    }
+
+    //Construtor para inserir
+    public Livro(Integer isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
+        this.isbn = isbn;
+        this.nome = nome;
+        this.qtdAlugado = qtdAlugado;
+        this.autor = autor;
+        this.genero = genero;
+        this.qtdTotal = qtdTotal;
+        this.ano = ano;
+        this.numEdicao = numEdicao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -37,11 +65,11 @@ public class Livro {
         this.autor = autor;
     }
 
-    public String getIsbn() {
+    public Integer getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(Integer isbn) {
         this.isbn = isbn;
     }
 
@@ -77,11 +105,11 @@ public class Livro {
         this.qtdTotal = qtdTotal;
     }
 
-    public int getQtdDisponivel() {
-        return qtdDisponivel;
+    public int getQtdAlugado() {
+        return qtdAlugado;
     }
 
-    public void setQtdDisponivel(int qtdDisponivel) {
-        this.qtdDisponivel = qtdDisponivel;
+    public void setQtdAlugado(int qtdAlugado) {
+        this.qtdAlugado = qtdAlugado;
     }
 }

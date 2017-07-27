@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.projeto.bookfast.bookfast.dominio.Livro;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 
 import java.util.ArrayList;
@@ -48,8 +49,8 @@ public class ReadBancoDados extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Pessoa pessoa = new Pessoa();
-                    pessoa.setId(Integer.parseInt(cursor.getString(0)));
-                    pessoa.setCpf(Integer.parseInt(cursor.getString(1)));
+                    pessoa.setId(cursor.getInt(0));
+                    pessoa.setCpf(cursor.getInt(0));
                     pessoa.setNome(cursor.getString(2));
                     pessoa.setEmail(cursor.getString(3));
                     pessoa.setSenha(cursor.getString(4));
@@ -77,10 +78,71 @@ public class ReadBancoDados extends SQLiteOpenHelper {
                 new String[]{String.valueOf(cpf)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            Pessoa pessoa = new Pessoa(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            Pessoa pessoa = new Pessoa(cursor.getInt(0), cursor.getInt(1), cursor.getString(2),
+                    cursor.getString(3), cursor.getString(4));
             cursor.close();
             db.close();
             return pessoa;
+        } else {
+            db.close();
+            return null;
+        }
+
+    }
+
+    public ArrayList<Livro> getListaLivro() {
+        openDB();
+        ArrayList<Livro> livroArray = new ArrayList<>();
+        String getLivro = "SELECT * FROM " + CreatBancoDados.getNomeTabelaLivro();
+
+        try {
+            Cursor cursor = db.rawQuery(getLivro, null);
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Livro livro = new Livro();
+                    livro.setId(Integer.parseInt(cursor.getString(0)));
+                    livro.setIsbn(Integer.parseInt(cursor.getString(1)));
+                    livro.setNome(cursor.getString(2));
+                    livro.setQtdAlugado(Integer.parseInt(cursor.getString(3)));
+                    livro.setAutor(cursor.getString(4));
+                    livro.setGenero(cursor.getString(5));
+                    livro.setQtdTotal(Integer.parseInt(cursor.getString(6)));
+                    livro.setAno(Integer.parseInt(cursor.getString(7)));
+                    livro.setNumEdicao(Integer.parseInt(cursor.getString(8)));
+                    livroArray.add(livro);
+
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            db.close();
+        }
+
+        return livroArray;
+    }
+    //Obter pessoa pelo cpf
+
+    public Livro getLivro(Integer isbn) {
+        openDB();
+
+        Cursor cursor = db.query(CreatBancoDados.getNomeTabelaLivro(), new String[]{CreatBancoDados.getColunaIdLivro(),
+                        CreatBancoDados.getColunaIsbn(), CreatBancoDados.getColunaNomeLivro(),
+                        CreatBancoDados.getColunaQtdAlugado(), CreatBancoDados.getColunaAutor(),
+                        CreatBancoDados.getColunaGenero(), CreatBancoDados.getColunaQtdTotal(),
+                        CreatBancoDados.getColunaAno(), CreatBancoDados.getColunaNEdicao()},
+                CreatBancoDados.getColunaIsbn() + " = ?",
+                new String[]{String.valueOf(isbn)}, null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Livro livro = new Livro(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
+            cursor.close();
+            db.close();
+            return livro;
         } else {
             db.close();
             return null;

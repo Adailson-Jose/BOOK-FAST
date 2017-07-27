@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.projeto.bookfast.bookfast.dominio.Livro;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 
 /**
@@ -55,6 +56,37 @@ public class DeletBancoDados extends SQLiteOpenHelper {
 
         try {
             db.delete(CreatBancoDados.getNomeTabelaPessoa(), deletePessoa, null);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            db.close();
+        }
+
+    }
+
+    public boolean deleteTabelaLivro() {
+        openDB();
+        String deletTabelaLivro = "DROP TABLE IF EXISTS " + CreatBancoDados.getNomeTabelaLivro();
+        try {
+            db.execSQL(deletTabelaLivro);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            db.close();
+        }
+    }
+
+    public boolean deleteLivro(Livro livro) {
+        openDB();
+
+        String deleteLivro = "isbn = '" + Integer.toString(livro.getIsbn()) + "'";
+
+        try {
+            db.delete(CreatBancoDados.getNomeTabelaLivro(), deleteLivro, null);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

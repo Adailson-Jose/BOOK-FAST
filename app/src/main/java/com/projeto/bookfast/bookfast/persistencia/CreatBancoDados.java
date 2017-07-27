@@ -49,10 +49,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
                 + " integer, " + COLUNA_NOME_LIVRO + " text not null, " + COLUNA_QTD_ALUGADO + " integer, "
-                + COLUNA_AUTOR + " text not null, " + COLUNA_GENERO + " text not null, " + COLUNA_QTD_TOTAL + " integer, " + COLUNA_ANO + " integer)");
+                + COLUNA_AUTOR + " text not null, " + COLUNA_GENERO + " text not null, " + COLUNA_QTD_TOTAL + " integer, " + COLUNA_ANO + " integer, " + COLUNA_N_EDICAO + " integer)");
         //ADD LIVRO EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
-                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + ") VALUES('1234567890', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017')");
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + ") VALUES('1234567890', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0')");
+
     }
 
 
@@ -101,7 +102,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     //GETS TABELA LIVRO
 
 
-    public static String getTabelaLivro() {
+    public static String getNomeTabelaLivro() {
         return TABELA_LIVRO;
     }
 

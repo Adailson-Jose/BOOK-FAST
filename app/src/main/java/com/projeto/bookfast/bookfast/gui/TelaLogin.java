@@ -35,15 +35,13 @@ public class TelaLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
-
-                TextView editUsuario = (TextView) findViewById(R.id.editUsuario);
-                TextView editSenha = (TextView) findViewById(R.id.editSenha);
+                String senha = editSenha.getText().toString();
                 String loginCpf = editUsuario.getText().toString();
                 pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
                 // Teste de busca
                 if (pessoa != null) {
 
-                    if (String.valueOf(pessoa.getCpf()).equals(1234567890)) {
+                    if (pessoa.getCpf() == (1234567890)) {
                         Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicial.class);
                         abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                         startActivity(abreTelaInicial);

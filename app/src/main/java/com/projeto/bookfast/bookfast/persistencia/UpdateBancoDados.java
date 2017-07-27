@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.projeto.bookfast.bookfast.dominio.Livro;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 
 /**
@@ -62,6 +63,51 @@ public class UpdateBancoDados extends SQLiteOpenHelper {
             valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
             valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
             db.update(CreatBancoDados.getNomeTabelaPessoa(), valores, where, null);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            db.close();
+        }
+    }
+
+    public boolean insertLivro(Livro livro) {
+        openDB();
+        try {
+            ContentValues valores = new ContentValues();
+            valores.put(CreatBancoDados.getColunaIsbn(), livro.getIsbn());
+            valores.put(CreatBancoDados.getColunaAno(), livro.getAno());
+            valores.put(CreatBancoDados.getColunaAutor(), livro.getAutor());
+            valores.put(CreatBancoDados.getColunaGenero(), livro.getGenero());
+            valores.put(CreatBancoDados.getColunaNomeLivro(), livro.getNome());
+            valores.put(CreatBancoDados.getColunaNEdicao(), livro.getNumEdicao());
+            valores.put(CreatBancoDados.getColunaQtdAlugado(), livro.getQtdAlugado());
+            valores.put(CreatBancoDados.getColunaQtdTotal(), livro.getQtdTotal());
+            db.insert(CreatBancoDados.getNomeTabelaLivro(), null, valores);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            db.close();
+        }
+    }
+
+    public boolean updateLivro(Livro livro) {
+        openDB();
+        try {
+            String where = "isbn = '" + Integer.toString(livro.getIsbn()) + "'";
+            ContentValues valores = new ContentValues();
+            valores.put(CreatBancoDados.getColunaIsbn(), livro.getIsbn());
+            valores.put(CreatBancoDados.getColunaAno(), livro.getAno());
+            valores.put(CreatBancoDados.getColunaAutor(), livro.getAutor());
+            valores.put(CreatBancoDados.getColunaGenero(), livro.getGenero());
+            valores.put(CreatBancoDados.getColunaNomeLivro(), livro.getNome());
+            valores.put(CreatBancoDados.getColunaNEdicao(), livro.getNumEdicao());
+            valores.put(CreatBancoDados.getColunaQtdAlugado(), livro.getQtdAlugado());
+            valores.put(CreatBancoDados.getColunaQtdTotal(), livro.getQtdTotal());
+            db.update(CreatBancoDados.getNomeTabelaLivro(), valores, where, null);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

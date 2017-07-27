@@ -15,7 +15,8 @@ public class Pessoa {
     public Pessoa(){
 
     }
-    //Construtor para atualizar
+
+    //Construtor para buscar no banco
     public Pessoa(int _id, int _cpf, String _nome, String _email, String _senha) {
         this.id = _id;
         this.cpf = _cpf;
