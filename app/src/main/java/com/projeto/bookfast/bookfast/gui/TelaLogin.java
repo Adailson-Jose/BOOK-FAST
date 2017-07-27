@@ -36,10 +36,12 @@ public class TelaLogin extends AppCompatActivity {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
                 String senha = editSenha.getText().toString();
                 String loginCpf = editUsuario.getText().toString();
+                //Teste de limpar os campos
+                editSenha.getText().clear();
+                editUsuario.getText().clear();
+                // Teste de buscar pessoa
                 pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
-                // Teste de busca
                 if (pessoa != null) {
-
                     if (pessoa.getCpf() == (1234567890)) {
                         Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
                         abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
@@ -55,7 +57,7 @@ public class TelaLogin extends AppCompatActivity {
 
                     }
                 } else {
-                    Toast.makeText(TelaLogin.this, "CAMPO LOGIN INVÁLDO.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TelaLogin.this, "CAMPO LOGIN E/OU SENHA INVÁLDOS.", Toast.LENGTH_LONG).show();
 
                 }
 

@@ -3,12 +3,14 @@ package com.projeto.bookfast.bookfast.gui;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Livro;
+import com.projeto.bookfast.bookfast.negocio.LimparTelas;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
@@ -21,6 +23,8 @@ public class TelaCadastrarLivroAdministrador extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar_livro_administrador);
+        ViewGroup group = (ViewGroup) findViewById(R.id.btCadastrarLivro);
+        new LimparTelas(group);
         editIsbn = (EditText) findViewById(R.id.editIsbn);
         editNome = (EditText) findViewById(R.id.editNome);
         editGenero = (EditText) findViewById(R.id.editGenero);
@@ -66,5 +70,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
             }
         });
     }
+
 
 }
