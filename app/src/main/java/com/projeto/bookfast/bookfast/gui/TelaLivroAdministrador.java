@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class TelaLivroAdministrador extends Activity {
     Button btEditarLivro, btCadastrarLivro;
     ListView listView;
-}
-    /*
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,18 +32,21 @@ public class TelaLivroAdministrador extends Activity {
         final ArrayList<String> livros = preencherDados();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, livros);
         listView.setAdapter(arrayAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "posição: " + livros.get(position).toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), livros.get(position).toString(), Toast.LENGTH_LONG).show();
             }
         });
 
-        /*btCadastrarLivro.setOnClickListener(new View.OnClickListener(){
+        btCadastrarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastrarUsuario.class);
+                Intent abreCadastro = new Intent(TelaLivroAdministrador.this, TelaCadastrarLivroAdministrador.class);
                 startActivity(abreCadastro);
+            }
+        });
 
         btEditarLivro.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -52,8 +55,8 @@ public class TelaLivroAdministrador extends Activity {
 
             }
 
-        });*/
-/*
+        });
+
     }
 
     private ArrayList<String> preencherDados() {
@@ -67,4 +70,4 @@ public class TelaLivroAdministrador extends Activity {
         }
         return stringDados;
     }
-}*/
+}
