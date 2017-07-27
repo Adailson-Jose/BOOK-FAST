@@ -19,14 +19,15 @@ import java.util.ArrayList;
 public class TelaLivroAdministrador extends Activity {
     Button btEditarLivro, btCadastrarLivro;
     ListView listView;
-
+}
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         btEditarLivro = (Button) findViewById(R.id.btEditarLivro);
         btCadastrarLivro = (Button) findViewById(R.id.btCadastrarLivro);
 
-        setContentView(R.layout.activity_tela_livro_admnistrador);
+        setContentView(R.layout.activity_tela_livro_administrador);
         ListView listView = (ListView) findViewById(R.id.listView);
         final ArrayList<String> livros = preencherDados();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, livros);
@@ -52,7 +53,7 @@ public class TelaLivroAdministrador extends Activity {
             }
 
         });*/
-
+/*
     }
 
     private ArrayList<String> preencherDados() {
@@ -66,4 +67,4 @@ public class TelaLivroAdministrador extends Activity {
         }
         return stringDados;
     }
-}
+}*/

@@ -16,7 +16,6 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         tools:ignore="MissingConstraints"
-
         android:layout_alignParentLeft="true">
 
         <EditText
@@ -26,7 +25,7 @@
             android:textColor="@color/colorgray"
             android:hint="Usuário"
             android:ems="10"
-            android:textColorHint="@color/colorgray"
+            android:textColorHint="@color/colorGrayyy"
             android:inputType="textPersonName"
             android:text="" />
 
@@ -36,7 +35,7 @@
             android:layout_height="wrap_content"
             android:hint="Senha"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
+            android:textColorHint="@color/colorGrayyy"
             android:ems="10"
             android:inputType="textPassword"
             android:text="" />

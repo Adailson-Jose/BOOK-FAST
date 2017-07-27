@@ -24,7 +24,8 @@
             android:text="USUÁRIO"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="180dp" />
+            tools:layout_editor_absoluteY="280dp"
+            android:layout_marginTop="2dp" />
 
         <Button
             android:id="@+id/btLivro"
@@ -33,7 +34,8 @@
             android:text="LIVRO"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="77dp" />
+            tools:layout_editor_absoluteY="90dp"
+            android:layout_marginTop="2dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
