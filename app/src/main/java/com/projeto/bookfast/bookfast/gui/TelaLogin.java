@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.projeto.bookfast.bookfast.R;
 
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoLogin;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 
@@ -34,33 +35,35 @@ public class TelaLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
-                String senha = editSenha.getText().toString();
-                String loginCpf = editUsuario.getText().toString();
-                //Teste de limpar os campos
-                editSenha.getText().clear();
-                editUsuario.getText().clear();
-                // Teste de buscar pessoa
-                pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
-                if (pessoa != null) {
-                    if (pessoa.getCpf() == (1234567890)) {
-                        Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
-                        abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
-                        startActivity(abreTelaInicial);
-                        Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
+                ValidarCampoLogin validarCampos = new ValidarCampoLogin();
+                if (validarCampos.equals(validarCampos.validarLogin(editUsuario, editSenha))) {
+                    String senha = editSenha.getText().toString();
+                    String loginCpf = editUsuario.getText().toString();
+                    //Teste de limpar os campos
+                    editSenha.getText().clear();
+                    editUsuario.getText().clear();
+                    // Teste de buscar pessoa
+                    pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
+                    if (pessoa != null) {
+                        if (pessoa.getCpf() == (1234567890)) {
+                            Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
+                            abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                            startActivity(abreTelaInicial);
+                            Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
 
+                        } else {
+                            //  se entrou aqui é porque existe um usuário baseado na busca
+                            Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);
+                            abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                            startActivity(abreTelaInicialUsuarioComum);
+                            Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
+
+                        }
                     } else {
-                        //  se entrou aqui é porque existe um usuário baseado na busca
-                        Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);
-                        abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
-                        startActivity(abreTelaInicialUsuarioComum);
-                        Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(TelaLogin.this, "CAMPO LOGIN E/OU SENHA INVÁLDOS.", Toast.LENGTH_LONG).show();
 
                     }
-                } else {
-                    Toast.makeText(TelaLogin.this, "CAMPO LOGIN E/OU SENHA INVÁLDOS.", Toast.LENGTH_LONG).show();
-
                 }
-
             }
         });
 

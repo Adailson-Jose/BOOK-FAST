@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrarUsuario extends AppCompatActivity {
@@ -38,28 +39,31 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
         btRegistrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String cpf = editNovoUsuario.getText().toString();
-                String nome = editNovoNome.getText().toString();
-                String email = editNovoEmail.getText().toString();
-                String senha = editNovaSenha.getText().toString();
-                //Falta validar os campos!
+                ValidarCampoCadastro validarCampos = new ValidarCampoCadastro();
+                if (validarCampos.equals(validarCampos.vefificacadastrovazio(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha))) {
+                    String cpf = editNovoUsuario.getText().toString();
+                    String nome = editNovoNome.getText().toString();
+                    String email = editNovoEmail.getText().toString();
+                    String senha = editNovaSenha.getText().toString();
+                    Pessoa pessoa = new Pessoa();
+                    pessoa.setNome(nome);
+                    pessoa.setEmail(email);
+                    pessoa.setCpf(Integer.parseInt(cpf));
+                    pessoa.setSenha(senha);
+                    UpdateBancoDados inserir = new UpdateBancoDados(getApplicationContext());
+                    if (inserir.insertPessoa(pessoa)) {
+                        Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(TelaCadastrarUsuario.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
+                    }
 
-                Pessoa pessoa = new Pessoa();
-                pessoa.setNome(nome);
-                pessoa.setEmail(email);
-                pessoa.setCpf(Integer.parseInt(cpf));
-                pessoa.setSenha(senha);
-                UpdateBancoDados inserir = new UpdateBancoDados(getApplicationContext());
-                if (inserir.insertPessoa(pessoa)) {
-                    Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(TelaCadastrarUsuario.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
+
                 } else {
-                    Toast.makeText(TelaCadastrarUsuario.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaCadastrarUsuario.this, "Campos inválidos.", Toast.LENGTH_SHORT).show();
+
                 }
-
-
-                Toast.makeText(TelaCadastrarUsuario.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
-
-
             }
 
         });

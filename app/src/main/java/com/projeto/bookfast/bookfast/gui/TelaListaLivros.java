@@ -1,5 +1,6 @@
 package com.projeto.bookfast.bookfast.gui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,8 @@ public class TelaListaLivros extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), livros.get(position).toString(), Toast.LENGTH_LONG).show();
+                Intent abreTelaEditarLivro = new Intent(TelaListaLivros.this, TelaEditarLivroAdministrador.class);
+                startActivity(abreTelaEditarLivro);
 
             }
         });

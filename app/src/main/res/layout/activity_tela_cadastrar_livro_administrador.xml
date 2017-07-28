@@ -8,12 +8,12 @@
 
     <LinearLayout
         android:layout_width="368dp"
-        android:layout_height="510dp"
+        android:layout_height="495dp"
         android:background="@drawable/fundo"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="8dp">
 
         <TextView
             android:id="@+id/textView2"
@@ -32,9 +32,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="ISBN"
+            android:inputType="number"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:inputType="number" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
             android:id="@+id/editNome"
@@ -42,9 +42,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nome"
+            android:inputType="textPersonName"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:inputType="textPersonName" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
             android:id="@+id/editGenero"
@@ -52,9 +52,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Gênero"
+            android:inputType="textPersonName"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:inputType="textPersonName" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
             android:id="@+id/editAutor"
@@ -62,9 +62,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Autor"
+            android:inputType="textPersonName"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:inputType="textPersonName" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
             android:id="@+id/editEdicao"
@@ -72,9 +72,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Edição"
+            android:inputType="number"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:inputType="number" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
             android:id="@+id/editAno"
@@ -83,9 +83,9 @@
             android:ems="10"
             android:hint="Ano da Publicação"
             android:inputType="number"
+            android:selectAllOnFocus="false"
             android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray"
-            android:selectAllOnFocus="false" />
+            android:textColorHint="@color/colorgray" />
 
         <EditText
             android:id="@+id/editQuantidadeTotal"

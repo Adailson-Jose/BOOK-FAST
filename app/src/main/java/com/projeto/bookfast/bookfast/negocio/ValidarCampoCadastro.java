@@ -3,7 +3,7 @@ package com.projeto.bookfast.bookfast.negocio;
 
 import android.widget.EditText;
 
-public class ValidarCadastro {
+public class ValidarCampoCadastro {
     public boolean vefificacadastrovazio (EditText cpf, EditText nome, EditText email, EditText senha ){
 
         String cpfString = String.valueOf(cpf);
