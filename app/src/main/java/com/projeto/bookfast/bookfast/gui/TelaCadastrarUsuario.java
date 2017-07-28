@@ -13,14 +13,14 @@ import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrarUsuario extends AppCompatActivity {
-    EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome, editNovoNasc, editNovoId;
+    EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome;
     Button btRegistrar, btCancelarRegistro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar_usuario);
-        editNovoNome=(EditText) findViewById(R.id.editNovoNome);
-        editNovoEmail=(EditText) findViewById(R.id.editNovoEmail);
+        editNovoNome = (EditText) findViewById(R.id.editNovoNome);
+        editNovoEmail = (EditText) findViewById(R.id.editNovoEmail);
         editNovoUsuario = (EditText) findViewById(R.id.editNovoUsuario);
         editNovaSenha = (EditText) findViewById(R.id.editNovaSenha);
 
@@ -35,12 +35,12 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
             }
 
         });
-
         btRegistrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 ValidarCampoCadastro validarCampos = new ValidarCampoCadastro();
-                if (validarCampos.equals(validarCampos.vefificacadastrovazio(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha))) {
+
+                if (validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha)) {
                     String cpf = editNovoUsuario.getText().toString();
                     String nome = editNovoNome.getText().toString();
                     String email = editNovoEmail.getText().toString();
@@ -56,7 +56,6 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     } else {
                         Toast.makeText(TelaCadastrarUsuario.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
                     }
-
 
                     Toast.makeText(TelaCadastrarUsuario.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
 

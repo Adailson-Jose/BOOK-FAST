@@ -36,7 +36,7 @@ public class TelaLogin extends AppCompatActivity {
             public void onClick(View v) {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
                 ValidarCampoLogin validarCampos = new ValidarCampoLogin();
-                if (validarCampos.equals(validarCampos.validarLogin(editUsuario, editSenha))) {
+                if (validarCampos.validarLogin(editUsuario, editSenha)) {
                     String senha = editSenha.getText().toString();
                     String loginCpf = editUsuario.getText().toString();
                     //Teste de limpar os campos
@@ -63,6 +63,9 @@ public class TelaLogin extends AppCompatActivity {
                         Toast.makeText(TelaLogin.this, "CAMPO LOGIN E/OU SENHA INVÁLDOS.", Toast.LENGTH_LONG).show();
 
                     }
+                } else {
+                    Toast.makeText(TelaLogin.this, "Campos inválidos.", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

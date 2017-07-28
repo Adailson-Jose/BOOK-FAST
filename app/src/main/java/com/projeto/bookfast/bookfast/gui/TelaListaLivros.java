@@ -31,8 +31,7 @@ public class TelaListaLivros extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), livros.get(position).toString(), Toast.LENGTH_LONG).show();
-                Intent abreTelaEditarLivro = new Intent(TelaListaLivros.this, TelaEditarLivroAdministrador.class);
-                startActivity(abreTelaEditarLivro);
+
 
             }
         });

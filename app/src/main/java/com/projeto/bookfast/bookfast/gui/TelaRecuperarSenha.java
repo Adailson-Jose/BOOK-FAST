@@ -37,12 +37,14 @@ public class TelaRecuperarSenha extends Activity {
                 String novaSenha = editNovaSenha.getText().toString();
                 String email = editEmail.getText().toString();
                 pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
+                if (pessoa != null) {
+                    pessoa.setSenha(novaSenha);
+                    atualizar.updatePessoa(pessoa);
+                    Toast.makeText(TelaRecuperarSenha.this, "Atualização da SENHA realizado com sucesso.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(TelaRecuperarSenha.this, "Atualização da SENHA sem sucesso, dasdos incorretos.", Toast.LENGTH_LONG).show();
 
-                // se campos estiverem corretos e a pessoa existe no banco
-                pessoa.setSenha(novaSenha);
-                atualizar.updatePessoa(pessoa);
-                Toast.makeText(TelaRecuperarSenha.this, "Atualização da SENHA realizado com sucesso.", Toast.LENGTH_LONG).show();
-
+                }
             }
 
         });
