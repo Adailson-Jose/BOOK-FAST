@@ -24,7 +24,7 @@ public class TelaListaLivros extends AppCompatActivity {
         setContentView(R.layout.activity_tela_lista_livros);
         ListView listView = (ListView) findViewById(R.id.listView);
         final ArrayList<String> livros = preencherDados();
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, livros);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, livros);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

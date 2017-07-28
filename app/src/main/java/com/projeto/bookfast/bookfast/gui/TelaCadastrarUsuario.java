@@ -50,7 +50,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     String email = editNovoEmail.getText().toString();
                     String senha = editNovaSenha.getText().toString();
                     limparTela.clearForm(group);
-                    editNovoUsuario.requestFocus();
+                    editNovoNome.requestFocus();
                     Pessoa pessoa = new Pessoa();
                     pessoa.setNome(nome);
                     pessoa.setEmail(email);

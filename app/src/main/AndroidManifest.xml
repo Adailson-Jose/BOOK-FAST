@@ -7,7 +7,7 @@
         android:allowBackup="true"
         android:icon="@drawable/bookfast"
         android:label="Book Fast"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/bookfast"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".gui.TelaLogin">
