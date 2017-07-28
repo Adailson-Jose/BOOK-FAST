@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Livro;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoEdita;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
@@ -38,34 +39,38 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UpdateBancoDados atualizarLivro = new UpdateBancoDados(getApplicationContext());
-                Integer isbn = Integer.parseInt(editIsbn.getText().toString());
-                int edicao = Integer.parseInt(editEdicao.getText().toString());
-                int ano = Integer.parseInt(editAno.getText().toString());
-                int quantidadeTotal = Integer.parseInt(editQuantidadeTotal.getText().toString());
-                int quanitdadeAlugada = Integer.parseInt(editQuantidadeAlugada.getText().toString());
-                String nome = editNome.getText().toString();
-                String genero = editGenero.getText().toString();
-                String autor = editAutor.getText().toString();
-                //Falta validar os campos!
-                ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
-                livro = buscarLivro.getLivro(isbn);
-                if (livro != null) {
-                    livro.setIsbn(isbn);
-                    livro.setNumEdicao(edicao);
-                    livro.setAno(ano);
-                    livro.setQtdTotal(quantidadeTotal);
-                    livro.setQtdAlugado(quanitdadeAlugada);
-                    livro.setNome(nome);
-                    livro.setGenero(genero);
-                    livro.setAutor(autor);
-                    atualizarLivro.updateLivro(livro);
-                    Toast.makeText(TelaEditarLivroAdministrador.this, "LIVRO ATUALIZADO COM SUCESSO", Toast.LENGTH_LONG).show();
+                ValidarCampoEdita validarEdicao = new ValidarCampoEdita();
 
-                } else {
-                    Toast.makeText(TelaEditarLivroAdministrador.this, "LIVRO NÃO EXISTE.", Toast.LENGTH_LONG).show();
+                if (!validarEdicao.vefificaEdicaoLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
+                    Integer isbn = Integer.parseInt(editIsbn.getText().toString());
+                    int edicao = Integer.parseInt(editEdicao.getText().toString());
+                    int ano = Integer.parseInt(editAno.getText().toString());
+                    int quantidadeTotal = Integer.parseInt(editQuantidadeTotal.getText().toString());
+                    int quanitdadeAlugada = Integer.parseInt(editQuantidadeAlugada.getText().toString());
+                    String nome = editNome.getText().toString();
+                    String genero = editGenero.getText().toString();
+                    String autor = editAutor.getText().toString();
+                    ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
+                    livro = buscarLivro.getLivro(isbn);
+                    if (livro != null) {
+                        livro.setIsbn(isbn);
+                        livro.setNumEdicao(edicao);
+                        livro.setAno(ano);
+                        livro.setQtdTotal(quantidadeTotal);
+                        livro.setQtdAlugado(quanitdadeAlugada);
+                        livro.setNome(nome);
+                        livro.setGenero(genero);
+                        livro.setAutor(autor);
+                        atualizarLivro.updateLivro(livro);
+                        Toast.makeText(TelaEditarLivroAdministrador.this, R.string.AtualizcaoLivro, Toast.LENGTH_LONG).show();
 
+                    } else {
+                        Toast.makeText(TelaEditarLivroAdministrador.this, R.string.LvroNaoExiste, Toast.LENGTH_LONG).show();
+
+                    }
+                }else{
+                    Toast.makeText(TelaEditarLivroAdministrador.this, R.string.CampoInvalido, Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
         btCancelar.setOnClickListener(new View.OnClickListener() {

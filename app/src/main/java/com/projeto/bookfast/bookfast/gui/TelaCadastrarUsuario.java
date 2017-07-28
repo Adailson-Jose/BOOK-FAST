@@ -39,8 +39,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ValidarCampoCadastro validarCampos = new ValidarCampoCadastro();
-
-                if (validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha)) {
+                if (!validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha)) {
                     String cpf = editNovoUsuario.getText().toString();
                     String nome = editNovoNome.getText().toString();
                     String email = editNovoEmail.getText().toString();

@@ -43,7 +43,7 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 UpdateBancoDados inserirLivro = new UpdateBancoDados(getApplicationContext());
                 ValidarCampoCadastro validarCampo = new ValidarCampoCadastro();
 
-                if (validarCampo.vefificaCadastroLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
+                if (!validarCampo.vefificaCadastroLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
                     Integer isbn = Integer.parseInt(editIsbn.getText().toString());
                     int edicao = Integer.parseInt(editEdicao.getText().toString());
                     int ano = Integer.parseInt(editAno.getText().toString());

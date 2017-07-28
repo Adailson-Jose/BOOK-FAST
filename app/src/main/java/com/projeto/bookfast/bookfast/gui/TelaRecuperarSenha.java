@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoRecuperarSenha;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
@@ -31,18 +32,24 @@ public class TelaRecuperarSenha extends Activity {
             public void onClick(View v) {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
                 UpdateBancoDados atualizar = new UpdateBancoDados(getApplicationContext());
-                Pessoa pessoa;
-                //validar campos e se existe essa pessoa no banco
-                String loginCpf = editCPF.getText().toString();
-                String novaSenha = editNovaSenha.getText().toString();
-                String email = editEmail.getText().toString();
-                pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
-                if (pessoa != null) {
-                    pessoa.setSenha(novaSenha);
-                    atualizar.updatePessoa(pessoa);
-                    Toast.makeText(TelaRecuperarSenha.this, "Atualização da SENHA realizado com sucesso.", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(TelaRecuperarSenha.this, "Atualização da SENHA sem sucesso, dasdos incorretos.", Toast.LENGTH_LONG).show();
+                ValidarCampoRecuperarSenha validarCampos = new ValidarCampoRecuperarSenha();
+                if (!validarCampos.valdarCampoRecuperarSenha(editCPF, editEmail,editNovaSenha)) {
+                    Pessoa pessoa;
+                    String loginCpf = editCPF.getText().toString();
+                    String novaSenha = editNovaSenha.getText().toString();
+                    String email = editEmail.getText().toString();
+
+                    pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
+                    if (pessoa != null && pessoa.getSenha().equals(novaSenha)) {
+                        pessoa.setSenha(novaSenha);
+                        atualizar.updatePessoa(pessoa);
+                        Toast.makeText(TelaRecuperarSenha.this, R.string.SenhaAtualizada, Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(TelaRecuperarSenha.this, R.string.SenhaNaoAtualizada, Toast.LENGTH_LONG).show();
+
+                    }
+                }else{
+                    Toast.makeText(TelaRecuperarSenha.this, R.string.FaltaPreenchimento, Toast.LENGTH_SHORT).show();
 
                 }
             }

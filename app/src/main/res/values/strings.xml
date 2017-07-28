@@ -4,4 +4,13 @@
     <string name="senha">Senha</string>
     <string name="logar">Login</string>
     <string name="title_activity_tela_livro">TelaLivro</string>
+    <string name="loginAdm">Login do ADMINISTRADOR realizado com sucesso.</string>
+    <string name="loginUseComum">Login de user comum realizado com sucesso.</string>
+    <string name="CamposInvalidos">CAMPO LOGIN E/OU SENHA INVÁLDOS.</string>
+    <string name="FaltaPreenchimento">Falta campo ser preenchido.</string>
+    <string name="AtualizcaoLivro">LIVRO ATUALIZADO COM SUCESSO</string>
+    <string name="LvroNaoExiste">LIVRO NÃO EXISTE.</string>
+    <string name="CampoInvalido">Campos inválidos.</string>
+    <string name="SenhaAtualizada">Atualização da SENHA realizado com sucesso.</string>
+    <string name="SenhaNaoAtualizada">Atualização da SENHA sem sucesso, dasdos incorretos.</string>
 </resources>

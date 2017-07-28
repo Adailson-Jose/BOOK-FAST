@@ -36,7 +36,8 @@ public class TelaLogin extends AppCompatActivity {
             public void onClick(View v) {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
                 ValidarCampoLogin validarCampos = new ValidarCampoLogin();
-                if (validarCampos.validarLogin(editUsuario, editSenha)) {
+
+                if (!validarCampos.ValidarCampoLogin(editUsuario, editSenha)) {
                     String senha = editSenha.getText().toString();
                     String loginCpf = editUsuario.getText().toString();
                     //Teste de limpar os campos
@@ -44,27 +45,25 @@ public class TelaLogin extends AppCompatActivity {
                     editUsuario.getText().clear();
                     // Teste de buscar pessoa
                     pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
-                    if (pessoa != null) {
+                    if (pessoa != null && pessoa.getSenha().equals(senha)) {
                         if (pessoa.getCpf() == (1234567890)) {
                             Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
                             abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                             startActivity(abreTelaInicial);
-                            Toast.makeText(TelaLogin.this, "Login do ADMINISTRADOR realizado com sucesso.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(TelaLogin.this, R.string.loginAdm, Toast.LENGTH_SHORT).show();
 
                         } else {
                             //  se entrou aqui é porque existe um usuário baseado na busca
                             Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);
                             abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                             startActivity(abreTelaInicialUsuarioComum);
-                            Toast.makeText(TelaLogin.this, "Login de user comum realizado com sucesso.", Toast.LENGTH_LONG).show();
-
+                            Toast.makeText(TelaLogin.this, R.string.loginUseComum, Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(TelaLogin.this, "CAMPO LOGIN E/OU SENHA INVÁLDOS.", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(TelaLogin.this, R.string.CamposInvalidos, Toast.LENGTH_LONG).show();
                     }
-                } else {
-                    Toast.makeText(TelaLogin.this, "Campos inválidos.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(TelaLogin.this, R.string.FaltaPreenchimento, Toast.LENGTH_SHORT).show();
 
                 }
             }
