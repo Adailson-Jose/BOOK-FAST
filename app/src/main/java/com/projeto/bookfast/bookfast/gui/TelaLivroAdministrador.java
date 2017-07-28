@@ -30,8 +30,8 @@ public class TelaLivroAdministrador extends Activity {
         btEditarLivro.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(TelaLivroAdministrador.this, "FALTA IMPLEMENTAR AINDA", Toast.LENGTH_LONG).show();
-
+                Intent abreTelaEditarLivroAdministrador = new Intent(TelaLivroAdministrador.this, TelaEditarLivroAdministrador.class);
+                startActivity(abreTelaEditarLivroAdministrador);
             }
 
         });

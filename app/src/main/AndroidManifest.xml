@@ -24,7 +24,8 @@
         <activity android:name=".gui.TelaLivroAdministrador" />
         <activity android:name=".gui.TelaUsuarioAdministrador" />
         <activity android:name=".gui.TelaCadastrarLivroAdministrador" />
-        <activity android:name=".gui.TelaListaLivros"></activity>
+        <activity android:name=".gui.TelaListaLivros" />
+        <activity android:name=".gui.TelaEditarLivroAdministrador"></activity>
     </application>
 
 </manifest>
