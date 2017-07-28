@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Livro;
-import com.projeto.bookfast.bookfast.negocio.LimparTelas;
+import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
@@ -42,7 +42,8 @@ public class TelaCadastrarLivroAdministrador extends Activity {
             public void onClick(View v) {
                 UpdateBancoDados inserirLivro = new UpdateBancoDados(getApplicationContext());
                 ValidarCampoCadastro validarCampo = new ValidarCampoCadastro();
-
+                ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroLivro);
+                LimparTela limparTela = new LimparTela();
                 if (!validarCampo.vefificaCadastroLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
                     Integer isbn = Integer.parseInt(editIsbn.getText().toString());
                     int edicao = Integer.parseInt(editEdicao.getText().toString());
@@ -52,6 +53,8 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     String nome = editNome.getText().toString();
                     String genero = editGenero.getText().toString();
                     String autor = editAutor.getText().toString();
+                    limparTela.clearForm(group);
+                    editIsbn.requestFocus();
                     ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
                     livro = buscarLivro.getLivro(isbn);
                     if (livro != null) {

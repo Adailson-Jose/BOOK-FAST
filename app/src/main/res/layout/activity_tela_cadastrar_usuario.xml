@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizCadastroUsuario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.bookfast.bookfast.gui.TelaCadastrarUsuario">
@@ -56,7 +57,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Cpf"
-            android:inputType="text|number"
+            android:inputType="number"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
             android:textColor="@color/colorgray"
             android:textColorHint="@color/colorgray" />
 

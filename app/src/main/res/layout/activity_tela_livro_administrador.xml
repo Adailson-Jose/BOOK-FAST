@@ -30,8 +30,11 @@
             android:fontFamily="serif"
             android:text="CADASTRAR LIVRO"
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textColor="@color/colorBlue"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/btCadastrarLivro"

@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizRecuperarSenha"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.bookfast.bookfast.gui.TelaRecuperarSenha">
@@ -9,19 +10,19 @@
     <LinearLayout
         android:layout_width="368dp"
         android:layout_height="510dp"
-        android:orientation="vertical"
         android:background="@drawable/fundo"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="RECUPERAÇAO DE SENHA"
             android:fontFamily="serif"
+            android:text="RECUPERAÇAO DE SENHA"
             android:textAlignment="center"
             android:textColor="@color/colorBlue"
             android:textSize="20dp" />
@@ -31,12 +32,12 @@
             android:id="@+id/editCPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Cpf"
             android:inputType="number"
             android:textColor="@color/colorGrayyy"
-            android:textColorHint="@color/colorGrayyy"
-            android:layout_marginTop="8dp" />
+            android:textColorHint="@color/colorGrayyy" />
 
         <EditText
             android:id="@+id/editEmail"
@@ -54,9 +55,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nova Senha"
+            android:inputType="textPassword"
             android:textColor="@color/colorGrayyy"
-            android:textColorHint="@color/colorGrayyy"
-            android:inputType="textPassword" />
+            android:textColorHint="@color/colorGrayyy" />
 
 
         <Button

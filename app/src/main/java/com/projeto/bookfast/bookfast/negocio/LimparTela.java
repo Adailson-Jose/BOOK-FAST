@@ -8,11 +8,7 @@ import android.widget.EditText;
  * Created by oi on 27/07/2017.
  */
 
-public class LimparTelas {
-
-    public LimparTelas(ViewGroup group) {
-
-    }
+public class LimparTela {
 
     public void clearForm(ViewGroup group) {
         for (int i = 0, count = group.getChildCount(); i < count; ++i) {
@@ -25,4 +21,6 @@ public class LimparTelas {
                 clearForm((ViewGroup) view);
         }
     }
+
+
 }

@@ -3,12 +3,14 @@ package com.projeto.bookfast.bookfast.gui;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
@@ -39,11 +41,16 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ValidarCampoCadastro validarCampos = new ValidarCampoCadastro();
+                ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroUsuario);
+                LimparTela limparTela = new LimparTela();
+
                 if (!validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha)) {
                     String cpf = editNovoUsuario.getText().toString();
                     String nome = editNovoNome.getText().toString();
                     String email = editNovoEmail.getText().toString();
                     String senha = editNovaSenha.getText().toString();
+                    limparTela.clearForm(group);
+                    editNovoUsuario.requestFocus();
                     Pessoa pessoa = new Pessoa();
                     pessoa.setNome(nome);
                     pessoa.setEmail(email);

@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.bookfast.bookfast.gui.TelaLogin">
@@ -9,15 +10,15 @@
     <LinearLayout
         android:layout_width="377dp"
         android:layout_height="510dp"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:orientation="vertical"
         android:background="@drawable/fundo"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp"
+        android:orientation="vertical"
+        android:weightSum="1"
         tools:ignore="MissingConstraints"
-        android:layout_alignParentLeft="true"
-        android:weightSum="1">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="3dp">
 
         <TextView
             android:id="@+id/textView3"
@@ -50,12 +51,12 @@
             android:id="@+id/editSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Senha"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy"
             android:ems="10"
+            android:hint="Senha"
             android:inputType="textPassword"
-            android:text="" />
+            android:text=""
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorGrayyy" />
 
         <Button
             android:id="@+id/btLogar"

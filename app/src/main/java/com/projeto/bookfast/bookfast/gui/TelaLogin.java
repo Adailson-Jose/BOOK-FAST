@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.projeto.bookfast.bookfast.R;
 
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoLogin;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
@@ -36,13 +38,14 @@ public class TelaLogin extends AppCompatActivity {
             public void onClick(View v) {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
                 ValidarCampoLogin validarCampos = new ValidarCampoLogin();
+                ViewGroup group = (ViewGroup) findViewById(R.id.raizLogin);
+                LimparTela limparTela = new LimparTela();
 
                 if (!validarCampos.ValidarCampoLogin(editUsuario, editSenha)) {
                     String senha = editSenha.getText().toString();
                     String loginCpf = editUsuario.getText().toString();
-                    //Teste de limpar os campos
-                    editSenha.getText().clear();
-                    editUsuario.getText().clear();
+                    limparTela.clearForm(group);
+                    editUsuario.requestFocus();
                     // Teste de buscar pessoa
                     pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
                     if (pessoa != null && pessoa.getSenha().equals(senha)) {

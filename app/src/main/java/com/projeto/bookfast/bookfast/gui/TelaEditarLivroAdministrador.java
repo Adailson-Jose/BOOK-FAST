@@ -3,12 +3,14 @@ package com.projeto.bookfast.bookfast.gui;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Livro;
+import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoEdita;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
@@ -40,6 +42,8 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
             public void onClick(View v) {
                 UpdateBancoDados atualizarLivro = new UpdateBancoDados(getApplicationContext());
                 ValidarCampoEdita validarEdicao = new ValidarCampoEdita();
+                ViewGroup group = (ViewGroup) findViewById(R.id.raizEditLivro);
+                LimparTela limparTela = new LimparTela();
 
                 if (!validarEdicao.vefificaEdicaoLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
                     Integer isbn = Integer.parseInt(editIsbn.getText().toString());
@@ -50,6 +54,8 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                     String nome = editNome.getText().toString();
                     String genero = editGenero.getText().toString();
                     String autor = editAutor.getText().toString();
+                    limparTela.clearForm(group);
+                    editIsbn.requestFocus();
                     ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
                     livro = buscarLivro.getLivro(isbn);
                     if (livro != null) {

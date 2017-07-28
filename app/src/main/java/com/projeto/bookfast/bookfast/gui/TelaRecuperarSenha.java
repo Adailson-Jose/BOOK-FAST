@@ -3,12 +3,15 @@ package com.projeto.bookfast.bookfast.gui;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.negocio.LimparTela;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoRecuperarSenha;
 import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
@@ -33,12 +36,16 @@ public class TelaRecuperarSenha extends Activity {
                 ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
                 UpdateBancoDados atualizar = new UpdateBancoDados(getApplicationContext());
                 ValidarCampoRecuperarSenha validarCampos = new ValidarCampoRecuperarSenha();
+                ViewGroup group = (ViewGroup) findViewById(R.id.raizRecuperarSenha);
+                LimparTela limparTela = new LimparTela();
+
                 if (!validarCampos.valdarCampoRecuperarSenha(editCPF, editEmail,editNovaSenha)) {
                     Pessoa pessoa;
                     String loginCpf = editCPF.getText().toString();
                     String novaSenha = editNovaSenha.getText().toString();
                     String email = editEmail.getText().toString();
-
+                    limparTela.clearForm(group);
+                    editCPF.requestFocus();
                     pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
                     if (pessoa != null && pessoa.getSenha().equals(novaSenha)) {
                         pessoa.setSenha(novaSenha);
