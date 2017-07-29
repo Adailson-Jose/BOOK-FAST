@@ -67,7 +67,6 @@ public class TelaLogin extends AppCompatActivity {
                     }
                 }else {
                     Toast.makeText(TelaLogin.this, R.string.FaltaPreenchimento, Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
