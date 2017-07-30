@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/raizRecuperarSenha"
@@ -8,24 +8,32 @@
     tools:context="com.projeto.bookfast.bookfast.gui.TelaRecuperarSenha">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="510dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/fundo"
         android:orientation="vertical"
+        android:weightSum="1"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="3dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_weight="0.16"
             android:fontFamily="serif"
             android:text="RECUPERAÇAO DE SENHA"
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textColor="@color/colorBlue"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="RECUPERAÇAO DE SENHA" />
 
 
         <EditText
@@ -36,7 +44,7 @@
             android:ems="10"
             android:hint="Cpf"
             android:inputType="number"
-            android:textColor="@color/colorGrayyy"
+            android:textColor="@color/colorgray"
             android:textColorHint="@color/colorGrayyy" />
 
         <EditText
@@ -46,7 +54,7 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textWebEmailAddress"
-            android:textColor="@color/colorGrayyy"
+            android:textColor="@color/colorgray"
             android:textColorHint="@color/colorGrayyy" />
 
         <EditText
@@ -56,23 +64,29 @@
             android:ems="10"
             android:hint="Nova Senha"
             android:inputType="textPassword"
-            android:textColor="@color/colorGrayyy"
+            android:textColor="@color/colorgray"
             android:textColorHint="@color/colorGrayyy" />
 
 
         <Button
             android:id="@+id/btAlterarSenha"
+            style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:text="ALTERAR SENHA" />
+            android:layout_marginTop="2dp"
+            android:text="ALTERAR SENHA"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btCancelarAlteracao"
+            style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:text="CANCELAR" />
+            android:layout_marginTop="2dp"
+            android:text="CANCELAR"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

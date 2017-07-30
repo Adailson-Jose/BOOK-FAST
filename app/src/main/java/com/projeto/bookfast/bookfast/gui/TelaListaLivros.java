@@ -45,7 +45,7 @@ public class TelaListaLivros extends AppCompatActivity {
         lvros = buscarLivro.getListaLivro();
 
         for (Livro livro : lvros) {
-            stringDados.add("Isbn: " + livro.getIsbn() + ", Nome: " + livro.getNome() + ", Gênero: " + livro.getGenero() + ".");
+            stringDados.add("Isbn: " + livro.getIsbn() + ", Nome: " + livro.getNome() + ", Gênero: " + livro.getGenero() + ", Autor: " + livro.getAutor() + ".");
         }
         return stringDados;
     }

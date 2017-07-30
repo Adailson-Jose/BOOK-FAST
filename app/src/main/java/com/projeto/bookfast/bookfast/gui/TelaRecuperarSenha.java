@@ -23,13 +23,12 @@ public class TelaRecuperarSenha extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela__recuperar__senha);
-
         editCPF = (EditText) findViewById(R.id.editCPF);
         editNovaSenha = (EditText) findViewById(R.id.editNovaSenha);
         editEmail = (EditText) findViewById(R.id.editEmail);
+
         btAlterarSenha = (Button) findViewById(R.id.btAlterarSenha);
         btCancelarAlteracao = (Button) findViewById(R.id.btCancelarAlteracao);
-
         btAlterarSenha.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -68,7 +67,6 @@ public class TelaRecuperarSenha extends Activity {
                 finish();
             }
         });
-        }
-
     }
 
+}
