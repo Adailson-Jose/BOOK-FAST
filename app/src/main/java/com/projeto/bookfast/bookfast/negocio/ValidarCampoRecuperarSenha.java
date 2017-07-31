@@ -14,14 +14,18 @@ public class ValidarCampoRecuperarSenha {
         String emailStr = email.getText().toString();
         String senhaStr = senha.getText().toString();
         boolean resultado = false;
-        if (isCampoVazio(cpfStr)){
+        if (!ValidarCpf.validarCpf(cpfStr)) {
             resultado = true;
+            cpf.setError("Campo CPF inválido!");
             cpf.requestFocus();
         }else if(!isEmailValido(emailStr)){
             resultado = true;
+            email.setError("Campo email inválido!");
+
             email.requestFocus();
         }else if(isCampoVazio(senhaStr)){
             resultado = true;
+            senha.setError("Campo senha inválido!");
             senha.requestFocus();
         }
         if (resultado) {
