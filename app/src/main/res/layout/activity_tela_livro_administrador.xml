@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/raizTelaLivroAdm"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.gui.TelaLivroAdministrador"
-    tools:layout_editor_absoluteY="81dp"
-    android:scaleType="centerCrop">
+    tools:context="com.projeto.bookfast.bookfast.gui.TelaLivroAdministrador">
 
     <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="514dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -19,14 +18,14 @@
         android:weightSum="1"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="3dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_weight="0.32"
+            android:layout_weight="0.09"
             android:fontFamily="serif"
             android:text="CADASTRAR LIVRO"
             android:textAlignment="center"
@@ -42,6 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_weight="0.05"
             android:text="CADASTRAR LIVRO"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -54,17 +55,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:layout_weight="0.05"
             android:text="EDITAR LIVRO"
             android:textColor="#000000"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btListarLivros"
+            style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_weight="0.05"
             android:text="LISTAR LIVROS"
-            android:textColor="@android:color/black"
+            android:textColor="#000000"
             android:textStyle="bold" />
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

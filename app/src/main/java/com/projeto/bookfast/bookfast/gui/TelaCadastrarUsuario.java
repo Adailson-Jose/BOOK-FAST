@@ -28,7 +28,6 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
 
         btRegistrar = (Button) findViewById(R.id.btRegistrar);
         btCancelarRegistro = (Button) findViewById(R.id.btCancelarRegistro);
-
         btCancelarRegistro.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
