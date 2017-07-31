@@ -4,7 +4,7 @@ public class Livro {
     private int id;
     private String nome;
     private String autor;
-    private Integer isbn;
+    private Long isbn;
     private int ano;
     private int numEdicao;
     private String genero;
@@ -17,7 +17,7 @@ public class Livro {
     }
 
     //Construtor para buscar no banco
-    public Livro(int id, Integer isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
+    public Livro(int id, Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
         this.id = id;
         this.isbn = isbn;
         this.nome = nome;
@@ -30,7 +30,7 @@ public class Livro {
     }
 
     //Construtor para inserir
-    public Livro(Integer isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
+    public Livro(Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
         this.isbn = isbn;
         this.nome = nome;
         this.qtdAlugado = qtdAlugado;
@@ -65,11 +65,11 @@ public class Livro {
         this.autor = autor;
     }
 
-    public Integer getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Integer isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
 

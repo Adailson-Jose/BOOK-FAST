@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/raizTelaUserComum"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.gui.TelaInicialUsuarioComum">
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="3dp">
-
-    </LinearLayout>
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <TextView
-        android:id="@+id/editTextView"
-        android:layout_width="311dp"
-        android:layout_height="231dp"
-        android:textAlignment="textStart"
+        android:id="@+id/textViewBemVindo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.11"
+        android:text="BEM-VIMDO"
+        android:textAlignment="center"
         android:textAllCaps="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="223dp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="294dp"
-        android:layout_height="77dp"
-        android:text="BEM-VINDO-->USUÁRIO COMUM"
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.13" />
+
+    <TextView
+        android:id="@+id/textViewDados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.50"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="18sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="39dp" />
-
-</ScrollView>
+        android:textStyle="bold" />
+</LinearLayout>

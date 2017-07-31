@@ -46,7 +46,7 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                 LimparTela limparTela = new LimparTela();
 
                 if (!validarEdicao.vefificaEdicaoLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
-                    Integer isbn = Integer.parseInt(editIsbn.getText().toString());
+                    Long isbn = Long.parseLong(editIsbn.getText().toString());
                     int edicao = Integer.parseInt(editEdicao.getText().toString());
                     int ano = Integer.parseInt(editAno.getText().toString());
                     int quantidadeTotal = Integer.parseInt(editQuantidadeTotal.getText().toString());

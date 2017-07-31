@@ -5,7 +5,7 @@ import android.text.Editable;
 
 public class Pessoa {
     private int id;
-    private int cpf;
+    private long cpf;
     private String nome;
     private String email;
     private String senha;
@@ -17,7 +17,7 @@ public class Pessoa {
     }
 
     //Construtor para buscar no banco
-    public Pessoa(int _id, int _cpf, String _nome, String _email, String _senha) {
+    public Pessoa(int _id, long _cpf, String _nome, String _email, String _senha) {
         this.id = _id;
         this.cpf = _cpf;
         this.nome = _nome;
@@ -25,7 +25,7 @@ public class Pessoa {
         this.senha = _senha;
     }
     //Construtor para inserir
-    public Pessoa(int _cpf, String _nome, String _email, String _senha) {
+    public Pessoa(long _cpf, String _nome, String _email, String _senha) {
         this.cpf = _cpf;
         this.nome = _nome;
         this.email = _email;
@@ -41,11 +41,11 @@ public class Pessoa {
         this.id = id;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 

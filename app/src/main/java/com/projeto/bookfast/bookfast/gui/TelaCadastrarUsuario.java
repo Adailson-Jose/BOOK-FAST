@@ -53,7 +53,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     Pessoa pessoa = new Pessoa();
                     pessoa.setNome(nome);
                     pessoa.setEmail(email);
-                    pessoa.setCpf(Integer.parseInt(cpf));
+                    pessoa.setCpf(Long.parseLong(cpf));
                     pessoa.setSenha(senha);
                     UpdateBancoDados inserir = new UpdateBancoDados(getApplicationContext());
                     if (inserir.insertPessoa(pessoa)) {

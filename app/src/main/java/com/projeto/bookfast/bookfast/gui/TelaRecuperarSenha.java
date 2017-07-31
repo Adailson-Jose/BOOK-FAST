@@ -45,7 +45,7 @@ public class TelaRecuperarSenha extends Activity {
                     String email = editEmail.getText().toString();
                     limparTela.clearForm(group);
                     editCPF.requestFocus();
-                    pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
+                    pessoa = buscar.getPessoa(Long.parseLong(loginCpf));
                     if (pessoa != null && pessoa.getSenha().equals(novaSenha)) {
                         pessoa.setSenha(novaSenha);
                         atualizar.updatePessoa(pessoa);

@@ -52,7 +52,7 @@ public class DeletBancoDados extends SQLiteOpenHelper {
     public boolean deletePessoa(Pessoa pessoa) {
         openDB();
 
-        String deletePessoa = "cpf = '" + Integer.toString(pessoa.getCpf()) + "'";
+        String deletePessoa = "cpf = '" + Long.toString(pessoa.getCpf()) + "'";
 
         try {
             db.delete(CreatBancoDados.getNomeTabelaPessoa(), deletePessoa, null);
@@ -83,7 +83,7 @@ public class DeletBancoDados extends SQLiteOpenHelper {
     public boolean deleteLivro(Livro livro) {
         openDB();
 
-        String deleteLivro = "isbn = '" + Integer.toString(livro.getIsbn()) + "'";
+        String deleteLivro = "isbn = '" + Long.toString(livro.getIsbn()) + "'";
 
         try {
             db.delete(CreatBancoDados.getNomeTabelaLivro(), deleteLivro, null);

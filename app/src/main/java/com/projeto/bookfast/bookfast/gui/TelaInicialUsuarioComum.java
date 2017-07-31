@@ -10,21 +10,21 @@ import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 
 public class TelaInicialUsuarioComum extends Activity {
     Pessoa pessoa;
-    TextView editTextView;
+    TextView textViewDados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_usuario_comum);
         ReadBancoDados busca = new ReadBancoDados(getApplicationContext());
-        editTextView = (TextView) findViewById(R.id.editTextView);
+        textViewDados = (TextView) findViewById(R.id.textViewDados);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            pessoa = busca.getPessoa(Integer.parseInt(String.valueOf(bundle.get("KEY"))));
+            pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
             String dadosPessoa = "Nome: " + pessoa.getNome() + ", Cpf: " + pessoa.getCpf() + ", Senha: " + pessoa.getSenha() + " Id: " + pessoa.getId() + ", Email: " + pessoa.getEmail() + ".";
-            editTextView.setText(dadosPessoa);
+            textViewDados.setText(dadosPessoa);
         } else {
-            editTextView.setText("UM ERRO OCORREU.");
+            textViewDados.setText("UM ERRO OCORREU.");
         }
     }
 }

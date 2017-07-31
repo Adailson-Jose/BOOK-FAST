@@ -50,7 +50,7 @@ public class ReadBancoDados extends SQLiteOpenHelper {
                 do {
                     Pessoa pessoa = new Pessoa();
                     pessoa.setId(cursor.getInt(0));
-                    pessoa.setCpf(cursor.getInt(0));
+                    pessoa.setCpf(cursor.getLong(1));
                     pessoa.setNome(cursor.getString(2));
                     pessoa.setEmail(cursor.getString(3));
                     pessoa.setSenha(cursor.getString(4));
@@ -71,14 +71,14 @@ public class ReadBancoDados extends SQLiteOpenHelper {
     }
     //Obter pessoa pelo cpf
 
-    public Pessoa getPessoa(Integer cpf) {
+    public Pessoa getPessoa(Long cpf) {
         openDB();
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaPessoa(), new String[]{CreatBancoDados.getColunaId(), CreatBancoDados.getColunaCpf(),
                         CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha()}, CreatBancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(cpf)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            Pessoa pessoa = new Pessoa(cursor.getInt(0), cursor.getInt(1), cursor.getString(2),
+            Pessoa pessoa = new Pessoa(cursor.getInt(0), cursor.getLong(1), cursor.getString(2),
                     cursor.getString(3), cursor.getString(4));
             cursor.close();
             db.close();
@@ -102,7 +102,7 @@ public class ReadBancoDados extends SQLiteOpenHelper {
                 do {
                     Livro livro = new Livro();
                     livro.setId(Integer.parseInt(cursor.getString(0)));
-                    livro.setIsbn(Integer.parseInt(cursor.getString(1)));
+                    livro.setIsbn(Long.parseLong(cursor.getString(1)));
                     livro.setNome(cursor.getString(2));
                     livro.setQtdAlugado(Integer.parseInt(cursor.getString(3)));
                     livro.setAutor(cursor.getString(4));
@@ -125,9 +125,9 @@ public class ReadBancoDados extends SQLiteOpenHelper {
 
         return livroArray;
     }
-    //Obter pessoa pelo cpf
+    //Obter livro pelo isbn
 
-    public Livro getLivro(Integer isbn) {
+    public Livro getLivro(Long isbn) {
         openDB();
 
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaLivro(), new String[]{CreatBancoDados.getColunaIdLivro(),
@@ -139,7 +139,7 @@ public class ReadBancoDados extends SQLiteOpenHelper {
                 new String[]{String.valueOf(isbn)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            Livro livro = new Livro(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
+            Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
             cursor.close();
             db.close();
             return livro;

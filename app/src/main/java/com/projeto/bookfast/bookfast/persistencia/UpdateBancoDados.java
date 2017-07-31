@@ -56,7 +56,7 @@ public class UpdateBancoDados extends SQLiteOpenHelper {
     public boolean updatePessoa(Pessoa pessoa) {
         openDB();
         try {
-            String where = "cpf = '" + Integer.toString(pessoa.getCpf()) + "'";
+            String where = "cpf = '" + Long.toString(pessoa.getCpf()) + "'";
             ContentValues valores = new ContentValues();
             valores.put(CreatBancoDados.getColunaCpf(), pessoa.getCpf());
             valores.put(CreatBancoDados.getColunaNome(), pessoa.getNome());
@@ -97,7 +97,7 @@ public class UpdateBancoDados extends SQLiteOpenHelper {
     public boolean updateLivro(Livro livro) {
         openDB();
         try {
-            String where = "isbn = '" + Integer.toString(livro.getIsbn()) + "'";
+            String where = "isbn = '" + Long.toString(livro.getIsbn()) + "'";
             ContentValues valores = new ContentValues();
             valores.put(CreatBancoDados.getColunaIsbn(), livro.getIsbn());
             valores.put(CreatBancoDados.getColunaAno(), livro.getAno());

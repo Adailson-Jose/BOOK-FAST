@@ -1,5 +1,4 @@
 package com.projeto.bookfast.bookfast.gui;
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.projeto.bookfast.bookfast.R;
-
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoLogin;
@@ -47,7 +44,7 @@ public class TelaLogin extends AppCompatActivity {
                     limparTela.clearForm(group);
                     editUsuario.requestFocus();
                     // Teste de buscar pessoa
-                    pessoa = buscar.getPessoa(Integer.parseInt(loginCpf));
+                    pessoa = buscar.getPessoa(Long.parseLong(loginCpf));
                     if (pessoa != null && pessoa.getSenha().equals(senha)) {
                         if (pessoa.getCpf() == (1234567890)) {
                             Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);

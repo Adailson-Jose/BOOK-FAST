@@ -45,7 +45,7 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroLivro);
                 LimparTela limparTela = new LimparTela();
                 if (!validarCampo.vefificaCadastroLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
-                    Integer isbn = Integer.parseInt(editIsbn.getText().toString());
+                    long isbn = Integer.parseInt(editIsbn.getText().toString());
                     int edicao = Integer.parseInt(editEdicao.getText().toString());
                     int ano = Integer.parseInt(editAno.getText().toString());
                     int quantidadeTotal = Integer.parseInt(editQuantidadeTotal.getText().toString());
