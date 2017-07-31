@@ -157,4 +157,5 @@ public class ReadBancoDados extends SQLiteOpenHelper {
 
     }
 
+
 }

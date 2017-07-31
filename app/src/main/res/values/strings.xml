@@ -13,4 +13,7 @@
     <string name="CampoInvalido">Campos inválidos.</string>
     <string name="SenhaAtualizada">Atualização da SENHA realizado com sucesso.</string>
     <string name="SenhaNaoAtualizada">Atualização da SENHA sem sucesso, dasdos incorretos.</string>
+    <string name="ErroInserirPessoa">Erro ao inserir pessoa</string>
+    <string name="CadastroSucesso">Cadastro  realizado com sucesso.</string>
+    <string name="CPFJaCadastrado">Campos inválidos e/ou CPF já cadastrado.</string>
 </resources>

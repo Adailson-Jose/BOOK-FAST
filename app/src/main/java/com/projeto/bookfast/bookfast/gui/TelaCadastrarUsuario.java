@@ -12,6 +12,7 @@ import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
+import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrarUsuario extends AppCompatActivity {
@@ -42,15 +43,15 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                 ValidarCampoCadastro validarCampos = new ValidarCampoCadastro();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroUsuario);
                 LimparTela limparTela = new LimparTela();
-
-                if (!validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha)) {
-                    String cpf = editNovoUsuario.getText().toString();
+                Pessoa pessoa = new Pessoa();
+                ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
+                String cpf = editNovoUsuario.getText().toString();
+                if (validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha) == false && buscar.getPessoa(Long.parseLong(cpf)) == null) {
                     String nome = editNovoNome.getText().toString();
                     String email = editNovoEmail.getText().toString();
                     String senha = editNovaSenha.getText().toString();
                     limparTela.clearForm(group);
                     editNovoNome.requestFocus();
-                    Pessoa pessoa = new Pessoa();
                     pessoa.setNome(nome);
                     pessoa.setEmail(email);
                     pessoa.setCpf(Long.parseLong(cpf));
@@ -59,13 +60,13 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     if (inserir.insertPessoa(pessoa)) {
                         Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(TelaCadastrarUsuario.this, "Erro ao inserir pessoa", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TelaCadastrarUsuario.this, R.string.ErroInserirPessoa, Toast.LENGTH_SHORT).show();
                     }
 
-                    Toast.makeText(TelaCadastrarUsuario.this, "Cadastro  realizado com sucesso.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(TelaCadastrarUsuario.this, R.string.CadastroSucesso, Toast.LENGTH_LONG).show();
 
                 } else {
-                    Toast.makeText(TelaCadastrarUsuario.this, "Campos inválidos.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaCadastrarUsuario.this, R.string.CPFJaCadastrado, Toast.LENGTH_SHORT).show();
 
                 }
             }

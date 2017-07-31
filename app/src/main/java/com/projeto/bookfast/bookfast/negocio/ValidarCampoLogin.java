@@ -11,14 +11,16 @@ import android.widget.EditText;
 public class ValidarCampoLogin {
 
     public boolean ValidarCampoLogin(EditText  cpf, EditText senha){
-        String cpfStr = cpf.getText().toString();
+        String cpfString = cpf.getText().toString();
         String senhaStr = senha.getText().toString();
         boolean resultado = false;
-        if (isCampoVazio(cpfStr)){
+        if (!ValidarCpf.validarCpf(cpfString)) {
             resultado = true;
+            cpf.setError("Campo CPF inválido!");
             cpf.requestFocus();
         }else if(isCampoVazio(senhaStr)){
             resultado = true;
+            senha.setError("Campo senha inválido!");
             senha.requestFocus();
         }
         if (resultado) {

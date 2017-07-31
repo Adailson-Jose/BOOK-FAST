@@ -46,7 +46,7 @@ public class TelaLogin extends AppCompatActivity {
                     // Teste de buscar pessoa
                     pessoa = buscar.getPessoa(Long.parseLong(loginCpf));
                     if (pessoa != null && pessoa.getSenha().equals(senha)) {
-                        if (pessoa.getCpf() == (1234567890)) {
+                        if (pessoa.getCpf() == Long.parseLong("19928810303")) {
                             Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
                             abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                             startActivity(abreTelaInicial);

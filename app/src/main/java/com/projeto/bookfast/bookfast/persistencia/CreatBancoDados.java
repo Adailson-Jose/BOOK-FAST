@@ -45,7 +45,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, " + COLUNA_SENHA + " text not null)");
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                + COLUNA_EMAIL + "," + COLUNA_SENHA + ") VALUES('1234567890', 'admin', 'admin@email.com', 'admin')");
+                + COLUNA_EMAIL + "," + COLUNA_SENHA + ") VALUES('19928810303', 'admin', 'admin@email.com', 'admin')");
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
                 + " integer, " + COLUNA_NOME_LIVRO + " text not null, " + COLUNA_QTD_ALUGADO + " integer, "
