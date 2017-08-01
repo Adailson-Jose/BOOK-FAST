@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.livro.gui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,11 +9,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Livro;
+import com.projeto.bookfast.bookfast.dominio.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.dominio.livro.negocio.ValidarCamposCadastroLivro;
+import com.projeto.bookfast.bookfast.dominio.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.dominio.livro.percistencia.UpdateLivro;
+import com.projeto.bookfast.bookfast.dominio.pessoa.negocio.ValidarCampoCadastroPessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
-import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
     Button btCadastrarLivro, btCancelar;
@@ -24,7 +25,7 @@ public class TelaCadastrarLivroAdministrador extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar_livro_administrador);
-        ValidarCampoCadastro validarCampo = new ValidarCampoCadastro();
+        ValidarCampoCadastroPessoa validarCampo = new ValidarCampoCadastroPessoa();
         editIsbn = (EditText) findViewById(R.id.editIsbn);
         editNome = (EditText) findViewById(R.id.editNome);
         editGenero = (EditText) findViewById(R.id.editGenero);
@@ -40,8 +41,8 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         btCadastrarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateBancoDados inserirLivro = new UpdateBancoDados(getApplicationContext());
-                ValidarCampoCadastro validarCampo = new ValidarCampoCadastro();
+                UpdateLivro inserirLivro = new UpdateLivro(getApplicationContext());
+                ValidarCamposCadastroLivro validarCampo = new ValidarCamposCadastroLivro();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroLivro);
                 LimparTela limparTela = new LimparTela();
                 if (!validarCampo.vefificaCadastroLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
@@ -55,7 +56,7 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     String autor = editAutor.getText().toString();
                     limparTela.clearForm(group);
                     editIsbn.requestFocus();
-                    ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
+                    ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
                     livro = buscarLivro.getLivro(isbn);
                     if (livro != null) {
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();

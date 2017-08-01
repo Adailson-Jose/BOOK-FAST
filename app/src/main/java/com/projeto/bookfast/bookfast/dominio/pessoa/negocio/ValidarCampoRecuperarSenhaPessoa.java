@@ -1,14 +1,19 @@
-package com.projeto.bookfast.bookfast.negocio;
+package com.projeto.bookfast.bookfast.dominio.pessoa.negocio;
 
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.widget.EditText;
+
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
+import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
+import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 
 /**
  * Created by Adailson on 26/07/2017.
  */
 
-public class ValidarCampoRecuperarSenha {
+public class ValidarCampoRecuperarSenhaPessoa {
+    ValidarCampoVazio vazio = new ValidarCampoVazio();
+    ValidarEmail emailValido = new ValidarEmail();
+
     public boolean valdarCampoRecuperarSenha(EditText cpf, EditText email, EditText senha){
         String cpfStr = cpf.getText().toString();
         String emailStr = email.getText().toString();
@@ -18,12 +23,12 @@ public class ValidarCampoRecuperarSenha {
             resultado = true;
             cpf.setError("Campo CPF inválido!");
             cpf.requestFocus();
-        }else if(!isEmailValido(emailStr)){
+        } else if (!emailValido.isEmailValido(emailStr)) {
             resultado = true;
             email.setError("Campo email inválido!");
 
             email.requestFocus();
-        }else if(isCampoVazio(senhaStr)){
+        } else if (vazio.isCampoVazio(senhaStr)) {
             resultado = true;
             senha.setError("Campo senha inválido!");
             senha.requestFocus();
@@ -34,15 +39,4 @@ public class ValidarCampoRecuperarSenha {
             return false;
         }
     }
-
-    public boolean isEmailValido(String email) {
-        boolean resultado = (!isCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-        return resultado;
-    }
-
-    public boolean isCampoVazio (String valor) {
-        boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
-        return resultado;
-    }
-
 }

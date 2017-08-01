@@ -17,6 +17,13 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_NOME = "NOME";
     private static final String COLUNA_EMAIL = "EMAIL";
     private static final String COLUNA_SENHA = "SENHA";
+    // VARIAVES DA TAPELA USUARIO
+    private static final String TABELA_USUARIO = "TB_USUARIO";
+    private static final String COLUNA_ID_USER = "ID";
+    private static final String COLUNA_ID_PESSOA = "ID_PESSOA";
+    private static final String COLUNA_ATIVO = "ATIVO";
+    private static final String COLUNA_LISTA_USUARIO = "LISTA_USUARIO";
+
     //VARIAVES DA TABELA PESSOA
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
@@ -42,14 +49,22 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //CRIA A TABELA PESSOA
         db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, "
-                + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, " + COLUNA_SENHA + " text not null)");
+                + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, "
+                + COLUNA_SENHA + " text not null)");
+
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
                 + COLUNA_EMAIL + "," + COLUNA_SENHA + ") VALUES('19928810303', 'admin', 'admin@email.com', 'admin')");
+
+        //CRIA TABELA USUARIO
+        db.execSQL("create table " + TABELA_USUARIO + "(" + COLUNA_ID_USER + " integer primary key autoincrement, " + COLUNA_ID_PESSOA
+                + " integer, " + COLUNA_ATIVO + " integer, " + COLUNA_LISTA_USUARIO + " text not null)");
+
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
                 + " integer, " + COLUNA_NOME_LIVRO + " text not null, " + COLUNA_QTD_ALUGADO + " integer, "
                 + COLUNA_AUTOR + " text not null, " + COLUNA_GENERO + " text not null, " + COLUNA_QTD_TOTAL + " integer, " + COLUNA_ANO + " integer, " + COLUNA_N_EDICAO + " integer)");
+
         //ADD LIVRO EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + ") VALUES('1234567890', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0')");
@@ -62,7 +77,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         // logica pra atualiza db
 
     }
-
 
     private void openDB() {
         if (!db.isOpen()) {
@@ -100,7 +114,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return TABELA_PESSOA;
     }
     //GETS TABELA LIVRO
-
 
     public static String getNomeTabelaLivro() {
         return TABELA_LIVRO;

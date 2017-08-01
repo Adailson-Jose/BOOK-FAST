@@ -18,22 +18,22 @@
         android:roundIcon="@drawable/bookfast"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".gui.TelaLogin">
+        <activity android:name=".dominio.pessoa.gui.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.TelaInicialAdministrador" />
-        <activity android:name=".gui.TelaRecuperarSenha" />
-        <activity android:name=".gui.TelaCadastrarUsuario" />
-        <activity android:name=".gui.TelaInicialUsuarioComum" />
-        <activity android:name=".gui.TelaLivroAdministrador" />
-        <activity android:name=".gui.TelaUsuarioAdministrador" />
-        <activity android:name=".gui.TelaCadastrarLivroAdministrador" />
-        <activity android:name=".gui.TelaListaLivros" />
-        <activity android:name=".gui.TelaEditarLivroAdministrador"></activity>
+        <activity android:name=".dominio.pessoa.gui.TelaInicialAdministrador" />
+        <activity android:name=".dominio.pessoa.gui.TelaRecuperarSenha" />
+        <activity android:name=".dominio.pessoa.gui.TelaCadastrarUsuario" />
+        <activity android:name=".dominio.pessoa.gui.TelaInicialUsuarioComum" />
+        <activity android:name=".dominio.livro.gui.TelaLivroAdministrador" />
+        <activity android:name=".dominio.pessoa.gui.TelaUsuarioAdministrador" />
+        <activity android:name=".dominio.livro.gui.TelaCadastrarLivroAdministrador" />
+        <activity android:name=".dominio.livro.gui.TelaListaLivros" />
+        <activity android:name=".dominio.livro.gui.TelaEditarLivroAdministrador" />
     </application>
 
 </manifest>

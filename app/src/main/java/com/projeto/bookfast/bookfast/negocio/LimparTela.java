@@ -9,6 +9,8 @@ import android.widget.EditText;
  */
 
 public class LimparTela {
+    public LimparTela() {
+    }
 
     public void clearForm(ViewGroup group) {
         for (int i = 0, count = group.getChildCount(); i < count; ++i) {

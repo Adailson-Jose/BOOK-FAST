@@ -1,13 +1,14 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.pessoa.gui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
+import com.projeto.bookfast.bookfast.dominio.livro.gui.TelaLivroAdministrador;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 
 
 public class TelaInicialAdministrador extends AppCompatActivity {
@@ -15,7 +16,7 @@ public class TelaInicialAdministrador extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ReadBancoDados busca = new ReadBancoDados(getApplicationContext());
+        ReadPessoa busca = new ReadPessoa(getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_admistrador);
         btLivro = (Button) findViewById(R.id.btLivro);

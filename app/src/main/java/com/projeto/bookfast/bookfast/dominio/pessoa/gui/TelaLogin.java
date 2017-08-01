@@ -1,18 +1,20 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.pessoa.gui;
+
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.negocio.ValidarCampoLogin;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoLogin;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;
@@ -33,7 +35,7 @@ public class TelaLogin extends AppCompatActivity {
         btLogar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
+                ReadPessoa buscar = new ReadPessoa(getApplicationContext());
                 ValidarCampoLogin validarCampos = new ValidarCampoLogin();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizLogin);
                 LimparTela limparTela = new LimparTela();

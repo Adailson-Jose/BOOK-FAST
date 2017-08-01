@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.pessoa.gui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,11 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.negocio.ValidarCampoCadastroPessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.UpdatePessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
-import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaCadastrarUsuario extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome;
@@ -40,11 +40,11 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
         btRegistrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ValidarCampoCadastro validarCampos = new ValidarCampoCadastro();
+                ValidarCampoCadastroPessoa validarCampos = new ValidarCampoCadastroPessoa();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroUsuario);
                 LimparTela limparTela = new LimparTela();
                 Pessoa pessoa = new Pessoa();
-                ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
+                ReadPessoa buscar = new ReadPessoa(getApplicationContext());
                 String cpf = editNovoUsuario.getText().toString();
                 if (validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha) == false && buscar.getPessoa(Long.parseLong(cpf)) == null) {
                     String nome = editNovoNome.getText().toString();
@@ -56,7 +56,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     pessoa.setEmail(email);
                     pessoa.setCpf(Long.parseLong(cpf));
                     pessoa.setSenha(senha);
-                    UpdateBancoDados inserir = new UpdateBancoDados(getApplicationContext());
+                    UpdatePessoa inserir = new UpdatePessoa(getApplicationContext());
                     if (inserir.insertPessoa(pessoa)) {
                         Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
                     } else {

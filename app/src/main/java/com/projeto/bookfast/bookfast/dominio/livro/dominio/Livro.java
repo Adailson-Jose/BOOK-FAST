@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.dominio;
+package com.projeto.bookfast.bookfast.dominio.livro.dominio;
 
 public class Livro {
     private int id;

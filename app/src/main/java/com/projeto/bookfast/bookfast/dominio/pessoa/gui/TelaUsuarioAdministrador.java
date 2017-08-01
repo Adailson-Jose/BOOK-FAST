@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.pessoa.gui;
 
 import android.app.Activity;
 import android.os.Bundle;

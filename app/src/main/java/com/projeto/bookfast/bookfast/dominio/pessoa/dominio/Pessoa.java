@@ -1,7 +1,5 @@
-package com.projeto.bookfast.bookfast.dominio;
+package com.projeto.bookfast.bookfast.dominio.pessoa.dominio;
 
-
-import android.text.Editable;
 
 public class Pessoa {
     private int id;
@@ -10,10 +8,8 @@ public class Pessoa {
     private String email;
     private String senha;
 
-
     //Construtor para instanciar
     public Pessoa(){
-
     }
 
     //Construtor para buscar no banco

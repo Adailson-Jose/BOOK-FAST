@@ -1,12 +1,12 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.pessoa.gui;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
+import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 
 public class TelaInicialUsuarioComum extends Activity {
     Pessoa pessoa;
@@ -16,7 +16,7 @@ public class TelaInicialUsuarioComum extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_usuario_comum);
-        ReadBancoDados busca = new ReadBancoDados(getApplicationContext());
+        ReadPessoa busca = new ReadPessoa(getApplicationContext());
         textViewDados = (TextView) findViewById(R.id.textViewDados);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {

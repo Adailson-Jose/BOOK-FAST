@@ -1,7 +1,7 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.livro.gui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -9,11 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Livro;
+import com.projeto.bookfast.bookfast.dominio.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.dominio.livro.negocio.ValidarCampoEditaLivro;
+import com.projeto.bookfast.bookfast.dominio.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.dominio.livro.percistencia.UpdateLivro;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoEdita;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
-import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaEditarLivroAdministrador extends AppCompatActivity {
 
@@ -40,8 +40,8 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
         btEdtarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateBancoDados atualizarLivro = new UpdateBancoDados(getApplicationContext());
-                ValidarCampoEdita validarEdicao = new ValidarCampoEdita();
+                UpdateLivro atualizarLivro = new UpdateLivro(getApplicationContext());
+                ValidarCampoEditaLivro validarEdicao = new ValidarCampoEditaLivro();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizEditLivro);
                 LimparTela limparTela = new LimparTela();
 
@@ -56,7 +56,7 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                     String autor = editAutor.getText().toString();
                     limparTela.clearForm(group);
                     editIsbn.requestFocus();
-                    ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
+                    ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
                     livro = buscarLivro.getLivro(isbn);
                     if (livro != null) {
                         livro.setIsbn(isbn);

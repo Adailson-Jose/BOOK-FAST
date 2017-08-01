@@ -1,8 +1,7 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.livro.gui;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,8 +9,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Livro;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
+import com.projeto.bookfast.bookfast.dominio.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.dominio.livro.percistencia.ReadLivro;
 
 import java.util.ArrayList;
 
@@ -39,7 +38,7 @@ public class TelaListaLivros extends AppCompatActivity {
     }
 
     private ArrayList<String> preencherDados() {
-        ReadBancoDados buscarLivro = new ReadBancoDados(getApplicationContext());
+        ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         ArrayList<String> stringDados = new ArrayList<>();
         ArrayList<Livro> lvros;
         lvros = buscarLivro.getListaLivro();

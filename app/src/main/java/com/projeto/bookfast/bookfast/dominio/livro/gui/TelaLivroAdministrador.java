@@ -1,11 +1,11 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.livro.gui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
 import com.projeto.bookfast.bookfast.R;
 
 public class TelaLivroAdministrador extends Activity {

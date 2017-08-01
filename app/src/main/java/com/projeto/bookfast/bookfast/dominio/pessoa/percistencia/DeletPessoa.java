@@ -1,16 +1,17 @@
-package com.projeto.bookfast.bookfast.persistencia;
+package com.projeto.bookfast.bookfast.dominio.pessoa.percistencia;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.projeto.bookfast.bookfast.dominio.Livro;
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 
 /**
- * Created by oi on 18/07/2017.
+ * Created by oi on 01/08/2017.
  */
-public class DeletBancoDados extends SQLiteOpenHelper {
+
+public class DeletPessoa extends SQLiteOpenHelper {
     private static final int VERSAO_BANCO = 1;
     private static final String NOME_BANCO = CreatBancoDados.getNomeBanco();
 
@@ -18,7 +19,7 @@ public class DeletBancoDados extends SQLiteOpenHelper {
     private Context meuContext;
     private SQLiteDatabase db;
 
-    public DeletBancoDados(Context context) {
+    public DeletPessoa(Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
         this.meuContext = context;
         db = getWritableDatabase();
@@ -56,37 +57,6 @@ public class DeletBancoDados extends SQLiteOpenHelper {
 
         try {
             db.delete(CreatBancoDados.getNomeTabelaPessoa(), deletePessoa, null);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            db.close();
-        }
-
-    }
-
-    public boolean deleteTabelaLivro() {
-        openDB();
-        String deletTabelaLivro = "DROP TABLE IF EXISTS " + CreatBancoDados.getNomeTabelaLivro();
-        try {
-            db.execSQL(deletTabelaLivro);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            db.close();
-        }
-    }
-
-    public boolean deleteLivro(Livro livro) {
-        openDB();
-
-        String deleteLivro = "isbn = '" + Long.toString(livro.getIsbn()) + "'";
-
-        try {
-            db.delete(CreatBancoDados.getNomeTabelaLivro(), deleteLivro, null);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

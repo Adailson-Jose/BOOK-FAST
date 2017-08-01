@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.gui;
+package com.projeto.bookfast.bookfast.dominio.pessoa.gui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,12 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.negocio.ValidarCampoRecuperarSenhaPessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.UpdatePessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoCadastro;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoRecuperarSenha;
-import com.projeto.bookfast.bookfast.persistencia.ReadBancoDados;
-import com.projeto.bookfast.bookfast.persistencia.UpdateBancoDados;
 
 public class TelaRecuperarSenha extends Activity {
     EditText editCPF, editNovaSenha, editEmail;
@@ -32,9 +31,9 @@ public class TelaRecuperarSenha extends Activity {
         btAlterarSenha.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ReadBancoDados buscar = new ReadBancoDados(getApplicationContext());
-                UpdateBancoDados atualizar = new UpdateBancoDados(getApplicationContext());
-                ValidarCampoRecuperarSenha validarCampos = new ValidarCampoRecuperarSenha();
+                ReadPessoa buscar = new ReadPessoa(getApplicationContext());
+                UpdatePessoa atualizar = new UpdatePessoa(getApplicationContext());
+                ValidarCampoRecuperarSenhaPessoa validarCampos = new ValidarCampoRecuperarSenhaPessoa();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizRecuperarSenha);
                 LimparTela limparTela = new LimparTela();
 
