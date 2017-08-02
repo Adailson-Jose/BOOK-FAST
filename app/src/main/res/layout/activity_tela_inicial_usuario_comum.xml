@@ -32,4 +32,16 @@
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btEmprestimoQRcode"
+        style="@style/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_weight="0.05"
+        android:text="EMPRESTIMO" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 </LinearLayout>
