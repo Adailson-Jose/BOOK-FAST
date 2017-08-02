@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizQRcode"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.bookfast.bookfast.dominio.livro.gui.TelaQRcode">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/fundo"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="3dp">
+
+        <Button
+            android:id="@+id/scaner_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.04"
+            android:text="Scaner"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="215dp" />
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+
+
