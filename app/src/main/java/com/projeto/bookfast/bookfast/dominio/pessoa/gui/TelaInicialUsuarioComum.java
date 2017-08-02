@@ -12,8 +12,6 @@ import com.projeto.bookfast.bookfast.dominio.livro.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 
-import java.util.Stack;
-
 public class TelaInicialUsuarioComum extends Activity {
     Pessoa pessoa;
     TextView textViewDados;
