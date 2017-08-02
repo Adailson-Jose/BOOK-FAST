@@ -60,7 +60,6 @@
             android:ems="10"
             android:hint="Cpf"
             android:inputType="number"
-            android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textColor="@color/colorgray"
             android:textColorHint="@color/colorgray" />

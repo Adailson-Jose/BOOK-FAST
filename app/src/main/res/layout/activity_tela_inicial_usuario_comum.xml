@@ -36,7 +36,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:layout_weight="0.05"
-            android:text="EMPRESTIMO de livro"
+            android:text="EMPRESTIMO DE LIVRO"
             android:textColor="#000000"
             android:textStyle="bold" />
     </LinearLayout>

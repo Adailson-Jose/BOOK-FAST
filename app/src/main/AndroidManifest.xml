@@ -34,13 +34,7 @@
         <activity android:name=".dominio.livro.gui.TelaCadastrarLivroAdministrador" />
         <activity android:name=".dominio.livro.gui.TelaListaLivros" />
         <activity android:name=".dominio.livro.gui.TelaEditarLivroAdministrador" />
-        <activity android:name=".dominio.livro.gui.TelaQRcode">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".dominio.livro.gui.TelaQRcode" />
     </application>
 
 </manifest>

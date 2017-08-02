@@ -20,11 +20,11 @@
         tools:layout_editor_absoluteY="3dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_weight="0.16"
+            android:layout_weight="0.07"
             android:fontFamily="serif"
             android:text="RECUPERAÇAO DE SENHA"
             android:textAlignment="center"
@@ -32,6 +32,7 @@
             android:textColor="@color/colorBlue"
             android:textSize="20dp"
             android:textStyle="bold"
+            tools:layout_weight="0.06"
             tools:text="RECUPERAÇAO DE SENHA" />
 
 
@@ -74,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="ALTERAR SENHA"
-            android:textColor="#000000"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold" />
 
         <Button
@@ -83,8 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="CANCELAR"
-            android:textColor="#000000"
+            android:text="CANCELAR RECUPERAÇÃO"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold" />
 
     </LinearLayout>
