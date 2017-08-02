@@ -12,8 +12,6 @@ import com.projeto.bookfast.bookfast.dominio.livro.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 
-import java.util.Stack;
-
 public class TelaInicialUsuarioComum extends Activity {
     Pessoa pessoa;
     TextView textViewDados;
@@ -25,12 +23,12 @@ public class TelaInicialUsuarioComum extends Activity {
         setContentView(R.layout.activity_tela_inicial_usuario_comum);
         btEmprestimoQRcode = (Button) findViewById(R.id.btEmprestimoQRcode);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
-        textViewDados = (TextView) findViewById(R.id.textViewDados);
+        //textViewDados = (TextView) findViewById(R.id.textViewDados);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
             String dadosPessoa = "Nome: " + pessoa.getNome() + ", Cpf: " + pessoa.getCpf() + ", Senha: " + pessoa.getSenha() + " Id: " + pessoa.getId() + ", Email: " + pessoa.getEmail() + ".";
-            textViewDados.setText(dadosPessoa);
+            //textViewDados.setText(dadosPessoa);
         } else {
             textViewDados.setText("UM ERRO OCORREU.");
         }
