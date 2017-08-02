@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/raizTelaUserComum"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizQRcode"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1">
+    tools:context="com.projeto.bookfast.bookfast.dominio.pessoa.gui.TelaInicialUsuarioComum">
 
-    <TextView
-        android:id="@+id/textViewBemVindo"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/raizTelaUserComum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.11"
-        android:text="BEM-VIMDO"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:background="@drawable/fundo"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.13" />
+        <TextView
+            android:id="@+id/textViewBemVindo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/textViewDados"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.50"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            android:text="Seja Bem-Vindo ao Book Fast!"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textColor="@color/colorGrayyy"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp" />
 
-    <Button
-        android:id="@+id/btEmprestimoQRcode"
-        style="@style/buttonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="2dp"
-        android:layout_weight="0.05"
-        android:text="EMPRESTIMO" />
-        android:textColor="#000000"
-        android:textStyle="bold" />
-</LinearLayout>
+
+        <Button
+            android:id="@+id/btEmprestimoQRcode"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_weight="0.05"
+            android:text="EMPRESTIMO de livro"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
