@@ -3,6 +3,7 @@ package com.projeto.bookfast.bookfast.dominio.livro.negocio;
 import android.widget.EditText;
 
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
+import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
 
 /**
  * Created by oi on 01/08/2017.
@@ -10,6 +11,7 @@ import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 
 public class ValidarCamposCadastroLivro {
     ValidarCampoVazio vazio = new ValidarCampoVazio();
+    ValidarIsbn validarIsbn = new ValidarIsbn();
     public boolean vefificaCadastroLivro(EditText isbn, EditText nome, EditText qtdAlugado, EditText autor, EditText genero, EditText qtTotal, EditText ano, EditText numEdicao) {
         String Isbn = isbn.getText().toString();
         String Nome = nome.getText().toString();
@@ -20,7 +22,7 @@ public class ValidarCamposCadastroLivro {
         String Ano = ano.getText().toString();
         String NumEdicao = numEdicao.getText().toString();
         boolean resultado = false;
-        if (vazio.isCampoVazio(Isbn)) {
+        if (validarIsbn.validarIsbn(Isbn)) {
             resultado = true;
             isbn.setError("Campo ISBN inválido!");
             isbn.requestFocus();

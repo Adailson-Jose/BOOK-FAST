@@ -45,6 +45,7 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizEditLivro);
                 LimparTela limparTela = new LimparTela();
 
+
                 if (!validarEdicao.vefificaEdicaoLivro(editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada)) {
                     Long isbn = Long.parseLong(editIsbn.getText().toString());
                     int edicao = Integer.parseInt(editEdicao.getText().toString());
