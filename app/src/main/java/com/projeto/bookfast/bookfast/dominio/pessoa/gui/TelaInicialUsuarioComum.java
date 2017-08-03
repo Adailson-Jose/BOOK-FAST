@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class TelaInicialUsuarioComum extends Activity {
     Livro livro;
     TextView textViewBemVindo;
-    Button btEmprestimoQRcode;
+    Button btEmprestimoQRcode, btMinhaInformacao, btListalivros;
     Pessoa pessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class TelaInicialUsuarioComum extends Activity {
 
         btEmprestimoQRcode = (Button) findViewById(R.id.btEmprestimoQRcode);
         textViewBemVindo = (TextView) findViewById(R.id.textViewBemVindo);
-        ListView lstViewLivros = (ListView) findViewById(R.id.lstViewLivros);
+        ListView listViewLivros = (ListView) findViewById(R.id.listViewLivros);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -47,9 +47,9 @@ public class TelaInicialUsuarioComum extends Activity {
 
         final ArrayList<String> livros = preencherDados(pessoa);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, livros);
-        lstViewLivros.setAdapter(arrayAdapter);
+        listViewLivros.setAdapter(arrayAdapter);
 
-        lstViewLivros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewLivros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), livros.get(position).toString(), Toast.LENGTH_SHORT).show();
@@ -67,6 +67,15 @@ public class TelaInicialUsuarioComum extends Activity {
             }
         });
 
+        btMinhaInformacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent AbreTelaInformacaoUsuario = new Intent(TelaInicialUsuarioComum.this, TelaInformacaoUsuario.class);
+                AbreTelaInformacaoUsuario.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                startActivity(AbreTelaInformacaoUsuario);
+            }
+        });
+
     }
 
     private ArrayList<String> preencherDados(Pessoa pessoa) {
@@ -77,7 +86,7 @@ public class TelaInicialUsuarioComum extends Activity {
         Livro livor2;
         for (String idLivro : ids) {
             if (idLivro == "") {
-                stringDados.add("VOCE NÃO TEM LIVRO ALUGADO!");
+                stringDados.add("VOCÊ NÃO TEM LIVRO ALUGADO!");
             } else {
                 livor2 = buscarLivro.getLivro(Integer.parseInt(idLivro));
                 stringDados.add("Isbn: " + livor2.getIsbn() + ", Nome: " + livor2.getNome() + ", Gênero: " + livor2.getGenero() + ", Autor: " + livor2.getAutor() + ".");

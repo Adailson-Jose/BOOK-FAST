@@ -100,7 +100,7 @@ public class ReadLivro extends SQLiteOpenHelper {
 
     public Livro getLivro(int id) {
         openDB();
-
+        Livro teste;
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaLivro(), new String[]{CreatBancoDados.getColunaIdLivro(),
                         CreatBancoDados.getColunaIsbn(), CreatBancoDados.getColunaNomeLivro(),
                         CreatBancoDados.getColunaQtdAlugado(), CreatBancoDados.getColunaAutor(),

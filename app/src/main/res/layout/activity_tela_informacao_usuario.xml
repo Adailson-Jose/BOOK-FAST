@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.bookfast.bookfast.dominio.pessoa.gui.TelaInformacaoUsuario">
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.18"
+            android:text="MINHAS INFORMAÇÕES"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlue"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewMinhasInformacoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.78"
+            android:textAllCaps="true"
+            android:textColor="@color/zxing_custom_viewfinder_laser"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btEditaMinhasInformacoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:text="EDITAR INFORMAÇÕES"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
