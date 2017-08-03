@@ -15,8 +15,6 @@ import com.projeto.bookfast.bookfast.dominio.pessoa.negocio.ValidarCampoEditaInf
 import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.UpdatePessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
-import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
-import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 
 public class TelaEditaInfoUsuario extends AppCompatActivity {
     Button btSalvar;
@@ -30,10 +28,13 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextNome = (EditText) findViewById(R.id.editTextNome);
         ReadPessoa buscar = new ReadPessoa(getApplicationContext());
+
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
             pessoa = buscar.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
+            editTextNome.setText(pessoa.getNome());
+            editTextEmail.setText(pessoa.getEmail());
         }
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override

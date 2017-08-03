@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.dominio.livro.gui.TelaListaLivros;
 import com.projeto.bookfast.bookfast.dominio.livro.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.dominio.livro.percistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.dominio.pessoa.dominio.Pessoa;
@@ -71,6 +72,15 @@ public class TelaInicialUsuarioComum extends Activity {
                 Intent AbreTelaInformacaoUsuario = new Intent(TelaInicialUsuarioComum.this, TelaInformacaoUsuario.class);
                 AbreTelaInformacaoUsuario.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                 startActivity(AbreTelaInformacaoUsuario);
+            }
+       });
+
+        btListalivros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent AbreTelaListaLivros = new Intent(TelaInicialUsuarioComum.this, TelaListaLivros.class);
+                AbreTelaListaLivros.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                startActivity(AbreTelaListaLivros);
             }
         });
     }
