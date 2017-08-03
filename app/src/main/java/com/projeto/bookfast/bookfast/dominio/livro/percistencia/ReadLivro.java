@@ -98,6 +98,28 @@ public class ReadLivro extends SQLiteOpenHelper {
 
     }
 
+    public Livro getLivro(int id) {
+        openDB();
+
+        Cursor cursor = db.query(CreatBancoDados.getNomeTabelaLivro(), new String[]{CreatBancoDados.getColunaIdLivro(),
+                        CreatBancoDados.getColunaIsbn(), CreatBancoDados.getColunaNomeLivro(),
+                        CreatBancoDados.getColunaQtdAlugado(), CreatBancoDados.getColunaAutor(),
+                        CreatBancoDados.getColunaGenero(), CreatBancoDados.getColunaQtdTotal(),
+                        CreatBancoDados.getColunaAno(), CreatBancoDados.getColunaNEdicao()},
+                CreatBancoDados.getColunaIdLivro() + " = ?", new String[]{String.valueOf(id)}, null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
+            cursor.close();
+            //db.close();
+            return livro;
+        } else {
+            db.close();
+            return null;
+        }
+
+    }
+
     private void openDB() {
         if (!db.isOpen()) {
             db = meuContext.openOrCreateDatabase(PATH_DB, SQLiteDatabase.OPEN_READWRITE, null);

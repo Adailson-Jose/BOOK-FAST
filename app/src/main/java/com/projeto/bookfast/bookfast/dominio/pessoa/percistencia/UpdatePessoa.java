@@ -44,6 +44,7 @@ public class UpdatePessoa extends SQLiteOpenHelper {
             valores.put(CreatBancoDados.getColunaNome(), pessoa.getNome());
             valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
             valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
+            valores.put(CreatBancoDados.getColunaIdsLivros(), pessoa.getLivros());
             db.insert(CreatBancoDados.getNomeTabelaPessoa(), null, valores);
             return true;
         } catch (Exception e) {
@@ -63,6 +64,7 @@ public class UpdatePessoa extends SQLiteOpenHelper {
             valores.put(CreatBancoDados.getColunaNome(), pessoa.getNome());
             valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
             valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
+            valores.put(CreatBancoDados.getColunaIdsLivros(), pessoa.getLivros());
             db.update(CreatBancoDados.getNomeTabelaPessoa(), valores, where, null);
             return true;
         } catch (Exception e) {

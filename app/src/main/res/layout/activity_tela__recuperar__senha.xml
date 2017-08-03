@@ -4,6 +4,7 @@
     android:id="@+id/raizRecuperarSenha"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".dominio.pessoa.gui.TelaRecuperarSenha">
 
     <LinearLayout
@@ -14,6 +15,7 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/fundo"
         android:orientation="vertical"
+        android:visibility="visible"
         android:weightSum="1"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"

@@ -55,6 +55,7 @@ public class ReadPessoa extends SQLiteOpenHelper {
                     pessoa.setNome(cursor.getString(2));
                     pessoa.setEmail(cursor.getString(3));
                     pessoa.setSenha(cursor.getString(4));
+                    pessoa.setLivros(cursor.getString(5));
                     pessoaArray.add(pessoa);
 
                 } while (cursor.moveToNext());
@@ -75,12 +76,12 @@ public class ReadPessoa extends SQLiteOpenHelper {
     public Pessoa getPessoa(Long cpf) {
         openDB();
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaPessoa(), new String[]{CreatBancoDados.getColunaId(), CreatBancoDados.getColunaCpf(),
-                        CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha()}, CreatBancoDados.getColunaCpf() + " = ?",
+                        CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha(), CreatBancoDados.getColunaIdsLivros()}, CreatBancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(cpf)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             Pessoa pessoa = new Pessoa(cursor.getInt(0), cursor.getLong(1), cursor.getString(2),
-                    cursor.getString(3), cursor.getString(4));
+                    cursor.getString(3), cursor.getString(4), cursor.getString(5));
             cursor.close();
             db.close();
             return pessoa;

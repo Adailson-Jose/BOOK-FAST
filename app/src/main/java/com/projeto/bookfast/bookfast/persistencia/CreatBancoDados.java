@@ -17,13 +17,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_NOME = "NOME";
     private static final String COLUNA_EMAIL = "EMAIL";
     private static final String COLUNA_SENHA = "SENHA";
-    // VARIAVES DA TAPELA USUARIO
-    private static final String TABELA_USUARIO = "TB_USUARIO";
-    private static final String COLUNA_ID_USER = "ID";
-    private static final String COLUNA_ID_PESSOA = "ID_PESSOA";
-    private static final String COLUNA_ATIVO = "ATIVO";
-    private static final String COLUNA_LISTA_USUARIO = "LISTA_USUARIO";
-
+    private static final String COLUNA_IDS_LIVROS = "IDS_LIVROS";
     //VARIAVES DA TABELA PESSOA
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
@@ -50,15 +44,12 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA A TABELA PESSOA
         db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, "
                 + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, "
-                + COLUNA_SENHA + " text not null)");
+                + COLUNA_IDS_LIVROS + " text not null, " + COLUNA_SENHA + " text not null)");
 
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                + COLUNA_EMAIL + "," + COLUNA_SENHA + ") VALUES('19928810303', 'admin', 'admin@email.com', 'admin')");
-
-        //CRIA TABELA USUARIO
-        db.execSQL("create table " + TABELA_USUARIO + "(" + COLUNA_ID_USER + " integer primary key autoincrement, " + COLUNA_ID_PESSOA
-                + " integer, " + COLUNA_ATIVO + " integer, " + COLUNA_LISTA_USUARIO + " text not null)");
+                + COLUNA_EMAIL + "," + COLUNA_IDS_LIVROS + "," + COLUNA_SENHA +
+                ") VALUES('19928810303', 'admin', 'admin@email.com', '1', 'admin')");
 
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
@@ -67,7 +58,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
         //ADD LIVRO EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
-                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + ") VALUES('9999999999999', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0')");
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO +
+                ") VALUES('9999999999999', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO +
+                ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0')");
 
     }
 
@@ -75,7 +70,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // logica pra atualiza db
-
+        db.execSQL("DROP TABLE IF EXISTS" + TABELA_PESSOA);
+        onCreate(db);
     }
 
     private void openDB() {
@@ -110,9 +106,14 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return NOME_BANCO;
     }
 
+    public static String getColunaIdsLivros() {
+        return COLUNA_IDS_LIVROS;
+    }
+
     public static String getNomeTabelaPessoa() {
         return TABELA_PESSOA;
     }
+
     //GETS TABELA LIVRO
 
     public static String getNomeTabelaLivro() {
@@ -154,4 +155,5 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     public static String getColunaGenero() {
         return COLUNA_GENERO;
     }
+
 }

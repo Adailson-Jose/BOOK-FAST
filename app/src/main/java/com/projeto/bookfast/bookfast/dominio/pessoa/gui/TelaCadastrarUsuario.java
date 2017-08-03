@@ -56,6 +56,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     pessoa.setEmail(email);
                     pessoa.setCpf(Long.parseLong(cpf));
                     pessoa.setSenha(senha);
+                    pessoa.setLivros(" 1 2");//Teste de user com dois livros alugados
                     UpdatePessoa inserir = new UpdatePessoa(getApplicationContext());
                     if (inserir.insertPessoa(pessoa)) {
                         Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();

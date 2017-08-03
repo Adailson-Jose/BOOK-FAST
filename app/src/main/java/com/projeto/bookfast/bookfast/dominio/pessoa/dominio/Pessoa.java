@@ -7,25 +7,27 @@ public class Pessoa {
     private String nome;
     private String email;
     private String senha;
-
+    private String livros;
     //Construtor para instanciar
     public Pessoa(){
     }
 
     //Construtor para buscar no banco
-    public Pessoa(int _id, long _cpf, String _nome, String _email, String _senha) {
+    public Pessoa(int _id, long _cpf, String _nome, String _email, String _senha, String _livros) {
         this.id = _id;
         this.cpf = _cpf;
         this.nome = _nome;
         this.email = _email;
         this.senha = _senha;
+        this.livros = _livros;
     }
     //Construtor para inserir
-    public Pessoa(long _cpf, String _nome, String _email, String _senha) {
+    public Pessoa(long _cpf, String _nome, String _email, String _senha, String _livros) {
         this.cpf = _cpf;
         this.nome = _nome;
         this.email = _email;
         this.senha = _senha;
+        this.livros = _livros;
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -69,5 +71,11 @@ public class Pessoa {
         this.senha = senha;
     }
 
+    public String getLivros() {
+        return livros;
+    }
 
+    public void setLivros(String livros) {
+        this.livros = livros;
+    }
 }
