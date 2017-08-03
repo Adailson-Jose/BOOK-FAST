@@ -11,18 +11,9 @@ public class ValidarIsbn {
     }
 
     public boolean validarIsbn(String isbn) {
-        if (isbn == null) {
+        if (isbn.length() != 13 || vazio.isCampoVazio(isbn)) {
             return false;
         }
-
-        //remove any hyphens
-        isbn = isbn.replaceAll("-", "");
-
-        //must be a 13 digit ISBN
-        if (isbn.length() != 13) {
-            return false;
-        }
-
         try {
             int tot = 0;
             for (int i = 0; i < 12; i++) {
