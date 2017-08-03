@@ -30,8 +30,9 @@ public class TelaInicialUsuarioComum extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_usuario_comum);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
-
         btEmprestimoQRcode = (Button) findViewById(R.id.btEmprestimoQRcode);
+        btMinhaInformacao = (Button) findViewById(R.id.btMinhaInformacao);
+        btListalivros = (Button) findViewById(R.id.btListalivros);
         textViewBemVindo = (TextView) findViewById(R.id.textViewBemVindo);
         ListView listViewLivros = (ListView) findViewById(R.id.listViewLivros);
 
@@ -45,19 +46,16 @@ public class TelaInicialUsuarioComum extends Activity {
             textViewBemVindo.setText("UM ERRO OCORREU.");
         }
 
-        final ArrayList<String> livros = preencherDados(pessoa);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, livros);
+        final ArrayList<String> livrosString = preencherDados(pessoa);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, livrosString);
         listViewLivros.setAdapter(arrayAdapter);
 
         listViewLivros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), livros.get(position).toString(), Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(getApplicationContext(), livrosString.get(position).toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
 
         btEmprestimoQRcode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +65,7 @@ public class TelaInicialUsuarioComum extends Activity {
             }
         });
 
-        btMinhaInformacao.setOnClickListener(new View.OnClickListener() {
+       btMinhaInformacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent AbreTelaInformacaoUsuario = new Intent(TelaInicialUsuarioComum.this, TelaInformacaoUsuario.class);
@@ -75,14 +73,11 @@ public class TelaInicialUsuarioComum extends Activity {
                 startActivity(AbreTelaInformacaoUsuario);
             }
         });
-
     }
-
     private ArrayList<String> preencherDados(Pessoa pessoa) {
         ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         ArrayList<String> stringDados = new ArrayList<>();
         String[] ids = pessoa.getLivros().trim().split(" ");
-        ;
         Livro livor2;
         for (String idLivro : ids) {
             if (idLivro == "") {

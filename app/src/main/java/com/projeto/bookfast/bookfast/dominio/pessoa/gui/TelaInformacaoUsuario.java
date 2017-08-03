@@ -21,11 +21,14 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_informacao_usuario);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
+        textViewMinhasInformacoes = (TextView) findViewById(R.id.textViewMinhasInformacoes);
+        btEditaMinhasInformacoes = (Button) findViewById(R.id.btEditaMinhasInformacoes);
+
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
             pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
-            String dadosPessoa = "Pessoa->" + pessoa.getNome() + ", " + pessoa.getEmail() + ", " + pessoa.getCpf();
+            String dadosPessoa = "Nome: " + pessoa.getNome() + ", Email: " + pessoa.getEmail() + ", Cpf: " + pessoa.getCpf();
             textViewMinhasInformacoes.setText(dadosPessoa);
         }
         btEditaMinhasInformacoes.setOnClickListener(new View.OnClickListener() {
