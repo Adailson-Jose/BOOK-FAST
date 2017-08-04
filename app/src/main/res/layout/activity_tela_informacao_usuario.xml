@@ -6,12 +6,13 @@
     tools:context="com.projeto.bookfast.bookfast.dominio.pessoa.gui.TelaInformacaoUsuario">
 
     <LinearLayout
-        android:layout_width="344dp"
-        android:layout_height="495dp"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="1"
+        android:background="@drawable/fundo"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="3dp">
 
         <TextView
             android:id="@+id/textView8"

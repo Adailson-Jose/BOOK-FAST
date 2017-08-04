@@ -41,7 +41,7 @@ public class TelaInicialUsuarioComum extends Activity {
 
         if (bundle != null) {
             pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
-            String dadosPessoa = "SEJA BEM-VNDO-> " + pessoa.getNome();
+            String dadosPessoa = "SEJA BEM-VINDO -> " + pessoa.getNome();
             textViewBemVindo.setText(dadosPessoa);
         } else {
             textViewBemVindo.setText("UM ERRO OCORREU.");
