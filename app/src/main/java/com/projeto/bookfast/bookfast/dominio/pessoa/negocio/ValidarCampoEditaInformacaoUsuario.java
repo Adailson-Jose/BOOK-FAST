@@ -3,7 +3,6 @@ package com.projeto.bookfast.bookfast.dominio.pessoa.negocio;
 import android.widget.EditText;
 
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
-import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
 import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 
 /**
@@ -27,10 +26,6 @@ public class ValidarCampoEditaInformacaoUsuario {
             email.setError("Email inválido!");
             email.requestFocus();
         }
-        if (resultado) {
-            return true;
-        } else {
-            return false;
-        }
+        return resultado;
     }
 }

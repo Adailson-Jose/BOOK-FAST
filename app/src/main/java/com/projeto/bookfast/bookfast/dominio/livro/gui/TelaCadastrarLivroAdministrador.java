@@ -13,7 +13,6 @@ import com.projeto.bookfast.bookfast.dominio.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.dominio.livro.negocio.ValidarCamposCadastroLivro;
 import com.projeto.bookfast.bookfast.dominio.livro.percistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.dominio.livro.percistencia.UpdateLivro;
-import com.projeto.bookfast.bookfast.dominio.pessoa.negocio.ValidarCampoCadastroPessoa;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
@@ -25,7 +24,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastrar_livro_administrador);
-        ValidarCampoCadastroPessoa validarCampo = new ValidarCampoCadastroPessoa();
         editIsbn = (EditText) findViewById(R.id.editIsbn);
         editNome = (EditText) findViewById(R.id.editNome);
         editGenero = (EditText) findViewById(R.id.editGenero);

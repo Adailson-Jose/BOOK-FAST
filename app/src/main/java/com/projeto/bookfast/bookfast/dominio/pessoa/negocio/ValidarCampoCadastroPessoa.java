@@ -15,7 +15,6 @@ public class ValidarCampoCadastroPessoa {
         String nomeString = nome.getText().toString();
         String emailString = email.getText().toString();
         String senhaString = senha.getText().toString();
-        ;
         boolean resultado = false;
         if (!ValidarCpf.validarCpf(cpfString)) {
             resultado = true;
@@ -34,10 +33,6 @@ public class ValidarCampoCadastroPessoa {
             senha.setError("Senha inválida!");
             senha.requestFocus();
         }
-        if (resultado) {
-            return true;
-        } else {
-            return false;
-        }
+        return resultado;
     }
 }

@@ -8,7 +8,6 @@ import android.widget.Button;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.dominio.livro.gui.TelaLivroAdministrador;
-import com.projeto.bookfast.bookfast.dominio.pessoa.percistencia.ReadPessoa;
 
 
 public class TelaInicialAdministrador extends AppCompatActivity {
@@ -16,7 +15,6 @@ public class TelaInicialAdministrador extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ReadPessoa busca = new ReadPessoa(getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial_admistrador);
         btLivro = (Button) findViewById(R.id.btLivro);

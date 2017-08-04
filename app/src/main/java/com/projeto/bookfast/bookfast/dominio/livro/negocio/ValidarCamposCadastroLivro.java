@@ -55,11 +55,7 @@ public class ValidarCamposCadastroLivro {
             numEdicao.setError("Campo Número da edição inválido!");
             numEdicao.requestFocus();
         }
-        if (resultado) {
-            return true;
-        }else{
-            return false;
-        }
+        return resultado;
 
     }
 }
