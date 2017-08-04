@@ -48,7 +48,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                 Pessoa pessoa = new Pessoa();
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
                 String cpf = editNovoUsuario.getText().toString();
-                if (validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha) == false && buscar.getPessoa(Long.parseLong(cpf)) == null) {
+                if (!validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha) && buscar.getPessoa(Long.parseLong(cpf)) == null) {
                     String nome = editNovoNome.getText().toString();
                     String email = editNovoEmail.getText().toString();
                     String senha = editNovaSenha.getText().toString();

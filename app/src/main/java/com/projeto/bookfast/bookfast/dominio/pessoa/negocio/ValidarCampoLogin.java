@@ -24,12 +24,7 @@ public class ValidarCampoLogin {
             senha.setError("Campo senha inválido!");
             senha.requestFocus();
         }
-        if (resultado) {
-
-            return true;
-        }else{
-            return false;
-        }
+        return resultado;
     }
 }
 

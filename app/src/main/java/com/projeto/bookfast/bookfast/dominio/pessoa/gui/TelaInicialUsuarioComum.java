@@ -90,7 +90,7 @@ public class TelaInicialUsuarioComum extends Activity {
         String[] ids = pessoa.getLivros().trim().split(" ");
         Livro livor2;
         for (String idLivro : ids) {
-            if (idLivro == "") {
+            if (idLivro.equals("")) {
                 stringDados.add("VOCÊ NÃO TEM LIVRO ALUGADO!");
             } else {
                 livor2 = buscarLivro.getLivro(Integer.parseInt(idLivro));

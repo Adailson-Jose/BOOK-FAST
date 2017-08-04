@@ -43,10 +43,7 @@ public class ValidarCpf {
                 digito11 = '0';
             else
                 digito11 = (char) (resto + 48);
-            if ((digito10 == CPF.charAt(9)) && (digito11 == CPF.charAt(10)))
-                return (true);
-            else
-                return (false);
+            return (digito10 == CPF.charAt(9)) && (digito11 == CPF.charAt(10));
         } catch (Exception erro) {
             return (false);
         }
