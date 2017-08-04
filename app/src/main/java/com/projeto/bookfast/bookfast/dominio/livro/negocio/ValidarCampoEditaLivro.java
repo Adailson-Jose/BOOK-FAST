@@ -22,7 +22,7 @@ public class ValidarCampoEditaLivro {
         String Ano = ano.getText().toString();
         String NumEdicao = numEdicao.getText().toString();
         boolean resultado = false;
-        if (!validarIsbn.validarIsbn(Isbn)) {
+        if (validarIsbn.validarIsbn(Isbn)) {
             resultado = true;
             isbn.setError("Campo ISBN inválido!");
             isbn.requestFocus();

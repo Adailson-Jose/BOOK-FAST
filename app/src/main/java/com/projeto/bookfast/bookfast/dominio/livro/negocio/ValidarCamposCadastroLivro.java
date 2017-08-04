@@ -6,7 +6,7 @@ import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
 
 /**
- * Created by oi on 01/08/2017.
+ * Created by jadeilson on 01/08/2017.
  */
 
 public class ValidarCamposCadastroLivro {
@@ -22,7 +22,7 @@ public class ValidarCamposCadastroLivro {
         String Ano = ano.getText().toString();
         String NumEdicao = numEdicao.getText().toString();
         boolean resultado = false;
-        if (!validarIsbn.validarIsbn(Isbn)) {
+        if (validarIsbn.validarIsbn(Isbn)) {
             resultado = true;
             isbn.setError("Campo ISBN inválido!");
             isbn.requestFocus();
