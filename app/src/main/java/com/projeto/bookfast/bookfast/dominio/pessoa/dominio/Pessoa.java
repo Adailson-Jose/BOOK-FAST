@@ -13,21 +13,21 @@ public class Pessoa {
     }
 
     //Construtor para buscar no banco
-    public Pessoa(int _id, long _cpf, String _nome, String _email, String _senha, String _livros) {
-        this.id = _id;
-        this.cpf = _cpf;
-        this.nome = _nome;
-        this.email = _email;
-        this.senha = _senha;
-        this.livros = _livros;
+    public Pessoa(int id, long cpf, String nome, String email, String senha, String livros) {
+        this.id = id;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.livros = livros;
     }
     //Construtor para inserir
-    public Pessoa(long _cpf, String _nome, String _email, String _senha, String _livros) {
-        this.cpf = _cpf;
-        this.nome = _nome;
-        this.email = _email;
-        this.senha = _senha;
-        this.livros = _livros;
+    public Pessoa(long cpf, String nome, String email, String senha, String livros) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.livros = livros;
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

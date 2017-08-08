@@ -47,6 +47,7 @@ public class TelaQRcode extends AppCompatActivity {
                 Toast.makeText(this, "Você Cancelou o Scaneamento", Toast.LENGTH_LONG).show();
             }
             else{
+
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
             }
         }
