@@ -4,7 +4,7 @@
     android:id="@+id/raizQRcode"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.dominio.livro.gui.TelaQRcode">
+    tools:context=".livro.gui.TelaQRcode">
 
     <LinearLayout
         android:layout_width="fill_parent"

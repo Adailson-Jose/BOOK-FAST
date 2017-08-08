@@ -4,7 +4,7 @@
     android:id="@+id/raizEditLivro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.dominio.livro.gui.TelaEditarLivroAdministrador">
+    tools:context=".livro.gui.TelaEditarLivroAdministrador">
 
     <LinearLayout
         android:layout_width="fill_parent"
