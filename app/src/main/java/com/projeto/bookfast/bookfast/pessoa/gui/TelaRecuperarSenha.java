@@ -10,8 +10,10 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
+import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
+import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.negocio.ValidarCampoRecuperarSenhaPessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 
@@ -33,11 +35,26 @@ public class TelaRecuperarSenha extends Activity {
             public void onClick(View v) {
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
                 UpdatePessoa atualizar = new UpdatePessoa(getApplicationContext());
-                ValidarCampoRecuperarSenhaPessoa validarCampos = new ValidarCampoRecuperarSenhaPessoa();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizRecuperarSenha);
                 LimparTela limparTela = new LimparTela();
-
-                if (!validarCampos.valdarCampoRecuperarSenha(editCPF, editEmail,editNovaSenha)) {
+                String cpfStr = editCPF.getText().toString();
+                String emailStr = editEmail.getText().toString();
+                String senhaStr = editNovaSenha.getText().toString();
+                boolean resultado = false;
+                if (!ValidarCpf.validarCpf(cpfStr)) {
+                    resultado = true;
+                    editCPF.setError("Campo CPF inválido!");
+                    editCPF.requestFocus();
+                } else if (!ValidarEmail.isEmailValido(emailStr)) {
+                    resultado = true;
+                    editEmail.setError("Campo email inválido!");
+                    editEmail.requestFocus();
+                } else if (ValidarCampoVazio.isCampoVazio(senhaStr)) {
+                    resultado = true;
+                    editNovaSenha.setError("Campo senha inválido!");
+                    editNovaSenha.requestFocus();
+                }
+                if (!resultado) {
                     Pessoa pessoa;
                     String loginCpf = editCPF.getText().toString();
                     String novaSenha = editNovaSenha.getText().toString();

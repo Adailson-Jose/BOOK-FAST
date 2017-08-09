@@ -11,9 +11,10 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
+import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.negocio.ValidarCampoLogin;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 
 public class TelaLogin extends AppCompatActivity {
@@ -36,14 +37,24 @@ public class TelaLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
-                ValidarCampoLogin validarCampos = new ValidarCampoLogin();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizLogin);
-                LimparTela limparTela = new LimparTela();
+                String cpfString = editUsuario.getText().toString();
+                String senhaStr = editSenha.getText().toString();
+                boolean resultado = false;
+                if (!ValidarCpf.validarCpf(cpfString)) {
+                    resultado = true;
+                    editUsuario.setError("Campo CPF inválido!");
+                    editUsuario.requestFocus();
+                } else if (ValidarCampoVazio.isCampoVazio(senhaStr)) {
+                    resultado = true;
+                    editSenha.setError("Campo senha inválido!");
+                    editSenha.requestFocus();
+                }
 
-                if (!validarCampos.ValidarCampoLogin(editUsuario, editSenha)) {
+                if (!resultado) {
                     String senha = editSenha.getText().toString();
                     String loginCpf = editUsuario.getText().toString();
-                    limparTela.clearForm(group);
+                    LimparTela.clearForm(group);
                     editUsuario.requestFocus();
                     // Teste de buscar pessoa
                     pessoa = buscar.getPessoa(Long.parseLong(loginCpf));

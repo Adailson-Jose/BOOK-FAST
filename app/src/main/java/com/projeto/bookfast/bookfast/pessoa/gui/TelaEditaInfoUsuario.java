@@ -11,8 +11,9 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
+import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.negocio.ValidarCampoEditaInformacaoUsuario;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 
@@ -39,18 +40,25 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
         btSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LimparTela limparTela = new LimparTela();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizEditarinfomacaoUsuario);
-                ValidarCampoEditaInformacaoUsuario validarCampoEditaInformacaoUsuario = new ValidarCampoEditaInformacaoUsuario();
                 UpdatePessoa atualizar = new UpdatePessoa(getApplicationContext());
-
-                if (!validarCampoEditaInformacaoUsuario.ValidarCampoEditaInformacaoUsuario(editTextNome, editTextEmail)){
-                    String nome = editTextNome.getText().toString();
-                    String email = editTextEmail.getText().toString();
-                    pessoa.setNome(nome);
-                    pessoa.setEmail(email);
+                boolean resultado = false;
+                String nomeString = editTextNome.getText().toString();
+                String emailString = editTextEmail.getText().toString();
+                if (ValidarCampoVazio.isCampoVazio(nomeString)) {
+                    resultado = true;
+                    editTextNome.setError("Nome inválido!");
+                    editTextNome.requestFocus();
+                } else if (!ValidarEmail.isEmailValido(emailString)) {
+                    resultado = true;
+                    editTextEmail.setError("Email inválido!");
+                    editTextEmail.requestFocus();
+                }
+                if (!resultado) {
+                    pessoa.setNome(nomeString);
+                    pessoa.setEmail(emailString);
                     atualizar.updatePessoa(pessoa);
-                    limparTela.clearForm(group);
+                    LimparTela.clearForm(group);
                     editTextNome.requestFocus();
                     Toast.makeText(TelaEditaInfoUsuario.this, "INFORMAÇÕES ALTERADAS COM SUCESSO", Toast.LENGTH_SHORT).show();
 

@@ -5,13 +5,12 @@ package com.projeto.bookfast.bookfast.negocio;
  */
 
 public class ValidarIsbn {
-    ValidarCampoVazio vazio = new ValidarCampoVazio();
 
     public ValidarIsbn() {
     }
 
-    public boolean validarIsbn(String isbn) {
-        if (isbn.length() < 13 || isbn.length() > 13 || vazio.isCampoVazio(isbn)) {
+    public static boolean validarIsbn(String isbn) {
+        if (isbn.length() < 13 || isbn.length() > 13 || ValidarCampoVazio.isCampoVazio(isbn)) {
             return true;
 
         } else {

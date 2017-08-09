@@ -10,7 +10,7 @@ public class ValidarCampoVazio {
     public ValidarCampoVazio() {
     }
 
-    public boolean isCampoVazio(String valor) {
+    public static boolean isCampoVazio(String valor) {
         boolean resultado = (TextUtils.isEmpty(valor.trim()));
         return resultado;
     }

@@ -45,6 +45,7 @@ public class TelaLivroAdministrador extends Activity {
             }
 
         });
+
         btDeletarlivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +54,5 @@ public class TelaLivroAdministrador extends Activity {
             }
 
         });
-
     }
 }

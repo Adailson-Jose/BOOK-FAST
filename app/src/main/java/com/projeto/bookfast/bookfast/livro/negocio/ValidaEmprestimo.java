@@ -15,7 +15,6 @@ public class ValidaEmprestimo {
             livro.setQtdTotal(livro.getQtdTotal() - 1);
         pessoa.setLivros(livro.getNome());
         }
-
     }
 
     public boolean verDisponibilidade(Livro livro) {

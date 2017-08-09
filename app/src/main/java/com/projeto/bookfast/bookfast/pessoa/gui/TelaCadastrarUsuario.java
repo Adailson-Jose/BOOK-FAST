@@ -10,8 +10,10 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
+import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
+import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
+import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.negocio.ValidarCampoCadastroPessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 
@@ -42,23 +44,41 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
         btRegistrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ValidarCampoCadastroPessoa validarCampos = new ValidarCampoCadastroPessoa();
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroUsuario);
-                LimparTela limparTela = new LimparTela();
                 Pessoa pessoa = new Pessoa();
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
+                boolean resultado = false;
                 String cpf = editNovoUsuario.getText().toString();
-                if (!validarCampos.vefificaCadastroUsuario(editNovoUsuario, editNovoNome, editNovoEmail, editNovaSenha) && buscar.getPessoa(Long.parseLong(cpf)) == null) {
-                    String nome = editNovoNome.getText().toString();
-                    String email = editNovoEmail.getText().toString();
-                    String senha = editNovaSenha.getText().toString();
-                    limparTela.clearForm(group);
+                String nome = editNovoNome.getText().toString();
+                String email = editNovoEmail.getText().toString();
+                String senha = editNovaSenha.getText().toString();
+
+                if (!ValidarCpf.validarCpf(cpf)) {
+                    resultado = true;
+                    editNovoUsuario.setError("CPF inváldo!");
+                    editNovoUsuario.requestFocus();
+                } else if (ValidarCampoVazio.isCampoVazio(nome)) {
+                    resultado = true;
+                    editNovoNome.setError("Nome inválido!");
+                    editNovoNome.requestFocus();
+                } else if (!ValidarEmail.isEmailValido(email)) {
+                    resultado = true;
+                    editNovoEmail.setError("Email inválido!");
+                    editNovoEmail.requestFocus();
+                } else if (ValidarCampoVazio.isCampoVazio(senha)) {
+                    resultado = true;
+                    editNovaSenha.setError("Senha inválida!");
+                    editNovaSenha.requestFocus();
+                }
+
+                if (!resultado && buscar.getPessoa(Long.parseLong(cpf)) == null) {
+                    LimparTela.clearForm(group);
                     editNovoNome.requestFocus();
                     pessoa.setNome(nome);
                     pessoa.setEmail(email);
                     pessoa.setCpf(Long.parseLong(cpf));
                     pessoa.setSenha(senha);
-                    pessoa.setLivros("1 2");//Teste de user com dois livros alugados
+                    pessoa.setLivros("");
                     UpdatePessoa inserir = new UpdatePessoa(getApplicationContext());
                     if (inserir.insertPessoa(pessoa)) {
                         Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
