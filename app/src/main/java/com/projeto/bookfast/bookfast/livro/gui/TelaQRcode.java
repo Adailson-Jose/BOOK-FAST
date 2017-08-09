@@ -33,8 +33,6 @@ public class TelaQRcode extends AppCompatActivity {
                 integrator.setBeepEnabled(false);
                 integrator.setBarcodeImageEnabled(false);
                 integrator.initiateScan();
-
-
             }
         });
     }

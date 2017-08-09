@@ -112,4 +112,5 @@ public class Livro {
     public void setQtdAlugado(int qtdAlugado) {
         this.qtdAlugado = qtdAlugado;
     }
+
 }

@@ -22,6 +22,10 @@ public class ReadLivro {
         dbHelper = new CreatBancoDados(context);
     }
 
+    public ReadLivro() {
+
+    }
+
     public ArrayList<Livro> getListaLivro() {
         db = dbHelper.getReadableDatabase();
         ArrayList<Livro> livroArray = new ArrayList<>();
@@ -79,7 +83,7 @@ public class ReadLivro {
         if (cursor != null && cursor.moveToFirst()) {
             Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
             cursor.close();
-            //db.close();
+            db.close();
             return livro;
         } else {
             db.close();

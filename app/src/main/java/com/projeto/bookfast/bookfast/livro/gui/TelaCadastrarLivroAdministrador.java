@@ -18,7 +18,7 @@ import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
     Button btCadastrarLivro, btCancelar;
-    EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada;
+    EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada, editTextImagem;
     Livro livro;
 
     @Override
@@ -33,7 +33,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         editAno = (EditText) findViewById(R.id.editAno);
         editQuantidadeTotal = (EditText) findViewById(R.id.editQuantidadeTotal);
         editQuantidadeAlugada = (EditText) findViewById(R.id.editQuantidadeAlugada);
-
         btCadastrarLivro = (Button) findViewById(R.id.btCadastrarLivro);
         btCancelar = (Button) findViewById(R.id.btCancelar);
 
@@ -51,7 +50,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 String QtTotal = editQuantidadeTotal.getText().toString();
                 String Ano = editAno.getText().toString();
                 String NumEdicao = editEdicao.getText().toString();
-
                 if (ValidarIsbn.validarIsbn(Isbn)) {
                     resultado = true;
                     editIsbn.setError("Campo ISBN inválido!");
@@ -100,7 +98,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     livro = buscarLivro.getLivro(isbn);
                     if (livro != null) {
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();
-
                     } else {
                         livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao);
 

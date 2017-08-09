@@ -36,7 +36,7 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         ImageView imagem = (ImageView) rowView.findViewById(R.id.imagem);
         nomeLivro.setText(elementos.get(position).getNome());
         isbn.setText(elementos.get(position).getIsbn().toString());
-        //imagem.setImageResource(elementos.get(position).getImagem());
+        imagem.setImageResource(R.drawable.livro1);
         return rowView;
     }
 }

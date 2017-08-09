@@ -18,7 +18,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_EMAIL = "EMAIL";
     private static final String COLUNA_SENHA = "SENHA";
     private static final String COLUNA_IDS_LIVROS = "IDS_LIVROS";
-    //VARIAVES DA TABELA PESSOA
+    //VARIAVES DA TABELA LIVRO
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
     private static final String COLUNA_ISBN = "ISBN";
@@ -29,13 +29,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_N_EDICAO = "N_EDICAO";
     private static final String COLUNA_ANO = "ANO";
     private static final String COLUNA_GENERO = "GENERO";
+    // private static final String COLUNA_IMAGEM = "IMAGEM";
     private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/" + NOME_BANCO;
-    private Context meuContext;
-    private SQLiteDatabase db;
 
     public CreatBancoDados(Context context) {
         super(context, NOME_BANCO, null, VERSAO_BANCO);
-
     }
 
     @Override
@@ -48,7 +46,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
                 + COLUNA_EMAIL + "," + COLUNA_IDS_LIVROS + "," + COLUNA_SENHA +
-                ") VALUES('19928810303', 'admin', 'admin@email.com', '1', 'admin')");
+                ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin')");
 
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
@@ -90,10 +88,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
     public static String getColunaSenha() {
         return COLUNA_SENHA;
-    }
-
-    public static String getNomeBanco() {
-        return NOME_BANCO;
     }
 
     public static String getColunaIdsLivros() {

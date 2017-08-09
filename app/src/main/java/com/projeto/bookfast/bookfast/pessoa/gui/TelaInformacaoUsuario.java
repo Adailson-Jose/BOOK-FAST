@@ -11,9 +11,6 @@ import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class TelaInformacaoUsuario extends AppCompatActivity {
     Button btEditaMinhasInformacoes;
     TextView textViewMinhasInformacoes;
@@ -28,12 +25,20 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
         btEditaMinhasInformacoes = (Button) findViewById(R.id.btEditaMinhasInformacoes);
 
         Bundle bundle = getIntent().getExtras();
-
+        int quantidadeLivrosAludado = 0;
         if (bundle != null) {
-            pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
-            List<String> quantidadeLivrosAludado = Arrays.asList(pessoa.getLivros().trim().split(" "));
+            pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
+            String[] ids = pessoa.getLivros().trim().split(" ");
+            for (String idLivro : ids) {
+                if (idLivro.equals("")) {
+                    //
+                } else {
+                    quantidadeLivrosAludado += 1;
+
+                }
+            }
             String dadosPessoa = "Nome: " + pessoa.getNome() + ", Email: " + pessoa.getEmail() + ", Cpf: " + pessoa.getCpf()
-                    + ", Qtd livro ocupado: " + quantidadeLivrosAludado.size();
+                    + ", Qtd livro ocupado: " + quantidadeLivrosAludado;
             textViewMinhasInformacoes.setText(dadosPessoa);
         }
         btEditaMinhasInformacoes.setOnClickListener(new View.OnClickListener() {

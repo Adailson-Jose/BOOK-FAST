@@ -36,7 +36,8 @@
         <activity android:name=".livro.gui.TelaEditarLivroAdministrador" />
         <activity android:name=".livro.gui.TelaQRcode" />
         <activity android:name=".pessoa.gui.TelaInformacaoUsuario" />
-        <activity android:name=".pessoa.gui.TelaEditaInfoUsuario"></activity>
+        <activity android:name=".pessoa.gui.TelaEditaInfoUsuario" />
+        <activity android:name=".pessoa.gui.TelaRemoverLivro"></activity>
     </application>
 
 </manifest>
