@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.bookfast.bookfast.pessoa.gui.TelaRemoverLivro">
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fundo"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ListView
+            android:id="@+id/listViewLivroSelecionado"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:background="@color/colorGrayyy"
+            android:layout_weight="0.12" />
+
+        <TextView
+            android:id="@+id/textViewDataDevolucao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlue" />
+
+        <Button
+            android:id="@+id/btDevolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DEVOLVER LIVRO" />
+
+        <Button
+            android:id="@+id/btRenovar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RENOVAR LIVRO" />
+
+        <Button
+            android:id="@+id/btVoltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VOLTAR" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

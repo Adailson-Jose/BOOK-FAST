@@ -18,25 +18,28 @@
         android:roundIcon="@drawable/bookfast"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dominio.pessoa.gui.TelaLogin">
+        <activity android:name=".pessoa.gui.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dominio.pessoa.gui.TelaInicialAdministrador" />
-        <activity android:name=".dominio.pessoa.gui.TelaRecuperarSenha" />
-        <activity android:name=".dominio.pessoa.gui.TelaCadastrarUsuario" />
-        <activity android:name=".dominio.pessoa.gui.TelaInicialUsuarioComum" />
-        <activity android:name=".dominio.livro.gui.TelaLivroAdministrador" />
-        <activity android:name=".dominio.pessoa.gui.TelaUsuarioAdministrador" />
-        <activity android:name=".dominio.livro.gui.TelaCadastrarLivroAdministrador" />
-        <activity android:name=".dominio.livro.gui.TelaListaLivros" />
-        <activity android:name=".dominio.livro.gui.TelaEditarLivroAdministrador" />
-        <activity android:name=".dominio.livro.gui.TelaQRcode" />
-        <activity android:name=".dominio.pessoa.gui.TelaInformacaoUsuario" />
-        <activity android:name=".dominio.pessoa.gui.TelaEditaInfoUsuario"></activity>
+        <activity android:name=".pessoa.gui.TelaInicialAdministrador" />
+        <activity android:name=".pessoa.gui.TelaRecuperarSenha" />
+        <activity android:name=".pessoa.gui.TelaCadastrarUsuario" />
+        <activity android:name=".pessoa.gui.TelaInicialUsuarioComum" />
+        <activity android:name=".livro.gui.TelaLivroAdministrador" />
+        <activity android:name=".pessoa.gui.TelaUsuarioAdministrador" />
+        <activity android:name=".livro.gui.TelaCadastrarLivroAdministrador" />
+        <activity android:name=".livro.gui.TelaListaTodosLivrosAdm" />
+        <activity android:name=".livro.gui.TelaEditarLivroAdministrador" />
+        <activity android:name=".livro.gui.TelaQRcode" />
+        <activity android:name=".pessoa.gui.TelaInformacaoUsuario" />
+        <activity android:name=".pessoa.gui.TelaEditaInfoUsuario" />
+        <activity android:name=".pessoa.gui.TelaRemoverLivro" />
+        <activity android:name=".pessoa.gui.TelaAlugarLivro" />
+        <activity android:name=".pessoa.gui.TelaListarTodosLivrosUusario"></activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@ public class LimparTela {
     public LimparTela() {
     }
 
-    public void clearForm(ViewGroup group) {
+    public static void clearForm(ViewGroup group) {
         for (int i = 0, count = group.getChildCount(); i < count; ++i) {
             View view = group.getChildAt(i);
             if (view instanceof EditText) {

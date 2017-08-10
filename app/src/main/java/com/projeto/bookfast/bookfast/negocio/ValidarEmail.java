@@ -7,13 +7,12 @@ import android.util.Patterns;
  */
 
 public class ValidarEmail {
-    ValidarCampoVazio vazio = new ValidarCampoVazio();
 
     public ValidarEmail() {
     }
 
-    public boolean isEmailValido(String email) {
-        boolean resultado = (!vazio.isCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    public static boolean isEmailValido(String email) {
+        boolean resultado = (!ValidarCampoVazio.isCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
         return resultado;
     }
 

@@ -4,7 +4,7 @@
     android:id="@+id/raizLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dominio.pessoa.gui.TelaLogin">
+    tools:context=".pessoa.gui.TelaLogin">
 
     <LinearLayout
         android:layout_width="fill_parent"

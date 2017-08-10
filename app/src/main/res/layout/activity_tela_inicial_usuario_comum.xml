@@ -4,7 +4,7 @@
     android:id="@+id/raizTelaUserFuncao"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.dominio.pessoa.gui.TelaInicialUsuarioComum">
+    tools:context=".pessoa.gui.TelaInicialUsuarioComum">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/raizTelaUserComum"
@@ -59,7 +59,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textViewUsuario"
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:text="LIVROS ALUGADOS"
@@ -69,6 +69,14 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="visible" />
+
+        <SearchView
+            android:id="@+id/idPesquisa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:textColor="@color/colorBlue"
+            android:background="@color/colorGrayyy" />
 
         <ListView
             android:id="@+id/listViewLivros"
