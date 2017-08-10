@@ -32,12 +32,14 @@
         <activity android:name=".livro.gui.TelaLivroAdministrador" />
         <activity android:name=".pessoa.gui.TelaUsuarioAdministrador" />
         <activity android:name=".livro.gui.TelaCadastrarLivroAdministrador" />
-        <activity android:name=".livro.gui.TelaListaLivros" />
+        <activity android:name=".livro.gui.TelaListaTodosLivrosAdm" />
         <activity android:name=".livro.gui.TelaEditarLivroAdministrador" />
         <activity android:name=".livro.gui.TelaQRcode" />
         <activity android:name=".pessoa.gui.TelaInformacaoUsuario" />
         <activity android:name=".pessoa.gui.TelaEditaInfoUsuario" />
-        <activity android:name=".pessoa.gui.TelaRemoverLivro"></activity>
+        <activity android:name=".pessoa.gui.TelaRemoverLivro" />
+        <activity android:name=".pessoa.gui.TelaAlugarLivro" />
+        <activity android:name=".pessoa.gui.TelaListarTodosLivrosUusario"></activity>
     </application>
 
 </manifest>

@@ -6,7 +6,6 @@
     tools:context=".livro.gui.TelaListaTodosLivrosAdm">
 
 
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

@@ -1,5 +1,6 @@
 package com.projeto.bookfast.bookfast.livro.gui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -36,7 +37,20 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
 
         btEdtarLivro = (Button) findViewById(R.id.btEditarLivro);
         btCancelar = (Button) findViewById(R.id.btCancelar);
-
+        final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            livro = buscarLivro.getLivro(Long.parseLong(String.valueOf(bundle.get("livro"))));
+            editIsbn.setText(String.valueOf(livro.getIsbn()));
+            editNome.setText(livro.getNome());
+            editGenero.setText(livro.getGenero());
+            editAutor.setText(livro.getAutor());
+            editEdicao.setText(String.valueOf(livro.getNumEdicao()));
+            editAno.setText(String.valueOf((livro.getAno())));
+            editQuantidadeTotal.setText(String.valueOf(livro.getQtdTotal()));
+            editQuantidadeAlugada.setText(String.valueOf((livro.getQtdAlugado())));
+            editIsbn.requestFocus();
+        }
         btEdtarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +110,6 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                     String autor = editAutor.getText().toString();
                     LimparTela.clearForm(group);
                     editIsbn.requestFocus();
-                    ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
                     livro = buscarLivro.getLivro(isbn);
                     if (livro != null) {
                         livro.setIsbn(isbn);
@@ -109,7 +122,8 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                         livro.setAutor(autor);
                         atualizarLivro.updateLivro(livro);
                         Toast.makeText(TelaEditarLivroAdministrador.this, R.string.AtualizcaoLivro, Toast.LENGTH_LONG).show();
-
+                        Intent abreTelaLivroAdministrador = new Intent(TelaEditarLivroAdministrador.this, TelaLivroAdministrador.class);
+                        startActivity(abreTelaLivroAdministrador);
                     } else {
                         Toast.makeText(TelaEditarLivroAdministrador.this, R.string.LvroNaoExiste, Toast.LENGTH_LONG).show();
 

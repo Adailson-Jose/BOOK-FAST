@@ -40,7 +40,7 @@ public class TelaLivroAdministrador extends Activity {
         btListarLivros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abreTelaListaLivros = new Intent(TelaLivroAdministrador.this, TelaListaLivros.class);
+                Intent abreTelaListaLivros = new Intent(TelaLivroAdministrador.this, TelaListaTodosLivrosAdm.class);
                 startActivity(abreTelaListaLivros);
             }
 
@@ -49,7 +49,7 @@ public class TelaLivroAdministrador extends Activity {
         btDeletarlivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abreTelaListaLivros = new Intent(TelaLivroAdministrador.this, TelaListaLivros.class);
+                Intent abreTelaListaLivros = new Intent(TelaLivroAdministrador.this, TelaListaTodosLivrosAdm.class);
                 startActivity(abreTelaListaLivros);
             }
 

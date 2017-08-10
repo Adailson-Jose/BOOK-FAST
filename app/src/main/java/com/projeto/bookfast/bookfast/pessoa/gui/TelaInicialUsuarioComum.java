@@ -9,11 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.gui.TelaListaLivros;
 import com.projeto.bookfast.bookfast.livro.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
@@ -53,9 +51,6 @@ public class TelaInicialUsuarioComum extends Activity {
                 //
             } else {
                 livro.add(buscarLivro.getLivro(Integer.parseInt(idLivro)));
-                Toast.makeText(TelaInicialUsuarioComum.this, buscarLivro.getLivro(Integer.parseInt(idLivro)).getNome(), Toast.LENGTH_SHORT).show();
-
-
             }
         }
 
@@ -68,7 +63,6 @@ public class TelaInicialUsuarioComum extends Activity {
                 Intent AbreTelaRemoverLivro = new Intent(TelaInicialUsuarioComum.this, TelaRemoverLivro.class);
                 AbreTelaRemoverLivro.putExtra("livro", String.valueOf(livro.get(position).getIsbn()));
                 AbreTelaRemoverLivro.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
-
                 startActivity(AbreTelaRemoverLivro);
             }
         });
@@ -93,9 +87,9 @@ public class TelaInicialUsuarioComum extends Activity {
         btListalivros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent AbreTelaListaLivros = new Intent(TelaInicialUsuarioComum.this, TelaListaLivros.class);
-                AbreTelaListaLivros.putExtra("KEY", String.valueOf(pessoa.getCpf()));
-                startActivity(AbreTelaListaLivros);
+                Intent abreTelaListarTodosLivrosUusario = new Intent(TelaInicialUsuarioComum.this, TelaListarTodosLivrosUusario.class);
+                abreTelaListarTodosLivrosUusario.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                startActivity(abreTelaListarTodosLivrosUusario);
             }
         });
     }
