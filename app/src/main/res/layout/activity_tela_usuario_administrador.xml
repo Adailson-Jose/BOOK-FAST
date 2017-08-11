@@ -24,16 +24,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_weight="0.03"
             android:fontFamily="serif"
             android:text="PERMISSÕES DE ADMINISTRADOR"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorBlue"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="6dp"
-            android:layout_weight="0.03" />
+            tools:layout_editor_absoluteY="6dp" />
 
         <Button
             android:id="@+id/btRemoverUsuario"

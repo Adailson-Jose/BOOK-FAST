@@ -23,8 +23,8 @@
             android:text=""
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorGrayyy"
-            android:textSize="20sp"
+            android:textColor="@color/colorBlue"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
 
