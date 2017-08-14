@@ -18,6 +18,16 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_EMAIL = "EMAIL";
     private static final String COLUNA_SENHA = "SENHA";
     private static final String COLUNA_IDS_LIVROS = "IDS_LIVROS";
+    //VARIAVES DA TABELA ALUGUEL_LIVRO
+    private static final String TABEELA_ALUGUEL_LIVRO = "TB_ALUGUEL_LIVRO";
+    private static final String COLUNA_ID_ALUGUEL = "ID";
+    private static final String COLUNA_PESSOA = "PESSOA";
+    private static final String COLUNA_ITEM_ALUGUEL = "ITEM_ALUGUEL";
+    //VARIAVES DA TABELA ITEM_ALUGUEL
+    private static final String TABELA_ITEM_ALUGUEL = "TB_ITEM_ALUGUEL";
+    private static final String COLUNA_ID_INTEM_LIVRO = "ID";
+    private static final String COLUNA_LIVRO = "LIVROS";
+
     //VARIAVES DA TABELA LIVRO
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
@@ -60,6 +70,10 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO +
                 ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0')");
+        // CRIAR TABELA ALUGUEL
+        db.execSQL("create table" + TABEELA_ALUGUEL_LIVRO + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement," + COLUNA_PESSOA + "integer," + COLUNA_ITEM_ALUGUEL + " integer)");
+        //CRIAR TABELA ITEM LIVRO
+        db.execSQL("create table" + TABELA_ITEM_ALUGUEL + "(" + COLUNA_ID_INTEM_LIVRO + "integer primary key autoincrement," + COLUNA_LIVRO + " integer, " + ")");
     }
 
     @Override
