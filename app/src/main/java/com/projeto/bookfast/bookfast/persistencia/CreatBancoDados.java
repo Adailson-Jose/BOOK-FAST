@@ -29,6 +29,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_N_EDICAO = "N_EDICAO";
     private static final String COLUNA_ANO = "ANO";
     private static final String COLUNA_GENERO = "GENERO";
+    private static final String COLUNA_FOTO_LIVRO = "FOTO_LIVRO";
+
     // private static final String COLUNA_IMAGEM = "IMAGEM";
     private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/" + NOME_BANCO;
 
@@ -51,15 +53,17 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
                 + " integer, " + COLUNA_NOME_LIVRO + " text not null, " + COLUNA_QTD_ALUGADO + " integer, "
-                + COLUNA_AUTOR + " text not null, " + COLUNA_GENERO + " text not null, " + COLUNA_QTD_TOTAL + " integer, " + COLUNA_ANO + " integer, " + COLUNA_N_EDICAO + " integer)");
+                + COLUNA_AUTOR + " text not null, " + COLUNA_GENERO + " text not null, " + COLUNA_QTD_TOTAL + " integer, "
+                + COLUNA_ANO + " integer, " + COLUNA_N_EDICAO + " integer, " + COLUNA_FOTO_LIVRO + " blob)");
 
         //ADD LIVRO EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
-                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO +
-                ") VALUES('9999999999999', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0')");
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('9999999999999', 'EXEMPLO', '10', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0', '')");
+
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
-                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO +
-                ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0')");
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0','')");
     }
 
     @Override
@@ -140,4 +144,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return COLUNA_GENERO;
     }
 
+    public static String getColunaFotoLivro() {
+        return COLUNA_FOTO_LIVRO;
+    }
 }

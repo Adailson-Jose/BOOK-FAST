@@ -28,7 +28,7 @@ public class TelaListarTodosLivrosUusario extends AppCompatActivity {
         final ReadPessoa buscarPessoa = new ReadPessoa(getApplicationContext());
         ListView listView = (ListView) findViewById(R.id.listViewLivro);
         final ArrayList<Livro> livro = buscarLivro.getListaLivro();
-        ArrayAdapter adapter = new LivroAdapter(this, livro);
+        ArrayAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livro);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

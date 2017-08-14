@@ -1,8 +1,8 @@
 package com.projeto.bookfast.bookfast.livro.gui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +15,8 @@ import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
 
 import java.util.ArrayList;
 
-public class TelaListaTodosLivrosAdm extends AppCompatActivity {
+public class TelaListaTodosLivrosAdm extends Activity {
+    private LivroAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class TelaListaTodosLivrosAdm extends AppCompatActivity {
         final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         ListView listView = (ListView) findViewById(R.id.listViewLivro);
         final ArrayList<Livro> livro = buscarLivro.getListaLivro();
-        ArrayAdapter adapter = new LivroAdapter(this, livro);
+        ArrayAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livro);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -1,6 +1,8 @@
 package com.projeto.bookfast.bookfast.livro.negocio;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,25 +20,46 @@ import java.util.ArrayList;
  */
 
 public class LivroAdapter extends ArrayAdapter<Livro> {
-    private final Context context;
-    private final ArrayList<Livro> elementos;
+    Context contexto;
+    int id;
+    ArrayList<Livro> elementos;
 
-    public LivroAdapter(Context context, ArrayList<Livro> elementos) {
-        super(context, R.layout.linha, elementos);
-        this.context = context;
+    public LivroAdapter(Context context, int id, ArrayList<Livro> elementos) {
+        super(context, id, elementos);
+        this.contexto = context;
         this.elementos = elementos;
+        this.id = id;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.linha, parent, false);
-        TextView nomeLivro = (TextView) rowView.findViewById(R.id.nome);
-        TextView isbn = (TextView) rowView.findViewById(R.id.isbn);
-        ImageView imagem = (ImageView) rowView.findViewById(R.id.imagem);
-        nomeLivro.setText(elementos.get(position).getNome());
-        isbn.setText(elementos.get(position).getIsbn().toString());
-        imagem.setImageResource(R.drawable.livro1);
-        return rowView;
+        View view = convertView;
+        Livro livro;
+        ImageView foto;
+        TextView nome;
+        TextView isbn;
+        Bitmap raw;
+        byte[] fotoArray;
+
+        if (view == null) {
+            LayoutInflater inflater = LayoutInflater.from(contexto);
+            view = inflater.inflate(id, parent, false);
+        }
+        nome = (TextView) view.findViewById(R.id.textViewNomeLivro);
+        isbn = (TextView) view.findViewById(R.id.textViewIsbn);
+        foto = (ImageView) view.findViewById(R.id.imageView);
+        livro = elementos.get(position);
+        nome.setText(livro.getNome());
+        isbn.setText(String.valueOf(livro.getIsbn()));
+        fotoArray = livro.getFotoLivro();
+
+        if (fotoArray != null) {
+            raw = BitmapFactory.decodeByteArray(fotoArray, 0, fotoArray.length);
+            foto.setImageBitmap(raw);
+        }
+
+        return view;
     }
+
+
 }

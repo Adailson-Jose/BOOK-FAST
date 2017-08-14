@@ -43,6 +43,7 @@ public class ReadLivro {
                 livro.setQtdTotal(Integer.parseInt(cursor.getString(6)));
                 livro.setAno(Integer.parseInt(cursor.getString(7)));
                 livro.setNumEdicao(Integer.parseInt(cursor.getString(8)));
+                livro.setFotoLivro(cursor.getBlob(9));
                 livroArray.add(livro);
             } while (cursor.moveToNext());
             cursor.close();
@@ -57,11 +58,11 @@ public class ReadLivro {
                         CreatBancoDados.getColunaIsbn(), CreatBancoDados.getColunaNomeLivro(),
                         CreatBancoDados.getColunaQtdAlugado(), CreatBancoDados.getColunaAutor(),
                         CreatBancoDados.getColunaGenero(), CreatBancoDados.getColunaQtdTotal(),
-                        CreatBancoDados.getColunaAno(), CreatBancoDados.getColunaNEdicao()},
+                        CreatBancoDados.getColunaAno(), CreatBancoDados.getColunaNEdicao(), CreatBancoDados.getColunaFotoLivro()},
                 CreatBancoDados.getColunaIsbn() + " = ?",
                 new String[]{String.valueOf(isbn)}, null, null, null, null);
         if (cursor != null && cursor.moveToFirst()) {
-            Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
+            Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8), cursor.getBlob(9));
             cursor.close();
             db.close();
             return livro;
@@ -77,11 +78,11 @@ public class ReadLivro {
                         CreatBancoDados.getColunaIsbn(), CreatBancoDados.getColunaNomeLivro(),
                         CreatBancoDados.getColunaQtdAlugado(), CreatBancoDados.getColunaAutor(),
                         CreatBancoDados.getColunaGenero(), CreatBancoDados.getColunaQtdTotal(),
-                        CreatBancoDados.getColunaAno(), CreatBancoDados.getColunaNEdicao()},
+                        CreatBancoDados.getColunaAno(), CreatBancoDados.getColunaNEdicao(), CreatBancoDados.getColunaFotoLivro()},
                 CreatBancoDados.getColunaIdLivro() + " = ?", new String[]{String.valueOf(id)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
+            Livro livro = new Livro(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getInt(8), cursor.getBlob(9));
             cursor.close();
             db.close();
             return livro;

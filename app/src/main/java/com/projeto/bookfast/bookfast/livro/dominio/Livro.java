@@ -10,14 +10,14 @@ public class Livro {
     private String genero;
     private int qtdTotal;
     private int qtdAlugado;
-
+    private byte[] fotoLivro;
     //Construtor para instanciar
     public Livro() {
 
     }
 
     //Construtor para buscar no banco
-    public Livro(int id, Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
+    public Livro(int id, Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao, byte[] fotoLivro) {
         this.id = id;
         this.isbn = isbn;
         this.nome = nome;
@@ -27,10 +27,11 @@ public class Livro {
         this.qtdTotal = qtdTotal;
         this.ano = ano;
         this.numEdicao = numEdicao;
+        this.fotoLivro = fotoLivro;
     }
 
     //Construtor para inserir
-    public Livro(Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao) {
+    public Livro(Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao, byte[] fotoLivro) {
         this.isbn = isbn;
         this.nome = nome;
         this.qtdAlugado = qtdAlugado;
@@ -39,6 +40,8 @@ public class Livro {
         this.qtdTotal = qtdTotal;
         this.ano = ano;
         this.numEdicao = numEdicao;
+        this.fotoLivro = fotoLivro;
+
     }
 
     public int getId() {
@@ -111,6 +114,14 @@ public class Livro {
 
     public void setQtdAlugado(int qtdAlugado) {
         this.qtdAlugado = qtdAlugado;
+    }
+
+    public byte[] getFotoLivro() {
+        return fotoLivro;
+    }
+
+    public void setFotoLivro(byte[] fotoLivro) {
+        this.fotoLivro = fotoLivro;
     }
 
 }

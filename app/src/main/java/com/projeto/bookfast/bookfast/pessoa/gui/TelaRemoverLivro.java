@@ -44,7 +44,7 @@ public class TelaRemoverLivro extends AppCompatActivity {
         }
 
         ListView listViewLivroSelecionado = (ListView) findViewById(R.id.listViewLivroSelecionado);
-        ArrayAdapter adapter = new LivroAdapter(this, livro);
+        ArrayAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livro);
         listViewLivroSelecionado.setAdapter(adapter);
 
         btDevolver.setOnClickListener(new View.OnClickListener() {

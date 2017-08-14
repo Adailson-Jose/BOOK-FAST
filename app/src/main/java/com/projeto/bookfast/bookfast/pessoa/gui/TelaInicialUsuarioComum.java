@@ -55,7 +55,7 @@ public class TelaInicialUsuarioComum extends Activity {
         }
 
         ListView listView = (ListView) findViewById(R.id.listViewLivros);
-        ArrayAdapter adapter = new LivroAdapter(this, livro);
+        ArrayAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livro);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
