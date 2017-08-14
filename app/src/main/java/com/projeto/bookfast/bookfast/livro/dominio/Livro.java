@@ -11,9 +11,9 @@ public class Livro {
     private int qtdTotal;
     private int qtdAlugado;
     private byte[] fotoLivro;
+
     //Construtor para instanciar
     public Livro() {
-
     }
 
     //Construtor para buscar no banco
@@ -41,7 +41,6 @@ public class Livro {
         this.ano = ano;
         this.numEdicao = numEdicao;
         this.fotoLivro = fotoLivro;
-
     }
 
     public int getId() {

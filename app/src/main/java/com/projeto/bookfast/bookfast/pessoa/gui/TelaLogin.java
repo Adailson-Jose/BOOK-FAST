@@ -13,7 +13,6 @@ import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
-import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 
@@ -30,8 +29,6 @@ public class TelaLogin extends AppCompatActivity {
         btLogar = (Button) findViewById(R.id.btLogar);
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
-
-        CreatBancoDados bancoCriado = new CreatBancoDados(getApplicationContext());
 
         btLogar.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -1,6 +1,8 @@
 package com.projeto.bookfast.bookfast.livro.gui;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import com.projeto.bookfast.bookfast.livro.percistencia.UpdateLivro;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
+
+import java.io.ByteArrayOutputStream;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
     Button btCadastrarLivro, btCancelar;
@@ -99,8 +103,11 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     if (livro != null) {
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();
                     } else {
-                        livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, null);
-
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.livro0);
+                        ByteArrayOutputStream saida = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
+                        byte[] img = saida.toByteArray();
+                        livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, img);
                         inserirLivro.insertLivro(livro);
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO CADASTRADO COM SUCESSO", Toast.LENGTH_LONG).show();
                     }

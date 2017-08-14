@@ -14,24 +14,19 @@ import java.util.ArrayList;
  */
 
 public class ReadPessoa {
-
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
-
 
     public ReadPessoa(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
 
-
     public ArrayList<Pessoa> getListaPessoas() {
         db = dbHelper.getReadableDatabase();
         ArrayList<Pessoa> pessoaArray = new ArrayList<>();
         String getPessoas = "SELECT * FROM " + CreatBancoDados.getNomeTabelaPessoa();
-
         try {
             Cursor cursor = db.rawQuery(getPessoas, null);
-
             if (cursor.moveToFirst()) {
                 do {
                     Pessoa pessoa = new Pessoa();
@@ -42,18 +37,15 @@ public class ReadPessoa {
                     pessoa.setSenha(cursor.getString(4));
                     pessoa.setLivros(cursor.getString(5));
                     pessoaArray.add(pessoa);
-
                 } while (cursor.moveToNext());
                 cursor.close();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
             db.close();
         }
-
         return pessoaArray;
     }
     //Obter pessoa pelo cpf
