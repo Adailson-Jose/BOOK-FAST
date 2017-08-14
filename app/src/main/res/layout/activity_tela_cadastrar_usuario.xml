@@ -23,10 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:fontFamily="serif"
-            android:text="CADASTRO DE USUÁRIO"
+            android:text="Cadastro de Usuário"
             android:textAlignment="center"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/colorBlue"
             android:textSize="18sp"
             android:textStyle="bold" />

@@ -28,14 +28,13 @@
             android:layout_marginTop="4dp"
             android:layout_weight="0.07"
             android:fontFamily="serif"
-            android:text="RECUPERAÇAO DE SENHA"
+            android:text="Recuperação de Senha"
             android:textAlignment="center"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/colorBlue"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:layout_weight="0.06"
-            tools:text="RECUPERAÇAO DE SENHA" />
+            tools:layout_weight="0.06" />
 
 
         <EditText

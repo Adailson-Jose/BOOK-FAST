@@ -12,7 +12,19 @@
         android:background="@drawable/fundo"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="3dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Informações de Usuário"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextNome"

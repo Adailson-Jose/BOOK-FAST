@@ -27,13 +27,12 @@
             android:layout_weight="0.16"
             android:enabled="false"
             android:fontFamily="serif"
-            android:text="BEM-VINDO"
+            android:text="Bem-Vindo"
             android:textAlignment="center"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/colorBlue"
             android:textSize="20dp"
-            android:textStyle="bold"
-            tools:text="BEM-VINDO" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editUsuario"
