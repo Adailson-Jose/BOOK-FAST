@@ -10,9 +10,10 @@ import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 
 public class ValidaEmprestimo {
 
-    public void pediemprestimo(Livro livro, Pessoa pessoa){
+    public void pediemprestimo(Livro livro){
         if(verDisponibilidade(livro)) {
             livro.setQtdTotal(livro.getQtdTotal() - 1);
+            Pessoa pessoa = new Pessoa();
         pessoa.setLivros(livro.getNome());
         }
     }

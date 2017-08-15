@@ -11,7 +11,7 @@ public class ValidarIsbn {
 
     public static boolean validarIsbn(String isbn) {
         if (isbn.length() < 13 || isbn.length() > 13 || ValidarCampoVazio.isCampoVazio(isbn)) {
-            return true;
+            return false;
 
         } else {
             int treze = 0;

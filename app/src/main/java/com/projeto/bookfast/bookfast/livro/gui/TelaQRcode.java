@@ -11,10 +11,16 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.livro.negocio.ValidaEmprestimo;
+import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
+import com.projeto.bookfast.bookfast.pessoa.gui.TelaAlugarLivro;
+import com.projeto.bookfast.bookfast.pessoa.gui.TelaListarTodosLivrosUusario;
 
 public class TelaQRcode extends AppCompatActivity {
     private Button scaner_btn;
-
+    private Livro livro;
 
 
     @Override
@@ -31,7 +37,7 @@ public class TelaQRcode extends AppCompatActivity {
                 integrator.setPrompt("Scan");
                 integrator.setCameraId(0);
                 integrator.setBeepEnabled(false);
-                integrator.setBarcodeImageEnabled(false);
+                integrator.setBarcodeImageEnabled(true);
                 integrator.initiateScan();
             }
         });
@@ -45,12 +51,17 @@ public class TelaQRcode extends AppCompatActivity {
                 Toast.makeText(this, "Você Cancelou o Scaneamento", Toast.LENGTH_LONG).show();
             }
             else{
-
+//                ReadLivro readLivro = new ReadLivro(getApplicationContext());
+//                ValidaEmprestimo validaEmprestimo = new ValidaEmprestimo();
+//                livroaux = readLivro.getLivro(Long.parseLong(result.getContents()));
+//                validaEmprestimo.pediemprestimo(livroaux);
+//                Intent abreTelaAlugarLivro = new Intent(TelaQRcode.this, TelaAlugarLivro.class);
+ //               abreTelaAlugarLivro.putExtra("livro", String.valueOf(livroaux.getIsbn()));
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
             }
         }
         else{
-
+            Toast.makeText(this, "Cheguei aqui", Toast.LENGTH_LONG).show();
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
