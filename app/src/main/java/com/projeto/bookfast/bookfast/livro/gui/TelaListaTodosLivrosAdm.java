@@ -16,7 +16,6 @@ import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
 import java.util.ArrayList;
 
 public class TelaListaTodosLivrosAdm extends Activity {
-    private LivroAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

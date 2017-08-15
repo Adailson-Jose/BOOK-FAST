@@ -23,7 +23,6 @@ public class ReadLivro {
     }
 
     public ReadLivro() {
-
     }
 
     public ArrayList<Livro> getListaLivro() {

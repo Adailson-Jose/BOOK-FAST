@@ -10,7 +10,7 @@ public class ValidarIsbn {
     }
 
     public static boolean validarIsbn(String isbn) {
-        if (isbn.length() < 13 || isbn.length() > 13 || ValidarCampoVazio.isCampoVazio(isbn)) {
+        if (isbn.length() != 13 || ValidarCampoVazio.isCampoVazio(isbn)) {
             return false;
 
         } else {

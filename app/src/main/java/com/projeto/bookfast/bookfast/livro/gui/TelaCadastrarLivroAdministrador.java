@@ -1,13 +1,15 @@
 package com.projeto.bookfast.bookfast.livro.gui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
@@ -21,10 +23,12 @@ import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
 import java.io.ByteArrayOutputStream;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
-    Button btCadastrarLivro, btCancelar;
+    Button btCadastrarLivro, btCancelar, btFoto;
     EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada, editTextImagem;
     Livro livro;
-
+    ImageView imagem;
+    private Bitmap imageBitmap;
+    private final int TIRAR_FOTO = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,8 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         editQuantidadeAlugada = (EditText) findViewById(R.id.editQuantidadeAlugada);
         btCadastrarLivro = (Button) findViewById(R.id.btCadastrarLivro);
         btCancelar = (Button) findViewById(R.id.btCancelar);
+        btFoto = (Button) findViewById(R.id.btFoto);
+        imagem = (ImageView) findViewById(R.id.imagem);
 
         btCadastrarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,11 +109,13 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     if (livro != null) {
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();
                     } else {
-                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.livro0);
-                        ByteArrayOutputStream saida = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
-                        byte[] img = saida.toByteArray();
-                        livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, img);
+                        byte imagemBytes[] = null;
+                        if (imageBitmap != null) {
+                            ByteArrayOutputStream saida = new ByteArrayOutputStream();
+                            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, saida);
+                            imagemBytes = saida.toByteArray();
+                        }
+                        livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, imagemBytes);
                         inserirLivro.insertLivro(livro);
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO CADASTRADO COM SUCESSO", Toast.LENGTH_LONG).show();
                     }
@@ -116,12 +124,30 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 }
             }
         });
+        btFoto.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, TIRAR_FOTO);
+                }
+            }
+        });
         btCancelar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
         });
+
+
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TIRAR_FOTO && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            imageBitmap = (Bitmap) extras.get("data");
+            imagem.setImageBitmap(imageBitmap);
+        }
+    }
 }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
 /**
@@ -38,7 +39,6 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         ImageView foto;
         TextView nome;
         TextView isbn;
-        Bitmap raw;
         byte[] fotoArray;
 
         if (view == null) {
@@ -54,12 +54,11 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         fotoArray = livro.getFotoLivro();
 
         if (fotoArray != null) {
-            raw = BitmapFactory.decodeByteArray(fotoArray, 0, fotoArray.length);
-            foto.setImageBitmap(raw);
+            byte[] outImage = fotoArray;
+            ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
+            Bitmap imageBitmap = BitmapFactory.decodeStream(imageStream);
+            foto.setImageBitmap(imageBitmap);
         }
-
         return view;
     }
-
-
 }

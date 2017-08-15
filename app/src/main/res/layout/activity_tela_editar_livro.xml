@@ -111,6 +111,12 @@
             android:textColorHint="@color/colorgray" />
 
         <Button
+            android:id="@+id/btFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TIRAR FOTO LIVRO"
+            android:textStyle="bold" />
+        <Button
             android:id="@+id/btEditarLivro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
