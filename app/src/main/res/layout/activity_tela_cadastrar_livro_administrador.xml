@@ -114,14 +114,14 @@
         <Button
             android:id="@+id/btFoto"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:text="TIRAR FOTO LIVRO"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btCadastrarLivro"
             android:layout_width="match_parent"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             style="@style/buttonStyle"
             android:text="CADASTRAR LIVRO"
             android:textStyle="bold" />
@@ -130,15 +130,9 @@
             android:id="@+id/btCancelar"
             style="@style/buttonStyle"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:text="CANCELAR"
-            android:textStyle="bold"
-            android:layout_weight="0.03" />
-
-        <ImageView
-            android:id="@+id/imagem"
-            android:layout_width="match_parent"
-            android:layout_height="53dp" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>

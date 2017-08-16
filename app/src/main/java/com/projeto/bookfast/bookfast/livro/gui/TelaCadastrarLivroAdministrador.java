@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
@@ -26,8 +25,8 @@ public class TelaCadastrarLivroAdministrador extends Activity {
     Button btCadastrarLivro, btCancelar, btFoto;
     EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada, editTextImagem;
     Livro livro;
-    ImageView imagem;
-    private Bitmap imageBitmap;
+    private Bitmap imageBitmap = null;
+    private byte imagemBytes[];
     private final int TIRAR_FOTO = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         btCadastrarLivro = (Button) findViewById(R.id.btCadastrarLivro);
         btCancelar = (Button) findViewById(R.id.btCancelar);
         btFoto = (Button) findViewById(R.id.btFoto);
-        imagem = (ImageView) findViewById(R.id.imagem);
 
         btCadastrarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +58,7 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 String QtTotal = editQuantidadeTotal.getText().toString();
                 String Ano = editAno.getText().toString();
                 String NumEdicao = editEdicao.getText().toString();
+
                 if (ValidarIsbn.validarIsbn(Isbn)) {
                     resultado = true;
                     editIsbn.setError("Campo ISBN inválido!");
@@ -109,10 +108,9 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     if (livro != null) {
                         Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();
                     } else {
-                        byte imagemBytes[] = null;
                         if (imageBitmap != null) {
                             ByteArrayOutputStream saida = new ByteArrayOutputStream();
-                            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, saida);
+                            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
                             imagemBytes = saida.toByteArray();
                         }
                         livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, imagemBytes);
@@ -137,8 +135,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                 finish();
             }
         });
-
-
     }
 
     @Override
@@ -147,7 +143,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         if (requestCode == TIRAR_FOTO && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             imageBitmap = (Bitmap) extras.get("data");
-            imagem.setImageBitmap(imageBitmap);
         }
     }
 }

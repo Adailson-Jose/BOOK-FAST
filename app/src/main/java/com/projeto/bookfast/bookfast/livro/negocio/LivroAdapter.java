@@ -32,14 +32,12 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         this.id = id;
     }
 
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         Livro livro;
         ImageView foto;
         TextView nome;
         TextView isbn;
-        byte[] fotoArray;
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(contexto);
@@ -47,17 +45,16 @@ public class LivroAdapter extends ArrayAdapter<Livro> {
         }
         nome = (TextView) view.findViewById(R.id.textViewNomeLivro);
         isbn = (TextView) view.findViewById(R.id.textViewIsbn);
-        foto = (ImageView) view.findViewById(R.id.imageView);
+        foto = (ImageView) view.findViewById(R.id.imageViewLivro);
         livro = elementos.get(position);
         nome.setText(livro.getNome());
         isbn.setText(String.valueOf(livro.getIsbn()));
-        fotoArray = livro.getFotoLivro();
+        byte[] fotoArray = livro.getFotoLivro();
 
         if (fotoArray != null) {
-            byte[] outImage = fotoArray;
-            ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
-            Bitmap imageBitmap = BitmapFactory.decodeStream(imageStream);
-            foto.setImageBitmap(imageBitmap);
+            ByteArrayInputStream imagemStream = new ByteArrayInputStream(livro.getFotoLivro());
+            Bitmap imagemBitmap = BitmapFactory.decodeStream(imagemStream);
+            foto.setImageBitmap(imagemBitmap);
         }
         return view;
     }

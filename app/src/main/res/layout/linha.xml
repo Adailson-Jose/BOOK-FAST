@@ -3,25 +3,21 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
+        android:id="@+id/imageViewLivro"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
         android:contentDescription="imagem" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
         android:text="Isbn: "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorBlack" />
+        android:textColor="@color/colorBlack"
+        android:layout_alignBottom="@+id/imageViewLivro"
+        android:layout_toRightOf="@+id/imageViewLivro" />
 
     <TextView
         android:id="@+id/textViewIsbn"
@@ -39,7 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
-        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView2"
         android:text="Nome"
         android:textAppearance="?android:attr/textAppearanceLarge"
