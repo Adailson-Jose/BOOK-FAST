@@ -7,7 +7,7 @@ package com.projeto.bookfast.bookfast.pessoa.dominio;
 public class Aluguel {
     private int id;
     private int idPessoa;
-    private int idItemAluguel;
+
 
     public int getId() {
         return id;
@@ -25,11 +25,5 @@ public class Aluguel {
         this.idPessoa = idPessoa;
     }
 
-    public int getIdItemAluguel() {
-        return idItemAluguel;
-    }
 
-    public void setIdItemAluguel(int idItemAluguel) {
-        this.idItemAluguel = idItemAluguel;
-    }
 }
