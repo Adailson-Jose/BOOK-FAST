@@ -72,8 +72,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
                 ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0', '')");
 
-        db.execSQL("create table" + TABELA_ALUGUEL + "(" + COLUNA_PESSOA + " integer primary key, " + COLUNA_LIVRO + " integer primary key," + COLUNA_DATA + " date primary key,"+
-                COLUNA_DATA_ENTREGA + " date)");
+        //db.execSQL("create table" + TABELA_ALUGUEL + "(" + COLUNA_PESSOA + " integer primary key, " + COLUNA_LIVRO + " integer primary key," + COLUNA_DATA + " date primary key,"+
+        //       COLUNA_DATA_ENTREGA + " date)");
 
     }
 

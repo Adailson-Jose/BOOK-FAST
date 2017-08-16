@@ -16,4 +16,6 @@
     <string name="ErroInserirPessoa">Erro ao inserir pessoa</string>
     <string name="CadastroSucesso">Cadastro  realizado com sucesso.</string>
     <string name="CPFJaCadastrado">Campos inválidos e/ou CPF já cadastrado.</string>
+    <string name="lbl_logo1">Your Bookstore</string>
+    <string name="lbl_logo2">FAST</string>
 </resources>

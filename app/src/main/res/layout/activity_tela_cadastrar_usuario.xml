@@ -1,99 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/raizCadastroUsuario"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pessoa.gui.TelaCadastrarUsuario">
+    android:id="@+id/raizCadastroUsuario"
+    tools:context=".pessoa.gui.TelaCadastrarUsuario">>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/fundo"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="MissingConstraints"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView2"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Cadastro de Usuário"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editNovoNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="Nome"
-            android:inputType="text"
-            android:selectAllOnFocus="false"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray" />
+            <TextView
+                android:id="@+id/txtLogo1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Cadastrar Usuário"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="16dp" />
 
-        <EditText
-            android:id="@+id/editNovoEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray" />
+            <EditText
+                android:id="@+id/editNovoNome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="Nome Completo"
+                android:inputType="textPersonName"
+                android:orientation="vertical"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />
 
-        <EditText
-            android:id="@+id/editNovoUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Cpf"
-            android:inputType="number"
-            android:textAllCaps="false"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray" />
+            <EditText
+                android:id="@+id/editNovoEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="textWebEmailAddress"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editNovoNome"
+                app:layout_constraintRight_toRightOf="@+id/editNovoNome"
+                app:layout_constraintTop_toBottomOf="@+id/editNovoNome" />
 
+            <EditText
+                android:id="@+id/editNovoUsuario"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Cpf"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editNovoEmail"
+                app:layout_constraintRight_toRightOf="@+id/editNovoEmail"
+                app:layout_constraintTop_toBottomOf="@+id/editNovoEmail" />
 
-        <EditText
-            android:id="@+id/editNovaSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Senha"
-            android:inputType="textPassword"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray" />
+            <EditText
+                android:id="@+id/editNovaSenha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editNovoUsuario"
+                app:layout_constraintRight_toRightOf="@+id/editNovoUsuario"
+                app:layout_constraintTop_toBottomOf="@+id/editNovoUsuario" />
 
-        <Button
-            android:id="@+id/btRegistrar"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:text="REGISTRAR"
-            android:textColor="#000000" />
+            <Button
+                android:id="@+id/btRegistrar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cadastrar"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editNovaSenha"
+                app:layout_constraintRight_toRightOf="@+id/editNovaSenha"
+                app:layout_constraintTop_toBottomOf="@+id/editNovaSenha" />
 
-        <Button
-            android:id="@+id/btCancelarRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:text="CANCELAR"
-            style="@style/buttonStyle"
-            android:textColor="#000000" />
+            <Button
+                android:id="@+id/btCancelarRegistro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cancelar"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btRegistrar"
+                app:layout_constraintRight_toRightOf="@+id/btRegistrar"
+                app:layout_constraintTop_toBottomOf="@+id/btRegistrar" />
 
-    </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

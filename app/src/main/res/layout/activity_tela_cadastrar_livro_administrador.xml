@@ -1,138 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/raizCadastroLivro"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".livro.gui.TelaCadastrarLivroAdministrador">
+    android:id="@+id/raizCadastroLivro"
+    tools:context=".livro.gui.TelaCadastrarLivroAdministrador">>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/fundo"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="MissingConstraints"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp"
-        android:weightSum="1">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView2"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_height="match_parent">
 
-            android:text="Cadastrar Livro"
-            android:textAlignment="center"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/txtLogo1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Cadastrar Livro"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="16dp" />
 
-        <EditText
-            android:id="@+id/editIsbn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="ISBN"
-            android:inputType="number"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editIsbn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="ISBN"
+                android:inputType="number"
+                android:orientation="vertical"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />
 
-        <EditText
-            android:id="@+id/editNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nome"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Nome do Livro"
+                android:inputType="textWebEmailAddress"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editIsbn"
+                app:layout_constraintRight_toRightOf="@+id/editIsbn"
+                app:layout_constraintTop_toBottomOf="@+id/editIsbn" />
 
-        <EditText
-            android:id="@+id/editGenero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Gênero"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editGenero"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Gênero"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editNome"
+                app:layout_constraintRight_toRightOf="@+id/editNome"
+                app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
-        <EditText
-            android:id="@+id/editAutor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Autor"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editAutor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Autor"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editGenero"
+                app:layout_constraintRight_toRightOf="@+id/editGenero"
+                app:layout_constraintTop_toBottomOf="@+id/editGenero" />
 
-        <EditText
-            android:id="@+id/editEdicao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Edição"
-            android:inputType="number"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editEdicao"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Número da Edição"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editAutor"
+                app:layout_constraintRight_toRightOf="@+id/editAutor"
+                app:layout_constraintTop_toBottomOf="@+id/editAutor" />
 
-        <EditText
-            android:id="@+id/editAno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ano da Publicação"
-            android:inputType="number"
-            android:selectAllOnFocus="false"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editAno"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Ano da Publicação"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editEdicao"
+                app:layout_constraintRight_toRightOf="@+id/editEdicao"
+                app:layout_constraintTop_toBottomOf="@+id/editEdicao" />
 
-        <EditText
-            android:id="@+id/editQuantidadeTotal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Quantidade Total"
-            android:inputType="number"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editQuantidadeTotal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Quantidade Total"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editAno"
+                app:layout_constraintRight_toRightOf="@+id/editAno"
+                app:layout_constraintTop_toBottomOf="@+id/editAno" />
 
-        <EditText
-            android:id="@+id/editQuantidadeAlugada"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Quantidade  Alugado(s)"
-            android:inputType="number"
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorgray" />
+            <EditText
+                android:id="@+id/editQuantidadeAlugada"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:hint="Quantidade Alugada"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editQuantidadeTotal"
+                app:layout_constraintRight_toRightOf="@+id/editQuantidadeTotal"
+                app:layout_constraintTop_toBottomOf="@+id/editQuantidadeTotal" />
 
-        <Button
-            android:id="@+id/btFoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TIRAR FOTO LIVRO"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btFoto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Tirar Foto do Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editQuantidadeAlugada"
+                app:layout_constraintRight_toRightOf="@+id/editQuantidadeAlugada"
+                app:layout_constraintTop_toBottomOf="@+id/editQuantidadeAlugada" />
 
-        <Button
-            android:id="@+id/btCadastrarLivro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/buttonStyle"
-            android:text="CADASTRAR LIVRO"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btCadastrarLivro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cadastrar Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btFoto"
+                app:layout_constraintRight_toRightOf="@+id/btFoto"
+                app:layout_constraintTop_toBottomOf="@+id/btFoto" />
 
-        <Button
-            android:id="@+id/btCancelar"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CANCELAR"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btCancelar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cancelar"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btCadastrarLivro"
+                app:layout_constraintRight_toRightOf="@+id/btCadastrarLivro"
+                app:layout_constraintTop_toBottomOf="@+id/btCadastrarLivro" />
 
-    </LinearLayout>
-</ScrollView>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

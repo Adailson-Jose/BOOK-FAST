@@ -37,8 +37,8 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
 
                 }
             }
-            String dadosPessoa = "Nome: " + pessoa.getNome() + ", Email: " + pessoa.getEmail() + ", Cpf: " + pessoa.getCpf()
-                    + ", Qtd livro ocupado: " + quantidadeLivrosAludado;
+            String dadosPessoa = "Nome: " + pessoa.getNome() + "; Email: " + pessoa.getEmail() + "; CPF: " + pessoa.getCpf()
+                    + "; Quantidade de livro(s) Alugado(s): " + quantidadeLivrosAludado;
             textViewMinhasInformacoes.setText(dadosPessoa);
         }
         btEditaMinhasInformacoes.setOnClickListener(new View.OnClickListener() {

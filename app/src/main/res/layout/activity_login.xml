@@ -1,87 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/raizLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pessoa.gui.TelaLogin">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/fundo"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-156dp"
-        tools:layout_editor_absoluteY="272dp">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView3"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_weight="0.16"
-            android:enabled="false"
-            android:fontFamily="serif"
-            android:text="Bem-Vindo"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorBlue"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Usuário"
-            android:inputType="number"
-            android:text=""
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="1100dp"
+                android:layout_height="185dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bookfast4" />
 
-        <EditText
-            android:id="@+id/editSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Senha"
-            android:inputType="textPassword"
-            android:text=""
-            android:textColor="@color/colorgray"
-            android:textColorHint="@color/colorGrayyy" />
+            <TextView
+                android:id="@+id/txtLogo1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="@string/lbl_logo1"
+                android:textAllCaps="false"
+                android:textColor="@color/colorgray"
+                android:textIsSelectable="false"
+                android:textSize="16sp"
+                android:typeface="normal"
+                app:layout_constraintLeft_toLeftOf="@+id/imageView"
+                app:layout_constraintRight_toRightOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <Button
-            android:id="@+id/btLogar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="LOGAR"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/editUsuario"
+                android:layout_width="368dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:ems="10"
+                android:hint="Usuário(CPF)"
+                android:inputType="number"
+                android:orientation="vertical"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintLeft_toLeftOf="@+id/txtLogo1"
+                app:layout_constraintRight_toRightOf="@+id/txtLogo1"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />/>
 
-        <Button
-            android:id="@+id/btRecuperarSenha"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RECUPERAR SENHA"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/editSenha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editUsuario"
+                app:layout_constraintRight_toRightOf="@+id/editUsuario"
+                app:layout_constraintTop_toBottomOf="@+id/editUsuario" />
 
-        <Button
-            android:id="@+id/btCadastrarUsuario"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CADASTRAR "
-            android:textColor="#000000"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btLogar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editSenha"
+                app:layout_constraintRight_toRightOf="@+id/editSenha"
+                app:layout_constraintTop_toBottomOf="@+id/editSenha" />
 
-</ScrollView>
+            <Button
+                android:id="@+id/btRecuperarSenha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Recovery Password"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editSenha"
+                app:layout_constraintRight_toRightOf="@+id/btLogar"
+                app:layout_constraintTop_toBottomOf="@+id/btLogar" />
+
+            <Button
+                android:id="@+id/btCadastrarUsuario"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Sign Up"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btRecuperarSenha"
+                app:layout_constraintRight_toRightOf="@+id/btRecuperarSenha"
+                app:layout_constraintTop_toBottomOf="@+id/btRecuperarSenha" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
