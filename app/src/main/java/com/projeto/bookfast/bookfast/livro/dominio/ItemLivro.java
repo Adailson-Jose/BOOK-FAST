@@ -7,6 +7,7 @@ package com.projeto.bookfast.bookfast.livro.dominio;
 public class ItemLivro {
     private int id;
     private int idLivro;
+    private int idAluguel;
 
 
     public int getId() {

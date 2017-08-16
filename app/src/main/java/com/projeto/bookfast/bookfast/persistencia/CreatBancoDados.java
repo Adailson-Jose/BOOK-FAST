@@ -12,13 +12,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "db_biblioteca";
     //VARIAVEIS DA TABELA ALLUGUEL
     private static final String TABELA_ALUGUEL = "TB_ALUGUEL";
-    private static final String COLUNA_ID_ALUGUEL = "ID";
-    private static final String COLUNA_PESSOA_ALUGUEL = "PESSOA";
-    //VARIAVEL DA TABELA ITEM LIVRO
-    private static final String TABELA_ITEM_LIVRO = "TB_ITEM_LIVRO";
-    private static final String COLUNA_ID_ITEM = "ID_ITEM";
-    private static final String COLUNA_ID_ITEM_LIVRO = "ID_LIVRO_ITEM";
-    private static final String COLUNA_ID_ITEM_ALUGUEL = "ID_ITEM_ALGUEL";
+    private static final String COLUNA_PESSOA = "PESSOA";
+    private static final String COLUNA_LIVRO = "ID_LIVRO";
+    private static final String COLUNA_DATA = "DATA_EMPRESTIMO";
+    private static final String COLUNA_DATA_ENTREGA = "DATA_ENTREGA";
+
     //VARIAVES DA TABELA PESSOA
     private static final String TABELA_PESSOA = "TB_PESSOA";
     private static final String COLUNA_ID = "ID";
@@ -74,9 +72,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
                 ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0', '')");
 
-        db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer)");
-
-        db.execSQL("create table " + TABELA_ITEM_LIVRO + "(" + COLUNA_ID_ITEM + " integer primary key autoincrement, " + COLUNA_ID_ITEM_ALUGUEL + " integer, " + COLUNA_ID_ITEM_LIVRO + " integer)");
+        db.execSQL("create table" + TABELA_ALUGUEL + "(" + COLUNA_PESSOA + " integer primary key, " + COLUNA_LIVRO + " integer primary key," + COLUNA_DATA + " date primary key,"+
+                COLUNA_DATA_ENTREGA + " date)");
 
     }
 
