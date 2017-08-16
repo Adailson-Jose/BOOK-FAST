@@ -117,7 +117,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     }
 
     //GETS TABELA LIVRO
-
     public static String getNomeTabelaLivro() {
         return TABELA_LIVRO;
     }
