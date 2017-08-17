@@ -13,15 +13,12 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "db_biblioteca";
     //VARIAVEIS DA TABELA ALLUGUEL
     private static final String TABELA_ALUGUEL = "TB_ALUGUEL";
-    private static final String COLUNA_ID_ALUGUEL = "ID";
-    private static final String COLUNA_PESSOA_ALUGUEL = "PESSOA";
+    private static final String COLUNA_ID_ALUGUEL = "ID_ALUGEL";
+    private static final String COLUNA_PESSOA_ALUGUEL = "ID_PESSOA_ALUGUEL";
+    private static final String COLUNA_LIVRO_ALUGUEL = "ID_LIVRO_ALUGADO";
     private static final String COLUNA_DATA = "DATA";
     private static final String COLUNA_DATA_ENTREGA = "DATA_ENTREGA";
-    //VARIAVEL DA TABELA ITEM LIVRO
-    private static final String TABELA_ITEM_LIVRO = "TB_ITEM_LIVRO";
-    private static final String COLUNA_ID_ITEM = "ID_ITEM";
-    private static final String COLUNA_ID_ITEM_LIVRO = "ID_LIVRO_ITEM";
-    private static final String COLUNA_ID_ITEM_ALUGUEL = "ID_ITEM_ALGUEL";
+    private static final String COLUNA_MULTA_ENTREGA = "MULTA";
     //VARIAVES DA TABELA PESSOA
     private static final String TABELA_PESSOA = "TB_PESSOA";
     private static final String COLUNA_ID = "ID";
@@ -29,7 +26,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_NOME = "NOME";
     private static final String COLUNA_EMAIL = "EMAIL";
     private static final String COLUNA_SENHA = "SENHA";
-    private static final String COLUNA_IDS_LIVROS = "IDS_LIVROS";
+    private static final String COLUNA_IDS_ALUGUEL = "IDS_ALUGUEL";
     //VARIAVES DA TABELA LIVRO
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
@@ -55,11 +52,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA A TABELA PESSOA
         db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, "
                 + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, "
-                + COLUNA_IDS_LIVROS + " text not null, " + COLUNA_SENHA + " text not null)");
+                + COLUNA_IDS_ALUGUEL + " text not null, " + COLUNA_SENHA + " text not null)");
 
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                + COLUNA_EMAIL + "," + COLUNA_IDS_LIVROS + "," + COLUNA_SENHA +
+                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA +
                 ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin')");
 
         //CRIA TABELA LIVRO
@@ -77,12 +74,9 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
                 ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0','')");
 
-        //CRIA TABELA ALUGUEL E TABELA ITEM LIVRO
+        //CRIA TABELA ALUGUEL
         db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer,"
-                + COLUNA_DATA + " integer, " + COLUNA_DATA_ENTREGA + " integer)");
-
-        db.execSQL("create table " + TABELA_ITEM_LIVRO + "(" + COLUNA_ID_ITEM + " integer primary key autoincrement, " + COLUNA_ID_ITEM_ALUGUEL + " integer, " + COLUNA_ID_ITEM_LIVRO + " integer)");
-
+                + COLUNA_DATA + " integer, " + COLUNA_DATA_ENTREGA + " integer, " + COLUNA_LIVRO_ALUGUEL + " integer, " + COLUNA_MULTA_ENTREGA + "integer)");
     }
 
     @Override
@@ -113,8 +107,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return COLUNA_SENHA;
     }
 
-    public static String getColunaIdsLivros() {
-        return COLUNA_IDS_LIVROS;
+    public static String getColunaIdsAluguel() {
+        return COLUNA_IDS_ALUGUEL;
     }
 
     public static String getNomeTabelaPessoa() {
@@ -183,24 +177,16 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return COLUNA_DATA_ENTREGA;
     }
 
-    public static String getColunaIdItem() {
-        return COLUNA_ID_ITEM;
-    }
-
-    public static String getColunaIdItemLivro() {
-        return COLUNA_ID_ITEM_LIVRO;
-    }
-
-    public static String getColunaIdItemAluguel() {
-        return COLUNA_ID_ITEM_ALUGUEL;
-    }
-
     public static String getTabelaAluguel() {
         return TABELA_ALUGUEL;
     }
 
-    public static String getTabelaItemLivro() {
-        return TABELA_ITEM_LIVRO;
+    public static String getColunaLivroAluguel() {
+        return COLUNA_LIVRO_ALUGUEL;
+    }
+
+    public static String getColunaMultaEntrega() {
+        return COLUNA_MULTA_ENTREGA;
     }
 }
 

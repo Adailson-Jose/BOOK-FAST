@@ -28,7 +28,7 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
         int quantidadeLivrosAludado = 0;
         if (bundle != null) {
             pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
-            String[] ids = pessoa.getLivros().trim().split(" ");
+            String[] ids = pessoa.getListaAluguel().trim().split(" ");
             for (String idLivro : ids) {
                 if (idLivro.equals("")) {
                     //

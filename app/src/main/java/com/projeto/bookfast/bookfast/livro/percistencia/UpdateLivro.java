@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.projeto.bookfast.bookfast.livro.dominio.ItemLivro;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 
@@ -32,17 +31,6 @@ public class UpdateLivro {
         valores.put(CreatBancoDados.getColunaQtdAlugado(), livro.getQtdAlugado());
         valores.put(CreatBancoDados.getColunaQtdTotal(), livro.getQtdTotal());
         db.insert(CreatBancoDados.getNomeTabelaLivro(), null, valores);
-        db.close();
-        return true;
-    }
-
-    public boolean insertItemLivro(ItemLivro itemLivro) {
-        db = dbHelper.getWritableDatabase();
-        ContentValues valores = new ContentValues();
-        valores.put(CreatBancoDados.getColunaIdItem(), itemLivro.getId());
-        valores.put(CreatBancoDados.getColunaIdItemLivro(), itemLivro.getIdLivro());
-        valores.put(CreatBancoDados.getColunaIdItemAluguel(), itemLivro.getIdTtemAluguel());
-        db.insert(CreatBancoDados.getTabelaItemLivro(), null, valores);
         db.close();
         return true;
     }

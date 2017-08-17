@@ -45,7 +45,7 @@ public class TelaInicialUsuarioComum extends Activity {
             textViewBemVindo.setText("UM ERRO OCORREU.");
         }
 
-        String[] ids = pessoa.getLivros().trim().split(" ");
+        String[] ids = pessoa.getListaAluguel().trim().split(" ");
         for (String idLivro : ids) {
             if (idLivro.equals("")) {
                 //

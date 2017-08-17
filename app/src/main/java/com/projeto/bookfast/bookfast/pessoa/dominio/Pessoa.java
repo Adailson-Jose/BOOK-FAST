@@ -1,33 +1,33 @@
 package com.projeto.bookfast.bookfast.pessoa.dominio;
 
-
 public class Pessoa {
     private int id;
     private long cpf;
     private String nome;
     private String email;
     private String senha;
-    private String livros;
+    private String listaAluguel;
+
     //Construtor para instanciar
     public Pessoa(){
     }
 
     //Construtor para buscar no banco
-    public Pessoa(int id, long cpf, String nome, String email, String senha, String livros) {
+    public Pessoa(int id, long cpf, String nome, String email, String senha, String listaAluguel) {
         this.id = id;
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.livros = livros;
+        this.listaAluguel = listaAluguel;
     }
     //Construtor para inserir
-    public Pessoa(long cpf, String nome, String email, String senha, String livros) {
+    public Pessoa(long cpf, String nome, String email, String senha, String listaAlugue) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.livros = livros;
+        this.listaAluguel = listaAlugue;
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -71,11 +71,11 @@ public class Pessoa {
         this.senha = senha;
     }
 
-    public String getLivros() {
-        return livros;
+    public String getListaAluguel() {
+        return listaAluguel;
     }
 
-    public void setLivros(String livros) {
-        this.livros = livros;
+    public void setListaAluguel(String listaAluguel) {
+        this.listaAluguel = listaAluguel;
     }
 }

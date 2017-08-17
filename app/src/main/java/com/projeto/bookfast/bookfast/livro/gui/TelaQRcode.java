@@ -12,11 +12,6 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.negocio.ValidaEmprestimo;
-import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
-import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.gui.TelaAlugarLivro;
-import com.projeto.bookfast.bookfast.pessoa.gui.TelaListarTodosLivrosUusario;
 
 public class TelaQRcode extends AppCompatActivity {
     private Button scaner_btn;

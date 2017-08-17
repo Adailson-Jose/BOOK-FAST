@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
-import com.projeto.bookfast.bookfast.pessoa.dominio.Aluguel;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 
 /**
@@ -22,27 +21,13 @@ public class UpdatePessoa {
 
     public boolean insertPessoa(Pessoa pessoa) {
         db = dbHelper.getWritableDatabase();
-
         ContentValues valores = new ContentValues();
         valores.put(CreatBancoDados.getColunaCpf(), pessoa.getCpf());
         valores.put(CreatBancoDados.getColunaNome(), pessoa.getNome());
         valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
         valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
-        valores.put(CreatBancoDados.getColunaIdsLivros(), pessoa.getLivros());
+        valores.put(CreatBancoDados.getColunaIdsAluguel(), pessoa.getListaAluguel());
         db.insert(CreatBancoDados.getNomeTabelaPessoa(), null, valores);
-        db.close();
-        return true;
-    }
-
-    public boolean insertAluguel(Aluguel aluguel) {
-        db = dbHelper.getWritableDatabase();
-
-        ContentValues valores = new ContentValues();
-        valores.put(CreatBancoDados.getColunaIdAluguel(), aluguel.getId());
-        valores.put(CreatBancoDados.getColunaPessoaAluguel(), aluguel.getIdPessoa());
-        valores.put(CreatBancoDados.getColunaData(), aluguel.getDate());
-        valores.put(CreatBancoDados.getColunaDataEntrega(), aluguel.getDataEntrega());
-        db.insert(CreatBancoDados.getTabelaAluguel(), null, valores);
         db.close();
         return true;
     }
@@ -55,7 +40,7 @@ public class UpdatePessoa {
         valores.put(CreatBancoDados.getColunaNome(), pessoa.getNome());
         valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
         valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
-        valores.put(CreatBancoDados.getColunaIdsLivros(), pessoa.getLivros());
+        valores.put(CreatBancoDados.getColunaIdsAluguel(), pessoa.getListaAluguel());
         db.update(CreatBancoDados.getNomeTabelaPessoa(), valores, where, null);
         db.close();
         return true;

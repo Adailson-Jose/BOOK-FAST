@@ -35,7 +35,7 @@ public class ReadPessoa {
                     pessoa.setNome(cursor.getString(2));
                     pessoa.setEmail(cursor.getString(3));
                     pessoa.setSenha(cursor.getString(4));
-                    pessoa.setLivros(cursor.getString(5));
+                    pessoa.setListaAluguel(cursor.getString(5));
                     pessoaArray.add(pessoa);
                 } while (cursor.moveToNext());
                 cursor.close();
@@ -54,7 +54,7 @@ public class ReadPessoa {
         db = dbHelper.getReadableDatabase();
 
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaPessoa(), new String[]{CreatBancoDados.getColunaId(), CreatBancoDados.getColunaCpf(),
-                        CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha(), CreatBancoDados.getColunaIdsLivros()}, CreatBancoDados.getColunaCpf() + " = ?",
+                        CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha(), CreatBancoDados.getColunaIdsAluguel()}, CreatBancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(cpf)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {

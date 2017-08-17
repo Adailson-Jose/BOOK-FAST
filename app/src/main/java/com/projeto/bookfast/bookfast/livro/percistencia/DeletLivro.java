@@ -30,7 +30,7 @@ public class DeletLivro {
         db.delete(CreatBancoDados.getNomeTabelaLivro(), deleteLivro, null);
         db.close();
         return true;
-        }
+    }
 }
 
 
