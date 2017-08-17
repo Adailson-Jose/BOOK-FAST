@@ -81,7 +81,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer,"
                 + COLUNA_DATA + " integer, " + COLUNA_DATA_ENTREGA + " integer)");
 
-        db.execSQL("creat table " + TABELA_ITEM_LIVRO + "(" + COLUNA_ID_ITEM + " integer primary key autoincrement, " + COLUNA_ID_ITEM_ALUGUEL + " integer, " + COLUNA_ID_ITEM_LIVRO + " integer)");
+        db.execSQL("create table " + TABELA_ITEM_LIVRO + "(" + COLUNA_ID_ITEM + " integer primary key autoincrement, " + COLUNA_ID_ITEM_ALUGUEL + " integer, " + COLUNA_ID_ITEM_LIVRO + " integer)");
 
     }
 
