@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
+import com.projeto.bookfast.bookfast.pessoa.dominio.Aluguel;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 
 /**
@@ -33,6 +34,19 @@ public class UpdatePessoa {
         return true;
     }
 
+    public boolean insertAluguel(Aluguel aluguel) {
+        db = dbHelper.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+        valores.put(CreatBancoDados.getColunaIdAluguel(), aluguel.getId());
+        valores.put(CreatBancoDados.getColunaPessoaAluguel(), aluguel.getIdPessoa());
+        valores.put(CreatBancoDados.getColunaData(), aluguel.getDate());
+        valores.put(CreatBancoDados.getColunaDataEntrega(), aluguel.getDataEntrega());
+        db.insert(CreatBancoDados.getTabelaAluguel(), null, valores);
+        db.close();
+        return true;
+    }
+
     public boolean updatePessoa(Pessoa pessoa) {
         db = dbHelper.getWritableDatabase();
         String where = "cpf = '" + Long.toString(pessoa.getCpf()) + "'";
@@ -47,3 +61,4 @@ public class UpdatePessoa {
         return true;
     }
 }
+

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
@@ -17,24 +18,23 @@ public class TelaAlugarLivro extends AppCompatActivity {
     Pessoa pessoaTeste;
     Button btAlugarLivro;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_alugar_livro);
+        btAlugarLivro = (Button) findViewById(R.id.btAlugaLivro);
         final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         final ReadPessoa buscarPessoa = new ReadPessoa(getApplicationContext());
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
+
             livroTeste = buscarLivro.getLivro(Long.parseLong(String.valueOf(bundle.get("livro"))));
-            btAlugarLivro = (Button) findViewById(R.id.btAlugaLivro);
+            pessoaTeste = buscarPessoa.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
+            Toast.makeText(TelaAlugarLivro.this, pessoaTeste.getNome() + livroTeste.getNome(), Toast.LENGTH_LONG).show();
             btAlugarLivro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ReadLivro readLivro = new ReadLivro(getApplicationContext());
                     ValidaEmprestimo validaEmprestimo = new ValidaEmprestimo();
-                    livroTeste = readLivro.getLivro(livroTeste.getIsbn());
                     validaEmprestimo.pediemprestimo(livroTeste);
                 }
             });
@@ -43,3 +43,7 @@ public class TelaAlugarLivro extends AppCompatActivity {
         }
     }
 }
+
+
+
+
