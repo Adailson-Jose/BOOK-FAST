@@ -61,7 +61,6 @@ public class TelaLogin extends AppCompatActivity {
                             abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                             startActivity(abreTelaInicial);
                             Toast.makeText(TelaLogin.this, R.string.loginAdm, Toast.LENGTH_SHORT).show();
-
                         } else {
                             //  se entrou aqui é porque existe um usuário baseado na busca
                             Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);

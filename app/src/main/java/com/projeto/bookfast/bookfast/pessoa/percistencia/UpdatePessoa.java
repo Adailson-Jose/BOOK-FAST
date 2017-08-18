@@ -19,6 +19,10 @@ public class UpdatePessoa {
         dbHelper = new CreatBancoDados(context);
     }
 
+    public UpdatePessoa() {
+
+    }
+
     public boolean insertPessoa(Pessoa pessoa) {
         db = dbHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();

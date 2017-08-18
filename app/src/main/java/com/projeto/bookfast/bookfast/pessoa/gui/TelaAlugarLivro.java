@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.aluguel.dominio.Aluguel;
 import com.projeto.bookfast.bookfast.aluguel.negocio.ValidaEmprestimo;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
@@ -35,16 +34,14 @@ public class TelaAlugarLivro extends AppCompatActivity {
             btAlugarLivro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ValidaEmprestimo.pediEmprestimo(livroTeste, pessoaTeste);
-                    Aluguel aluguel = new Aluguel();
-                    aluguel.setId(pessoaTeste.getId());
+                    ValidaEmprestimo validaEmprestimo = new ValidaEmprestimo(getApplicationContext());
 
-                    Toast.makeText(TelaAlugarLivro.this, "Cheguei e Fiz", Toast.LENGTH_LONG).show();
-                    Toast.makeText(TelaAlugarLivro.this, livroTeste.getQtdTotal(), Toast.LENGTH_LONG).show();
+                    if (validaEmprestimo.pediEmprestimo(livroTeste, pessoaTeste)) {
+                        Toast.makeText(TelaAlugarLivro.this, "LIVRO ALUGADO COM SUCESSO", Toast.LENGTH_LONG).show();
+                    }
                 }
             });
-
-            pessoaTeste = buscarPessoa.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
+            //pessoaTeste = buscarPessoa.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
         }
     }
 }

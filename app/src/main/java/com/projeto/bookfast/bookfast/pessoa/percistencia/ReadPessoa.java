@@ -21,6 +21,11 @@ public class ReadPessoa {
         dbHelper = new CreatBancoDados(context);
     }
 
+    public ReadPessoa() {
+
+    }
+
+
     public ArrayList<Pessoa> getListaPessoas() {
         db = dbHelper.getReadableDatabase();
         ArrayList<Pessoa> pessoaArray = new ArrayList<>();

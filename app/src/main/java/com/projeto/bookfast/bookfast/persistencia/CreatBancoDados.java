@@ -75,8 +75,13 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 ") VALUES('9788502210455', 'ECONOMIA', '10', 'Paulo Vicecont', 'Educação', '50', '2017', '0','')");
 
         //CRIA TABELA ALUGUEL
-        db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer,"
-                + COLUNA_DATA + " integer, " + COLUNA_DATA_ENTREGA + " integer, " + COLUNA_LIVRO_ALUGUEL + " integer, " + COLUNA_MULTA_ENTREGA + "integer)");
+        db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer, "
+                + COLUNA_LIVRO_ALUGUEL + " integer, " + COLUNA_DATA + " text not null, " + COLUNA_DATA_ENTREGA + " text not null, " + COLUNA_MULTA_ENTREGA + " integer)");
+        //ADD ALUGUEL EXEMPLO
+        db.execSQL("INSERT INTO " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + "," + COLUNA_PESSOA_ALUGUEL + ","
+                + COLUNA_LIVRO_ALUGUEL + "," + COLUNA_DATA + "," + COLUNA_DATA_ENTREGA + "," + COLUNA_MULTA_ENTREGA +
+                ") VALUES('100', '1', '2', '11/08/2017', '11/08/2017', '100')");
+
     }
 
     @Override
