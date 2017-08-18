@@ -11,11 +11,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.aluguel.dominio.Aluguel;
-import com.projeto.bookfast.bookfast.aluguel.persistecia.AluguelDao;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.gui.TelaQRcode;
-import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapterUsuario;
+import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
@@ -26,6 +24,7 @@ public class TelaInicialUsuarioComum extends Activity {
     TextView textViewBemVindo;
     Button btEmprestimoQRcode, btMinhaInformacao, btListalivros;
     Pessoa pessoa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,36 +35,34 @@ public class TelaInicialUsuarioComum extends Activity {
         textViewBemVindo = (TextView) findViewById(R.id.textViewBemVindo);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
         ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
-        AluguelDao buscarAluguel = new AluguelDao(getApplicationContext());
-        final ArrayList<Livro> livros = new ArrayList<Livro>();
+        final ArrayList<Livro> livro = new ArrayList<Livro>();
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
             pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
-            String dadosPessoa = "SEJA BEM-VINDO -> " + pessoa.getNome();
+            String dadosPessoa = "Usuário: " + pessoa.getNome();
             textViewBemVindo.setText(dadosPessoa);
         } else {
             textViewBemVindo.setText("UM ERRO OCORREU.");
         }
 
         String[] ids = pessoa.getListaAluguel().trim().split(" ");
-        for (String idAluguel : ids) {
-            if (idAluguel.equals("")) {
+        for (String idLivro : ids) {
+            if (idLivro.equals("")) {
                 //
             } else {
-                Aluguel aluguel = buscarAluguel.getAluguel(Integer.parseInt(idAluguel));
-                livros.add(buscarLivro.getLivro(aluguel.getIdLivro()));
+                livro.add(buscarLivro.getLivro(Integer.parseInt(idLivro)));
             }
         }
 
         ListView listView = (ListView) findViewById(R.id.listViewLivros);
-        ArrayAdapter adapter = new LivroAdapterUsuario(getApplicationContext(), R.layout.linha, livros);
+        ArrayAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livro);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent AbreTelaRemoverLivro = new Intent(TelaInicialUsuarioComum.this, TelaRemoverLivro.class);
-                AbreTelaRemoverLivro.putExtra("livro", String.valueOf(livros.get(position).getIsbn()));
+                AbreTelaRemoverLivro.putExtra("livro", String.valueOf(livro.get(position).getIsbn()));
                 AbreTelaRemoverLivro.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(AbreTelaRemoverLivro);
             }
@@ -79,14 +76,14 @@ public class TelaInicialUsuarioComum extends Activity {
             }
         });
 
-       btMinhaInformacao.setOnClickListener(new View.OnClickListener() {
+        btMinhaInformacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent AbreTelaInformacaoUsuario = new Intent(TelaInicialUsuarioComum.this, TelaInformacaoUsuario.class);
                 AbreTelaInformacaoUsuario.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(AbreTelaInformacaoUsuario);
             }
-       });
+        });
 
         btListalivros.setOnClickListener(new View.OnClickListener() {
             @Override

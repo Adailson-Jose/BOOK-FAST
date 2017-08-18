@@ -10,9 +10,9 @@
         android:layout_height="495dp"
         android:background="@drawable/fundo"
         android:orientation="vertical"
+        android:weightSum="1"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:weightSum="1">
+        tools:layout_editor_absoluteY="8dp">
 
 
         <Button
@@ -31,13 +31,13 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.08"
             android:text="Alugar Livro "
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/colorBlue"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_weight="0.08" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btAlugar"

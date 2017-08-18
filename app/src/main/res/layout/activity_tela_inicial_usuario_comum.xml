@@ -1,81 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/raizTelaUserFuncao"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pessoa.gui.TelaInicialUsuarioComum">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/raizTelaUserComum"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/fundo"
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:weightSum="1">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/textViewBemVindo"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent">
 
-            android:layout_marginTop="5dp"
-            android:text=""
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtLogo4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Página Inicial de Usuário"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
 
 
-        <Button
-            android:id="@+id/btEmprestimoQRcode"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:text="EMPRESTIMO DE LIVRO VIA LEITOR"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textViewBemVindo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintLeft_toLeftOf="@+id/txtLogo4"
+                app:layout_constraintRight_toRightOf="@+id/txtLogo4"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo4" />
 
-        <Button
-            android:id="@+id/btListalivros"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LISTA DE LIVROS "
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtLogo2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Selecione uma das opções abaixo:"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorgray"
+                android:textIsSelectable="false"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintLeft_toLeftOf="@+id/textViewBemVindo"
+                app:layout_constraintRight_toRightOf="@+id/textViewBemVindo"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBemVindo" />
 
-        <Button
-            android:id="@+id/btMinhaInformacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MINHAS INFORMAÇÕES "
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:text="LIVROS ALUGADOS"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="visible" />
+            <Button
+                android:id="@+id/btEmprestimoQRcode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="17dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Emprestimo Via QrCode"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/txtLogo2"
+                app:layout_constraintRight_toRightOf="@+id/txtLogo2"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo2" />
 
-        <ListView
-            android:id="@+id/listViewLivros"
-            android:layout_width="wrap_content"
-            android:layout_height="92dp"
-            android:layout_weight="0.46"
-            android:background="@color/colorGrayyy" />
+            <Button
+                android:id="@+id/btListalivros"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Biblioteca"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btEmprestimoQRcode"
+                app:layout_constraintRight_toRightOf="@+id/btEmprestimoQRcode"
+                app:layout_constraintTop_toBottomOf="@+id/btEmprestimoQRcode" />
 
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/btMinhaInformacao"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Minhas Informações"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btListalivros"
+                app:layout_constraintRight_toRightOf="@+id/btListalivros"
+                app:layout_constraintTop_toBottomOf="@+id/btListalivros" />
+
+            <TextView
+                android:id="@+id/txtLogo3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Livros Alugados"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintLeft_toLeftOf="@+id/btMinhaInformacao"
+                app:layout_constraintRight_toRightOf="@+id/btMinhaInformacao"
+                app:layout_constraintTop_toBottomOf="@+id/btMinhaInformacao" />
+
+
+            <ListView
+                android:id="@+id/listViewLivros"
+                android:layout_width="385dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="0.6"
+                android:background="@color/colorGrayyy"
+                android:textAllCaps="false"
+                android:typeface="normal"
+                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintLeft_toLeftOf="@+id/txtLogo3"
+                app:layout_constraintRight_toRightOf="@+id/txtLogo3"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo3" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

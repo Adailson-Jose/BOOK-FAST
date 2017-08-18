@@ -1,40 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizRecuperarSenha"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pessoa.gui.TelaInicialAdministrador"
-    tools:layout_editor_absoluteY="81dp"
-    android:scaleType="centerCrop">
+    tools:context=".pessoa.gui.TelaInicialAdministrador">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp"
-        android:background="@drawable/fundo"
-        android:weightSum="1">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
 
-        <Button
-            android:id="@+id/btUsuario"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="USUÁRIO"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="280dp"
-            android:layout_marginTop="2dp" />
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btLivro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LIVRO"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="90dp"
-            android:layout_marginTop="2dp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtLogo1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Página Inicial Administrador"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="23dp" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/txtLogo2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Selecione uma das opções abaixo:"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorgray"
+                android:textIsSelectable="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintLeft_toLeftOf="@+id/txtLogo1"
+                app:layout_constraintRight_toRightOf="@+id/txtLogo1"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />
+
+
+            <Button
+                android:id="@+id/btUsuario"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="33dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Usuário"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/txtLogo2"
+                app:layout_constraintRight_toRightOf="@+id/txtLogo2"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo2" />
+
+            <Button
+                android:id="@+id/btLivro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btUsuario"
+                app:layout_constraintRight_toRightOf="@+id/btUsuario"
+                app:layout_constraintTop_toBottomOf="@+id/btUsuario" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
+
+

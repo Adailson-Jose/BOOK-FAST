@@ -18,14 +18,16 @@ import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 
 public class TelaEditaInfoUsuario extends AppCompatActivity {
-    Button btSalvar;
+    Button btSalvar, btCancelarMudanças2;
     EditText editTextNome, editTextEmail;
     Pessoa pessoa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_edita_info_usuario);
         btSalvar = (Button) findViewById(R.id.btSalvar);
+        btCancelarMudanças2 = (Button) findViewById(R.id.btCancelarMudanças2);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextNome = (EditText) findViewById(R.id.editTextNome);
         ReadPessoa buscar = new ReadPessoa(getApplicationContext());
@@ -65,9 +67,14 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
                     Intent abreTelaInicialUsuarioComum = new Intent(TelaEditaInfoUsuario.this, TelaInicialUsuarioComum.class);
                     abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                     startActivity(abreTelaInicialUsuarioComum);
-                }else{
+                } else {
                     Toast.makeText(TelaEditaInfoUsuario.this, "CAMPO INVÁLIDO", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        btCancelarMudanças2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
             }
         });
 

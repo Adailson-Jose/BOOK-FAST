@@ -20,6 +20,7 @@ import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 public class TelaRecuperarSenha extends Activity {
     EditText editCPF, editNovaSenha, editEmail;
     Button btAlterarSenha, btCancelarAlteracao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class TelaRecuperarSenha extends Activity {
 
         btAlterarSenha = (Button) findViewById(R.id.btAlterarSenha);
         btCancelarAlteracao = (Button) findViewById(R.id.btCancelarAlteracao);
-        btAlterarSenha.setOnClickListener(new View.OnClickListener(){
+        btAlterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
@@ -70,7 +71,7 @@ public class TelaRecuperarSenha extends Activity {
                         Toast.makeText(TelaRecuperarSenha.this, R.string.SenhaNaoAtualizada, Toast.LENGTH_LONG).show();
 
                     }
-                }else{
+                } else {
                     Toast.makeText(TelaRecuperarSenha.this, R.string.FaltaPreenchimento, Toast.LENGTH_SHORT).show();
 
                 }
@@ -78,7 +79,7 @@ public class TelaRecuperarSenha extends Activity {
 
         });
 
-        btCancelarAlteracao.setOnClickListener(new View.OnClickListener(){
+        btCancelarAlteracao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }

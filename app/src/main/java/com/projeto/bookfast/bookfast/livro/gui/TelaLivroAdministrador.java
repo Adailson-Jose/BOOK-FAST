@@ -10,6 +10,7 @@ import com.projeto.bookfast.bookfast.R;
 
 public class TelaLivroAdministrador extends Activity {
     Button btEditarLivro, btCadastrarLivro, btListarLivros, btDeletarlivro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ public class TelaLivroAdministrador extends Activity {
             }
         });
 
-        btEditarLivro.setOnClickListener(new View.OnClickListener(){
+        btEditarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent abreTelaEditarLivroAdministrador = new Intent(TelaLivroAdministrador.this, TelaEditarLivroAdministrador.class);

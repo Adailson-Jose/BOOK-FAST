@@ -1,87 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/raizTelaLivroAdm"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raizTelaLivroAdm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".livro.gui.TelaLivroAdministrador">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/fundo"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:weightSum="1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/textView2"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_weight="0.09"
-            android:fontFamily="serif"
-            android:text="CADASTRAR LIVRO"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="visible" />
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btCadastrarLivro"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_weight="0.05"
-            android:text="CADASTRAR LIVRO"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Menu de Livro"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="20dp" />
 
+            <Button
+                android:id="@+id/btCadastrarLivro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cadastrar Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/textView2"
+                app:layout_constraintRight_toRightOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <Button
-            android:id="@+id/btEditarLivro"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_weight="0.05"
-            android:text="EDITAR LIVRO"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btEditarLivro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Editar Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btCadastrarLivro"
+                app:layout_constraintRight_toRightOf="@+id/btCadastrarLivro"
+                app:layout_constraintTop_toBottomOf="@+id/btCadastrarLivro" />
 
-        <Button
-            android:id="@+id/btListarLivros"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_weight="0.05"
-            android:text="LISTAR LIVROS"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btListarLivros"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Listar Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btEditarLivro"
+                app:layout_constraintRight_toRightOf="@+id/btEditarLivro"
+                app:layout_constraintTop_toBottomOf="@+id/btEditarLivro" />
 
-        <Button
-            android:id="@+id/btDeletarlivro"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:text="DELETAR LIVRO"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_weight="0.05" />
+            <Button
+                android:id="@+id/btDeletarlivro"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Deletar Livro"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btListarLivros"
+                app:layout_constraintRight_toRightOf="@+id/btListarLivros"
+                app:layout_constraintTop_toBottomOf="@+id/btListarLivros" />
 
-    </LinearLayout>
-</ScrollView>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

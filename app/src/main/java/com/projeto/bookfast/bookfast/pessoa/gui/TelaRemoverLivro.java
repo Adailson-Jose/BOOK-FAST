@@ -28,7 +28,7 @@ public class TelaRemoverLivro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.remorvlivro);
+        setContentView(R.layout.activity_remover_livro);
         btDevolver = (Button) findViewById(R.id.btDevolver);
         btRenovar = (Button) findViewById(R.id.btRenovar);
         btVoltar = (Button) findViewById(R.id.btVoltar);

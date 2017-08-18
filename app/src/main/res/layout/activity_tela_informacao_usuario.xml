@@ -38,12 +38,13 @@
                 android:textStyle="bold"
                 android:typeface="normal"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteY="22dp" />
 
             <TextView
                 android:id="@+id/textViewMinhasInformacoes"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_weight="0.71"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
@@ -52,9 +53,7 @@
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@+id/txtLogo1"
                 app:layout_constraintRight_toRightOf="@+id/txtLogo1"
-                app:layout_constraintTop_toBottomOf="@+id/txtLogo1"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="81dp" />
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />
 
             <Button
                 android:id="@+id/btEditaMinhasInformacoes"
@@ -64,7 +63,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="28dp"
                 android:backgroundTint="@color/darkGreen"
                 android:text="Editar Meus Dados"
                 android:textAllCaps="false"
@@ -74,6 +73,26 @@
                 app:layout_constraintLeft_toLeftOf="@+id/textViewMinhasInformacoes"
                 app:layout_constraintRight_toRightOf="@+id/textViewMinhasInformacoes"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMinhasInformacoes" />
+
+            <Button
+                android:id="@+id/btCancelarMudanças"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cancelar Alterações"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btEditaMinhasInformacoes"
+                app:layout_constraintRight_toRightOf="@+id/btEditaMinhasInformacoes"
+                app:layout_constraintTop_toBottomOf="@+id/btEditaMinhasInformacoes" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

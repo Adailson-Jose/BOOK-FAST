@@ -20,6 +20,7 @@ import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 public class TelaCadastrarUsuario extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome;
     Button btRegistrar, btCancelarRegistro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
         btRegistrar = (Button) findViewById(R.id.btRegistrar);
         btCancelarRegistro = (Button) findViewById(R.id.btCancelarRegistro);
 
-        btCancelarRegistro.setOnClickListener(new View.OnClickListener(){
+        btCancelarRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -41,7 +42,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
 
         });
 
-        btRegistrar.setOnClickListener(new View.OnClickListener(){
+        btRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroUsuario);
@@ -78,7 +79,7 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     pessoa.setEmail(email);
                     pessoa.setCpf(Long.parseLong(cpf));
                     pessoa.setSenha(senha);
-                    pessoa.setListaAluguel("");
+                    pessoa.setLivros("1 2");
                     UpdatePessoa inserir = new UpdatePessoa(getApplicationContext());
                     if (inserir.insertPessoa(pessoa)) {
                         Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();

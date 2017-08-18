@@ -128,7 +128,7 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                         Toast.makeText(TelaEditarLivroAdministrador.this, R.string.LvroNaoExiste, Toast.LENGTH_LONG).show();
 
                     }
-                }else{
+                } else {
                     Toast.makeText(TelaEditarLivroAdministrador.this, R.string.CampoInvalido, Toast.LENGTH_SHORT).show();
                 }
             }

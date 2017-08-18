@@ -1,55 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/raizEditarinfomacaoUsuario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pessoa.gui.TelaEditaInfoUsuario">
+    tools:context=".pessoa.gui.TelaEditaInfoUsuario">>
 
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/fundo"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="3dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/textView2"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Informações de Usuário"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editTextNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/colorGrayyy" />
+            <TextView
+                android:id="@+id/txtLogo1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Editar Usuário e E-mail"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="47dp"
+                tools:layout_editor_absoluteY="22dp" />
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/colorGrayyy" />
+            <EditText
+                android:id="@+id/editTextNome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:orientation="vertical"
+                android:selectAllOnFocus="false"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />
 
-        <Button
-            android:id="@+id/btSalvar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorGrayyy"
-            android:text="SALVAR ALTERAÇOES"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textWebEmailAddress"
+                android:selectAllOnFocus="false"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editTextNome"
+                app:layout_constraintRight_toRightOf="@+id/editTextNome"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNome" />
 
-    </LinearLayout>
+
+            <Button
+                android:id="@+id/btSalvar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Salvar Alterações"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/editTextEmail"
+                app:layout_constraintRight_toRightOf="@+id/editTextEmail"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+            <Button
+                android:id="@+id/btCancelarMudanças2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Cancelar Alterações"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFontNormalLight"
+                android:textColorHint="@color/colorgray"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/btSalvar"
+                app:layout_constraintRight_toRightOf="@+id/btSalvar"
+                app:layout_constraintTop_toBottomOf="@+id/btSalvar" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
+
+
+
+
+

@@ -42,20 +42,6 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="22dp" />
 
-            <SearchView
-                android:id="@+id/idPesquisa"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@color/colorGrayyy"
-                android:textAllCaps="false"
-                android:textColor="@color/colorBlue"
-                android:typeface="normal"
-                android:visibility="visible"
-                app:layout_constraintLeft_toLeftOf="@+id/textView4"
-                app:layout_constraintRight_toRightOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
             <ListView
                 android:id="@+id/listViewLivro"
                 android:layout_width="385dp"

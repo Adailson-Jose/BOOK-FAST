@@ -23,7 +23,7 @@ public class TelaListarTodosLivrosUusario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_listar_todos_livros_uusario);
+        setContentView(R.layout.activity_tela_listar_todos_livros_usuario);
         final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         final ReadPessoa buscarPessoa = new ReadPessoa(getApplicationContext());
         ListView listView = (ListView) findViewById(R.id.listViewLivro);

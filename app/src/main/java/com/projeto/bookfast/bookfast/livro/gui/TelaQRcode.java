@@ -41,21 +41,19 @@ public class TelaQRcode extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if(result!=null){
-            if (result.getContents()==null){
+        if (result != null) {
+            if (result.getContents() == null) {
                 Toast.makeText(this, "Você Cancelou o Scaneamento", Toast.LENGTH_LONG).show();
-            }
-            else{
+            } else {
 //                ReadLivro readLivro = new ReadLivro(getApplicationContext());
 //                ValidaEmprestimo validaEmprestimo = new ValidaEmprestimo();
 //                livroaux = readLivro.getLivro(Long.parseLong(result.getContents()));
 //                validaEmprestimo.pediemprestimo(livroaux);
 //                Intent abreTelaAlugarLivro = new Intent(TelaQRcode.this, TelaAlugarLivro.class);
- //               abreTelaAlugarLivro.putExtra("livro", String.valueOf(livroaux.getIsbn()));
+                //               abreTelaAlugarLivro.putExtra("livro", String.valueOf(livroaux.getIsbn()));
                 Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
             }
-        }
-        else{
+        } else {
             Toast.makeText(this, "Cheguei aqui", Toast.LENGTH_LONG).show();
             super.onActivityResult(requestCode, resultCode, data);
         }

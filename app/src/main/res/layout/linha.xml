@@ -13,11 +13,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewLivro"
+        android:layout_toRightOf="@+id/imageViewLivro"
         android:text="Isbn: "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorBlack"
-        android:layout_alignBottom="@+id/imageViewLivro"
-        android:layout_toRightOf="@+id/imageViewLivro" />
+        android:textColor="@color/colorBlack" />
 
     <TextView
         android:id="@+id/textViewIsbn"

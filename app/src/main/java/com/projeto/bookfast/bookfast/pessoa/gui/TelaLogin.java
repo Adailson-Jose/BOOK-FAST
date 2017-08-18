@@ -20,6 +20,7 @@ public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;
     Button btLogar, btRecuperarSenha, btCadastrarUsuario;
     Pessoa pessoa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class TelaLogin extends AppCompatActivity {
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
 
-        btLogar.setOnClickListener(new View.OnClickListener(){
+        btLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
@@ -61,6 +62,7 @@ public class TelaLogin extends AppCompatActivity {
                             abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                             startActivity(abreTelaInicial);
                             Toast.makeText(TelaLogin.this, R.string.loginAdm, Toast.LENGTH_SHORT).show();
+
                         } else {
                             //  se entrou aqui é porque existe um usuário baseado na busca
                             Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);
@@ -71,13 +73,13 @@ public class TelaLogin extends AppCompatActivity {
                     } else {
                         Toast.makeText(TelaLogin.this, R.string.CamposInvalidos, Toast.LENGTH_LONG).show();
                     }
-                }else {
+                } else {
                     Toast.makeText(TelaLogin.this, R.string.FaltaPreenchimento, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        btCadastrarUsuario.setOnClickListener(new View.OnClickListener(){
+        btCadastrarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastrarUsuario.class);
@@ -85,10 +87,10 @@ public class TelaLogin extends AppCompatActivity {
             }
 
         });
-        btRecuperarSenha.setOnClickListener(new View.OnClickListener(){
+        btRecuperarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abreAlteracaoDeSenha= new Intent(TelaLogin.this, TelaRecuperarSenha.class);
+                Intent abreAlteracaoDeSenha = new Intent(TelaLogin.this, TelaRecuperarSenha.class);
                 startActivity(abreAlteracaoDeSenha);
             }
 
