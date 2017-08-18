@@ -33,6 +33,7 @@ public class TelaAlugarLivro extends AppCompatActivity {
                 public void onClick(View v) {
                     ReadLivro readLivro = new ReadLivro(getApplicationContext());
                     ValidaEmprestimo ValidaEmprestimo = new ValidaEmprestimo();
+                    // olha essa parte daqui de cima que ta dando erro
                     livroTeste = readLivro.getLivro(livroTeste.getIsbn());
                     ValidaEmprestimo.pediEmprestimo(livroTeste, pessoaTeste);
                 }
