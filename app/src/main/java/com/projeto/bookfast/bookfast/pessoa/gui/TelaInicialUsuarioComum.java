@@ -39,7 +39,7 @@ public class TelaInicialUsuarioComum extends Activity {
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
-            pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("KEY"))));
+            pessoa = busca.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
             String dadosPessoa = "Usuário: " + pessoa.getNome();
             textViewBemVindo.setText(dadosPessoa);
         } else {

@@ -63,7 +63,7 @@ public class TelaRemoverLivro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent abreTelaInicialUsuarioComum = new Intent(TelaRemoverLivro.this, TelaInicialUsuarioComum.class);
-                abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(abreTelaInicialUsuarioComum);
             }
         });
