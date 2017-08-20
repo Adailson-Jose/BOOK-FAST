@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.aluguel.persistecia.AluguelDao;
@@ -51,9 +50,8 @@ public class TelaInicialUsuarioComum extends Activity {
 
         String[] ids = pessoa.getListaAluguel().trim().split(" ");
         for (String idAluguel : ids) {
-            if (idAluguel.trim().equals(" ")) {
-                Toast.makeText(TelaInicialUsuarioComum.this, "ERRO", Toast.LENGTH_SHORT).show();
-
+            if (idAluguel.trim().equals("")) {
+                continue;
             } else {
 
                 livro.add(buscarLivro.getLivro(buscaAluguel.getAluguel(Integer.parseInt(idAluguel)).getIdLivro()));
