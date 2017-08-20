@@ -65,7 +65,7 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
                     Toast.makeText(TelaEditaInfoUsuario.this, "INFORMAÇÕES ALTERADAS COM SUCESSO", Toast.LENGTH_SHORT).show();
 
                     Intent abreTelaInicialUsuarioComum = new Intent(TelaEditaInfoUsuario.this, TelaInicialUsuarioComum.class);
-                    abreTelaInicialUsuarioComum.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                    abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                     startActivity(abreTelaInicialUsuarioComum);
                 } else {
                     Toast.makeText(TelaEditaInfoUsuario.this, "CAMPO INVÁLIDO", Toast.LENGTH_SHORT).show();

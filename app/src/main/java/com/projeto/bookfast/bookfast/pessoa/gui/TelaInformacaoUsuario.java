@@ -13,7 +13,7 @@ import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 
 public class TelaInformacaoUsuario extends AppCompatActivity {
     Button btEditaMinhasInformacoes, btCancelarMudanças2;
-    TextView textViewMinhasInformacoes;
+    TextView editTextNome, editTextCpf, editTextEmail, editTextQtdLivros;
     Pessoa pessoa;
 
     @Override
@@ -21,7 +21,10 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_informacao_usuario);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
-        textViewMinhasInformacoes = (TextView) findViewById(R.id.textViewMinhasInformacoes);
+        editTextNome = (TextView) findViewById(R.id.editTextNome);
+        editTextCpf = (TextView) findViewById(R.id.editTextCpf);
+        editTextEmail = (TextView) findViewById(R.id.editTextEmail);
+        editTextQtdLivros = (TextView) findViewById(R.id.editTextQtdLivros);
         btEditaMinhasInformacoes = (Button) findViewById(R.id.btEditaMinhasInformacoes);
         btCancelarMudanças2 = (Button) findViewById(R.id.btCancelarMudanças);
 
@@ -32,15 +35,15 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
             String[] ids = pessoa.getListaAluguel().trim().split(" ");
             for (String idLivro : ids) {
                 if (idLivro.equals("")) {
-                    //
+                    continue;
                 } else {
                     quantidadeLivrosAludado += 1;
-
                 }
             }
-            String dadosPessoa = "Nome: " + pessoa.getNome() + "; Email: " + pessoa.getEmail() + "; CPF: " + pessoa.getCpf()
-                    + "; Quantidade de livro(s) Alugado(s): " + quantidadeLivrosAludado;
-            textViewMinhasInformacoes.setText(dadosPessoa);
+            editTextNome.setText(pessoa.getNome());
+            editTextCpf.setText(String.valueOf(pessoa.getCpf()));
+            editTextEmail.setText(pessoa.getEmail());
+            editTextQtdLivros.setText(String.valueOf(quantidadeLivrosAludado));
         }
         btEditaMinhasInformacoes.setOnClickListener(new View.OnClickListener() {
             @Override
