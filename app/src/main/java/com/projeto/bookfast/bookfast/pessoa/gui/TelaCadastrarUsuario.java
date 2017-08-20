@@ -20,7 +20,7 @@ import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
 public class TelaCadastrarUsuario extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome;
     Button btRegistrar, btCancelarRegistro;
-
+    Pessoa pessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +29,8 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
         editNovoEmail = (EditText) findViewById(R.id.editNovoEmail);
         editNovoUsuario = (EditText) findViewById(R.id.editNovoUsuario);
         editNovaSenha = (EditText) findViewById(R.id.editNovaSenha);
-
         btRegistrar = (Button) findViewById(R.id.btRegistrar);
         btCancelarRegistro = (Button) findViewById(R.id.btCancelarRegistro);
-
         btCancelarRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +44,6 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroUsuario);
-                Pessoa pessoa = new Pessoa();
                 ReadPessoa buscar = new ReadPessoa(getApplicationContext());
                 boolean resultado = false;
                 String cpf = editNovoUsuario.getText().toString();
@@ -71,29 +68,32 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                     editNovaSenha.setError("Senha inválida!");
                     editNovaSenha.requestFocus();
                 }
-
-                if (!resultado && buscar.getPessoa(Long.parseLong(cpf)) == null) {
+                pessoa = buscar.getPessoa(Long.parseLong(cpf));
+                if (!resultado && pessoa != null && pessoa.getStatus().equals("0")) {
+                    pessoa.setStatus("1");
+                    UpdatePessoa atualisaPessoa = new UpdatePessoa(getApplicationContext());
+                    atualisaPessoa.updatePessoa(pessoa);
+                } else if (!resultado && pessoa == null) {
+                    Pessoa pessoa2 = new Pessoa();
                     LimparTela.clearForm(group);
                     editNovoNome.requestFocus();
-                    pessoa.setNome(nome);
-                    pessoa.setEmail(email);
-                    pessoa.setCpf(Long.parseLong(cpf));
-                    pessoa.setSenha(senha);
-                    pessoa.setListaAluguel("");
+                    pessoa2.setNome(nome);
+                    pessoa2.setEmail(email);
+                    pessoa2.setCpf(Long.parseLong(cpf));
+                    pessoa2.setSenha(senha);
+                    pessoa2.setListaAluguel("");
+                    pessoa2.setStatus("1");
                     UpdatePessoa inserir = new UpdatePessoa(getApplicationContext());
-                    if (inserir.insertPessoa(pessoa)) {
+                    if (inserir.insertPessoa(pessoa2)) {
                         Toast.makeText(TelaCadastrarUsuario.this, "Pessoa foi inserida com sucesso!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TelaCadastrarUsuario.this, R.string.CadastroSucesso, Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(TelaCadastrarUsuario.this, R.string.ErroInserirPessoa, Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(TelaCadastrarUsuario.this, R.string.CadastroSucesso, Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(TelaCadastrarUsuario.this, R.string.CPFJaCadastrado, Toast.LENGTH_SHORT).show();
-
                 }
             }
-
         });
-
     }
 }

@@ -27,6 +27,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_EMAIL = "EMAIL";
     private static final String COLUNA_SENHA = "SENHA";
     private static final String COLUNA_IDS_ALUGUEL = "IDS_ALUGUEL";
+    private static final String COLUNA_STATUS_PESSOA = "STATOS_PESSOA";
     //VARIAVES DA TABELA LIVRO
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
@@ -52,12 +53,12 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA A TABELA PESSOA
         db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, "
                 + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, "
-                + COLUNA_IDS_ALUGUEL + " text not null, " + COLUNA_SENHA + " text not null)");
+                + COLUNA_IDS_ALUGUEL + " text not null, " + COLUNA_SENHA + " text not null, " + COLUNA_STATUS_PESSOA + " text not null)");
 
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA +
-                ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin')");
+                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
+                ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin', '1')");
 
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
@@ -118,6 +119,10 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
     public static String getNomeTabelaPessoa() {
         return TABELA_PESSOA;
+    }
+
+    public static String getColunaStatusPessoa() {
+        return COLUNA_STATUS_PESSOA;
     }
 
     //GETS TABELA LIVRO
@@ -193,5 +198,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     public static String getColunaMultaEntrega() {
         return COLUNA_MULTA_ENTREGA;
     }
+
 }
 

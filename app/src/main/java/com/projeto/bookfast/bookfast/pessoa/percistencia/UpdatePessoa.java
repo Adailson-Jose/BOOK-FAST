@@ -31,6 +31,7 @@ public class UpdatePessoa {
         valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
         valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
         valores.put(CreatBancoDados.getColunaIdsAluguel(), pessoa.getListaAluguel());
+        valores.put(CreatBancoDados.getColunaStatusPessoa(), pessoa.getStatus());
         db.insert(CreatBancoDados.getNomeTabelaPessoa(), null, valores);
         db.close();
         return true;
@@ -45,6 +46,7 @@ public class UpdatePessoa {
         valores.put(CreatBancoDados.getColunaEmail(), pessoa.getEmail());
         valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
         valores.put(CreatBancoDados.getColunaIdsAluguel(), pessoa.getListaAluguel());
+        valores.put(CreatBancoDados.getColunaStatusPessoa(), pessoa.getStatus());
         db.update(CreatBancoDados.getNomeTabelaPessoa(), valores, where, null);
         db.close();
         return true;

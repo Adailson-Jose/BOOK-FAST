@@ -63,17 +63,15 @@ public class TelaRecuperarSenha extends Activity {
                     limparTela.clearForm(group);
                     editCPF.requestFocus();
                     pessoa = buscar.getPessoa(Long.parseLong(loginCpf));
-                    if (pessoa != null && pessoa.getSenha().equals(novaSenha)) {
+                    if (pessoa != null && pessoa.getStatus().equals("1") && pessoa.getCpf() != Long.parseLong("19928810303")) {
                         pessoa.setSenha(novaSenha);
                         atualizar.updatePessoa(pessoa);
                         Toast.makeText(TelaRecuperarSenha.this, R.string.SenhaAtualizada, Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(TelaRecuperarSenha.this, R.string.SenhaNaoAtualizada, Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Toast.makeText(TelaRecuperarSenha.this, R.string.FaltaPreenchimento, Toast.LENGTH_SHORT).show();
-
                 }
             }
 

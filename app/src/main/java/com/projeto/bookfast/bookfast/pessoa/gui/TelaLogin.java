@@ -56,7 +56,7 @@ public class TelaLogin extends AppCompatActivity {
                     editUsuario.requestFocus();
                     // Teste de buscar pessoa
                     pessoa = buscar.getPessoa(Long.parseLong(loginCpf));
-                    if (pessoa != null && pessoa.getSenha().equals(senha)) {
+                    if (pessoa != null && pessoa.getStatus().equals("1") && pessoa.getSenha().equals(senha)) {
                         if (pessoa.getCpf() == Long.parseLong("19928810303")) {
                             Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
                             startActivity(abreTelaInicial);
