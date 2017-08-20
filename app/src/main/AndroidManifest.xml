@@ -42,5 +42,4 @@
         <activity android:name=".pessoa.gui.TelaAlugarLivro" />
         <activity android:name=".pessoa.gui.TelaListarTodosLivrosUusario"></activity>
     </application>
-
 </manifest>
