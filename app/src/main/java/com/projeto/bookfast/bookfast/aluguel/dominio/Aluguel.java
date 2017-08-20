@@ -11,28 +11,28 @@ public class Aluguel {
     private String date;
     private String dataEntrega;
     private int multa;
-
+    private String status = "0";
     //Construtor para istanciar
     public Aluguel() {
     }
-
     //Construtor para buscar no banco
-    public Aluguel(int id, int idPessoa, int idLivro, String date, String dataEntrega, int multa) {
+    public Aluguel(int id, int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status) {
         this.id = id;
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
         this.date = date;
         this.dataEntrega = dataEntrega;
         this.multa = multa;
+        this.status = status;
     }
-
     //Construtor para inserir
-    public Aluguel(int idPessoa, int idLivro, String date, String dataEntrega, int multa) {
+    public Aluguel(int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status) {
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
         this.date = date;
         this.dataEntrega = dataEntrega;
         this.multa = multa;
+        this.status = status;
     }
 
     public int getId() {
@@ -81,6 +81,14 @@ public class Aluguel {
 
     public void setMulta(int multa) {
         this.multa = multa;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
 

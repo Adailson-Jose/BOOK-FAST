@@ -27,16 +27,20 @@ public class AluguelDao {
         return true;
     }
 
-    public int getAluguel(int idPessoa, int idLivro) {
+    public Aluguel getAluguel(int idPessoa, int idLivro) {
         db = dbHelper.getReadableDatabase();
         String getIdDoLivro = "SELECT * FROM " + CreatBancoDados.getTabelaAluguel() + " WHERE " + CreatBancoDados.getColunaPessoaAluguel() + " = " + idPessoa + " and " +
-                CreatBancoDados.getColunaLivroAluguel() + " = " + idLivro;
+                CreatBancoDados.getColunaLivroAluguel() + " = " + idLivro + " and " + CreatBancoDados.getColunaStatusAluguel() + " = 1";
         Cursor cursor = db.rawQuery(getIdDoLivro, null);
-        if (cursor.moveToFirst()) {
+        if (cursor != null && cursor.moveToFirst()) {
+            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getString(6));
             cursor.close();
             db.close();
+            return aluguel;
+        } else {
+            db.close();
+            return null;
         }
-        return Integer.parseInt(getIdDoLivro);
     }
 
     public Aluguel getAluguel(int idAluguel) {
@@ -44,11 +48,11 @@ public class AluguelDao {
         Cursor cursor = db.query(CreatBancoDados.getTabelaAluguel(), new String[]{CreatBancoDados.getColunaIdAluguel(),
                         CreatBancoDados.getColunaPessoaAluguel(), CreatBancoDados.getColunaLivroAluguel(),
                         CreatBancoDados.getColunaData(), CreatBancoDados.getColunaDataEntrega(),
-                        CreatBancoDados.getColunaMultaEntrega()},
+                        CreatBancoDados.getColunaMultaEntrega(), CreatBancoDados.getColunaStatusAluguel()},
                 CreatBancoDados.getColunaIdAluguel() + " = ?", new String[]{String.valueOf(idAluguel)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getString(6));
             cursor.close();
             db.close();
             return aluguel;
@@ -66,28 +70,10 @@ public class AluguelDao {
         valores.put(CreatBancoDados.getColunaData(), aluguel.getDate());
         valores.put(CreatBancoDados.getColunaDataEntrega(), aluguel.getDataEntrega());
         valores.put(CreatBancoDados.getColunaMultaEntrega(), aluguel.getMulta());
+        valores.put(CreatBancoDados.getColunaStatusAluguel(), aluguel.getStatus());
         db.insert(CreatBancoDados.getTabelaAluguel(), null, valores);
         db.close();
         return true;
-    }
-
-    public Aluguel getAluguelPessoa(int idPessoa) {
-        db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query(CreatBancoDados.getTabelaAluguel(), new String[]{CreatBancoDados.getColunaIdAluguel(),
-                        CreatBancoDados.getColunaPessoaAluguel(), CreatBancoDados.getColunaLivroAluguel(),
-                        CreatBancoDados.getColunaData(), CreatBancoDados.getColunaDataEntrega(),
-                        CreatBancoDados.getColunaMultaEntrega()},
-                CreatBancoDados.getColunaPessoaAluguel() + " = ?", new String[]{String.valueOf(idPessoa)}, null, null, null, null);
-
-        if (cursor != null && cursor.moveToFirst()) {
-            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
-            cursor.close();
-            db.close();
-            return aluguel;
-        } else {
-            db.close();
-            return null;
-        }
     }
 
     public boolean updateAluguel(Aluguel aluguel) {
@@ -99,6 +85,7 @@ public class AluguelDao {
         valores.put(CreatBancoDados.getColunaData(), aluguel.getDate());
         valores.put(CreatBancoDados.getColunaDataEntrega(), aluguel.getDataEntrega());
         valores.put(CreatBancoDados.getColunaMultaEntrega(), aluguel.getMulta());
+        valores.put(CreatBancoDados.getColunaStatusAluguel(), aluguel.getStatus());
         db.update(CreatBancoDados.getTabelaAluguel(), valores, where, null);
         db.close();
         return true;

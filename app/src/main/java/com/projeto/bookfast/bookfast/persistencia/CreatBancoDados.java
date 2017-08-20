@@ -19,6 +19,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_DATA = "DATA";
     private static final String COLUNA_DATA_ENTREGA = "DATA_ENTREGA";
     private static final String COLUNA_MULTA_ENTREGA = "MULTA";
+    private static final String COLUNA_STATUS_ALUGUEL = "STATOS_ALUGUEL";
     //VARIAVES DA TABELA PESSOA
     private static final String TABELA_PESSOA = "TB_PESSOA";
     private static final String COLUNA_ID = "ID";
@@ -40,7 +41,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_ANO = "ANO";
     private static final String COLUNA_GENERO = "GENERO";
     private static final String COLUNA_FOTO_LIVRO = "FOTO_LIVRO";
-
     // private static final String COLUNA_IMAGEM = "IMAGEM";
     private static final String PATH_DB = "/data/user/0/package com.projeto.bookfast.bookfast/databases/" + NOME_BANCO;
 
@@ -77,12 +77,12 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
         //CRIA TABELA ALUGUEL
         db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer, "
-                + COLUNA_LIVRO_ALUGUEL + " integer, " + COLUNA_DATA + " text not null, " + COLUNA_DATA_ENTREGA + " text not null, " + COLUNA_MULTA_ENTREGA + " integer)");
+                + COLUNA_LIVRO_ALUGUEL + " integer, " + COLUNA_DATA + " text not null, " + COLUNA_DATA_ENTREGA + " text not null, "
+                + COLUNA_MULTA_ENTREGA + " integer, " + COLUNA_STATUS_ALUGUEL + " text not null)");
         //ADD ALUGUEL EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + "," + COLUNA_PESSOA_ALUGUEL + ","
-                + COLUNA_LIVRO_ALUGUEL + "," + COLUNA_DATA + "," + COLUNA_DATA_ENTREGA + "," + COLUNA_MULTA_ENTREGA +
-                ") VALUES('100', '1', '2', '11/08/2017', '11/09/2017', '100')");
-
+                + COLUNA_LIVRO_ALUGUEL + "," + COLUNA_DATA + "," + COLUNA_DATA_ENTREGA + "," + COLUNA_MULTA_ENTREGA + ","
+                + COLUNA_STATUS_ALUGUEL + ") VALUES('100', '1', '2', '11/08/2017', '11/09/2017', '100', '1')");
     }
 
     @Override
@@ -199,5 +199,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return COLUNA_MULTA_ENTREGA;
     }
 
+    public static String getColunaStatusAluguel() {
+        return COLUNA_STATUS_ALUGUEL;
+    }
 }
 
