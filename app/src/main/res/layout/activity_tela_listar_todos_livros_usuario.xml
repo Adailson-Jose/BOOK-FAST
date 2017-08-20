@@ -44,16 +44,26 @@
 
             <ListView
                 android:id="@+id/listViewLivro"
-                android:layout_width="385dp"
-                android:layout_height="445dp"
+                android:layout_width="417dp"
+                android:layout_height="389dp"
                 android:layout_marginTop="13dp"
                 android:layout_weight="0.6"
                 android:background="@color/colorGrayyy"
                 android:textAllCaps="false"
                 android:typeface="normal"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/textView4"
                 app:layout_constraintRight_toRightOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:layout_editor_absoluteX="-22dp" />
+
+            <Button
+                android:id="@+id/btTelaPricipal"
+                android:layout_width="374dp"
+                android:layout_height="52dp"
+                android:text="Tela Inicial"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="449dp" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

@@ -77,7 +77,7 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:hint="Cpf"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:selectAllOnFocus="false"
                 android:textColorHint="@color/colorgray"
                 app:layout_constraintHorizontal_bias="0.0"

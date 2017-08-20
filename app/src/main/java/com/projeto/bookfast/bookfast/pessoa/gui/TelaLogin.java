@@ -59,10 +59,8 @@ public class TelaLogin extends AppCompatActivity {
                     if (pessoa != null && pessoa.getSenha().equals(senha)) {
                         if (pessoa.getCpf() == Long.parseLong("19928810303")) {
                             Intent abreTelaInicial = new Intent(TelaLogin.this, TelaInicialAdministrador.class);
-                            abreTelaInicial.putExtra("KEY", String.valueOf(pessoa.getCpf()));
                             startActivity(abreTelaInicial);
                             Toast.makeText(TelaLogin.this, R.string.loginAdm, Toast.LENGTH_SHORT).show();
-
                         } else {
                             Intent abreTelaInicialUsuarioComum = new Intent(TelaLogin.this, TelaInicialUsuarioComum.class);
                             abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
@@ -94,6 +92,5 @@ public class TelaLogin extends AppCompatActivity {
             }
 
         });
-
     }
 }

@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.aluguel.negocio.ValidaEmprestimo;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.aluguel.negocio.ValidaEmprestimo;
 import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
@@ -17,40 +17,43 @@ import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
 public class TelaAlugarLivro extends AppCompatActivity {
     Livro livroTeste;
     Pessoa pessoaTeste;
-    Button btAlugarLivro;
+    Button btAlugarLivro, btVoltar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_alugar_livro);
-        btAlugarLivro = (Button) findViewById(R.id.btAlugaLivro);
         final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         final ReadPessoa buscarPessoa = new ReadPessoa(getApplicationContext());
-
+        btAlugarLivro = (Button) findViewById(R.id.btAlugaLivro);
+        btVoltar = (Button) findViewById(R.id.btVoltar);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             livroTeste = buscarLivro.getLivro(Long.parseLong(String.valueOf(bundle.get("livro"))));
             pessoaTeste = buscarPessoa.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
-            Toast.makeText(TelaAlugarLivro.this, pessoaTeste.getNome() + livroTeste.getNome(), Toast.LENGTH_LONG).show();
-            btAlugarLivro.setOnClickListener(new View.OnClickListener() {
+        }
+
+        btAlugarLivro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ValidaEmprestimo validaEmprestimo = new ValidaEmprestimo(getApplicationContext());
+                    ReadLivro readLivro = new ReadLivro(getApplicationContext());
+                    ValidaEmprestimo validaEmprestimo = new ValidaEmprestimo(getApplication());
+                    livroTeste = readLivro.getLivro(livroTeste.getIsbn());
                     if (validaEmprestimo.pediEmprestimo(livroTeste, pessoaTeste)) {
-                        Toast.makeText(TelaAlugarLivro.this, "LIVRO ALUGADO COM SUCESSO.", Toast.LENGTH_LONG).show();
-                        Intent abreTelaInicialUsuarioComum = new Intent(TelaAlugarLivro.this, TelaInicialUsuarioComum.class);
-                        abreTelaInicialUsuarioComum.putExtra("livro", String.valueOf(livroTeste.getIsbn()));
-                        abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoaTeste.getCpf()));
-                        startActivity(abreTelaInicialUsuarioComum);
+                        Toast.makeText(TelaAlugarLivro.this, "Livro alugado com sucesso.", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(TelaAlugarLivro.this, "EXCEDEU O LIMITE.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(TelaAlugarLivro.this, "Erro ao tentar alugar um livro.", Toast.LENGTH_LONG).show();
                     }
                 }
-            });
-        }
+        });
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abreTelaListarTodosLivrosUusario = new Intent(TelaAlugarLivro.this, TelaListarTodosLivrosUusario.class);
+                abreTelaListarTodosLivrosUusario.putExtra("pessoa", String.valueOf(pessoaTeste.getCpf()));
+                startActivity(abreTelaListarTodosLivrosUusario);
+            }
+        });
     }
 }
-
-
-
-

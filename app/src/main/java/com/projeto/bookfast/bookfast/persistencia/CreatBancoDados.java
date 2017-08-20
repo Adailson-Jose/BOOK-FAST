@@ -80,7 +80,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //ADD ALUGUEL EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + "," + COLUNA_PESSOA_ALUGUEL + ","
                 + COLUNA_LIVRO_ALUGUEL + "," + COLUNA_DATA + "," + COLUNA_DATA_ENTREGA + "," + COLUNA_MULTA_ENTREGA +
-                ") VALUES('100', '1', '2', '11/08/2017', '11/08/2017', '100')");
+                ") VALUES('100', '1', '2', '11/08/2017', '11/09/2017', '100')");
 
     }
 

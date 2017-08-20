@@ -9,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.aluguel.persistecia.AluguelDao;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
@@ -35,6 +37,7 @@ public class TelaInicialUsuarioComum extends Activity {
         textViewBemVindo = (TextView) findViewById(R.id.textViewBemVindo);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
         ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
+        AluguelDao buscaAluguel = new AluguelDao(getApplicationContext());
         final ArrayList<Livro> livro = new ArrayList<Livro>();
         Bundle bundle = getIntent().getExtras();
 
@@ -47,14 +50,15 @@ public class TelaInicialUsuarioComum extends Activity {
         }
 
         String[] ids = pessoa.getListaAluguel().trim().split(" ");
-        for (String idLivro : ids) {
-            if (idLivro.equals("")) {
-                //
+        for (String idAluguel : ids) {
+            if (idAluguel.trim().equals(" ")) {
+                Toast.makeText(TelaInicialUsuarioComum.this, "ERRO", Toast.LENGTH_SHORT).show();
+
             } else {
-                livro.add(buscarLivro.getLivro(Integer.parseInt(idLivro)));
+
+                livro.add(buscarLivro.getLivro(buscaAluguel.getAluguel(Integer.parseInt(idAluguel)).getIdLivro()));
             }
         }
-
         ListView listView = (ListView) findViewById(R.id.listViewLivros);
         ArrayAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livro);
         listView.setAdapter(adapter);
@@ -71,17 +75,17 @@ public class TelaInicialUsuarioComum extends Activity {
         btEmprestimoQRcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent AbreTelaQrCode = new Intent(TelaInicialUsuarioComum.this, TelaQRcode.class);
-                startActivity(AbreTelaQrCode);
+                Intent abreTelaQrCode = new Intent(TelaInicialUsuarioComum.this, TelaQRcode.class);
+                startActivity(abreTelaQrCode);
             }
         });
 
         btMinhaInformacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent AbreTelaInformacaoUsuario = new Intent(TelaInicialUsuarioComum.this, TelaInformacaoUsuario.class);
-                AbreTelaInformacaoUsuario.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
-                startActivity(AbreTelaInformacaoUsuario);
+                Intent abreTelaInformacaoUsuario = new Intent(TelaInicialUsuarioComum.this, TelaInformacaoUsuario.class);
+                abreTelaInformacaoUsuario.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                startActivity(abreTelaInformacaoUsuario);
             }
         });
 

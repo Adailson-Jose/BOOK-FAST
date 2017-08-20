@@ -32,7 +32,7 @@ public class ValidaEmprestimo {
             aluguel.setIdLivro(livro.getId());
             aluguel.setIdPessoa(pessoa.getId());
             aluguel.setDate("10/10/2000");
-            aluguel.setDataEntrega("10/10/3000");
+            aluguel.setDataEntrega("10/11/3000");
             aluguel.setMulta(0);
             aluguelDao.insertAluguel(aluguel);
             livro.setQtdTotal(livro.getQtdTotal() - 1);
