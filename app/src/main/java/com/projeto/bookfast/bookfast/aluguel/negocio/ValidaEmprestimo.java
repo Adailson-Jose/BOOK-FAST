@@ -25,7 +25,7 @@ public class ValidaEmprestimo {
 
     public boolean pediEmprestimo(Livro livro, Pessoa pessoa) {
         boolean retorno = false;
-        if (verDisponibilidadeLivro(livro) && verDisponibilidadePessoa(pessoa)) {
+        if (verDisponibilidadeLivro(livro) && verDisponibilidadePessoa(pessoa, livro)) {
             UpdateLivro atualizaLivro = new UpdateLivro(context);
             Aluguel aluguel = new Aluguel();
             UpdatePessoa atualizaPessoa = new UpdatePessoa(context);
@@ -37,6 +37,7 @@ public class ValidaEmprestimo {
             aluguel.setStatus("1");
             aluguelDao.insertAluguel(aluguel);
             livro.setQtdTotal(livro.getQtdTotal() - 1);
+            livro.setQtdAlugado(livro.getQtdAlugado() + 1);
             atualizaLivro.updateLivro(livro);
             aluguel = aluguelDao.getAluguel(pessoa.getId(), livro.getId());
             pessoa.setListaAluguel(pessoa.getListaAluguel() + " " + aluguel.getId());
@@ -50,18 +51,25 @@ public class ValidaEmprestimo {
         return (livro.getQtdTotal() > 0);
     }
 
-    public boolean verDisponibilidadePessoa(Pessoa pessoa) {
+    public boolean verDisponibilidadePessoa(Pessoa pessoa, Livro livro) {
         boolean retorno = false;
         String[] ids = pessoa.getListaAluguel().trim().split(" ");
         int cont = 0;
-        for (String idLivro : ids) {
-            if (idLivro.equals("")) {
-                //
-            } else {
-                cont += 1;
+        int duplicate = 0;
+        String temp = String.valueOf(livro.getId());
+        AluguelDao buscaAluguel = new AluguelDao(context);
+        for (String idAluguel : ids) {
+            if (idAluguel.trim().equals("")) {
+                continue;
+            }
+            cont += 1;
+            Aluguel temporario = buscaAluguel.getAluguel(Integer.parseInt(idAluguel));
+            if (temp.equals(String.valueOf(temporario.getIdLivro()).trim()) || cont > 3) {
+                duplicate = 1;
+                break;
             }
         }
-        if (pessoa.getListaAluguel().trim().equals("") || cont < 3) {
+        if (cont < 3 && duplicate == 0) {
             retorno = true;
         } else {
             retorno = false;

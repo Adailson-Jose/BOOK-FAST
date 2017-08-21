@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.aluguel.negocio.ValidaEmprestimo;
+import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
@@ -18,7 +18,6 @@ public class TelaAlugarLivro extends AppCompatActivity {
     Livro livroTeste;
     Pessoa pessoaTeste;
     Button btAlugarLivro, btVoltar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

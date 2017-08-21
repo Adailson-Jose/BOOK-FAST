@@ -34,6 +34,7 @@ public class UpdateLivro {
         valores.put(CreatBancoDados.getColunaNEdicao(), livro.getNumEdicao());
         valores.put(CreatBancoDados.getColunaQtdAlugado(), livro.getQtdAlugado());
         valores.put(CreatBancoDados.getColunaQtdTotal(), livro.getQtdTotal());
+        valores.put((CreatBancoDados.getColunaFotoLivro()), livro.getFotoLivro());
         db.insert(CreatBancoDados.getNomeTabelaLivro(), null, valores);
         db.close();
         return true;
@@ -51,6 +52,7 @@ public class UpdateLivro {
         valores.put(CreatBancoDados.getColunaNEdicao(), livro.getNumEdicao());
         valores.put(CreatBancoDados.getColunaQtdAlugado(), livro.getQtdAlugado());
         valores.put(CreatBancoDados.getColunaQtdTotal(), livro.getQtdTotal());
+        valores.put((CreatBancoDados.getColunaFotoLivro()), livro.getFotoLivro());
         db.update(CreatBancoDados.getNomeTabelaLivro(), valores, where, null);
         db.close();
         return true;

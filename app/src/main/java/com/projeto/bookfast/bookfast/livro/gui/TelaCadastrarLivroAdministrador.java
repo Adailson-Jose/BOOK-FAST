@@ -21,14 +21,14 @@ import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
 
 import java.io.ByteArrayOutputStream;
 
+
 public class TelaCadastrarLivroAdministrador extends Activity {
-    private final int TIRAR_FOTO = 1;
     Button btCadastrarLivro, btCancelar, btFoto;
     EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada, editTextImagem;
     Livro livro;
     private Bitmap imageBitmap = null;
     private byte imagemBytes[];
-
+    private final int TIRAR_FOTO = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
