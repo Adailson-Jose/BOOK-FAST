@@ -14,7 +14,7 @@ import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 public class TelaLogin extends AppCompatActivity {
     EditText editUsuario, editSenha;

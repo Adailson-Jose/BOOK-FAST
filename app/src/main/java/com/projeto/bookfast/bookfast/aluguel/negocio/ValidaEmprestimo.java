@@ -3,11 +3,11 @@ package com.projeto.bookfast.bookfast.aluguel.negocio;
 import android.content.Context;
 
 import com.projeto.bookfast.bookfast.aluguel.dominio.Aluguel;
-import com.projeto.bookfast.bookfast.aluguel.persistecia.AluguelDao;
+import com.projeto.bookfast.bookfast.aluguel.persistencia.AluguelDao;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.percistencia.UpdateLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.UpdateLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 
 
 /**
@@ -53,12 +53,12 @@ public class ValidaEmprestimo {
 
     public boolean verDisponibilidadePessoa(Pessoa pessoa, Livro livro) {
         boolean retorno = false;
-        String[] ids = pessoa.getListaAluguel().trim().split(" ");
+        String[] idsAluguel = pessoa.getListaAluguel().trim().split(" ");
         int cont = 0;
         int duplicate = 0;
         String temp = String.valueOf(livro.getId());
         AluguelDao buscaAluguel = new AluguelDao(context);
-        for (String idAluguel : ids) {
+        for (String idAluguel : idsAluguel) {
             if (idAluguel.trim().equals("")) {
                 continue;
             }
@@ -76,11 +76,4 @@ public class ValidaEmprestimo {
         }
         return retorno;
     }
-    public static boolean devolveLivro(Livro livro, Pessoa pessoa) {
-
-        return false;
-    }
-
-
-
 }

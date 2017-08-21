@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.livro.gui;
+package com.projeto.bookfast.bookfast.aluguel.gui;
 
 import android.app.Activity;
 import android.content.Intent;

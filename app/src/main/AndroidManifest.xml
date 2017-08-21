@@ -35,11 +35,11 @@
         <activity android:name=".livro.gui.TelaCadastrarLivroAdministrador" />
         <activity android:name=".livro.gui.TelaListaTodosLivrosAdm" />
         <activity android:name=".livro.gui.TelaEditarLivroAdministrador" />
-        <activity android:name=".livro.gui.TelaQRcode" />
+        <activity android:name=".aluguel.gui.TelaQRcode" />
         <activity android:name=".pessoa.gui.TelaInformacaoUsuario" />
         <activity android:name=".pessoa.gui.TelaEditaInfoUsuario" />
-        <activity android:name=".pessoa.gui.TelaRemoverLivro" />
-        <activity android:name=".pessoa.gui.TelaAlugarLivro" />
+        <activity android:name=".aluguel.gui.TelaDevolverLivro" />
+        <activity android:name=".aluguel.gui.TelaAlugarLivro" />
         <activity android:name=".pessoa.gui.TelaListarTodosLivrosUusario"></activity>
     </application>
 </manifest>

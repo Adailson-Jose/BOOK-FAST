@@ -14,8 +14,8 @@ import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
 import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 
 public class TelaCadastrarUsuario extends AppCompatActivity {
     EditText editNovoUsuario, editNovaSenha, editNovoEmail, editNovoNome;
@@ -71,6 +71,8 @@ public class TelaCadastrarUsuario extends AppCompatActivity {
                 pessoa = buscar.getPessoa(Long.parseLong(cpf));
                 if (!resultado && pessoa != null && pessoa.getStatus().equals("0")) {
                     pessoa.setStatus("1");
+                    pessoa.setNome(nome);
+                    pessoa.setEmail(email);
                     UpdatePessoa atualisaPessoa = new UpdatePessoa(getApplicationContext());
                     atualisaPessoa.updatePessoa(pessoa);
                 } else if (!resultado && pessoa == null) {

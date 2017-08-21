@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.aluguel.persistecia;
+package com.projeto.bookfast.bookfast.aluguel.persistencia;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
-import com.projeto.bookfast.bookfast.livro.percistencia.UpdateLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.UpdateLivro;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;

@@ -11,13 +11,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.aluguel.persistecia.AluguelDao;
+import com.projeto.bookfast.bookfast.aluguel.gui.TelaDevolverLivro;
+import com.projeto.bookfast.bookfast.aluguel.persistencia.AluguelDao;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.gui.TelaQRcode;
+import com.projeto.bookfast.bookfast.aluguel.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
-import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 import java.util.ArrayList;
 
@@ -63,7 +64,7 @@ public class TelaInicialUsuarioComum extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent AbreTelaRemoverLivro = new Intent(TelaInicialUsuarioComum.this, TelaRemoverLivro.class);
+                Intent AbreTelaRemoverLivro = new Intent(TelaInicialUsuarioComum.this, TelaDevolverLivro.class);
                 AbreTelaRemoverLivro.putExtra("livro", String.valueOf(livro.get(position).getIsbn()));
                 AbreTelaRemoverLivro.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(AbreTelaRemoverLivro);

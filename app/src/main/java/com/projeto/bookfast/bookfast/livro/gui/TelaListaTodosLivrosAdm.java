@@ -10,7 +10,7 @@ import android.widget.ListView;
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
-import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 
 import java.util.ArrayList;
 

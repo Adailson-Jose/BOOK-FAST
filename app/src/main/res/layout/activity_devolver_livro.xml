@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.bookfast.bookfast.pessoa.gui.TelaRemoverLivro">
+    tools:context="com.projeto.bookfast.bookfast.aluguel.gui.TelaDevolverLivro">
 
     <ScrollView
         android:layout_width="0dp"
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:backgroundTint="@color/darkGreen"
                 android:text="Devolver Livro"
                 android:textAllCaps="false"

@@ -14,8 +14,8 @@ import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarCpf;
 import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 
 public class TelaRecuperarSenha extends Activity {
     EditText editCPF, editNovaSenha, editEmail;

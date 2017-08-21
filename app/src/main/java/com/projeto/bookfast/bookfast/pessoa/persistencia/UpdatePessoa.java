@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.pessoa.percistencia;
+package com.projeto.bookfast.bookfast.pessoa.persistencia;
 
 import android.content.ContentValues;
 import android.content.Context;

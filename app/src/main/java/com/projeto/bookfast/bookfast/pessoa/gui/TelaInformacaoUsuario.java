@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 public class TelaInformacaoUsuario extends AppCompatActivity {
     Button btEditaMinhasInformacoes, btCancelarMudanças2;

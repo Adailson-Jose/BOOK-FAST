@@ -10,11 +10,12 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.aluguel.gui.TelaAlugarLivro;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
-import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 import java.util.ArrayList;
 

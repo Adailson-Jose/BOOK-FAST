@@ -14,8 +14,8 @@ import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarEmail;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.UpdatePessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 
 public class TelaEditaInfoUsuario extends AppCompatActivity {
     Button btSalvar, btCancelarMudanças2;

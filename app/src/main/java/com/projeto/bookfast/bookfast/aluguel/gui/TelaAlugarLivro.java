@@ -1,4 +1,4 @@
-package com.projeto.bookfast.bookfast.pessoa.gui;
+package com.projeto.bookfast.bookfast.aluguel.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,10 @@ import android.widget.Toast;
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.aluguel.negocio.ValidaEmprestimo;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.percistencia.ReadLivro;
+import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
-import com.projeto.bookfast.bookfast.pessoa.percistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.pessoa.gui.TelaListarTodosLivrosUusario;
+import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 public class TelaAlugarLivro extends AppCompatActivity {
     Livro livroTeste;
