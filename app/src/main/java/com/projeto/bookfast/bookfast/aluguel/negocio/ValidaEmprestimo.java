@@ -36,7 +36,6 @@ public class ValidaEmprestimo {
             aluguel.setMulta(0);
             aluguel.setStatus("1");
             aluguelDao.insertAluguel(aluguel);
-            livro.setQtdTotal(livro.getQtdTotal() - 1);
             livro.setQtdAlugado(livro.getQtdAlugado() + 1);
             atualizaLivro.updateLivro(livro);
             aluguel = aluguelDao.getAluguel(pessoa.getId(), livro.getId());
@@ -48,7 +47,7 @@ public class ValidaEmprestimo {
     }
 
     public boolean verDisponibilidadeLivro(Livro livro) {
-        return (livro.getQtdTotal() > 0);
+        return ((livro.getQtdTotal() - livro.getQtdAlugado()) > 0);
     }
 
     public boolean verDisponibilidadePessoa(Pessoa pessoa, Livro livro) {

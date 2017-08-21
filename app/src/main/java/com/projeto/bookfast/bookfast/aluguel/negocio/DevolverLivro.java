@@ -22,13 +22,10 @@ public class DevolverLivro {
         aluguelDao = new AluguelDao(this.context);
     }
     public boolean devolverLivro(Livro livro, Pessoa pessoa){
-        boolean resultado = false;
         UpdateLivro atualizaLivro = new UpdateLivro(context);
         UpdatePessoa atualizaPessoa = new UpdatePessoa(context);
-        AluguelDao buscarAluguel = new AluguelDao(context);
-        Aluguel aluguel;
+        Aluguel aluguel = null;
         String[] idsAluguel = pessoa.getListaAluguel().trim().split(" ");
-        String idAluguelTemporario = "";
         String temp = String.valueOf(livro.getId());
         String novaListaIdsPessoa = "";
         String temp2  = "0";
@@ -36,25 +33,24 @@ public class DevolverLivro {
             if (idAluguel.trim().equals("")) {
                 continue;
             }
-            Aluguel temporario = buscarAluguel.getAluguel(Integer.parseInt(idAluguel));
-            if (temp.equals(String.valueOf(temporario.getIdLivro()).trim())) {
-                idAluguelTemporario = idAluguel;
+            Aluguel temporario = aluguelDao.getAluguel(Integer.parseInt(idAluguel));
+            if (temp.equals(String.valueOf(temporario.getIdLivro()))) {
+                aluguel = temporario;
                 temp2 = "1";
+            } else {
+                novaListaIdsPessoa += " " + idAluguel;
             }
-            novaListaIdsPessoa += " " + idAluguel;
         }
-
         if (temp2.equals("1") ){
-            aluguel = aluguelDao.getAluguel(Integer.parseInt(idAluguelTemporario));
             aluguel.setStatus("0");
             aluguelDao.updateAluguel(aluguel);
             livro.setQtdAlugado(livro.getQtdAlugado()-1);
-            livro.setQtdTotal(livro.getQtdTotal()+1);
             atualizaLivro.updateLivro(livro);
             pessoa.setListaAluguel(novaListaIdsPessoa);
             atualizaPessoa.updatePessoa(pessoa);
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }

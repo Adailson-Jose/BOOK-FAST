@@ -78,7 +78,7 @@ public class AluguelDao {
 
     public boolean updateAluguel(Aluguel aluguel) {
         db = dbHelper.getWritableDatabase();
-        String where = "ID_PESSOA_ALUGUEL = '" + Long.toString(aluguel.getIdPessoa()) + "'";
+        String where = CreatBancoDados.getColunaIdAluguel() + " = '" + Long.toString(aluguel.getId()) + "'";
         ContentValues valores = new ContentValues();
         valores.put(CreatBancoDados.getColunaPessoaAluguel(), aluguel.getIdPessoa());
         valores.put(CreatBancoDados.getColunaLivroAluguel(), aluguel.getIdLivro());
