@@ -29,6 +29,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_SENHA = "SENHA";
     private static final String COLUNA_IDS_ALUGUEL = "IDS_ALUGUEL";
     private static final String COLUNA_STATUS_PESSOA = "STATOS_PESSOA";
+    private static final String COLUNA_CURSO_PESSOA = "CURSO";
     //VARIAVES DA TABELA LIVRO
     private static final String TABELA_LIVRO = "TB_LIVRO";
     private static final String COLUNA_ID_LIVRO = "ID";
@@ -53,16 +54,17 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA A TABELA PESSOA
         db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, "
                 + COLUNA_CPF + " integer, " + COLUNA_NOME + " text not null, " + COLUNA_EMAIL + " text not null, "
-                + COLUNA_IDS_ALUGUEL + " text not null, " + COLUNA_SENHA + " text not null, " + COLUNA_STATUS_PESSOA + " text not null)");
+                + COLUNA_IDS_ALUGUEL + " text not null, " + COLUNA_SENHA + " text not null, "
+                + COLUNA_STATUS_PESSOA + " text not null, " + COLUNA_CURSO_PESSOA + " text not null)");
 
         //ADD USER ADMIN
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
-                ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin', '1')");
+                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA + ","
+                + COLUNA_CURSO_PESSOA + ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin', '1', 'curso exemplo')");
 
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
-                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
-                ") VALUES('10187805482', 'Leandro Braz', 'leandro_braz1992@hotmail.com', '', 'ando', '1')");
+                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA + ","
+                + COLUNA_CURSO_PESSOA + ") VALUES('10187805482', 'Leandro Braz', 'leandro_braz1992@hotmail.com', '', 'ando', '1','')");
 
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
@@ -155,6 +157,9 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return COLUNA_STATUS_PESSOA;
     }
 
+    public static String getColunaCursoPessoa() {
+        return COLUNA_CURSO_PESSOA;
+    }
     //GETS TABELA LIVRO
 
     public static String getNomeTabelaLivro() {
@@ -232,5 +237,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     public static String getColunaStatusAluguel() {
         return COLUNA_STATUS_ALUGUEL;
     }
+
 }
 

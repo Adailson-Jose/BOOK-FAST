@@ -19,10 +19,6 @@ public class UpdatePessoa {
         dbHelper = new CreatBancoDados(context);
     }
 
-    public UpdatePessoa() {
-
-    }
-
     public boolean insertPessoa(Pessoa pessoa) {
         db = dbHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -32,6 +28,7 @@ public class UpdatePessoa {
         valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
         valores.put(CreatBancoDados.getColunaIdsAluguel(), pessoa.getListaAluguel());
         valores.put(CreatBancoDados.getColunaStatusPessoa(), pessoa.getStatus());
+        valores.put(CreatBancoDados.getColunaCursoPessoa(), pessoa.getCurso());
         db.insert(CreatBancoDados.getNomeTabelaPessoa(), null, valores);
         db.close();
         return true;
@@ -47,6 +44,7 @@ public class UpdatePessoa {
         valores.put(CreatBancoDados.getColunaSenha(), pessoa.getSenha());
         valores.put(CreatBancoDados.getColunaIdsAluguel(), pessoa.getListaAluguel());
         valores.put(CreatBancoDados.getColunaStatusPessoa(), pessoa.getStatus());
+        valores.put(CreatBancoDados.getColunaCursoPessoa(), pessoa.getCurso());
         db.update(CreatBancoDados.getNomeTabelaPessoa(), valores, where, null);
         db.close();
         return true;

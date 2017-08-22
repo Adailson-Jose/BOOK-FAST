@@ -22,9 +22,7 @@ public class ReadPessoa {
     }
 
     public ReadPessoa() {
-
     }
-
 
     public ArrayList<Pessoa> getListaPessoas() {
         db = dbHelper.getReadableDatabase();
@@ -42,6 +40,7 @@ public class ReadPessoa {
                     pessoa.setSenha(cursor.getString(4));
                     pessoa.setListaAluguel(cursor.getString(5));
                     pessoa.setStatus(cursor.getString(6));
+                    pessoa.setCurso(cursor.getString(7));
                     pessoaArray.add(pessoa);
                 } while (cursor.moveToNext());
                 cursor.close();
@@ -54,18 +53,19 @@ public class ReadPessoa {
         }
         return pessoaArray;
     }
-    //Obter pessoa pelo cpf
 
     public Pessoa getPessoa(Long cpf) {
         db = dbHelper.getReadableDatabase();
 
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaPessoa(), new String[]{CreatBancoDados.getColunaId(), CreatBancoDados.getColunaCpf(),
-                        CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha(), CreatBancoDados.getColunaIdsAluguel(), CreatBancoDados.getColunaStatusPessoa()}, CreatBancoDados.getColunaCpf() + " = ?",
+                        CreatBancoDados.getColunaNome(), CreatBancoDados.getColunaEmail(), CreatBancoDados.getColunaSenha(),
+                        CreatBancoDados.getColunaIdsAluguel(), CreatBancoDados.getColunaStatusPessoa(), CreatBancoDados.getColunaCursoPessoa()},
+                CreatBancoDados.getColunaCpf() + " = ?",
                 new String[]{String.valueOf(cpf)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             Pessoa pessoa = new Pessoa(cursor.getInt(0), cursor.getLong(1), cursor.getString(2), cursor.getString(3),
-                    cursor.getString(4), cursor.getString(5), cursor.getString(6));
+                    cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
 
             cursor.close();
             db.close();

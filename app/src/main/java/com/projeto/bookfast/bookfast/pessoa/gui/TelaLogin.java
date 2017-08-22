@@ -30,7 +30,6 @@ public class TelaLogin extends AppCompatActivity {
         btLogar = (Button) findViewById(R.id.btLogar);
         btRecuperarSenha = (Button) findViewById(R.id.btRecuperarSenha);
         btCadastrarUsuario = (Button) findViewById(R.id.btCadastrarUsuario);
-
         btLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
