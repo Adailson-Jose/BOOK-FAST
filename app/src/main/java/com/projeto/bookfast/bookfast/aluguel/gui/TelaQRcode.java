@@ -19,7 +19,7 @@ import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class TelaQRcode extends AppCompatActivity {
-    private Button scaner_btn, btTelaInicial;
+    private Button scaner_btn;
     private Livro livro;
     private Pessoa pessoa;
     private String resultCode;
@@ -30,7 +30,6 @@ public class TelaQRcode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_qrcode);
         scaner_btn = (Button) findViewById(R.id.scaner_btn);
-        btTelaInicial = (Button) findViewById(R.id.btTelaInicial);
         ReadPessoa buscar = new ReadPessoa(getApplicationContext());
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -44,21 +43,6 @@ public class TelaQRcode extends AppCompatActivity {
                 Toast.makeText(TelaQRcode.this, "Scanner Ativado com sucesso.", Toast.LENGTH_LONG).show();
             }
         });
-
-        btTelaInicial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent abreTelaInicialUsuarioComum = new Intent(TelaQRcode.this, TelaInicialUsuarioComum.class);
-                abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
-                startActivity(abreTelaInicialUsuarioComum);
-            }
-        });
-    }
-    @Override
-    public void onBackPressed() {
-        Intent abreTelaInicialUsuarioComum = new Intent(TelaQRcode.this, TelaInicialUsuarioComum.class);
-        abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
-        startActivity(abreTelaInicialUsuarioComum);
     }
 
     public void scanCode(View view) {
@@ -66,6 +50,12 @@ public class TelaQRcode extends AppCompatActivity {
         scannerView.setResultHandler(new ZXingScannerResultHandler());
         setContentView(scannerView);
         scannerView.startCamera();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        scannerView.stopCamera();
     }
 
     class ZXingScannerResultHandler implements ZXingScannerView.ResultHandler {
@@ -89,6 +79,11 @@ public class TelaQRcode extends AppCompatActivity {
                 }
             } else {
                 Toast.makeText(TelaQRcode.this, "Código errado.", Toast.LENGTH_LONG).show();
+                setContentView(R.layout.activity_tela_qrcode);
+                scannerView.stopCamera();
+                Intent abreTelaInicialUsuarioComum = new Intent(TelaQRcode.this, TelaInicialUsuarioComum.class);
+                abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                startActivity(abreTelaInicialUsuarioComum);
             }
             setContentView(R.layout.activity_tela_qrcode);
             scannerView.stopCamera();
