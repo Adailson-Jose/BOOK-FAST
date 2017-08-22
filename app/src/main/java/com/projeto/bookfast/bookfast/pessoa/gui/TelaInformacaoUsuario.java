@@ -37,13 +37,13 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
                     quantidadeLivrosAludado += 1;
                 }
             }
-            editTextNome.setText("Nome: " + pessoa.getNome() + "\n Cpf: " + pessoa.getCpf() + "\n E-mail: " + pessoa.getEmail() + "\n Qtd Livros Alugados: " + String.valueOf(quantidadeLivrosAludado));
+            editTextNome.setText("Nome: " + pessoa.getNome() + "\n Cpf: " + pessoa.getCpf() + "\n Curso: " + pessoa.getCurso() + "\n E-mail: " + pessoa.getEmail() + "\n Qtd Livros Alugados: " + String.valueOf(quantidadeLivrosAludado));
         }
         btEditaMinhasInformacoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent AbreTelaEditaInfoUsuario = new Intent(TelaInformacaoUsuario.this, TelaEditaInfoUsuario.class);
-                AbreTelaEditaInfoUsuario.putExtra("KEY", String.valueOf(pessoa.getCpf()));
+                AbreTelaEditaInfoUsuario.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(AbreTelaEditaInfoUsuario);
             }
         });
