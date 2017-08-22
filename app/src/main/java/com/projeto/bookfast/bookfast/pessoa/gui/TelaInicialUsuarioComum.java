@@ -76,6 +76,7 @@ public class TelaInicialUsuarioComum extends Activity {
             @Override
             public void onClick(View view) {
                 Intent abreTelaQrCode = new Intent(TelaInicialUsuarioComum.this, TelaQRcode.class);
+                abreTelaQrCode.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(abreTelaQrCode);
             }
         });
