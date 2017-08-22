@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.aluguel.negocio.DevolverLivro;
+import com.projeto.bookfast.bookfast.aluguel.negocio.RenovarLivro;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
@@ -56,14 +57,22 @@ public class TelaDevolverLivro extends AppCompatActivity {
             public void onClick(View v) {
                 DevolverLivro devolverLivro = new DevolverLivro(getApplicationContext());
                 if (devolverLivro.devolverLivro(livro,pessoa)){
-                    Toast.makeText(TelaDevolverLivro.this,"Devolução feita.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaDevolverLivro.this, "Devolução feita com sucesso.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(TelaDevolverLivro.this, "Um erro aconteceu durante o aluguel.", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
         btRenovar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                RenovarLivro renovarLivro = new RenovarLivro(getApplicationContext());
+                if (renovarLivro.renovarLivro(livro, pessoa)) {
+                    Toast.makeText(TelaDevolverLivro.this, "Renovação feita com sucesso.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(TelaDevolverLivro.this, "Um erro aconteceu durante a devolução.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         btVoltar.setOnClickListener(new View.OnClickListener() {
