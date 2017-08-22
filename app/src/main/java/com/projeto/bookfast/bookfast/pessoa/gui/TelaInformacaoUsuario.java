@@ -13,7 +13,7 @@ import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 public class TelaInformacaoUsuario extends AppCompatActivity {
     Button btEditaMinhasInformacoes, btCancelarMudanças2;
-    TextView editTextNome, editTextCpf, editTextEmail, editTextQtdLivros;
+    TextView editTextNome;
     Pessoa pessoa;
 
     @Override
@@ -22,9 +22,6 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_tela_informacao_usuario);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
         editTextNome = (TextView) findViewById(R.id.editTextNome);
-        editTextCpf = (TextView) findViewById(R.id.editTextCpf);
-        editTextEmail = (TextView) findViewById(R.id.editTextEmail);
-        editTextQtdLivros = (TextView) findViewById(R.id.editTextQtdLivros);
         btEditaMinhasInformacoes = (Button) findViewById(R.id.btEditaMinhasInformacoes);
         btCancelarMudanças2 = (Button) findViewById(R.id.btCancelarMudanças);
 
@@ -40,10 +37,7 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
                     quantidadeLivrosAludado += 1;
                 }
             }
-            editTextNome.setText(pessoa.getNome());
-            editTextCpf.setText(String.valueOf(pessoa.getCpf()));
-            editTextEmail.setText(pessoa.getEmail());
-            editTextQtdLivros.setText(String.valueOf(quantidadeLivrosAludado));
+            editTextNome.setText("Nome: " + pessoa.getNome() + "\n Cpf: " + pessoa.getCpf() + "\n E-mail: " + pessoa.getEmail() + "\n Qtd Livros Alugados: " + String.valueOf(quantidadeLivrosAludado));
         }
         btEditaMinhasInformacoes.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -40,12 +40,12 @@
                 android:textStyle="bold"
                 android:typeface="normal"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="22dp" />
+                tools:layout_editor_absoluteY="25dp" />
 
             <ListView
                 android:id="@+id/listViewLivro"
-                android:layout_width="417dp"
-                android:layout_height="389dp"
+                android:layout_width="fill_parent"
+                android:layout_height="420dp"
                 android:layout_marginTop="13dp"
                 android:layout_weight="0.6"
                 android:background="@color/colorGrayyy"
@@ -54,16 +54,18 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/textView4"
                 app:layout_constraintRight_toRightOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                tools:layout_editor_absoluteX="-22dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <Button
                 android:id="@+id/btTelaPricipal"
-                android:layout_width="374dp"
-                android:layout_height="52dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="Tela Inicial"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="449dp" />
+                android:layout_marginTop="0dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/listViewLivro"
+                app:layout_constraintRight_toRightOf="@+id/listViewLivro"
+                app:layout_constraintTop_toBottomOf="@+id/listViewLivro" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
