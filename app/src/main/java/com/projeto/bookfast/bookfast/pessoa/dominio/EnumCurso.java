@@ -5,7 +5,8 @@ package com.projeto.bookfast.bookfast.pessoa.dominio;
  */
 
 public enum EnumCurso {
-    SISTEMAS_DE_INFORMACAO("SISTEMAS DE INFORMAÇÃO"), MATEMATICA("MATEMÁTICA"), FISICA("FÍSICA"), CIENCIA_DA_COMPUTACAO("CIÊNCIA DA COMPUTAÇÃO");
+    SISTEMAS_DE_INFORMACAO("SISTEMAS DE INFORMAÇÃO"), MATEMATICA("MATEMÁTICA"), FISICA("FÍSICA"),
+    CIENCIA_DA_COMPUTACAO("CIÊNCIA DA COMPUTAÇÃO"), OUTRO("OUTRO");
     private String descricao;
 
     EnumCurso(String descricao) {
