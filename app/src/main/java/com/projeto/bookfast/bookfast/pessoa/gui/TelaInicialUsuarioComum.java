@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.aluguel.gui.TelaDevolverLivro;
+import com.projeto.bookfast.bookfast.aluguel.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.aluguel.persistencia.AluguelDao;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.aluguel.gui.TelaQRcode;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class TelaInicialUsuarioComum extends Activity {
     TextView textViewBemVindo;
-    Button btEmprestimoQRcode, btMinhaInformacao, btListalivros;
+    Button btEmprestimoQRcode, btMinhaInformacao, btListalivros, btSair;
     Pessoa pessoa;
 
     @Override
@@ -33,6 +33,7 @@ public class TelaInicialUsuarioComum extends Activity {
         setContentView(R.layout.activity_tela_inicial_usuario_comum);
         btEmprestimoQRcode = (Button) findViewById(R.id.btEmprestimoQRcode);
         btMinhaInformacao = (Button) findViewById(R.id.btMinhaInformacao);
+        btSair = (Button) findViewById(R.id.btSair);
         btListalivros = (Button) findViewById(R.id.btListalivros);
         textViewBemVindo = (TextView) findViewById(R.id.textViewBemVindo);
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
@@ -94,6 +95,14 @@ public class TelaInicialUsuarioComum extends Activity {
                 Intent abreTelaListarTodosLivrosUusario = new Intent(TelaInicialUsuarioComum.this, TelaListarTodosLivrosUusario.class);
                 abreTelaListarTodosLivrosUusario.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                 startActivity(abreTelaListarTodosLivrosUusario);
+            }
+        });
+        btSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent abreTelaLogin = new Intent(TelaInicialUsuarioComum.this, TelaLogin.class);
+                abreTelaLogin.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                startActivity(abreTelaLogin);
             }
         });
     }
