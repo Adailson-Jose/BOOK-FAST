@@ -13,8 +13,7 @@ import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
-import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
-import com.projeto.bookfast.bookfast.livro.persistencia.UpdateLivro;
+import com.projeto.bookfast.bookfast.livro.negocio.CadastrarLivro;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
@@ -48,7 +47,6 @@ public class TelaCadastrarLivroAdministrador extends Activity {
         btCadastrarLivro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateLivro inserirLivro = new UpdateLivro(getApplicationContext());
                 ViewGroup group = (ViewGroup) findViewById(R.id.raizCadastroLivro);
                 boolean resultado = false;
                 String Isbn = editIsbn.getText().toString();
@@ -104,22 +102,17 @@ public class TelaCadastrarLivroAdministrador extends Activity {
                     String autor = editAutor.getText().toString();
                     LimparTela.clearForm(group);
                     editIsbn.requestFocus();
-                    ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
-                    livro = buscarLivro.getLivro(isbn);
-                    if (livro != null) {
-                        Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO JÁ CADASTRADO.", Toast.LENGTH_LONG).show();
-                    } else {
-                        if (imageBitmap != null) {
-                            ByteArrayOutputStream saida = new ByteArrayOutputStream();
-                            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
-                            imagemBytes = saida.toByteArray();
-                        }
-                        livro = new Livro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, imagemBytes);
-                        inserirLivro.insertLivro(livro);
-                        Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO CADASTRADO COM SUCESSO", Toast.LENGTH_LONG).show();
+                    if (imageBitmap != null) {
+                        ByteArrayOutputStream saida = new ByteArrayOutputStream();
+                        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
+                        imagemBytes = saida.toByteArray();
                     }
-                } else {
-                    Toast.makeText(TelaCadastrarLivroAdministrador.this, "Campos inválidos.", Toast.LENGTH_SHORT).show();
+                    CadastrarLivro cadastrarLivro = new CadastrarLivro(getApplicationContext());
+                    if (cadastrarLivro.cadastrarLivro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, imagemBytes)) {
+                        Toast.makeText(TelaCadastrarLivroAdministrador.this, "LIVRO CADASTRADO COM SUCESSO", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(TelaCadastrarLivroAdministrador.this, "ERRO Ao CADASTRAR LIVRO.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

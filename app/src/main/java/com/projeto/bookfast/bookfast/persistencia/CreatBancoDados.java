@@ -60,6 +60,10 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
                 ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin', '1')");
 
+        db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
+                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
+                ") VALUES('10187805482', 'Leandro Braz', 'leandro_braz1992@hotmail.com', '', 'ando', '1')");
+
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
                 + " integer, " + COLUNA_NOME_LIVRO + " text not null, " + COLUNA_QTD_ALUGADO + " integer, "
@@ -69,11 +73,37 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //ADD LIVRO EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('9999999999999', 'EXEMPLO', '0', 'AUTOR EXEMPLO', 'EXEMPLO GENERO', '50', '2017', '0', '')");
-
+                ") VALUES('121212', 'Calculo', '0', 'Hamilton Luiz Guidorizzi', 'didatico', '3', '2000', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('9788502210455', 'ECONOMIA', '0', 'Paulo Vicecont', 'Educação', '1', '2017', '0','')");
+                ") VALUES('98976', 'Fundamentos da Fisica', '0', 'David Halliday', 'didatico', '3', '2010', '2', '')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('998877', 'Use a Cabeça Java', '0', 'David Griffiths', 'didatico', '3', '1999', '2', '')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('919293', 'Java Como programar', '0', 'Paul Dietel', 'didatico', '3', '1996', '2', '')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('999899', 'C completo e Total', '0', 'Herb Schildt', 'didatico', '3', '1992', '2', '')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('123412', 'Game Of thrones', '0', 'George R. R. Martin', 'Drama', '3', '1996', '2', '')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('112122', 'A Clash of Kings', '0', 'George R. R. Martin', 'Drama', '3', '1998', '2','')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('112123', 'A Storm Of Swords', '0', 'George R. R. Martin', 'Drama', '3', '2000', '2','')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('112124', 'A Feast for Crows', '0', 'George R. R. Martin', 'Drama', '3', '2005', '2','')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('112125', 'A Dance winth Dragons', '0', 'George R. R. Martin', 'Drama', '3', '2011', '2','')");
+        db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
+                + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
+                ") VALUES('112122', 'A Riqueza das Nações', '0', 'Adam Sminth', 'Economia', '3', '1776', '2','')");
 
         //CRIA TABELA ALUGUEL
         db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer, "

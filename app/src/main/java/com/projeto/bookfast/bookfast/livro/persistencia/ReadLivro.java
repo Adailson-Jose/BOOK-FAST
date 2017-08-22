@@ -22,9 +22,6 @@ public class ReadLivro {
         dbHelper = new CreatBancoDados(context);
     }
 
-    public ReadLivro() {
-    }
-
     public ArrayList<Livro> getListaLivro() {
         db = dbHelper.getReadableDatabase();
         ArrayList<Livro> livroArray = new ArrayList<>();

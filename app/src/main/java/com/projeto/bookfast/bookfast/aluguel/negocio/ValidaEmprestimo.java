@@ -31,8 +31,8 @@ public class ValidaEmprestimo {
             UpdatePessoa atualizaPessoa = new UpdatePessoa(context);
             aluguel.setIdLivro(livro.getId());
             aluguel.setIdPessoa(pessoa.getId());
-            aluguel.setDate("10/10/2000");
-            aluguel.setDataEntrega("10/11/3000");
+            aluguel.setDate(DataLivro.getDataAtual());
+            aluguel.setDataEntrega(DataLivro.getDataDevolucao());
             aluguel.setMulta(0);
             aluguel.setStatus("1");
             aluguelDao.insertAluguel(aluguel);
