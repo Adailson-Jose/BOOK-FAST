@@ -60,6 +60,10 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
                 ") VALUES('19928810303', 'admin', 'admin@email.com', '', 'admin', '1')");
 
+        db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
+                + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA +
+                ") VALUES('10187805482', 'Leandro Braz', 'leandro_braz1992@hotmail.com', '', 'ando', '1')");
+
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
                 + " integer, " + COLUNA_NOME_LIVRO + " text not null, " + COLUNA_QTD_ALUGADO + " integer, "
