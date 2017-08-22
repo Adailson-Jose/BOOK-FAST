@@ -9,8 +9,8 @@ import android.widget.ListView;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
+import com.projeto.bookfast.bookfast.livro.negocio.ListaTodosLivros;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
-import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 
 import java.util.ArrayList;
 
@@ -19,9 +19,9 @@ public class TelaListaTodosLivrosAdm extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_lista_livros);
-        final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
+        ListaTodosLivros buscarLivro = new ListaTodosLivros(getApplicationContext());
         ListView listView = (ListView) findViewById(R.id.listViewLivro);
-        final ArrayList<Livro> livros = buscarLivro.getListaLivro();
+        final ArrayList<Livro> livros = buscarLivro.getListaLivros();
         LivroAdapter adapter = new LivroAdapter(getApplicationContext(), R.layout.linha, livros);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

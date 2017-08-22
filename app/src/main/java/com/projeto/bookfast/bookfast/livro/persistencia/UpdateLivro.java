@@ -19,10 +19,6 @@ public class UpdateLivro {
         dbHelper = new CreatBancoDados(context);
     }
 
-    public UpdateLivro() {
-
-    }
-
     public boolean insertLivro(Livro livro) {
         db = dbHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();
