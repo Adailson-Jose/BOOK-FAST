@@ -1,7 +1,9 @@
 package com.projeto.bookfast.bookfast.livro.gui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +19,15 @@ import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
 import com.projeto.bookfast.bookfast.negocio.ValidarIsbn;
 
+import java.io.ByteArrayOutputStream;
+
 public class TelaEditarLivroAdministrador extends AppCompatActivity {
-    Button btEdtarLivro, btCancelar;
+    Button btEdtarLivro, btCancelar, btFoto;
     EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada;
     Livro livro;
-
+    private Bitmap imageBitmap = null;
+    private byte imagemBytes[];
+    private final int TIRAR_FOTO = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +40,7 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
         editAno = (EditText) findViewById(R.id.editAno);
         editQuantidadeTotal = (EditText) findViewById(R.id.editQuantidadeTotal);
         editQuantidadeAlugada = (EditText) findViewById(R.id.editQuantidadeAlugada);
-
+        btFoto = (Button) findViewById(R.id.btFoto);
         btEdtarLivro = (Button) findViewById(R.id.btEditarLivro);
         btCancelar = (Button) findViewById(R.id.btCancelar);
         final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
@@ -110,7 +116,12 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                     LimparTela.clearForm(group);
                     editIsbn.requestFocus();
                     EditarLivro editarLivro = new EditarLivro(getApplicationContext());
-                    if (editarLivro.editarLivro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao)) {
+                    if (imageBitmap != null) {
+                        ByteArrayOutputStream saida = new ByteArrayOutputStream();
+                        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
+                        imagemBytes = saida.toByteArray();
+                    }
+                    if (editarLivro.editarLivro(isbn, nome, quanitdadeAlugada, autor, genero, quantidadeTotal, ano, edicao, imagemBytes)) {
                         Toast.makeText(TelaEditarLivroAdministrador.this, R.string.AtualizcaoLivro, Toast.LENGTH_LONG).show();
                         Intent abreTelaLivroAdministrador = new Intent(TelaEditarLivroAdministrador.this, TelaLivroAdministrador.class);
                         startActivity(abreTelaLivroAdministrador);
@@ -120,10 +131,28 @@ public class TelaEditarLivroAdministrador extends AppCompatActivity {
                 }
             }
         });
+
+        btFoto.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, TIRAR_FOTO);
+                }
+            }
+        });
         btCancelar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TIRAR_FOTO && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            imageBitmap = (Bitmap) extras.get("data");
+        }
     }
 }

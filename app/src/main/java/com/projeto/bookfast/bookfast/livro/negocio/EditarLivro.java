@@ -21,7 +21,7 @@ public class EditarLivro {
         updateLivro = new UpdateLivro(this.context);
     }
 
-    public boolean editarLivro(long isbn, String nome, int quanitdadeAlugada, String autor, String genero, int quantidadeTotal, int ano, int edicao) {
+    public boolean editarLivro(long isbn, String nome, int quanitdadeAlugada, String autor, String genero, int quantidadeTotal, int ano, int edicao, byte[] foto) {
         Livro livro = buscarLivro.getLivro(isbn);
         if (livro != null) {
             livro.setIsbn(isbn);
@@ -32,6 +32,7 @@ public class EditarLivro {
             livro.setNome(nome);
             livro.setGenero(genero);
             livro.setAutor(autor);
+            livro.setFotoLivro(foto);
             updateLivro.updateLivro(livro);
             return true;
         } else {

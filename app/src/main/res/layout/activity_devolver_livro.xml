@@ -118,8 +118,8 @@
 
             <ListView
                 android:id="@+id/listViewLivroSelecionado"
-                android:layout_width="377dp"
-                android:layout_height="90dp"
+                android:layout_width="381dp"
+                android:layout_height="72dp"
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.6"
                 android:background="@color/colorGrayyy"
@@ -127,7 +127,9 @@
                 android:typeface="normal"
                 app:layout_constraintLeft_toLeftOf="@+id/txtLogo1"
                 app:layout_constraintRight_toRightOf="@+id/txtLogo1"
-                app:layout_constraintTop_toBottomOf="@+id/txtLogo1" />
+                app:layout_constraintTop_toBottomOf="@+id/txtLogo1"
+                tools:layout_editor_absoluteX="2dp"
+                app:layout_constraintHorizontal_bias="0.571" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

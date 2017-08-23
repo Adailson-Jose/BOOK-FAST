@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
-import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.negocio.CadastrarLivro;
 import com.projeto.bookfast.bookfast.negocio.LimparTela;
 import com.projeto.bookfast.bookfast.negocio.ValidarCampoVazio;
@@ -23,8 +22,7 @@ import java.io.ByteArrayOutputStream;
 
 public class TelaCadastrarLivroAdministrador extends Activity {
     Button btCadastrarLivro, btCancelar, btFoto;
-    EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada, editTextImagem;
-    Livro livro;
+    EditText editIsbn, editNome, editGenero, editAutor, editEdicao, editAno, editQuantidadeTotal, editQuantidadeAlugada;
     private Bitmap imageBitmap = null;
     private byte imagemBytes[];
     private final int TIRAR_FOTO = 1;

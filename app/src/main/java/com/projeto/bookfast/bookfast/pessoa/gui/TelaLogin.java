@@ -53,7 +53,6 @@ public class TelaLogin extends AppCompatActivity {
                     String loginCpf = editUsuario.getText().toString();
                     LimparTela.clearForm(group);
                     editUsuario.requestFocus();
-                    // Teste de buscar pessoa
                     pessoa = buscar.getPessoa(Long.parseLong(loginCpf));
                     if (pessoa != null && pessoa.getStatus().equals("1") && pessoa.getSenha().equals(senha)) {
                         if (pessoa.getCpf() == Long.parseLong("19928810303")) {
