@@ -78,34 +78,34 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 ") VALUES('9788534610735', 'Banco de dados', '0', 'Abraham Silberschatz', 'didatico', '3', '2000', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('98976', 'Fundamentos da Fisica', '0', 'David Halliday', 'didatico', '3', '2010', '2', '')");
+                ") VALUES('9788565042307', 'Fundamentos da Fisica', '0', 'David Halliday', 'didatico', '3', '2010', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('998877', 'Use a Cabeça Java', '0', 'David Griffiths', 'didatico', '3', '1999', '2', '')");
+                ") VALUES('9788535267938', 'Use a Cabeça Java', '0', 'David Griffiths', 'didatico', '3', '1999', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('919293', 'Java Como programar', '0', 'Paul Dietel', 'didatico', '3', '1996', '2', '')");
+                ") VALUES('9788586469510', 'Java Como programar', '0', 'Paul Dietel', 'didatico', '3', '1996', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('999899', 'C completo e Total', '0', 'Herb Schildt', 'didatico', '3', '1992', '2', '')");
+                ") VALUES('9788555191862', 'C completo e Total', '0', 'Herb Schildt', 'didatico', '3', '1992', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('123412', 'Game Of thrones', '0', 'George R. R. Martin', 'Drama', '3', '1996', '2', '')");
+                ") VALUES('9788599519967', 'Game Of thrones', '0', 'George R. R. Martin', 'Drama', '3', '1996', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('112122', 'A Clash of Kings', '0', 'George R. R. Martin', 'Drama', '3', '1998', '2','')");
+                ") VALUES('9788580551044', 'A Clash of Kings', '0', 'George R. R. Martin', 'Drama', '3', '1998', '2','')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('112123', 'A Storm Of Swords', '0', 'George R. R. Martin', 'Drama', '3', '2000', '2','')");
+                ") VALUES('9788521632566', 'A Storm Of Swords', '0', 'George R. R. Martin', 'Drama', '3', '2000', '2','')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('112124', 'A Feast for Crows', '0', 'George R. R. Martin', 'Drama', '3', '2005', '2','')");
+                ") VALUES('9788535275315', 'A Feast for Crows', '0', 'George R. R. Martin', 'Drama', '3', '2005', '2','')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('112125', 'A Dance winth Dragons', '0', 'George R. R. Martin', 'Drama', '3', '2011', '2','')");
+                ") VALUES('9788522507917', 'A Dance winth Dragons', '0', 'George R. R. Martin', 'Drama', '3', '2011', '2','')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('112122', 'A Riqueza das Nações', '0', 'Adam Sminth', 'Economia', '3', '1776', '2','')");
+                ") VALUES('9788525052407', 'A Riqueza das Nações', '0', 'Adam Sminth', 'Economia', '3', '1776', '2','')");
 
         //CRIA TABELA ALUGUEL
         db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer, "
