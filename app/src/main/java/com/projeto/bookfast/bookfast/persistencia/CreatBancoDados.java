@@ -75,7 +75,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //ADD LIVRO EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
-                ") VALUES('121212', 'Calculo', '0', 'Hamilton Luiz Guidorizzi', 'didatico', '3', '2000', '2', '')");
+                ") VALUES('9788534610735', 'Banco de dados', '0', 'Abraham Silberschatz', 'didatico', '3', '2000', '2', '')");
         db.execSQL("INSERT INTO " + TABELA_LIVRO + "(" + COLUNA_ISBN + "," + COLUNA_NOME_LIVRO + ","
                 + COLUNA_QTD_ALUGADO + "," + COLUNA_AUTOR + "," + COLUNA_GENERO + "," + COLUNA_QTD_TOTAL + "," + COLUNA_ANO + "," + COLUNA_N_EDICAO + "," + COLUNA_FOTO_LIVRO +
                 ") VALUES('98976', 'Fundamentos da Fisica', '0', 'David Halliday', 'didatico', '3', '2010', '2', '')");
@@ -121,6 +121,9 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // logica pra atualiza db
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_PESSOA);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELA_LIVRO);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELA_ALUGUEL);
+
         onCreate(db);
     }
 

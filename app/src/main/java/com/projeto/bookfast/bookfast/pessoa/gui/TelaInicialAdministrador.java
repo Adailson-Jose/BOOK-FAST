@@ -11,7 +11,7 @@ import com.projeto.bookfast.bookfast.livro.gui.TelaLivroAdministrador;
 
 
 public class TelaInicialAdministrador extends AppCompatActivity {
-    Button btLivro, btUsuario;
+    Button btLivro, btUsuario, btSairTelaAdm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class TelaInicialAdministrador extends AppCompatActivity {
         setContentView(R.layout.activity_tela_inicial_admistrador);
         btLivro = (Button) findViewById(R.id.btLivro);
         btUsuario = (Button) findViewById(R.id.btUsuario);
+        btSairTelaAdm = (Button) findViewById(R.id.btSairTelaAdm);
 
         btLivro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +36,20 @@ public class TelaInicialAdministrador extends AppCompatActivity {
                 startActivity(abreTelaUsuarioAdministrador);
             }
         });
+        
+        btSairTelaAdm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abreTelaLogin = new Intent(TelaInicialAdministrador.this, TelaLogin.class);
+                startActivity(abreTelaLogin);
+            }
+        });
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 }
