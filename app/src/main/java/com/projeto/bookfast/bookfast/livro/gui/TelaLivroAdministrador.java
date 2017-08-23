@@ -7,15 +7,16 @@ import android.view.View;
 import android.widget.Button;
 
 import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.pessoa.gui.TelaInicialAdministrador;
 
 public class TelaLivroAdministrador extends Activity {
-    Button btEditarLivro, btCadastrarLivro, btListarLivros, btDeletarlivro;
+    Button btEditarLivro, btCadastrarLivro, btListarLivros, btDeletarlivro, btVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_livro_administrador);
-
+        btVoltar = (Button) findViewById(R.id.btVoltar);
         btEditarLivro = (Button) findViewById(R.id.btEditarLivro);
         btCadastrarLivro = (Button) findViewById(R.id.btCadastrarLivro);
         btListarLivros = (Button) findViewById(R.id.btListarLivros);
@@ -54,6 +55,13 @@ public class TelaLivroAdministrador extends Activity {
                 startActivity(abreTelaListaLivros);
             }
 
+        });
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent abreTelaUsuarioAdministrador = new Intent(TelaLivroAdministrador.this, TelaInicialAdministrador.class);
+                startActivity(abreTelaUsuarioAdministrador);
+            }
         });
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.projeto.bookfast.bookfast.R;
@@ -15,10 +16,13 @@ import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import java.util.ArrayList;
 
 public class TelaListaTodosLivrosAdm extends Activity {
+    private Button btVoltar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_lista_livros);
+        btVoltar = (Button) findViewById(R.id.btVoltar);
         ListaTodosLivros buscarLivro = new ListaTodosLivros(getApplicationContext());
         ListView listView = (ListView) findViewById(R.id.listViewLivro);
         final ArrayList<Livro> livros = buscarLivro.getListaLivros();
@@ -30,6 +34,13 @@ public class TelaListaTodosLivrosAdm extends Activity {
                 Intent abreTelaEditarLivroAdministrador = new Intent(TelaListaTodosLivrosAdm.this, TelaEditarLivroAdministrador.class);
                 abreTelaEditarLivroAdministrador.putExtra("livro", String.valueOf(livros.get(position).getIsbn()));
                 startActivity(abreTelaEditarLivroAdministrador);
+            }
+        });
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent abreTelaUsuarioAdministrador = new Intent(TelaListaTodosLivrosAdm.this, TelaLivroAdministrador.class);
+                startActivity(abreTelaUsuarioAdministrador);
             }
         });
     }

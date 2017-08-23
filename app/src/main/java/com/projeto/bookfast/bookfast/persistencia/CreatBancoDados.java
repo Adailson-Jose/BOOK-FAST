@@ -122,7 +122,6 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_PESSOA);
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_LIVRO);
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_ALUGUEL);
-
         onCreate(db);
     }
 
