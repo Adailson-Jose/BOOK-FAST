@@ -11,8 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
+import com.projeto.bookfast.bookfast.aluguel.dominio.Aluguel;
 import com.projeto.bookfast.bookfast.aluguel.negocio.DevolverLivro;
 import com.projeto.bookfast.bookfast.aluguel.negocio.RenovarLivro;
+import com.projeto.bookfast.bookfast.aluguel.persistencia.AluguelDao;
 import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
@@ -25,8 +27,7 @@ import java.util.ArrayList;
 public class TelaDevolverLivro extends AppCompatActivity {
     Button btDevolver, btRenovar, btVoltar;
     TextView textViewDataDevolucao;
-    ListView listViewLivroSelecionado;
-    ReadLivro buscarLivro;
+    Aluguel aluguel;
     Pessoa pessoa;
     Livro livro;
     @Override
@@ -37,14 +38,16 @@ public class TelaDevolverLivro extends AppCompatActivity {
         btRenovar = (Button) findViewById(R.id.btRenovar);
         btVoltar = (Button) findViewById(R.id.btVoltar);
         textViewDataDevolucao = (TextView) findViewById(R.id.textViewDataDevolucao);
-        textViewDataDevolucao.setText("Dados da devolução do livro.");
         ReadPessoa buscar = new ReadPessoa(getApplicationContext());
         ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
+        AluguelDao buscaAluguel = new AluguelDao(getApplicationContext());
         ArrayList<Livro> livros = new ArrayList<Livro>();
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             pessoa = buscar.getPessoa(Long.parseLong(String.valueOf(bundle.get("pessoa"))));
             livro = buscarLivro.getLivro(Long.parseLong(String.valueOf(bundle.get("livro"))));
+            aluguel = buscaAluguel.getAluguel(pessoa.getId(), livro.getId());
+            textViewDataDevolucao.setText("Data da devolução: " + aluguel.getDataEntrega());
             livros.add(livro);
         }
 
