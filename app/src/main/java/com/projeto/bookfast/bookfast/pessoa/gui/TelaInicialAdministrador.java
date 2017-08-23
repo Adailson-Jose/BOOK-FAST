@@ -36,6 +36,7 @@ public class TelaInicialAdministrador extends AppCompatActivity {
                 startActivity(abreTelaUsuarioAdministrador);
             }
         });
+        
         btSairTelaAdm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
