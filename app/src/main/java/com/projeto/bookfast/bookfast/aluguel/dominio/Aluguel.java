@@ -12,11 +12,12 @@ public class Aluguel {
     private String dataEntrega;
     private int multa;
     private String status = "0";
+    private int avaliacao = 0;
     //Construtor para istanciar
     public Aluguel() {
     }
     //Construtor para buscar no banco
-    public Aluguel(int id, int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status) {
+    public Aluguel(int id, int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status, int avaliacao) {
         this.id = id;
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
@@ -24,15 +25,17 @@ public class Aluguel {
         this.dataEntrega = dataEntrega;
         this.multa = multa;
         this.status = status;
+        this.avaliacao = avaliacao;
     }
     //Construtor para inserir
-    public Aluguel(int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status) {
+    public Aluguel(int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status, int avaliacao) {
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
         this.date = date;
         this.dataEntrega = dataEntrega;
         this.multa = multa;
         this.status = status;
+        this.avaliacao = avaliacao;
     }
 
     public int getId() {
@@ -89,6 +92,14 @@ public class Aluguel {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(int avaliacao) {
+        this.avaliacao = avaliacao;
     }
 }
 

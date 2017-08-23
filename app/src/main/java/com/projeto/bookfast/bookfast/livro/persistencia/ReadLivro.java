@@ -17,7 +17,6 @@ public class ReadLivro {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
-
     public ReadLivro(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
@@ -86,5 +85,22 @@ public class ReadLivro {
             db.close();
             return null;
         }
+    }
+
+    public int getMaiorId() {
+        db = dbHelper.getReadableDatabase();
+        String getMaiorId = "SELECT MAX (ID) FROM " + CreatBancoDados.getNomeTabelaLivro();
+        Cursor cursor = db.rawQuery(getMaiorId, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int maior = cursor.getInt(0);
+            cursor.close();
+            db.close();
+            return maior;
+        } else {
+            db.close();
+            return Integer.parseInt(null);
+        }
+
     }
 }

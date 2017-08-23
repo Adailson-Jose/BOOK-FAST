@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by oi on 18/07/2017.
  */
 public class CreatBancoDados extends SQLiteOpenHelper {
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
     private static final String NOME_BANCO = "db_biblioteca";
     //VARIAVEIS DA TABELA ALLUGUEL
     private static final String TABELA_ALUGUEL = "TB_ALUGUEL";
@@ -20,6 +20,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     private static final String COLUNA_DATA_ENTREGA = "DATA_ENTREGA";
     private static final String COLUNA_MULTA_ENTREGA = "MULTA";
     private static final String COLUNA_STATUS_ALUGUEL = "STATOS_ALUGUEL";
+    private static final String COLUNA_AVALIACAO_ALUGUEL = "AVALIACAO";
     //VARIAVES DA TABELA PESSOA
     private static final String TABELA_PESSOA = "TB_PESSOA";
     private static final String COLUNA_ID = "ID";
@@ -109,11 +110,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         //CRIA TABELA ALUGUEL
         db.execSQL("create table " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + " integer primary key autoincrement, " + COLUNA_PESSOA_ALUGUEL + " integer, "
                 + COLUNA_LIVRO_ALUGUEL + " integer, " + COLUNA_DATA + " text not null, " + COLUNA_DATA_ENTREGA + " text not null, "
-                + COLUNA_MULTA_ENTREGA + " integer, " + COLUNA_STATUS_ALUGUEL + " text not null)");
+                + COLUNA_MULTA_ENTREGA + " integer, " + COLUNA_STATUS_ALUGUEL + " text not null, " + COLUNA_AVALIACAO_ALUGUEL + " integer)");
         //ADD ALUGUEL EXEMPLO
         db.execSQL("INSERT INTO " + TABELA_ALUGUEL + "(" + COLUNA_ID_ALUGUEL + "," + COLUNA_PESSOA_ALUGUEL + ","
                 + COLUNA_LIVRO_ALUGUEL + "," + COLUNA_DATA + "," + COLUNA_DATA_ENTREGA + "," + COLUNA_MULTA_ENTREGA + ","
-                + COLUNA_STATUS_ALUGUEL + ") VALUES('100', '1', '2', '11/08/2017', '11/09/2017', '100', '1')");
+                + COLUNA_STATUS_ALUGUEL + "," + COLUNA_AVALIACAO_ALUGUEL + ") VALUES('1', '1', '2', '11/08/2017', '11/09/2017', '100', '1', '')");
     }
 
     @Override
@@ -239,5 +240,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         return COLUNA_STATUS_ALUGUEL;
     }
 
+    public static String getColunaAvaliacaoAluguel() {
+        return COLUNA_AVALIACAO_ALUGUEL;
+    }
 }
 
