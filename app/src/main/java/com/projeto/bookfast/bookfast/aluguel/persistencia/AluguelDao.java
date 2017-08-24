@@ -35,7 +35,7 @@ public class AluguelDao {
                 CreatBancoDados.getColunaLivroAluguel() + " = " + idLivro + " and " + CreatBancoDados.getColunaStatusAluguel() + " = 1";
         Cursor cursor = db.rawQuery(getIdDoLivro, null);
         if (cursor != null && cursor.moveToFirst()) {
-            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getString(6), cursor.getInt(7));
+            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getString(6));
             cursor.close();
             db.close();
             return aluguel;
@@ -50,11 +50,11 @@ public class AluguelDao {
         Cursor cursor = db.query(CreatBancoDados.getTabelaAluguel(), new String[]{CreatBancoDados.getColunaIdAluguel(),
                         CreatBancoDados.getColunaPessoaAluguel(), CreatBancoDados.getColunaLivroAluguel(),
                         CreatBancoDados.getColunaData(), CreatBancoDados.getColunaDataEntrega(),
-                        CreatBancoDados.getColunaMultaEntrega(), CreatBancoDados.getColunaStatusAluguel(), CreatBancoDados.getColunaAvaliacaoAluguel()},
+                        CreatBancoDados.getColunaMultaEntrega(), CreatBancoDados.getColunaStatusAluguel()},
                 CreatBancoDados.getColunaIdAluguel() + " = ?", new String[]{String.valueOf(idAluguel)}, null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getString(6), cursor.getInt(7));
+            Aluguel aluguel = new Aluguel(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getString(6));
             cursor.close();
             db.close();
             return aluguel;
@@ -80,7 +80,6 @@ public class AluguelDao {
                     aluguel.setDataEntrega(cursor.getString(4));
                     aluguel.setStatus(cursor.getString(5));
                     aluguel.setMulta(cursor.getInt(6));
-                    aluguel.setAvaliacao(cursor.getInt(7));
                     listaAluguel.add(aluguel);
                 } while (cursor.moveToNext());
                 cursor.close();
@@ -118,7 +117,6 @@ public class AluguelDao {
         valores.put(CreatBancoDados.getColunaDataEntrega(), aluguel.getDataEntrega());
         valores.put(CreatBancoDados.getColunaMultaEntrega(), aluguel.getMulta());
         valores.put(CreatBancoDados.getColunaStatusAluguel(), aluguel.getStatus());
-        valores.put(CreatBancoDados.getColunaAvaliacaoAluguel(), aluguel.getAvaliacao());
         db.insert(CreatBancoDados.getTabelaAluguel(), null, valores);
         db.close();
         return true;
@@ -134,7 +132,6 @@ public class AluguelDao {
         valores.put(CreatBancoDados.getColunaDataEntrega(), aluguel.getDataEntrega());
         valores.put(CreatBancoDados.getColunaMultaEntrega(), aluguel.getMulta());
         valores.put(CreatBancoDados.getColunaStatusAluguel(), aluguel.getStatus());
-        valores.put(CreatBancoDados.getColunaAvaliacaoAluguel(), aluguel.getAvaliacao());
         db.update(CreatBancoDados.getTabelaAluguel(), valores, where, null);
         db.close();
         return true;

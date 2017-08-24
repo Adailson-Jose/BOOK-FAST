@@ -88,7 +88,7 @@
                 tools:layout_editor_absoluteX="2dp" />
 
             <Button
-                android:id="@+id/btCancelarMudanças2"
+                android:id="@+id/btCancelarMudancas"
                 android:layout_width="373dp"
                 android:layout_height="57dp"
                 android:layout_marginEnd="16dp"

@@ -12,7 +12,7 @@ import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 public class TelaInformacaoUsuario extends AppCompatActivity {
-    Button btEditaMinhasInformacoes, btCancelarMudancas2;
+    Button btEditaMinhasInformacoes, btVoltar;
     TextView editTextNome;
     Pessoa pessoa;
 
@@ -23,7 +23,7 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
         ReadPessoa busca = new ReadPessoa(getApplicationContext());
         editTextNome = (TextView) findViewById(R.id.editTextNome);
         btEditaMinhasInformacoes = (Button) findViewById(R.id.btEditaMinhasInformacoes);
-        btCancelarMudancas2 = (Button) findViewById(R.id.btCancelarMudancas);
+        btVoltar = (Button) findViewById(R.id.btVoltar);
 
         Bundle bundle = getIntent().getExtras();
         int quantidadeLivrosAludado = 0;
@@ -47,7 +47,7 @@ public class TelaInformacaoUsuario extends AppCompatActivity {
                 startActivity(AbreTelaEditaInfoUsuario);
             }
         });
-        btCancelarMudancas2.setOnClickListener(new View.OnClickListener() {
+        btVoltar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }

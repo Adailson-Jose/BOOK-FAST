@@ -23,7 +23,7 @@ import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 import static com.projeto.bookfast.bookfast.pessoa.dominio.EnumCurso.listaEnumCurso;
 
 public class TelaEditaInfoUsuario extends AppCompatActivity {
-    Button btSalvar, btCancelarMudancas2;
+    Button btSalvar, btCancelarMudancas;
     EditText editTextNome, editTextEmail;
     private Pessoa pessoa;
     private Spinner spinnerCurso;
@@ -34,7 +34,7 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_edita_info_usuario);
         btSalvar = (Button) findViewById(R.id.btSalvar);
-        btCancelarMudancas2 = (Button) findViewById(R.id.btCancelarMudancas2);
+        btCancelarMudancas = (Button) findViewById(R.id.btCancelarMudancas);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextNome = (EditText) findViewById(R.id.editTextNome);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, listaCurso);
@@ -94,7 +94,7 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
                 }
             }
         });
-        btCancelarMudancas2.setOnClickListener(new View.OnClickListener() {
+        btCancelarMudancas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
