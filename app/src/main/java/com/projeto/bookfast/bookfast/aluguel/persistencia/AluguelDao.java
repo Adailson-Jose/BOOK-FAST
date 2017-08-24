@@ -94,6 +94,21 @@ public class AluguelDao {
         return listaAluguel;
     }
 
+    public int getMaiorId() {
+        db = dbHelper.getReadableDatabase();
+        String getMaiorId = "SELECT MAX (ID) FROM " + CreatBancoDados.getTabelaAluguel();
+        Cursor cursor = db.rawQuery(getMaiorId, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int maior = cursor.getInt(0);
+            cursor.close();
+            db.close();
+            return maior;
+        } else {
+            db.close();
+            return Integer.parseInt(null);
+        }
+    }
     public boolean insertAluguel(Aluguel aluguel) {
         db = dbHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();

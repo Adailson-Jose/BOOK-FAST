@@ -101,6 +101,5 @@ public class ReadLivro {
             db.close();
             return Integer.parseInt(null);
         }
-
     }
 }
