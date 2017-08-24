@@ -18,6 +18,10 @@ import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
+/**
+ * A Classe TelaQRcode faz o gerenciamento das capturas.
+ */
+
 public class TelaQRcode extends AppCompatActivity {
     private Button scaner_btn;
     private Livro livro;
@@ -45,6 +49,9 @@ public class TelaQRcode extends AppCompatActivity {
         });
     }
 
+    /**
+     * A método scanCode ele Inicializa a Camera
+     */
     public void scanCode(View view) {
         scannerView = new ZXingScannerView(this);
         scannerView.setResultHandler(new ZXingScannerResultHandler());
@@ -58,6 +65,9 @@ public class TelaQRcode extends AppCompatActivity {
         scannerView.stopCamera();
     }
 
+    /**
+     * A Classe ZXingScannerResultHandler faz o tratamento das capturas, valida o codigo recebido e aluga o livro se ele se encontrar disponivel.
+     */
     class ZXingScannerResultHandler implements ZXingScannerView.ResultHandler {
         @Override
         public void handleResult(Result result) {
@@ -93,6 +103,9 @@ public class TelaQRcode extends AppCompatActivity {
         }
     }
 
+    /**
+     * O metodo verifica se a captura recuperada eh do tipo long ou nao.
+     */
     public static boolean isNumeric(String str) {
         try {
             Long.parseLong(str);

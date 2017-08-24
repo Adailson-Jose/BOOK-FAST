@@ -23,7 +23,7 @@ import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 import static com.projeto.bookfast.bookfast.pessoa.dominio.EnumCurso.listaEnumCurso;
 
 public class TelaEditaInfoUsuario extends AppCompatActivity {
-    Button btSalvar, btCancelarMudanças2;
+    Button btSalvar, btCancelarMudancas2;
     EditText editTextNome, editTextEmail;
     private Pessoa pessoa;
     private Spinner spinnerCurso;
@@ -34,7 +34,7 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_edita_info_usuario);
         btSalvar = (Button) findViewById(R.id.btSalvar);
-        btCancelarMudanças2 = (Button) findViewById(R.id.btCancelarMudanças2);
+        btCancelarMudancas2 = (Button) findViewById(R.id.btCancelarMudancas2);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextNome = (EditText) findViewById(R.id.editTextNome);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, listaCurso);
@@ -85,16 +85,16 @@ public class TelaEditaInfoUsuario extends AppCompatActivity {
                     atualizar.updatePessoa(pessoa);
                     LimparTela.clearForm(group);
                     editTextNome.requestFocus();
-                    Toast.makeText(TelaEditaInfoUsuario.this, "INFORMAÇÕES ALTERADAS COM SUCESSO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaEditaInfoUsuario.this, "INFORMACOES ALTERADAS COM SUCESSO", Toast.LENGTH_SHORT).show();
                     Intent abreTelaInicialUsuarioComum = new Intent(TelaEditaInfoUsuario.this, TelaInicialUsuarioComum.class);
                     abreTelaInicialUsuarioComum.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
                     startActivity(abreTelaInicialUsuarioComum);
                 } else {
-                    Toast.makeText(TelaEditaInfoUsuario.this, "CAMPO INVÁLIDO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaEditaInfoUsuario.this, "CAMPO INVALIDO", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        btCancelarMudanças2.setOnClickListener(new View.OnClickListener() {
+        btCancelarMudancas2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }

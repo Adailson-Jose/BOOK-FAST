@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by oi on 21/08/2017.
+ * A Classe DataLivro foi criada para gerar as datas com os métodos getDataAtual() e getDataDevolucao()
  */
 
 public class DataLivro {
