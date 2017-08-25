@@ -9,6 +9,7 @@
         android:resizeable="true"
         android:smallScreens="true"
         android:xlargeScreens="true" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -40,6 +41,8 @@
         <activity android:name=".pessoa.gui.TelaEditaInfoUsuario" />
         <activity android:name=".aluguel.gui.TelaDevolverLivro" />
         <activity android:name=".aluguel.gui.TelaAlugarLivro" />
-        <activity android:name=".pessoa.gui.TelaListarTodosLivrosUusario"></activity>
+        <activity android:name=".pessoa.gui.TelaListarTodosLivrosUusario" />
+        <activity android:name=".aluguel.gui.AvaliacaoAluguel"></activity>
     </application>
+
 </manifest>

@@ -61,8 +61,12 @@ public class TelaDevolverLivro extends AppCompatActivity {
                 DevolverLivro devolverLivro = new DevolverLivro(getApplicationContext());
                 if (devolverLivro.devolverLivro(livro,pessoa)){
                     Toast.makeText(TelaDevolverLivro.this, "Devolução feita com sucesso.", Toast.LENGTH_SHORT).show();
+                    Intent abreAvaliacaoAluguel = new Intent(TelaDevolverLivro.this, AvaliacaoAluguel.class);
+                    abreAvaliacaoAluguel.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                    abreAvaliacaoAluguel.putExtra("livro", String.valueOf(livro.getIsbn()));
+                    startActivity(abreAvaliacaoAluguel);
                 } else {
-                    Toast.makeText(TelaDevolverLivro.this, "Um erro aconteceu durante o aluguel.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TelaDevolverLivro.this, "Um erro aconteceu durante a renovacão do aluguel.", Toast.LENGTH_SHORT).show();
 
                 }
             }

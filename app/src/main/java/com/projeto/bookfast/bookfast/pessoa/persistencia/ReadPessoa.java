@@ -45,6 +45,36 @@ public class ReadPessoa {
         return listaCpf;
     }
 
+    public ArrayList<Pessoa> getListaPessoas() {
+        db = dbHelper.getReadableDatabase();
+        ArrayList<Pessoa> listaPessoa = new ArrayList<Pessoa>();
+        String getPessoas = "SELECT * FROM " + CreatBancoDados.getNomeTabelaPessoa();
+        try {
+            Cursor cursor = db.rawQuery(getPessoas, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    Pessoa pessoa = new Pessoa();
+                    pessoa.setId(cursor.getInt(0));
+                    pessoa.setCpf(cursor.getLong(1));
+                    pessoa.setNome(cursor.getString(2));
+                    pessoa.setEmail(cursor.getString(3));
+                    pessoa.setSenha(cursor.getString(4));
+                    pessoa.setListaAluguel(cursor.getString(5));
+                    pessoa.setStatus(cursor.getString(6));
+                    pessoa.setCurso(cursor.getString(7));
+                    listaPessoa.add(pessoa);
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            db.close();
+        }
+        return listaPessoa;
+    }
+
     public Pessoa getPessoa(Long cpf) {
         db = dbHelper.getReadableDatabase();
 

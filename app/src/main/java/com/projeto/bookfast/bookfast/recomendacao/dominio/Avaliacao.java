@@ -8,14 +8,14 @@ public class Avaliacao {
     private int id;
     private int idPessoa;
     private int idLivro;
-    private int avaliacao = 0;
+    private Double avaliacao;
 
     //Construtor para istanciar
     public Avaliacao() {
     }
 
     //Construtor para buscar no banco
-    public Avaliacao(int id, int idPessoa, int idLivro, int avaliacao) {
+    public Avaliacao(int id, int idPessoa, int idLivro, Double avaliacao) {
         this.id = id;
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
@@ -23,7 +23,7 @@ public class Avaliacao {
     }
 
     //Construtor para inserir
-    public Avaliacao(int idPessoa, int idLivro, int avaliacao) {
+    public Avaliacao(int idPessoa, int idLivro, Double avaliacao) {
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
         this.avaliacao = avaliacao;
@@ -53,11 +53,11 @@ public class Avaliacao {
         this.idLivro = idLivro;
     }
 
-    public int getAvaliacao() {
+    public Double getAvaliacao() {
         return avaliacao;
     }
 
-    public void setAvaliacao(int avaliacao) {
+    public void setAvaliacao(Double avaliacao) {
         this.avaliacao = avaliacao;
     }
 }

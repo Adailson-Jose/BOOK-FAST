@@ -122,7 +122,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
                 + COLUNA_STATUS_ALUGUEL + ") VALUES('1', '1', '2', '11/08/2017', '11/09/2017', '100', '1')");
         //CRIA TABELA AVALIACAO
         db.execSQL("create table " + TABELA_AVALIACAO + "(" + COLUNA_ID_AVALIACAO + " integer primary key autoincrement, " + COLUNA_PESSO_AVALIACAO + " integer not null, "
-                + COLUNA_LIVRO_AVALIACAO + " integer not null, " + COLUNA_VALOR_AVALIACAO + " integer not null)");
+                + COLUNA_LIVRO_AVALIACAO + " integer not null, " + COLUNA_VALOR_AVALIACAO + " double  not null)");
 
     }
 
