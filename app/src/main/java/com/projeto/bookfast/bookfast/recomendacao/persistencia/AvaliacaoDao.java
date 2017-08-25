@@ -22,7 +22,6 @@ public class AvaliacaoDao {
         dbHelper = new CreatBancoDados(context);
     }
 
-
     public Avaliacao getAvaliacaoIdPessoIdLivro(int idPessoa, int idLivro) {
         db = dbHelper.getReadableDatabase();
         String getIdAvaliacaoDao = "SELECT * FROM " + CreatBancoDados.getTabelaAvaliacao() + " WHERE " + CreatBancoDados.getColunaPessoAvaliacao() + " = " + idPessoa + " and " +

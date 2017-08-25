@@ -42,40 +42,65 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="25dp" />
 
-            <ListView
-                android:id="@+id/listViewLivro"
-                android:layout_width="376dp"
-                android:layout_height="379dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="0.6"
-                android:background="@color/colorGrayyy"
-                android:textAllCaps="false"
-                android:typeface="normal"
-                app:layout_constraintHorizontal_bias="0.538"
-                app:layout_constraintLeft_toLeftOf="@+id/textView4"
-                app:layout_constraintRight_toRightOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                tools:layout_editor_absoluteX="2dp" />
-
             <Button
                 android:id="@+id/btTelaPricipal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="13dp"
+                android:layout_marginTop="14dp"
                 android:backgroundTint="@color/darkGreen"
                 android:text="Tela Inicial"
                 android:textAllCaps="false"
                 android:textColor="@color/colorFontNormalLight"
                 android:textColorHint="@color/colorgray"
+                app:layout_constraintTop_toBottomOf="@+id/listViewLivroSugestao"
                 tools:ignore="MissingConstraints"
-                app:layout_constraintHorizontal_bias="0.625"
-                app:layout_constraintLeft_toLeftOf="@+id/listViewLivro"
-                app:layout_constraintRight_toRightOf="@+id/listViewLivro"
-                app:layout_constraintTop_toBottomOf="@+id/listViewLivro" />
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-106dp"
+                android:elegantTextHeight="false"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Sugestão"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textIsSelectable="false"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintTop_toBottomOf="@+id/listViewLivro"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <ListView
+                android:id="@+id/listViewLivroSugestao"
+                android:layout_width="367dp"
+                android:layout_height="131dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="0.6"
+                android:background="@color/colorGrayyy"
+                android:textAllCaps="false"
+                android:typeface="normal"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:layout_editor_absoluteX="9dp" />
+
+            <ListView
+                android:id="@+id/listViewLivro"
+                android:layout_width="370dp"
+                android:layout_height="247dp"
+                android:layout_marginTop="-103dp"
+                android:layout_weight="0.6"
+                android:background="@color/colorGrayyy"
+                android:textAllCaps="false"
+                android:typeface="normal"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:layout_editor_absoluteX="7dp" />
+
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
