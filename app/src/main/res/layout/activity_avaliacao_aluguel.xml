@@ -53,7 +53,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginStart="16dp"
                     android:backgroundTint="@color/darkGreen"
-                    android:text="Avalir Livro"
+                    android:text="Avaliar Livro"
                     android:textAllCaps="false"
                     android:textColor="@color/colorFontNormalLight"
                     android:textColorHint="@color/colorgray"
