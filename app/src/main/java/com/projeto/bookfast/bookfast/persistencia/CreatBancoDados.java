@@ -86,11 +86,11 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
                 + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA + ","
-                + COLUNA_CURSO_PESSOA + ") VALUES('21168971306', 'João Pedro', 'pedro@hotmail.com', '', '123', '1','Ciência da Computação')");
+                + COLUNA_CURSO_PESSOA + ") VALUES('10766068498', 'Adailson', 'anexo1993@hotmail.com', '', '123', '1','Ciência da Computação')");
 
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
                 + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA + ","
-                + COLUNA_CURSO_PESSOA + ") VALUES('43715792213', 'Jamerson', 'jamerson@hotmail.com', '', '123', '1','Geografia')");
+                + COLUNA_CURSO_PESSOA + ") VALUES('09169647445', 'Jadeilson', 'jadeil@hotmail.com', '', '123', '1','Geografia')");
 
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
