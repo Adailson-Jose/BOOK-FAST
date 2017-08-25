@@ -70,7 +70,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO " + TABELA_PESSOA + "(" + COLUNA_CPF + "," + COLUNA_NOME + ","
                 + COLUNA_EMAIL + "," + COLUNA_IDS_ALUGUEL + "," + COLUNA_SENHA + "," + COLUNA_STATUS_PESSOA + ","
-                + COLUNA_CURSO_PESSOA + ") VALUES('10187805482', 'Leandro Braz', 'leandro_braz1992@hotmail.com', '', 'ando', '1','')");
+                + COLUNA_CURSO_PESSOA + ") VALUES('10187805482', 'Leandro Braz', 'leandro_braz1992@hotmail.com', '', '123', '1','Ciência da Computação')");
 
         //CRIA TABELA LIVRO
         db.execSQL("create table " + TABELA_LIVRO + "(" + COLUNA_ID_LIVRO + " integer primary key autoincrement, " + COLUNA_ISBN
@@ -132,6 +132,8 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_PESSOA);
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_LIVRO);
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_ALUGUEL);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELA_AVALIACAO);
+
         onCreate(db);
     }
 

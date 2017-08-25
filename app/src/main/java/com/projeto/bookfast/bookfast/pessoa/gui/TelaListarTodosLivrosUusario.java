@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.aluguel.gui.TelaAlugarLivro;
@@ -18,6 +17,7 @@ import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
 import com.projeto.bookfast.bookfast.recomendacao.negocio.SlopeOne;
+import com.projeto.bookfast.bookfast.recomendacao.persistencia.AvaliacaoDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +32,7 @@ public class TelaListarTodosLivrosUusario extends AppCompatActivity {
         btTelaPricipal = (Button) findViewById(R.id.btTelaPricipal);
         final ReadLivro buscarLivro = new ReadLivro(getApplicationContext());
         final ReadPessoa buscarPessoa = new ReadPessoa(getApplicationContext());
+        final AvaliacaoDao buscaAvaliacao = new AvaliacaoDao(getApplicationContext());
         ListView listView = (ListView) findViewById(R.id.listViewLivro);
         final ArrayList<Livro> livro = buscarLivro.getListaLivro();
         Bundle bundle = getIntent().getExtras();
@@ -56,14 +57,16 @@ public class TelaListarTodosLivrosUusario extends AppCompatActivity {
         ArrayList<Livro> listaLivro = new ArrayList<>();
 
         for (int i = 0; i < listaRecomendacao.size(); i++) {
-            listaLivro.add(buscarLivro.getLivro((Integer) listaRecomendacao.get(i)));
-            Toast.makeText(TelaListarTodosLivrosUusario.this, "Livro :" + buscarLivro.getLivro((Integer) listaRecomendacao.get(i)), Toast.LENGTH_LONG).show();
+            Livro livroTemp = buscarLivro.getLivro((Integer) listaRecomendacao.get(i));
+            if (buscaAvaliacao.getAvaliacaoIdPessoIdLivro(pessoa.getId(), livroTemp.getId()) == null) {
+                listaLivro.add(livroTemp);
+            }
         }
 
         ListView listViewSugestao = (ListView) findViewById(R.id.listViewLivroSugestao);
         ArrayAdapter LivroAdapter = new LivroAdapter(getApplicationContext(), R.layout.linha, listaLivro);
         listViewSugestao.setAdapter(LivroAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewSugestao.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent abreTelaAlugarLivro = new Intent(TelaListarTodosLivrosUusario.this, TelaAlugarLivro.class);
