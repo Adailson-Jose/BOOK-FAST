@@ -65,10 +65,10 @@ public class TelaInicialUsuarioComum extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent AbreTelaRemoverLivro = new Intent(TelaInicialUsuarioComum.this, TelaDevolverLivro.class);
-                AbreTelaRemoverLivro.putExtra("livro", String.valueOf(livro.get(position).getIsbn()));
-                AbreTelaRemoverLivro.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
-                startActivity(AbreTelaRemoverLivro);
+                Intent abreTelaRemoverLivro = new Intent(TelaInicialUsuarioComum.this, TelaDevolverLivro.class);
+                abreTelaRemoverLivro.putExtra("livro", String.valueOf(livro.get(position).getIsbn()));
+                abreTelaRemoverLivro.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                startActivity(abreTelaRemoverLivro);
             }
         });
 

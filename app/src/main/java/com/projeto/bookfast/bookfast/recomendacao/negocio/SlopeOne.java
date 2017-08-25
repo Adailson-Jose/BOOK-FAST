@@ -41,6 +41,10 @@ public class SlopeOne {
         buscaAvaliacao = new AvaliacaoDao(context);
     }
 
+    public List listaRecomendacao(Pessoa pessoa) {
+        return calculaRecomendacoes(data, pessoa);
+    }
+
     public void leituraDados() {
         /** Início - Simulando a leitura dos dados do sistema para o cálculo das recomendações */
         todosLivros = buscaLivro.getListaLivro();
@@ -119,34 +123,25 @@ public class SlopeOne {
         return cleanpredictions;
     }
 
-    private List<Livro> calculaRecomendacoes(Map<Integer, Map<Integer, Double>> data, Pessoa usuarioLogado) {
+    private List<Integer> calculaRecomendacoes(Map<Integer, Map<Integer, Double>> data, Pessoa usuarioLogado) {
         criarMatrizDiferenca(data);
 
-        Set<Integer> listIdOrdenados = printRecomendacao(predict(data.get(usuarioLogado.getId())), usuarioLogado);
-        List<Livro> produtosRecomendadosOrdenados = new ArrayList<>();
+        Set<Integer> listIdOrdenados = getRecomendacao(predict(data.get(usuarioLogado.getId())), usuarioLogado);
+        List<Integer> produtosRecomendadosOrdenados = new ArrayList<>();
         for (Integer i : listIdOrdenados ) {
-            Livro produtoClassificado = buscaLivro.getLivro(i);
-            produtosRecomendadosOrdenados.add(produtoClassificado);
+            produtosRecomendadosOrdenados.add(i);
         }
         return produtosRecomendadosOrdenados;
     }
 
-    public static Set<Integer> printRecomendacao(Map<Integer, Double> notasUsuario, Pessoa usuario) {
+    public static Set<Integer> getRecomendacao(Map<Integer, Double> notasUsuario, Pessoa usuario) {
         return ordenarCompare(notasUsuario, usuario);
     }
 
     public static Set<Integer> ordenarCompare(Map<Integer, Double> map, Pessoa usuario) {
-        System.out.println(" ");
-        System.out.println("************ ORDENA PELO COMPARADOR ( " + usuario.toString() + " ) *********");
-
         Comparador comparador = new Comparador(map);
         Map<Integer, Double> sorted_map = new TreeMap<Integer, Double>(comparador);
-
-        System.out.println("unsorted map: " + map);
         sorted_map.putAll(map);
-        System.out.println("results: " + sorted_map);
-        System.out.println("Ids dos Produtos Recomendados ordenados: " + sorted_map.keySet());
-        System.out.println(" ");
         return sorted_map.keySet();
     }
 
@@ -159,8 +154,8 @@ public class SlopeOne {
 
         public int compare(Object o1, Object o2) {
             // handle some exceptions here
-            String v1 = (String) m.get(o1);
-            String v2 = (String) m.get(o2);
+            Double v1 = (Double) m.get(o1);
+            Double v2 = (Double) m.get(o2);
             // make sure the values implement Comparable
             return v1.compareTo(v2);
         }

@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.projeto.bookfast.bookfast.R;
 import com.projeto.bookfast.bookfast.aluguel.gui.TelaAlugarLivro;
@@ -16,8 +17,10 @@ import com.projeto.bookfast.bookfast.livro.negocio.LivroAdapter;
 import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.persistencia.ReadPessoa;
+import com.projeto.bookfast.bookfast.recomendacao.negocio.SlopeOne;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TelaListarTodosLivrosUusario extends AppCompatActivity {
     Pessoa pessoa;
@@ -47,6 +50,28 @@ public class TelaListarTodosLivrosUusario extends AppCompatActivity {
             }
         });
 
+        SlopeOne slopeOne = new SlopeOne(getApplicationContext());
+        slopeOne.leituraDados();
+        List listaRecomendacao = slopeOne.listaRecomendacao(pessoa);
+        ArrayList<Livro> listaLivro = new ArrayList<>();
+
+        for (int i = 0; i < listaRecomendacao.size(); i++) {
+            listaLivro.add(buscarLivro.getLivro((Integer) listaRecomendacao.get(i)));
+            Toast.makeText(TelaListarTodosLivrosUusario.this, "Livro :" + buscarLivro.getLivro((Integer) listaRecomendacao.get(i)), Toast.LENGTH_LONG).show();
+        }
+
+        ListView listViewSugestao = (ListView) findViewById(R.id.listViewLivroSugestao);
+        ArrayAdapter LivroAdapter = new LivroAdapter(getApplicationContext(), R.layout.linha, listaLivro);
+        listViewSugestao.setAdapter(LivroAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent abreTelaAlugarLivro = new Intent(TelaListarTodosLivrosUusario.this, TelaAlugarLivro.class);
+                abreTelaAlugarLivro.putExtra("livro", String.valueOf(livro.get(position).getIsbn()));
+                abreTelaAlugarLivro.putExtra("pessoa", String.valueOf(pessoa.getCpf()));
+                startActivity(abreTelaAlugarLivro);
+            }
+        });
         btTelaPricipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
