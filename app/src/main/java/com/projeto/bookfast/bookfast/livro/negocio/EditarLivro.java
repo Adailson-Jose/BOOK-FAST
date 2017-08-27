@@ -7,7 +7,7 @@ import com.projeto.bookfast.bookfast.livro.persistencia.ReadLivro;
 import com.projeto.bookfast.bookfast.livro.persistencia.UpdateLivro;
 
 /**
- * Created by oi on 21/08/2017.
+ * Classe EditarLivro, atualiza o livro cadastrado no sistema, a classe cria assossiacoes das classes updateLivro, buscarLivro e context
  */
 
 public class EditarLivro {

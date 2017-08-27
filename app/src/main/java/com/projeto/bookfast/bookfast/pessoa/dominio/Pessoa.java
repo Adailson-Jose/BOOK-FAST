@@ -1,5 +1,8 @@
 package com.projeto.bookfast.bookfast.pessoa.dominio;
 
+/**
+ * a CLASSE Pessoa tem os atributos: id, cpf, nome, email, senha, listaAluguel, status e curso. Construtor para instanciar Pessoa
+ */
 public class Pessoa {
     private int id;
     private long cpf;
@@ -9,11 +12,16 @@ public class Pessoa {
     private String listaAluguel;
     private String status = "0";
     private String curso;
-    //Construtor para instanciar
+
+    /**
+     * Construtor para instanciar
+     */
     public Pessoa(){
     }
 
-    //Construtor para buscar no banco
+    /**
+     * Construtor para buscar no banco
+     */
     public Pessoa(int id, long cpf, String nome, String email, String senha, String listaAluguel, String status, String curso) {
         this.id = id;
         this.cpf = cpf;
@@ -24,7 +32,10 @@ public class Pessoa {
         this.status = status;
         this.curso = curso;
     }
-    //Construtor para inserir
+
+    /**
+     * Construtor para inserir
+     */
     public Pessoa(long cpf, String nome, String email, String senha, String listaAlugue, String status, String curso) {
         this.cpf = cpf;
         this.nome = nome;

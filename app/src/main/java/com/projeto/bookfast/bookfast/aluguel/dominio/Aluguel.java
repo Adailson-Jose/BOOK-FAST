@@ -1,7 +1,7 @@
 package com.projeto.bookfast.bookfast.aluguel.dominio;
 
 /**
- * Created by CIRANDA DA CIÊNCIA on 14/08/2017.
+ * classe Aluguel cria os atributos id, idPessoa, idLivro, date, dataEntrega, multa e status.
  */
 
 public class Aluguel {
@@ -16,7 +16,10 @@ public class Aluguel {
     //Construtor para istanciar
     public Aluguel() {
     }
-    //Construtor para buscar no banco
+
+    /**
+     * Construtor para buscar no banco
+     */
     public Aluguel(int id, int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status) {
         this.id = id;
         this.idPessoa = idPessoa;
@@ -26,7 +29,10 @@ public class Aluguel {
         this.multa = multa;
         this.status = status;
     }
-    //Construtor para inserir
+
+    /**
+     * Construtor para inserir
+     */
     public Aluguel(int idPessoa, int idLivro, String date, String dataEntrega, int multa, String status) {
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;
@@ -36,6 +42,7 @@ public class Aluguel {
         this.status = status;
     }
 
+    /**Gets e sets*/
     public int getId() {
         return id;
     }

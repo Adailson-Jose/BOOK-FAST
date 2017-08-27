@@ -1,7 +1,7 @@
 package com.projeto.bookfast.bookfast.negocio;
 
 /**
- * Created by oi on 31/07/2017.
+ * ValidarCpf é uma classe para validar o cpf, verifica se o campo cpf possui mais ou menos de 13 digitos e se seu digito verificador é válido.
  */
 
 public class ValidarCpf {

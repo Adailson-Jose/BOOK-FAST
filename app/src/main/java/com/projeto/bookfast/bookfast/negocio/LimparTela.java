@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 /**
- * Created by oi on 27/07/2017.
+ * classe LimparTela passa um for pelo view e limpa as telas através do clearForm.
  */
 
 public class LimparTela {

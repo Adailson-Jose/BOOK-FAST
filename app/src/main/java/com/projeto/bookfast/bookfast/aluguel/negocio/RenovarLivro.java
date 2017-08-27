@@ -8,13 +8,16 @@ import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 
 /**
- * Created by oi on 21/08/2017.
+ * classe RenovarLivro cria uma associação de Context e outra de AluguelDao.
  */
 
 public class RenovarLivro {
     private Context context;
     private AluguelDao aluguelDao;
 
+    /**
+     * Construtor da classe RenovarLivro
+     */
     public RenovarLivro(Context context) {
         this.context = context;
         aluguelDao = new AluguelDao(this.context);

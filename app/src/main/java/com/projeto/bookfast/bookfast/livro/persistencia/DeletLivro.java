@@ -7,7 +7,7 @@ import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe DeletLivro deleta o livo na Tabela do Banco de Dados
  */
 
 public class DeletLivro {
@@ -25,6 +25,9 @@ public class DeletLivro {
         return true;
     }
 
+    /**
+     * Método deleteLivro deleta o livro pelo Isbn
+     */
     public boolean deleteLivro(Livro livro) {
         String deleteLivro = "isbn = '" + Long.toString(livro.getIsbn()) + "'";
         db.delete(CreatBancoDados.getNomeTabelaLivro(), deleteLivro, null);

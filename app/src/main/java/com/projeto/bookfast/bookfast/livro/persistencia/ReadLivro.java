@@ -10,13 +10,16 @@ import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import java.util.ArrayList;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe ReadLivro cria associações das classes SQLiteDatabase e CreatBancoDados
  */
 
 public class ReadLivro {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
+    /**
+     * Construtor da classe ReadLivro
+     */
     public ReadLivro(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
@@ -46,7 +49,10 @@ public class ReadLivro {
         }
         return livroArray;
     }
-    //Obter livro pelo isbn
+
+    /**
+     * Método para obter livro pelo isbn
+     */
     public Livro getLivro(Long isbn) {
         db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaLivro(), new String[]{CreatBancoDados.getColunaIdLivro(),
@@ -67,6 +73,7 @@ public class ReadLivro {
         }
     }
 
+    /**Método para obter livro pelo id*/
     public Livro getLivro(int id) {
         db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query(CreatBancoDados.getNomeTabelaLivro(), new String[]{CreatBancoDados.getColunaIdLivro(),
@@ -87,6 +94,7 @@ public class ReadLivro {
         }
     }
 
+    /**Método para obter o Maior id*/
     public int getMaiorId() {
         db = dbHelper.getReadableDatabase();
         String getMaiorId = "SELECT MAX (ID) FROM " + CreatBancoDados.getNomeTabelaLivro();

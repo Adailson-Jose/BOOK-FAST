@@ -1,7 +1,7 @@
 package com.projeto.bookfast.bookfast.pessoa.dominio;
 
 /**
- * Created by oi on 20/08/2017.
+ * Método EnumCurso tem as constates dos cursos disponíveis na hora de se cadastrar e alterar cadastro.
  */
 
 public enum EnumCurso {

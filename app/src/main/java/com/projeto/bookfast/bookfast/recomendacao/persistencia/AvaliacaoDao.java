@@ -11,17 +11,23 @@ import com.projeto.bookfast.bookfast.recomendacao.dominio.Avaliacao;
 import java.util.ArrayList;
 
 /**
- * Created by oi on 24/08/2017.
+ * classe Avaliacao Dao, cria um objeto do SQLiteDatabase e outro do CreatBancoDados.
  */
 
 public class AvaliacaoDao {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
+    /**
+     * Construto da classe Avaliacao.
+     */
     public AvaliacaoDao(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
 
+    /**
+     * classe Avaliacao tem o método getAvaliacaoIdPessoIdLivro que recebe como parametro (idPessoa e idLivro)
+     */
     public Avaliacao getAvaliacaoIdPessoIdLivro(int idPessoa, int idLivro) {
         db = dbHelper.getReadableDatabase();
         String getIdAvaliacaoDao = "SELECT * FROM " + CreatBancoDados.getTabelaAvaliacao() + " WHERE " + CreatBancoDados.getColunaPessoAvaliacao() + " = " + idPessoa + " and " +

@@ -7,16 +7,23 @@ import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe DeletPessoa cria associações das classes SQLiteDatabase e CreatBancoDados.
  */
 
 public class DeletPessoa {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
+    /**
+     * Construtor da classe DeletPessoa
+     */
     public DeletPessoa(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
+
+    /**
+     * método deleteTablePessoa deleta a pessoa da tabela pessoa.
+     */
     public boolean deleteTablePessoa() {
         String deletTable = "DROP TABLE IF EXISTS " + CreatBancoDados.getNomeTabelaPessoa();
         db.execSQL(deletTable);
@@ -24,6 +31,7 @@ public class DeletPessoa {
         return true;
     }
 
+    /** método deletePessoa deleta a pessoa passando como parametro um objeto pessoa*/
     public boolean deletePessoa(Pessoa pessoa) {
         String deletePessoa = "cpf = '" + Long.toString(pessoa.getCpf()) + "'";
         db.delete(CreatBancoDados.getNomeTabelaPessoa(), deletePessoa, null);

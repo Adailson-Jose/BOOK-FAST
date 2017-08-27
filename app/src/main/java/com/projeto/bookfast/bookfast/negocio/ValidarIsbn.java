@@ -1,7 +1,7 @@
 package com.projeto.bookfast.bookfast.negocio;
 
 /**
- * Created by CIRANDA DA CIÊNCIA on 02/08/2017.
+ * A classe ValidarIsbn verifica o Isbn digitado, se é valido ou não retornando um True ou False.
  */
 
 public class ValidarIsbn {
@@ -9,6 +9,9 @@ public class ValidarIsbn {
     public ValidarIsbn() {
     }
 
+    /**
+     * Método validarIsbn faz a validação de um Isbn, se tem 13 digitos e se seu codigo verificador é válido.
+     */
     public static boolean validarIsbn(String isbn) {
         if (isbn.length() != 13 || ValidarCampoVazio.isCampoVazio(isbn)) {
             return true;

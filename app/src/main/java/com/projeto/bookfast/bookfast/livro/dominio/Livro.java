@@ -1,5 +1,8 @@
 package com.projeto.bookfast.bookfast.livro.dominio;
 
+/**
+ * classe Livro cria os atributos id, nome, autor, isbn, ano, numEdicao, genero, qtdTotal, qtdAlugado e fotoLivro
+ */
 public class Livro {
     private int id;
     private String nome;
@@ -12,11 +15,13 @@ public class Livro {
     private int qtdAlugado;
     private byte[] fotoLivro;
 
-    //Construtor para instanciar
+    /**
+     * Construtor para instanciar
+     */
     public Livro() {
     }
 
-    //Construtor para buscar no banco
+    /**Construtor para buscar no banco*/
     public Livro(int id, Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao, byte[] fotoLivro) {
         this.id = id;
         this.isbn = isbn;
@@ -30,7 +35,7 @@ public class Livro {
         this.fotoLivro = fotoLivro;
     }
 
-    //Construtor para inserir
+    /**Construtor para inserir*/
     public Livro(Long isbn, String nome, int qtdAlugado, String autor, String genero, int qtdTotal, int ano, int numEdicao, byte[] fotoLivro) {
         this.isbn = isbn;
         this.nome = nome;
@@ -43,6 +48,7 @@ public class Livro {
         this.fotoLivro = fotoLivro;
     }
 
+    /** Gets e Sets*/
     public int getId() {
         return id;
     }

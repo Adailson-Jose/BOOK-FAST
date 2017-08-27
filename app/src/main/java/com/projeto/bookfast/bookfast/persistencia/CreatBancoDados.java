@@ -6,12 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by oi on 18/07/2017.
+ * Classe CreatBancoDados cria Variáveis para as tabelas de Aluguel, Avaliação, Pessoa e Livro.
  */
 public class CreatBancoDados extends SQLiteOpenHelper {
     private static final int VERSAO_BANCO = 2;
     private static final String NOME_BANCO = "db_biblioteca";
-    //VARIAVEIS DA TABELA ALLUGUEL
+    //VARIAVEIS DA TABELA ALUGUEL
     private static final String TABELA_ALUGUEL = "TB_ALUGUEL";
     private static final String COLUNA_ID_ALUGUEL = "ID_ALUGEL";
     private static final String COLUNA_PESSOA_ALUGUEL = "ID_PESSOA_ALUGUEL";
@@ -56,6 +56,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     }
 
     @Override
+    /** Método onCreate é um padrão do Sql e cria as tabelas */
     public void onCreate(SQLiteDatabase db) {
         //CRIA A TABELA PESSOA
         db.execSQL("create table " + TABELA_PESSOA + "(" + COLUNA_ID + " integer primary key autoincrement, "
@@ -147,6 +148,7 @@ public class CreatBancoDados extends SQLiteOpenHelper {
     }
 
     @Override
+    /** onUpgrade é um método que atualiza no db as tabelas*/
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // logica pra atualiza db
         db.execSQL("DROP TABLE IF EXISTS" + TABELA_PESSOA);
@@ -157,7 +159,9 @@ public class CreatBancoDados extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //GETS TABELA PESSOA E BANCO
+    /**
+     * GETS TABELA PESSOA E BANCO
+     */
     public static String getColunaId() {
         return COLUNA_ID;
     }

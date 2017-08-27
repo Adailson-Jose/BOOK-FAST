@@ -1,7 +1,7 @@
 package com.projeto.bookfast.bookfast.recomendacao.dominio;
 
 /**
- * Created by oi on 24/08/2017.
+ * classe Avaliacao recebe os atributos id, idPessoa, idLivro e avaliacao.
  */
 
 public class Avaliacao {
@@ -10,11 +10,16 @@ public class Avaliacao {
     private int idLivro;
     private Double avaliacao;
 
-    //Construtor para istanciar
+    /**
+     * Construtor para instanciar.
+     */
     public Avaliacao() {
     }
 
-    //Construtor para buscar no banco
+    /**
+     * Construtor para buscar no banco.
+     */
+
     public Avaliacao(int id, int idPessoa, int idLivro, Double avaliacao) {
         this.id = id;
         this.idPessoa = idPessoa;
@@ -22,7 +27,7 @@ public class Avaliacao {
         this.avaliacao = avaliacao;
     }
 
-    //Construtor para inserir
+    //Construtor para inserir.
     public Avaliacao(int idPessoa, int idLivro, Double avaliacao) {
         this.idPessoa = idPessoa;
         this.idLivro = idLivro;

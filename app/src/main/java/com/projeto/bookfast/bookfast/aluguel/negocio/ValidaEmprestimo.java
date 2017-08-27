@@ -11,7 +11,7 @@ import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 
 
 /**
- * Created by Leticia Quedma on 08/08/2017.
+ * A classe ValidaEmprestimo, cria uma associação das classes AluguelDao e Context, verifica se o emprestimo é válido ou não.
  */
 
 public class ValidaEmprestimo {
@@ -23,6 +23,9 @@ public class ValidaEmprestimo {
         aluguelDao = new AluguelDao(this.context);
     }
 
+    /**
+     * o método pediEmprestimo recebe dois objetos um da classe livro e outro da classe Pessoa
+     */
     public boolean pediEmprestimo(Livro livro, Pessoa pessoa) {
         boolean retorno = false;
         if (verDisponibilidadeLivro(livro) && verDisponibilidadePessoa(pessoa, livro)) {
@@ -46,10 +49,14 @@ public class ValidaEmprestimo {
         return retorno;
     }
 
+    /**
+     * verifica se o livro está liberado
+     */
     public boolean verDisponibilidadeLivro(Livro livro) {
         return ((livro.getQtdTotal() - livro.getQtdAlugado()) > 0);
     }
 
+    /** verifica se a pessoa tem disponilidade */
     public boolean verDisponibilidadePessoa(Pessoa pessoa, Livro livro) {
         boolean retorno = false;
         String[] idsAluguel = pessoa.getListaAluguel().trim().split(" ");

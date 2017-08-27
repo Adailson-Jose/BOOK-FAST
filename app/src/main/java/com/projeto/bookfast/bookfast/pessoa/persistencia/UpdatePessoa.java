@@ -8,17 +8,23 @@ import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe UpdatePessoa, cria uma associação das classes SQLiteDatabase e CreatBancoDados.
  */
 
 public class UpdatePessoa {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
+    /**
+     * Construtor da classe UpdatePessoa
+     */
     public UpdatePessoa(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
 
+    /**
+     * método insertPessoa recebe um objeto do tipo pessoa e insere no banco de dados
+     */
     public boolean insertPessoa(Pessoa pessoa) {
         db = dbHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -34,6 +40,7 @@ public class UpdatePessoa {
         return true;
     }
 
+    /** método updatePessoa recebe um objeto do tipo pessoa e altera no banco de dados*/
     public boolean updatePessoa(Pessoa pessoa) {
         db = dbHelper.getWritableDatabase();
         String where = "cpf = '" + Long.toString(pessoa.getCpf()) + "'";

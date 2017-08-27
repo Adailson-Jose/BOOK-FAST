@@ -1,11 +1,11 @@
 package com.projeto.bookfast.bookfast.aluguel.dominio;
 
 /**
- * Created by oi on 20/08/2017.
+ * Método EnumNota tem as constantes Ruim, Regular, Bom e Ótimo.
  */
 
 public enum EnumNota {
-    RUIM("Ruim"), MEDIO("Médio"), BOM("Bom"), OTIMO("Ótimo");
+    RUIM("Ruim"), MEDIO("Regular"), BOM("Bom"), OTIMO("Ótimo");
 
     private String descricao;
 
@@ -17,6 +17,9 @@ public enum EnumNota {
         return descricao;
     }
 
+    /**
+     * Metodo listaEnumNotas retorna uma lista com os valores recebidos
+     */
     public static String[] listaEnumNotas() {
         EnumNota[] listaNotas = EnumNota.values();
         String[] lista = new String[listaNotas.length];

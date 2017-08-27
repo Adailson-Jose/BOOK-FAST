@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * Created by oi on 24/08/2017.
+ * classe SlopeOne ler os dados no banco através do ReadPessoa e ReadLivro cria um atributo Context, cria as matrizes de diferença e de frequencia.
  */
 
 public class SlopeOne {
@@ -49,10 +49,10 @@ public class SlopeOne {
         /** Início - Simulando a leitura dos dados do sistema para o cálculo das recomendações */
         todosLivros = buscaLivro.getListaLivro();
         todosUsuarios = buscaPessoa.getListaPessoas();
-        //Criação da lista de notas dadas pelos usuários aos produtos
+        /**Criação da lista de notas dadas pelos usuários aos produtos*/
         for (Pessoa usuario : todosUsuarios) {
             HashMap<Integer, Double> notasUsuario = new HashMap<Integer, Double>();
-            //Lista de Objetos do Domínio RecomendacaoLivro
+            /**Lista de Objetos do Domínio RecomendacaoLivro*/
             produtosClassificados = buscaAvaliacao.getListaAvaliacaoPessoa(usuario.getId());
             for (Avaliacao recomendacaoProduto : produtosClassificados) {
                 notasUsuario.put(recomendacaoProduto.getIdLivro(), recomendacaoProduto.getAvaliacao());
@@ -64,9 +64,9 @@ public class SlopeOne {
     public void criarMatrizDiferenca(Map<Integer, Map<Integer, Double>> data) {
         matrizDiferenca = new HashMap<Integer, Map<Integer, Double>>();
         matrizFrequencia = new HashMap<Integer, Map<Integer, Integer>>();
-        // first iterate through users
+        /** first iterate through users*/
         for (Map<Integer, Double> user : data.values()) {
-            // then iterate through user data
+            /** then iterate through user data*/
             for (Map.Entry<Integer, Double> entry : user.entrySet()) {
                 if (!matrizDiferenca.containsKey(entry.getKey())) {
                     matrizDiferenca.put(entry.getKey(), new HashMap<Integer, Double>());

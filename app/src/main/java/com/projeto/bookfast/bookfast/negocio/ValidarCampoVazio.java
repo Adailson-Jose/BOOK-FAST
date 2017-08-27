@@ -3,7 +3,7 @@ package com.projeto.bookfast.bookfast.negocio;
 import android.text.TextUtils;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe ValidarCampoVazio retorna um booleano se o campo está vazio ou não.
  */
 
 public class ValidarCampoVazio {

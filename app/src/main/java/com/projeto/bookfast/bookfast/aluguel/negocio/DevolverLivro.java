@@ -10,7 +10,7 @@ import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import com.projeto.bookfast.bookfast.pessoa.persistencia.UpdatePessoa;
 
 /**
- * Created by Adailson on 21/08/2017.
+ * classe DevolverLivro cria uma associação de Context e outra de AluguelDao.
  */
 
 public class DevolverLivro {

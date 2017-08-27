@@ -3,7 +3,7 @@ package com.projeto.bookfast.bookfast.negocio;
 import android.util.Patterns;
 
 /**
- * Created by oi on 01/08/2017.
+ * Classe ValidarEmail é uma classe que verifica se o email digitado é válido e o campo é não vazio.
  */
 
 public class ValidarEmail {

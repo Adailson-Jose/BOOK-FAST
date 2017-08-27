@@ -8,17 +8,23 @@ import com.projeto.bookfast.bookfast.livro.dominio.Livro;
 import com.projeto.bookfast.bookfast.persistencia.CreatBancoDados;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe UpdateLivro cria associações das classes SQLiteDatabase e CreatBancoDados
  */
 
 public class UpdateLivro {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
+    /**
+     * Construtor da classe UpdateLivro
+     */
     public UpdateLivro(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
 
+    /**
+     * Método insertLivro insere no banco de dados o livro cadastrado e retorna True se feito
+     */
     public boolean insertLivro(Livro livro) {
         db = dbHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -36,6 +42,7 @@ public class UpdateLivro {
         return true;
     }
 
+    /** Método updateLivro atualiza no banco de dados o livro cadastrado e retorna True se feito */
     public boolean updateLivro(Livro livro) {
         db = dbHelper.getWritableDatabase();
         String where = "isbn = '" + Long.toString(livro.getIsbn()) + "'";

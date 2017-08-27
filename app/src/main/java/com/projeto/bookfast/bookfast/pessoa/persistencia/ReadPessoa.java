@@ -10,13 +10,16 @@ import com.projeto.bookfast.bookfast.pessoa.dominio.Pessoa;
 import java.util.ArrayList;
 
 /**
- * Created by oi on 01/08/2017.
+ * classe ReadPessoa cria associações das classes SQLiteDatabase e CreatBancoDados
  */
 
 public class ReadPessoa {
     private SQLiteDatabase db;
     private CreatBancoDados dbHelper;
 
+    /**
+     * Construtor da classe ReadPessoa
+     */
     public ReadPessoa(Context context) {
         dbHelper = new CreatBancoDados(context);
     }
@@ -24,6 +27,9 @@ public class ReadPessoa {
     public ReadPessoa() {
     }
 
+    /**
+     * método getListaCpfPessoas retorna uma lista com os Cpf dos usuários.
+     */
     public ArrayList<Long> getListaCpfPessoas() {
         db = dbHelper.getReadableDatabase();
         ArrayList<Long> listaCpf = new ArrayList<Long>();
@@ -45,6 +51,7 @@ public class ReadPessoa {
         return listaCpf;
     }
 
+    /** método getListaPessoas retorna uma lista com os usuários.*/
     public ArrayList<Pessoa> getListaPessoas() {
         db = dbHelper.getReadableDatabase();
         ArrayList<Pessoa> listaPessoa = new ArrayList<Pessoa>();
@@ -75,6 +82,7 @@ public class ReadPessoa {
         return listaPessoa;
     }
 
+    /** método getPessoa retorna a pessoa através de seu Cpf.*/
     public Pessoa getPessoa(Long cpf) {
         db = dbHelper.getReadableDatabase();
 
